@@ -225,7 +225,7 @@
 #define VAR_QLBAK_TRAINER_REMATCHES 0x40AA // array of 4
 #define VAR_QLBAK_MAP_LAYOUT        0x40AE
 
-#define VAR_0x40AF                 0x40AF
+#define VAR_TRAINER_FLY_ACTIVE     0x40AF
 #define VAR_0x40B0                 0x40B0
 #define VAR_0x40B1                 0x40B1
 #define VAR_0x40B2                 0x40B2
@@ -332,7 +332,7 @@
 #define VAR_MON_BOX_POS            0x8011
 #define VAR_TEXT_COLOR             0x8012
 #define VAR_PREV_TEXT_COLOR        0x8013
-#define VAR_0x8014                 0x8014 // Unknown/unused
+#define VAR_TRAINER_FLY_VALUE      0x8014 // Unknown/unused
 
 #define SPECIAL_VARS_END           0x8014
 

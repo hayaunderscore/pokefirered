@@ -2,8 +2,10 @@
 #define GUARD_TRAINER_SEE_H
 
 #include "global.h"
+#include "task.h"
 
 bool8 CheckForTrainersWantingBattle(void);
+bool8 CheckForTrainersPossiblyWantingBattle(TaskFunc follow);
 void MovementAction_RevealTrainer_RunTrainerSeeFuncList(struct ObjectEvent *var);
 u8 FldEff_ExclamationMarkIcon1(void);
 u8 FldEff_DoubleExclMarkIcon(void);

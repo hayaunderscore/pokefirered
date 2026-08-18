@@ -2805,3 +2805,18 @@ SevenIsland_TanobyRuins_EventScript_CliffordRematch::
 	trainerbattle_rematch TRAINER_GENTLEMAN_CLIFFORD, SevenIsland_TanobyRuins_Text_CliffordRematchIntro, SevenIsland_TanobyRuins_Text_CliffordDefeat
 	msgbox SevenIsland_TanobyRuins_Text_CliffordPostBattle, MSGBOX_AUTOCLOSE
 	end
+
+TrainerFly_EventScript_Encounter::
+	lockall
+	setweather WEATHER_SHADE
+	doweather
+	delay 60
+	playbgm MUS_DUMMY, FALSE
+	msgbox TrainerFly_EventScript_Encounter_Text_0
+	special StartNewTrainerFlyBattle
+	setweather WEATHER_NONE
+	releaseall
+	end
+
+TrainerFly_EventScript_Encounter_Text_0:
+	.string "Something is approaching you.$"

@@ -248,6 +248,7 @@ SECTIONS {
         src/bag.o(.text);
         src/trainer_pokemon_sprites.o(.text);
         src/vs_seeker.o(.text);
+        src/trainer_fly.o(.text);
         src/item_pc.o(.text);
         src/mailbox_pc.o(.text);
         src/menu.o(.text);
@@ -542,6 +543,7 @@ SECTIONS {
         src/bag.o(.rodata);
         src/trainer_pokemon_sprites.o(.rodata);
         src/vs_seeker.o(.rodata);
+        src/trainer_fly.o(.rodata);
         src/item_pc.o(.rodata);
         src/mailbox_pc.o(.rodata);
         src/decoration.o(.rodata);

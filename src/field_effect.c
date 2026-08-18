@@ -28,6 +28,7 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/sound.h"
+#include "trainer_see.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -35,6 +36,8 @@ extern const struct CompressedSpriteSheet gTrainerFrontPicTable[];
 
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 #define FIELD_EFFECT_COUNT 32
+
+bool8 gUsedFly;
 
 EWRAM_DATA u32 gFieldEffectArguments[8] = {0};
 
@@ -1058,7 +1061,6 @@ static void SpriteCB_HallOfFameMonitor(struct Sprite *sprite)
 }
 
 static void FieldCallback_UseFly(void);
-static void Task_UseFly(u8 taskId);
 static void FieldCallback_FlyIntoMap(void);
 static void Task_FlyIntoMap(u8 taskId);
 
@@ -1070,14 +1072,21 @@ void ReturnToFieldFromFlyMapSelect(void)
 
 static void FieldCallback_UseFly(void)
 {
+	bool32 trainerCanBattle;
+
     FadeInFromBlack();
-    CreateTask(Task_UseFly, 0);
+    gUsedFly = TRUE;
+    trainerCanBattle = CheckForTrainersPossiblyWantingBattle(Task_UseFly); // Do the funny effect if possible!
+    gUsedFly = FALSE;
+
+    if (!trainerCanBattle)
+    	CreateTask(Task_UseFly, 0);
     LockPlayerFieldControls();
     FreezeObjectEvents();
     gFieldCallback = NULL;
 }
 
-static void Task_UseFly(u8 taskId)
+void Task_UseFly(u8 taskId)
 {
     struct Task *task;
     task = &gTasks[taskId];
@@ -1673,7 +1682,7 @@ static bool8 DiveFieldEffect_Init(struct Task *task);
 static bool8 DiveFieldEffect_ShowMon(struct Task *task);
 static bool8 DiveFieldEffect_TryWarp(struct Task *task);
 
-static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *task) = 
+static bool8 (*const sDiveFieldEffectFuncs[])(struct Task *task) =
 {
     DiveFieldEffect_Init,
     DiveFieldEffect_ShowMon,
@@ -2131,7 +2140,7 @@ static void EscapeRopeWarpOutEffect_Spin(struct Task *task)
     }
 }
 
-static const u8 sSpinDirections[] = 
+static const u8 sSpinDirections[] =
 {
     [DIR_NONE]  = DIR_SOUTH,
     [DIR_SOUTH] = DIR_WEST,

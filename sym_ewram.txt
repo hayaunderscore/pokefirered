@@ -132,6 +132,7 @@
 	.include "src/berry_crush.o"
 	.include "src/dodrio_berry_picking.o"
 	.include "src/teachy_tv.o"
+	.include "src/trainer_fly.o"
 	.include "src/digit_obj_util.o"
 	.include "src/trainer_tower.o"
 	.include "src/berry_powder.o"

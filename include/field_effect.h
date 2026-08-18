@@ -7,6 +7,9 @@
 extern u32 gFieldEffectArguments[8];
 extern void (*gPostMenuFieldCallback)(void);
 extern bool8 (*gFieldCallback2)(void);
+extern bool8 gUsedFly;
+
+void Task_UseFly(u8 taskId); // Can't afford doing bullshit lmao
 
 u32 FieldEffectStart(u8);
 bool8 FieldEffectActiveListContains(u8 id);

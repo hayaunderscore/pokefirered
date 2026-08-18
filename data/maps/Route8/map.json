@@ -253,7 +253,35 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TRAINER_FLY_ACTIVE",
+      "var_value": "1",
+      "script": "TrainerFly_EventScript_Encounter"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TRAINER_FLY_ACTIVE",
+      "var_value": "1",
+      "script": "TrainerFly_EventScript_Encounter"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TRAINER_FLY_ACTIVE",
+      "var_value": "1",
+      "script": "TrainerFly_EventScript_Encounter"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

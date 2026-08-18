@@ -1,3 +1,5 @@
+#include "constants/flags.h"
+#include "event_data.h"
 #include "global.h"
 #include "battle_setup.h"
 #include "event_object_movement.h"
@@ -6,6 +8,7 @@
 #include "quest_log.h"
 #include "script.h"
 #include "task.h"
+#include "trainer_fly.h"
 #include "util.h"
 #include "constants/battle_setup.h"
 #include "constants/event_object_movement.h"
@@ -16,13 +19,14 @@ typedef u8 (*TrainerApproachFunc)(struct ObjectEvent *, s16, s16, s16);
 typedef bool8 (*TrainerSeeFunc)(u8, struct Task *, struct ObjectEvent *);
 
 static bool8 CheckTrainer(u8 trainerObjId);
+static bool8 CheckTrainerOnlyCheck(u8 trainerObjId, TaskFunc follow);
 static u8 GetTrainerApproachDistance(struct ObjectEvent * trainerObj);
 static u8 GetTrainerApproachDistanceSouth(struct ObjectEvent * trainerObj, s16 range, s16 x, s16 y);
 static u8 GetTrainerApproachDistanceNorth(struct ObjectEvent * trainerObj, s16 range, s16 x, s16 y);
 static u8 GetTrainerApproachDistanceWest(struct ObjectEvent * trainerObj, s16 range, s16 x, s16 y);
 static u8 GetTrainerApproachDistanceEast(struct ObjectEvent * trainerObj, s16 range, s16 x, s16 y);
 static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent * trainerObj, u8 approachDistance, u8 facingDirection);
-static void TrainerApproachPlayer(struct ObjectEvent * trainerObj, u8 approachDistance);
+static void TrainerApproachPlayer(struct ObjectEvent * trainerObj, u8 approachDistance, TaskFunc follow);
 static void Task_RunTrainerSeeFuncList(u8 taskId);
 static bool8 TrainerSeeFunc_Dummy(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
 static bool8 TrainerSeeFunc_StartExclMark(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
@@ -39,6 +43,7 @@ static bool8 TrainerSeeFunc_EndJumpOutOfAsh(u8 taskId, struct Task *task, struct
 static bool8 TrainerSeeFunc_OffscreenAboveTrainerCreateCameraObj(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
 static bool8 TrainerSeeFunc_OffscreenAboveTrainerCameraObjMoveUp(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
 static bool8 TrainerSeeFunc_OffscreenAboveTrainerCameraObjMoveDown(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
+static bool8 TrainerSeeFunc_EndDummy(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj);
 static void Task_DestroyTrainerApproachTask(u8 taskId);
 static void SpriteCB_TrainerIcons(struct Sprite *sprite);
 static void SetIconSpriteData(struct Sprite *sprite, u16 fldEffId, u8 spriteAnimNum);
@@ -75,7 +80,8 @@ static const TrainerSeeFunc sTrainerSeeFuncList[] = {
     TrainerSeeFunc_EndJumpOutOfAsh,
     TrainerSeeFunc_OffscreenAboveTrainerCreateCameraObj,
     TrainerSeeFunc_OffscreenAboveTrainerCameraObjMoveUp,
-    TrainerSeeFunc_OffscreenAboveTrainerCameraObjMoveDown
+    TrainerSeeFunc_OffscreenAboveTrainerCameraObjMoveDown,
+    TrainerSeeFunc_EndDummy,
 };
 
 static const TrainerSeeFunc sTrainerSeeFuncList2[] = {
@@ -107,6 +113,26 @@ bool8 CheckForTrainersWantingBattle(void)
     return FALSE;
 }
 
+// This only makes them do the exclamation point and nothing else, really.
+bool8 CheckForTrainersPossiblyWantingBattle(TaskFunc follow)
+{
+    u8 i;
+    if (QL_IsTrainerSightDisabled() == TRUE)
+        return FALSE;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (gObjectEvents[i].active
+         && (gObjectEvents[i].trainerType == TRAINER_TYPE_NORMAL
+          || gObjectEvents[i].trainerType == TRAINER_TYPE_BURIED)
+         && CheckTrainerOnlyCheck(i, follow))
+        {
+         	return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 static bool8 CheckTrainer(u8 trainerObjId)
 {
     const u8 *script = GetObjectEventScriptPointerByObjectEventId(trainerObjId);
@@ -119,7 +145,26 @@ static bool8 CheckTrainer(u8 trainerObjId)
         if (script[1] == TRAINER_BATTLE_DOUBLE && GetMonsStateToDoubles())
             return FALSE;
         ConfigureAndSetUpOneTrainerBattle(trainerObjId, script);
-        TrainerApproachPlayer(&gObjectEvents[trainerObjId], approachDistance - 1);
+        TrainerApproachPlayer(&gObjectEvents[trainerObjId], approachDistance - 1, NULL);
+        return TRUE;
+    }
+    return FALSE;
+}
+
+static bool8 CheckTrainerOnlyCheck(u8 trainerObjId, TaskFunc follow)
+{
+    const u8 *script = GetObjectEventScriptPointerByObjectEventId(trainerObjId);
+    u8 approachDistance;
+    if (GetTrainerFlagFromScriptPointer(script))
+        return FALSE;
+    approachDistance = GetTrainerApproachDistance(&gObjectEvents[trainerObjId]);
+    if (approachDistance != 0)
+    {
+        if (script[1] == TRAINER_BATTLE_DOUBLE && GetMonsStateToDoubles())
+            return FALSE;
+        // We do NOT setup the trainer battle here
+        // ConfigureAndSetUpOneTrainerBattle(trainerObjId, script);
+        TrainerApproachPlayer(&gObjectEvents[trainerObjId], approachDistance - 1, follow);
         return TRUE;
     }
     return FALSE;
@@ -243,18 +288,33 @@ static u8 CheckPathBetweenTrainerAndPlayer(struct ObjectEvent *trainerObj, u8 ap
 #define tTrainerRange       data[3]
 #define tOutOfAshSpriteId   data[4]
 #define tData5              data[5]
+#define tUsedFly            data[6]
 
 #define TaskGetTrainerObj(dest, task) do { \
     (dest) = (struct ObjectEvent *)(((task)->tTrainerObjHi << 16) | ((u16)(task)->tTrainerObjLo)); \
 } while (0)
 
-static void TrainerApproachPlayer(struct ObjectEvent * trainerObj, u8 approachDistance)
+static void TrainerApproachPlayer(struct ObjectEvent * trainerObj, u8 approachDistance, TaskFunc follow)
 {
-    u8 taskId = CreateTask(Task_RunTrainerSeeFuncList, 80);
-    struct Task *task = &gTasks[taskId];
+	u8 taskId;
+	u8 priority;
+	struct Task *task;
+
+	if (gUsedFly) priority = 0;
+	else priority = 80;
+
+    taskId = CreateTask(Task_RunTrainerSeeFuncList, priority);
+    task = &gTasks[taskId];
     task->tTrainerObjHi = ((uintptr_t)trainerObj) >> 16;
     task->tTrainerObjLo = (uintptr_t)trainerObj;
     task->tTrainerRange = approachDistance;
+    if (gUsedFly)
+    {
+    	SetTaskFuncWithFollowupFunc(taskId, Task_RunTrainerSeeFuncList, follow);
+     	gTasks[taskId].tFuncId = 1;
+      	gTasks[taskId].tUsedFly = 1;
+      	Task_RunTrainerSeeFuncList(taskId);
+    }
 }
 
 static void StartTrainerApproachWithFollowupTask(TaskFunc taskFunc)
@@ -286,6 +346,17 @@ static void Task_RunTrainerSeeFuncList(u8 taskId)
 
 static bool8 TrainerSeeFunc_Dummy(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj)
 {
+    return FALSE;
+}
+
+static bool8 TrainerSeeFunc_EndDummy(u8 taskId, struct Task *task, struct ObjectEvent * trainerObj)
+{
+	// It should never ever enter this state unless we specifically specified it to.
+	FlagSet(FLAG_SYS_TRAINER_FLY); // We can now enable this.
+	// StoreTrainerFlyValue(235);
+	gTasks[taskId].func = Task_UseFly;
+	gTasks[taskId].data[0] = 0;
+	Task_UseFly(taskId);
     return FALSE;
 }
 
@@ -322,6 +393,8 @@ static bool8 TrainerSeeFunc_WaitExclMark(u8 taskId, struct Task *task, struct Ob
             task->tFuncId = 6;
         if (trainerObj->movementType == MOVEMENT_TYPE_BURIED)
             task->tFuncId = 8;
+        if (task->tUsedFly) // TODO: Nothing!
+        	task->tFuncId = 15;
         return TRUE;
     }
 }

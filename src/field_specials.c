@@ -33,6 +33,7 @@
 #include "party_menu.h"
 #include "dynamic_placeholder_text_util.h"
 #include "new_menu_helpers.h"
+#include "trainer_fly.h"
 #include "constants/songs.h"
 #include "constants/items.h"
 #include "constants/maps.h"
@@ -2552,4 +2553,10 @@ static void Task_WingFlapSound(u8 taskId)
     }
     if (data[0] == gSpecialVar_0x8004 - 1)
         DestroyTask(taskId);
+}
+
+void StartNewTrainerFlyBattle(void)
+{
+	// I prefer having the actual stuff happen somewhere else, actually.
+	StartTrainerFlyBattle();
 }
