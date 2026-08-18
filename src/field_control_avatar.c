@@ -105,8 +105,8 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     {
         if (GetPlayerSpeed() != PLAYER_SPEED_FASTEST)
         {
-            if ((newKeys & START_BUTTON) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
-                input->pressedStartButton = TRUE;
+            if (((newKeys & START_BUTTON) || gPlayerAvatar.abStartSelectHistory > 0) && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
+            	input->pressedStartButton = TRUE;
             if (!QL_IS_PLAYBACK_STATE)
             {
                 if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED))
@@ -131,7 +131,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->heldDirection2 = TRUE;
             }
         }
-
+    }
+    else if (newKeys & START_BUTTON) // start button is pressed, queue it
+    {
+    	// Nothing uses this variable except for the ACRO BIKE. It should be fine.
+   		gPlayerAvatar.abStartSelectHistory = 1;
     }
 
     if (forcedMove == FALSE)
@@ -206,8 +210,22 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     FieldClearPlayerInput(&gFieldInputRecord);
     gFieldInputRecord.dpadDirection = input->dpadDirection;
 
-    if (CheckForTrainersWantingBattle() == TRUE)
+    if (input->pressedStartButton)
+    {
+        gFieldInputRecord.pressedStartButton = TRUE;
+        gPlayerAvatar.abStartSelectHistory = 0;
+        DebugPrintf("%s", "CLEAR START");
+        FlagSet(FLAG_OPENED_START_MENU);
+        PlaySE(SE_WIN_OPEN);
+        ShowStartMenu();
         return TRUE;
+    } else if (gPlayerAvatar.abStartSelectHistory == 0) {
+	   	if (CheckForTrainersWantingBattle() == TRUE)
+		{
+			DebugPrintf("%s", "FOUND FUCKING TRAINER");
+			return TRUE;
+		}
+    }
 
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
@@ -281,14 +299,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         }
     }
 
-    if (input->pressedStartButton)
-    {
-        gFieldInputRecord.pressedStartButton = TRUE;
-        FlagSet(FLAG_OPENED_START_MENU);
-        PlaySE(SE_WIN_OPEN);
-        ShowStartMenu();
-        return TRUE;
-    }
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
     {
         gFieldInputRecord.pressedSelectButton = TRUE;

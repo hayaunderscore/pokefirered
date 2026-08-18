@@ -401,6 +401,7 @@ void ShowStartMenu(void)
         HandleEnforcedLookDirectionOnPlayerStopMoving();
         StopPlayerAvatar();
     }
+    gPlayerAvatar.directionHistory = 1;
     OpenStartMenuWithFollowupFunc(Task_StartMenuHandleInput);
     LockPlayerFieldControls();
 }
@@ -584,6 +585,7 @@ static bool8 StartCB_Save2(void)
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ClearPlayerHeldMovementAndUnfreezeObjectEvents();
         UnlockPlayerFieldControls();
+        gPlayerAvatar.directionHistory = 0;
         RestoreHelpContext();
         return TRUE;
     case SAVECB_RETURN_CANCEL:
@@ -596,6 +598,7 @@ static bool8 StartCB_Save2(void)
         ClearDialogWindowAndFrameToTransparent(0, TRUE);
         ClearPlayerHeldMovementAndUnfreezeObjectEvents();
         UnlockPlayerFieldControls();
+        gPlayerAvatar.directionHistory = 0;
         RestoreHelpContext();
         return TRUE;
     }
@@ -1007,6 +1010,7 @@ static void CloseStartMenu(void)
     RemoveStartMenuWindow();
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
+    gPlayerAvatar.directionHistory = 0;
 }
 
 void AppendToList(u8 *list, u8 *cursor, u8 newEntry)

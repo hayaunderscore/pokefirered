@@ -90,10 +90,15 @@ bool8 CheckForTrainersWantingBattle(void)
     u8 i;
     if (QL_IsTrainerSightDisabled() == TRUE)
         return FALSE;
+    if (gPlayerAvatar.directionHistory == 1 || gPlayerAvatar.abStartSelectHistory == 1)
+    	return FALSE;
+    if (ArePlayerFieldControlsLocked())
+    	return FALSE;
 
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         if (gObjectEvents[i].active
+         && !gObjectEvents[i].frozen
          && (gObjectEvents[i].trainerType == TRAINER_TYPE_NORMAL
           || gObjectEvents[i].trainerType == TRAINER_TYPE_BURIED)
          && CheckTrainer(i))
