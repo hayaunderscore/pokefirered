@@ -142,7 +142,170 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 75,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 76,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 77,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 78,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 79,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 80,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 81,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 82,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 83,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 84,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 85,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 90,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 91,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 92,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 93,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 94,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 95,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    },
+    {
+      "type": "trigger",
+      "x": 96,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_LUCKY_EGG_EVENT",
+      "var_value": "0",
+      "script": "Route4_EventScript_HideLuckyEggEvent"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

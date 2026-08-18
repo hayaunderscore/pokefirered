@@ -1,3 +1,8 @@
+script Route4_EventScript_HideLuckyEggEvent {
+	setflag(FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON)
+	setvar(VAR_MAP_SCENE_LUCKY_EGG_EVENT, 1)
+}
+
 raw `
 Route4_MapScripts::
 	.byte 0

@@ -1,36 +1,44 @@
-# 1 "data/maps/Route4/scripts.pory"
-
+Route4_EventScript_HideLuckyEggEvent::
 # 2 "data/maps/Route4/scripts.pory"
-Route4_MapScripts::
+	setflag FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON
 # 3 "data/maps/Route4/scripts.pory"
-	.byte 0
-# 4 "data/maps/Route4/scripts.pory"
+	setvar VAR_MAP_SCENE_LUCKY_EGG_EVENT, 1
+	return
 
-# 5 "data/maps/Route4/scripts.pory"
-Route4_EventScript_Unused::
+
 # 6 "data/maps/Route4/scripts.pory"
-	end
+
 # 7 "data/maps/Route4/scripts.pory"
-
+Route4_MapScripts::
 # 8 "data/maps/Route4/scripts.pory"
-Route4_EventScript_Woman::
+	.byte 0
 # 9 "data/maps/Route4/scripts.pory"
-	msgbox Route4_Text_TrippedOverGeodude, MSGBOX_NPC
+
 # 10 "data/maps/Route4/scripts.pory"
-	end
+Route4_EventScript_Unused::
 # 11 "data/maps/Route4/scripts.pory"
-
-# 12 "data/maps/Route4/scripts.pory"
-Route4_EventScript_MtMoonSign::
-# 13 "data/maps/Route4/scripts.pory"
-	msgbox Route4_Text_MtMoonEntrance, MSGBOX_SIGN
-# 14 "data/maps/Route4/scripts.pory"
 	end
-# 15 "data/maps/Route4/scripts.pory"
+# 12 "data/maps/Route4/scripts.pory"
 
+# 13 "data/maps/Route4/scripts.pory"
+Route4_EventScript_Woman::
+# 14 "data/maps/Route4/scripts.pory"
+	msgbox Route4_Text_TrippedOverGeodude, MSGBOX_NPC
+# 15 "data/maps/Route4/scripts.pory"
+	end
 # 16 "data/maps/Route4/scripts.pory"
-Route4_EventScript_RouteSign::
+
 # 17 "data/maps/Route4/scripts.pory"
-	msgbox Route4_Text_RouteSign, MSGBOX_SIGN
+Route4_EventScript_MtMoonSign::
 # 18 "data/maps/Route4/scripts.pory"
+	msgbox Route4_Text_MtMoonEntrance, MSGBOX_SIGN
+# 19 "data/maps/Route4/scripts.pory"
+	end
+# 20 "data/maps/Route4/scripts.pory"
+
+# 21 "data/maps/Route4/scripts.pory"
+Route4_EventScript_RouteSign::
+# 22 "data/maps/Route4/scripts.pory"
+	msgbox Route4_Text_RouteSign, MSGBOX_SIGN
+# 23 "data/maps/Route4/scripts.pory"
 	end

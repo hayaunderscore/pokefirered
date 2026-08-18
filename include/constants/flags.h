@@ -132,8 +132,8 @@
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_BIKER             0x074
 #define FLAG_HIDE_TWO_ISLAND_GAME_CORNER_LOSTELLE          0x075
 #define FLAG_HIDE_LOSTELLE_IN_HER_HOME                     0x076
-#define FLAG_0x077                                         0x077
-#define FLAG_0x078                                         0x078
+#define FLAG_HIDE_ABBY_IN_MT_MOON                          0x077
+#define FLAG_HIDE_MIGUEL_IN_MT_MOON                        0x078
 #define FLAG_HIDE_THREE_ISLAND_BIKERS                      0x079
 #define FLAG_HIDE_LOSTELLE_IN_BERRY_FOREST                 0x07A
 #define FLAG_HIDE_TWO_ISLAND_WOMAN                         0x07B
@@ -765,7 +765,7 @@
 #define FLAG_GOT_NUGGET_FROM_DUNSPARCE_TUNNEL            0x2E2
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
 #define FLAG_FOUGHT_DEOXYS                               0x2E4
-#define FLAG_0x2E5                                       0x2E5
+#define FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON             0x2E5
 #define FLAG_0x2E6                                       0x2E6
 #define FLAG_0x2E7                                       0x2E7
 #define FLAG_0x2E8                                       0x2E8

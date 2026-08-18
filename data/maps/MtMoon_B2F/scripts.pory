@@ -1,15 +1,70 @@
-raw `
-MtMoon_B2F_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, MtMoon_B2F_OnTransition
-	.byte 0
+mapscripts MtMoon_B2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: MtMoon_B2F_OnTransition
+}
 
-MtMoon_B2F_OnTransition::
-	call_if_unset FLAG_GOT_FOSSIL_FROM_MT_MOON, MtMoon_B2F_EventScript_ShowFossils
+script MtMoon_B2F_OnTransition {
+	call_if_unset(FLAG_GOT_FOSSIL_FROM_MT_MOON, MtMoon_B2F_EventScript_ShowFossils)
+
+	// LUCKY EGG EVENT //
+
+	// ABBY cannot appear if we've left mt.moon
+	if (flag(FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON)) {
+		end
+	}
+
+	// Do not appear yet if we haven't gotten the fossil yet!
+	if (!flag(FLAG_GOT_FOSSIL_FROM_MT_MOON)) {
+		end
+	}
+
+	clearflag(FLAG_HIDE_ABBY_IN_MT_MOON)
+	setflag(FLAG_HIDE_MIGUEL_IN_MT_MOON)
+}
+
+script MtMoon_B2F_Abby {
+	lockall
+	faceplayer
+	fadenewbgm(MUS_DUMMY)
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(60)
+	msgbox("\.
+
+			TRYING THIS PATH AGAIN?
+
+			AREN'T YOU GETTING TIRED OF
+			DOING THIS OVER AND OVER?
+
+			REGARDLESS, {COLOR BLUE}I'M {COLOR RED}NOT ONE TO JUDGE.")
+	giveitem(ITEM_LUCKY_EGG)
+	msgbox("\.USE IT WISELY.")
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_down
+	))
+	applymovement(LOCALID_ABBY, moves(
+		walk_down
+		walk_down
+		walk_down
+		walk_down
+		walk_down
+		walk_down
+	))
+	waitmovement(0)
+	removeobject(LOCALID_ABBY)
+	// Obviously, why would you do this multiple times LMAO
+	setflag(FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON)
+	setvar(VAR_MAP_SCENE_LUCKY_EGG_EVENT, 1)
+	releaseall
 	end
+}
 
+raw `
 MtMoon_B2F_EventScript_ShowFossils::
 	clearflag FLAG_HIDE_DOME_FOSSIL
 	clearflag FLAG_HIDE_HELIX_FOSSIL
+	clearflag FLAG_HIDE_MIGUEL_IN_MT_MOON
+	setflag FLAG_HIDE_ABBY_IN_MT_MOON
 	return
 
 MtMoon_B2F_EventScript_MiguelTrigger::
