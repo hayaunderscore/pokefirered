@@ -1,6 +1,7 @@
 // Trainer party data exists for all of the RS trainer classes, but
 // are only filled with one of the following placeholder pokemon.
 // The actual FRLG trainer party data starts after these.
+#include "constants/moves.h"
 #define DUMMY_TRAINER_MON           \
     {                               \
         .lvl = 5,                   \
@@ -10858,5 +10859,50 @@ static const struct TrainerMonNoItemDefaultMoves sParty_CueBallPaxton[] = {
         .iv = 50,
         .lvl = 39,
         .species = SPECIES_MUK,
+    },
+};
+
+static const struct TrainerMonItemCustomMoves sParty_AbyssQueenAbby[] = {
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_AZUMARILL,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_ENCORE, MOVE_PROTECT},
+    },
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_LANTURN,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_THUNDER, MOVE_RAIN_DANCE, MOVE_SUBSTITUTE, MOVE_TOXIC},
+    },
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_DRATINI,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_DRAGON_DANCE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_FLAMETHROWER},
+    },
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_VAPOREON,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_ICE_BEAM, MOVE_SURF, MOVE_QUICK_ATTACK, MOVE_WISH},
+    },
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_BLASTOISE,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_HYDRO_PUMP, MOVE_COUNTER, MOVE_BODY_SLAM, MOVE_SUBSTITUTE},
+    },
+    {
+        .iv = 255,
+        .lvl = 90,
+        .species = SPECIES_MILOTIC,
+        .heldItem = ITEM_LEFTOVERS,
+        .moves = {MOVE_HYPNOSIS, MOVE_MIRROR_COAT, MOVE_SURF, MOVE_RECOVER},
     },
 };

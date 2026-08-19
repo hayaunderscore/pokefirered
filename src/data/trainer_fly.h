@@ -254,8 +254,9 @@ static const u32 gTrainerFlyMap[] = {
     TRAINER_CHANNELER_CARLY,
     TRAINER_ELITE_FOUR_AGATHA,
     TRAINER_ELITE_FOUR_LANCE,
+    TRAINER_ABYSS_QUEEN_ABBY,
     // Anything beyond this will be exclusively one trainer class LMAO
 };
 
-#define TRAINER_FLY_MAP_SIZE 247
+#define TRAINER_FLY_MAP_SIZE 248
 #define TRAINER_FLY_MAP_TRAINER_START 200

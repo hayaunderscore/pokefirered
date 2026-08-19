@@ -267,8 +267,16 @@ DirectSoundWaveData_sc88pro_tubular_bell::
 	.incbin "sound/direct_sound_samples/sc88pro_tubular_bell.bin"
 
 	.align 2
+DirectSoundWaveData_unknown_bell::
+	.incbin "sound/direct_sound_samples/unknown_bell.bin"
+
+	.align 2
 DirectSoundWaveData_unknown_close_hihat::
 	.incbin "sound/direct_sound_samples/unknown_close_hihat.bin"
+
+	.align 2
+DirectSoundWaveData_unknown_open_hihat::
+	.incbin "sound/direct_sound_samples/unknown_open_hihat.bin"
 
 	.align 2
 DirectSoundWaveData_wave_68::

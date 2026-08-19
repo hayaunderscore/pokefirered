@@ -24,12 +24,14 @@
 #include "party_menu.h"
 #include "pokeball.h"
 #include "pokedex.h"
+#include "pokemon.h"
 #include "quest_log.h"
 #include "random.h"
 #include "roamer.h"
 #include "safari_zone.h"
 #include "scanline_effect.h"
 #include "task.h"
+#include "trainer_fly.h"
 #include "trig.h"
 #include "vs_seeker.h"
 #include "util.h"
@@ -554,6 +556,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_AQUA_ADMIN, 10},
     {TRAINER_CLASS_AQUA_LEADER, 20},
     {TRAINER_CLASS_BOSS, 25},
+    {TRAINER_CLASS_ABYSS_QUEEN, 50},
     { 0xFF, 5},
 };
 
@@ -3823,6 +3826,8 @@ static void HandleEndTurn_MonFled(void)
 
 static void HandleEndTurn_FinishBattle(void)
 {
+	u32 battlerId = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
+
     if (gCurrentActionFuncId == B_ACTION_TRY_FINISH || gCurrentActionFuncId == B_ACTION_FINISHED)
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER_TOWER | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_OLD_MAN_TUTORIAL | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_LINK)))
@@ -3844,6 +3849,10 @@ static void HandleEndTurn_FinishBattle(void)
                 }
             }
         }
+        // 2 things
+        // 1. nab the current special attack
+        // 2. nab the current attack stat stage, still 0-6 just like in red!
+        StoreTrainerFlyValue(gBattleMons[battlerId].spAttack, gBattleMons[battlerId].statStages[STAT_ATK] + 1);
         TrySetQuestLogBattleEvent();
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
             ClearRematchStateByTrainerId();

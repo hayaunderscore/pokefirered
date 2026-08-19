@@ -15,15 +15,16 @@ bool32 IsTrainerFlyActive()
 	return FlagGet(FLAG_SYS_TRAINER_FLY) && VarGet(VAR_TRAINER_FLY_VALUE);
 }
 
-void StoreTrainerFlyValue(u32 value)
+void StoreTrainerFlyValue(u32 value, u32 level)
 {
 	if (value == 0) // We cannot store 0 here sorry!
-		return ReleaseTrainerFlyValue();
-
+		return;
 	if (!FlagGet(FLAG_SYS_TRAINER_FLY))
-		FlagSet(FLAG_SYS_TRAINER_FLY);
+		return; // We also can't do anything if the flag for it is disabled!
+
 	VarSet(VAR_TRAINER_FLY_VALUE, value);
-	VarSet(VAR_TRAINER_FLY_ACTIVE, 1);
+	VarSet(VAR_TRAINER_FLY_LEVEL, level);
+	// VarSet(VAR_TRAINER_FLY_ACTIVE, 1);
 }
 
 void ReleaseTrainerFlyValue()
@@ -31,6 +32,7 @@ void ReleaseTrainerFlyValue()
 	FlagClear(FLAG_SYS_TRAINER_FLY);
 	VarSet(VAR_TRAINER_FLY_VALUE, 0);
 	VarSet(VAR_TRAINER_FLY_ACTIVE, 0);
+	VarSet(VAR_TRAINER_FLY_LEVEL, 0);
 }
 
 void StartTrainerFlyBattle()
@@ -43,7 +45,7 @@ void StartTrainerFlyBattle()
 		// regular pokemon
 		if (val < TRAINER_FLY_MAP_TRAINER_START)
 		{
-			CreateScriptedWildMon(gTrainerFlyMap[val], 5, ITEM_NONE);
+			CreateScriptedWildMon(gTrainerFlyMap[val], VarGet(VAR_TRAINER_FLY_LEVEL), ITEM_NONE);
 			StartScriptedWildBattle();
 		}
 		else // probably a trainer...
@@ -61,7 +63,10 @@ void StartTrainerFlyBattle()
 			gTrainerBattleOpponent_A = gTrainerFlyMap[val];
 			gBattleTypeFlags = BATTLE_TYPE_TRAINER;
 
-			StartTrainerBattle();
+			if (special)
+				StartTrainerSpecialBattle();
+			else
+				StartTrainerBattle();
 		}
 
 		ReleaseTrainerFlyValue();

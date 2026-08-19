@@ -903,6 +903,18 @@ void StartTrainerBattle(void)
     ScriptContext_Stop();
 }
 
+void StartTrainerSpecialBattle(void)
+{
+    gBattleTypeFlags = BATTLE_TYPE_TRAINER;
+    if (GetTrainerBattleMode() == TRAINER_BATTLE_EARLY_RIVAL && GetRivalBattleFlags() & RIVAL_BATTLE_TUTORIAL)
+        gBattleTypeFlags |= BATTLE_TYPE_FIRST_BATTLE;
+    gMain.savedCallback = CB2_EndTrainerBattle;
+    CreateBattleStartTask(B_TRANSITION_RIPPLE, MUS_VS_REGI);
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_TRAINER_BATTLES);
+    ScriptContext_Stop();
+}
+
 static void CB2_EndTrainerBattle(void)
 {
     if (sTrainerBattleMode == TRAINER_BATTLE_EARLY_RIVAL)

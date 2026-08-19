@@ -2806,17 +2806,38 @@ SevenIsland_TanobyRuins_EventScript_CliffordRematch::
 	msgbox SevenIsland_TanobyRuins_Text_CliffordPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-TrainerFly_EventScript_Encounter::
+EventScript_TriggerTrainerFly::
 	lockall
 	setweather WEATHER_SHADE
 	doweather
-	delay 60
-	playbgm MUS_DUMMY, FALSE
-	msgbox TrainerFly_EventScript_Encounter_Text_0
+	delay 120
+	compare VAR_TRAINER_FLY_VALUE, 248
+	goto_if_ge EventScript_TriggerTrainerFly_2
+	msgbox EventScript_TriggerTrainerFly_Text_1
+EventScript_TriggerTrainerFly_1:
 	special StartNewTrainerFlyBattle
 	setweather WEATHER_NONE
 	releaseall
 	end
 
-TrainerFly_EventScript_Encounter_Text_0:
+EventScript_TriggerTrainerFly_2:
+	msgbox EventScript_TriggerTrainerFly_Text_0
+	goto EventScript_TriggerTrainerFly_1
+
+
+EventScript_TriggerTrainerFly_Text_0:
+	.string "{COLOR RED}…\p"
+	.string "HMM.\p"
+	.string "HOW PECULIAR.\p"
+	.string "YOU WOULD GO OUT OF YOUR WAY\n"
+	.string "TO TRY SOMETHING SO GRAND\p"
+	.string "SO MYSTERIOUS AND MYSTICAL\p"
+	.string "SO… FAKE…\p"
+	.string "IN AN ATTEMPT TO SUMMON {COLOR BLUE}ME{COLOR RED}?\p"
+	.string "HOW REMARKABLE\p"
+	.string "{COLOR BLUE}I {COLOR RED}HOPE YOU'RE READY FOR WHAT\n"
+	.string "COMES NEXT\p"
+	.string "BECAUSE {COLOR BLUE}I {COLOR RED}WON'T GO SO EASY :)$"
+
+EventScript_TriggerTrainerFly_Text_1:
 	.string "Something is approaching you.$"

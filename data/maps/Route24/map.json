@@ -159,33 +159,6 @@
       "var": "VAR_MAP_SCENE_ROUTE24",
       "var_value": "0",
       "script": "Route24_EventScript_RocketTriggerRight"
-    },
-    {
-      "type": "trigger",
-      "x": 10,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TRAINER_FLY_ACTIVE",
-      "var_value": "1",
-      "script": "TrainerFly_EventScript_Encounter"
-    },
-    {
-      "type": "trigger",
-      "x": 11,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TRAINER_FLY_ACTIVE",
-      "var_value": "1",
-      "script": "TrainerFly_EventScript_Encounter"
-    },
-    {
-      "type": "trigger",
-      "x": 12,
-      "y": 39,
-      "elevation": 0,
-      "var": "VAR_TRAINER_FLY_ACTIVE",
-      "var_value": "1",
-      "script": "TrainerFly_EventScript_Encounter"
     }
   ],
   "bg_events": [

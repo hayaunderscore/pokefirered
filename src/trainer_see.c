@@ -1,5 +1,6 @@
 #include "constants/flags.h"
 #include "event_data.h"
+#include "global.fieldmap.h"
 #include "global.h"
 #include "battle_setup.h"
 #include "event_object_movement.h"
@@ -353,10 +354,11 @@ static bool8 TrainerSeeFunc_EndDummy(u8 taskId, struct Task *task, struct Object
 {
 	// It should never ever enter this state unless we specifically specified it to.
 	FlagSet(FLAG_SYS_TRAINER_FLY); // We can now enable this.
-	// StoreTrainerFlyValue(235);
-	gTasks[taskId].func = Task_UseFly;
+	VarSet(VAR_TRAINER_FLY_ACTIVE, gMapHeader.mapLayoutId); // The target map layout id to check for later.
+	// StoreTrainerFlyValue(235, 7); // TEST
+	SwitchTaskToFollowupFunc(taskId);
 	gTasks[taskId].data[0] = 0;
-	Task_UseFly(taskId);
+	gTasks[taskId].func(taskId);
     return FALSE;
 }
 

@@ -1,3 +1,4 @@
+#include "constants/vars.h"
 #include "global.h"
 #include "gflib.h"
 #include "bg_regs.h"
@@ -749,6 +750,12 @@ bool8 SetDiveWarpDive(u16 x, u16 y)
 
 // Map loaders
 
+static void RunTrainerFlyIfPossible(void)
+{
+	if (FlagGet(FLAG_SYS_TRAINER_FLY) && VarGet(VAR_TRAINER_FLY_VALUE) > 0 && gMapHeader.mapLayoutId == VarGet(VAR_TRAINER_FLY_ACTIVE))
+		ScriptContext_SetupScript(EventScript_TriggerTrainerFly);
+}
+
 void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
 {
     int paletteIndex;
@@ -783,6 +790,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     RunOnResumeMapScript();
     if (GetLastUsedWarpMapSectionId() != gMapHeader.regionMapSectionId)
         ShowMapNamePopup(TRUE);
+    RunTrainerFlyIfPossible();
 }
 
 static void LoadMapFromWarp(bool32 unused)
@@ -810,6 +818,7 @@ static void LoadMapFromWarp(bool32 unused)
     RoamerMoveToOtherLocationSet();
     QL_ResetDefeatedWildMonRecord();
     InitMap();
+    RunTrainerFlyIfPossible();
 }
 
 static void QL_LoadMapNormal(void)
