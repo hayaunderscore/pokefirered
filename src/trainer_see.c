@@ -1,4 +1,5 @@
 #include "constants/flags.h"
+#include "constants/songs.h"
 #include "event_data.h"
 #include "global.fieldmap.h"
 #include "global.h"
@@ -8,6 +9,7 @@
 #include "field_player_avatar.h"
 #include "quest_log.h"
 #include "script.h"
+#include "sound.h"
 #include "task.h"
 #include "trainer_fly.h"
 #include "util.h"
@@ -128,6 +130,8 @@ bool8 CheckForTrainersPossiblyWantingBattle(TaskFunc follow)
           || gObjectEvents[i].trainerType == TRAINER_TYPE_BURIED)
          && CheckTrainerOnlyCheck(i, follow))
         {
+        	// Should figure out how to detect others...
+       		PlayNewMapMusic(MUS_ENCOUNTER_BOY);
          	return TRUE;
         }
     }

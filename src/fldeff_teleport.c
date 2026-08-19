@@ -4,8 +4,10 @@
 #include "fldeff.h"
 #include "party_menu.h"
 #include "overworld.h"
+#include "trainer_see.h"
 
 static void FieldCallback_Teleport(void);
+static void Task_StartTeleport(u8 taskId);
 static void StartTeleportFieldEffect(void);
 
 bool8 SetUpFieldMove_Teleport(void)
@@ -21,9 +23,22 @@ bool8 SetUpFieldMove_Teleport(void)
 
 static void FieldCallback_Teleport(void)
 {
+	bool32 gotTrainer = FALSE;
     Overworld_ResetStateAfterTeleport();
-    FieldEffectStart(FLDEFF_USE_TELEPORT);
+
+    gUsedFly = TRUE;
+    gotTrainer = CheckForTrainersPossiblyWantingBattle(Task_StartTeleport);
+    gUsedFly = FALSE;
+
+    if (!gotTrainer)
+    	CreateTask(Task_StartTeleport, 0);
+}
+
+static void Task_StartTeleport(u8 taskId)
+{
+	FieldEffectStart(FLDEFF_USE_TELEPORT);
     gFieldEffectArguments[0] = (u32)GetCursorSelectionMonId();
+    DestroyTask(taskId);
 }
 
 bool8 FldEff_UseTeleport(void)

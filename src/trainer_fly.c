@@ -56,7 +56,7 @@ void StartTrainerFlyBattle()
 			if (val >= TRAINER_FLY_MAP_SIZE)
 			{
 				val = TRAINER_FLY_MAP_SIZE;
-				special = TRUE;
+				special = TRUE; // Reserved for 'ABYSS QUEEN ABBY', though can be used by other stuff in the future...
 			}
 
 			// Setting up trainer battles is annoying for some reason

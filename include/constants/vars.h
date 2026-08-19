@@ -227,7 +227,7 @@
 
 #define VAR_TRAINER_FLY_ACTIVE     0x40AF
 #define VAR_TRAINER_FLY_LEVEL      0x40B0
-#define VAR_0x40B1                 0x40B1
+#define VAR_TRAINER_FLY_VALUE      0x40B1
 #define VAR_0x40B2                 0x40B2
 #define VAR_0x40B3                 0x40B3
 #define VAR_PORTHOLE               0x40B4
@@ -332,7 +332,7 @@
 #define VAR_MON_BOX_POS            0x8011
 #define VAR_TEXT_COLOR             0x8012
 #define VAR_PREV_TEXT_COLOR        0x8013
-#define VAR_TRAINER_FLY_VALUE      0x8014 // Unknown/unused
+#define VAR_0x8014                 0x8014 // Unknown/unused
 
 #define SPECIAL_VARS_END           0x8014
 

@@ -1334,7 +1334,7 @@
 #define FLAG_SYS_SPECIAL_WILD_BATTLE                                (SYS_FLAGS + 0x7)
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
-#define FLAG_SYS_TRAINER_FLY                                        (SYS_FLAGS + 0x9)
+#define FLAG_0x809                                                  (SYS_FLAGS + 0x9)
 #define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
@@ -1373,7 +1373,7 @@
 
 #define FLAG_SYS_POKEMON_GET                                        (SYS_FLAGS + 0x28)
 #define FLAG_SYS_POKEDEX_GET                                        (SYS_FLAGS + 0x29)
-#define FLAG_0x82A                                                  (SYS_FLAGS + 0x2A)
+#define FLAG_SYS_TRAINER_FLY                                        (SYS_FLAGS + 0x2A)
 #define FLAG_0x82B                                                  (SYS_FLAGS + 0x2B)
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
