@@ -1324,6 +1324,7 @@ EventScript_NoMoreRoomForPokemon::
 
 	.include "data/text/braille.inc"
 	.include "data/scripts/trainers.inc"
+	.include "data/scripts/help.inc"
 
 @ Test message!
 @ Welcome to the world of Pokémon!

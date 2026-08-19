@@ -1,3 +1,4 @@
+#include "gba/io_reg.h"
 #include "global.h"
 #include "gflib.h"
 #include "bike.h"
@@ -117,7 +118,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                         input->pressedAButton = TRUE;
                     if (newKeys & B_BUTTON)
                         input->pressedBButton = TRUE;
-                    if (newKeys & R_BUTTON)
+                    if ((newKeys & R_BUTTON) || (newKeys & L_BUTTON))
                         input->pressedRButton = TRUE;
                 }
             }
@@ -209,6 +210,12 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
 
     FieldClearPlayerInput(&gFieldInputRecord);
     gFieldInputRecord.dpadDirection = input->dpadDirection;
+
+    if (input->pressedRButton && !ArePlayerFieldControlsLocked())
+   	{
+    	ScriptContext_SetupScript(EventScript_Help);
+     	return TRUE;
+    }
 
     if (input->pressedStartButton)
     {

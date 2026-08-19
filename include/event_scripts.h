@@ -1171,6 +1171,7 @@ extern const u8 CableClub_Text_CanMakeBerryPowder[];
 extern const u8 EventScript_PC[];
 
 extern const u8 EventScript_TriggerTrainerFly[];
+extern const u8 EventScript_Help[];
 
 extern const u8 EventScript_RepelWoreOff[];
 
@@ -1263,4 +1264,4 @@ extern const u8 TradeCenter_EventScript_Chair1[];
 extern const u8 TradeCenter_ConfirmLeaveRoom[];
 extern const u8 TradeCenter_TerminateLink[];
 
-#endif //GUARD_EVENT_SCRIPTS_H
+#endif // GUARD_EVENT_SCRIPTS_H
