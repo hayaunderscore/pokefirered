@@ -76,18 +76,12 @@ struct RfuDebug
 static EWRAM_DATA INIT_PARAM sRfuReqConfig = {};
 static EWRAM_DATA struct RfuDebug sRfuDebug = {};
 
-#if REVISION >= 0xA
-#else
-static u32 sRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4];
-#endif
 static u8 sResendBlock8[CMD_LENGTH * 2];
 static u16 sResendBlock16[CMD_LENGTH];
 
-#if REVISION >= 0xA
-COMMON_DATA u32 sRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {0};
-#endif
+EWRAM_DATA u32 sRfuAPIBuffer[RFU_API_BUFF_SIZE_RAM / 4] = {0};
 COMMON_DATA struct RfuGameData gHostRfuGameData = {0};
-COMMON_DATA struct RfuManager gRfu = {0};
+EWRAM_DATA struct RfuManager gRfu = {0};
 COMMON_DATA u8 gHostRfuUsername[PLAYER_NAME_LENGTH + 1] = {0};
 
 #if REVISION >= 0xA

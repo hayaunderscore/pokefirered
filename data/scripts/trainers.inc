@@ -2811,7 +2811,7 @@ EventScript_TriggerTrainerFly::
 	setweather WEATHER_SHADE
 	doweather
 	delay 60
-	setbgm MUS_DUMMY, FALSE
+	playbgm MUS_DUMMY, FALSE
 	delay 120
 	compare VAR_TRAINER_FLY_VALUE, 248
 	goto_if_ge EventScript_TriggerTrainerFly_2
