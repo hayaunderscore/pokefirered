@@ -129,17 +129,17 @@ gControlsGuide_Text_Intro::
     .string "the order of their importance.$"
 
 gControlsGuide_Text_DPad::
-    .string "Moves the main character.\n"
-    .string "Also used to choose various data\n"
-    .string "headings.$"
+    .string "Controls the movement of\n"
+    .string "the child from PALLET.\n"
+    .string "Also used for data headings.$"
 
 gControlsGuide_Text_AButton::
     .string "Used to confirm a choice, check\n"
     .string "things, chat, and scroll text.$"
 
 gControlsGuide_Text_BButton::
-    .string "Used to exit, cancel a choice,\n"
-    .string "and cancel a mode.$"
+    .string "Used for your denial, and to\n"
+    .string "let the child from PALLET run.$"
 
 gControlsGuide_Text_StartButton::
     .string "Press this button to open the\n"
@@ -150,9 +150,9 @@ gControlsGuide_Text_SelectButton::
     .string "a registered item.$"
 
 gControlsGuide_Text_LRButtons::
-    .string "If you need help playing the\n"
-    .string "game, or on how to do things,\n"
-    .string "press the L or R Button.$"
+    .string "These buttons do nothing.\n"
+    .string "Do you really need help at\n"
+    .string "the 30th time in KANTO?$"
 
 gOakSpeech_Text_AskPlayerGender::
     .string "Now tell me. Are you a boy?\n"
