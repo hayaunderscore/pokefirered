@@ -12,7 +12,6 @@
 #include "constants/union_room.h"
 
 #include "sloopsvc.h"
-#include "help_system.h"
 #include "reset_save_heap.h"
 #include "m4a.h"
 #include "gba/m4a_internal.h"
