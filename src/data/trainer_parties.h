@@ -10880,7 +10880,7 @@ static const struct TrainerMonItemCustomMoves sParty_AbyssQueenAbby[] = {
     {
         .iv = 255,
         .lvl = 90,
-        .species = SPECIES_DRATINI,
+        .species = SPECIES_DRAGONAIR,
         .heldItem = ITEM_LEFTOVERS,
         .moves = {MOVE_DRAGON_DANCE, MOVE_BODY_SLAM, MOVE_PROTECT, MOVE_FLAMETHROWER},
     },
