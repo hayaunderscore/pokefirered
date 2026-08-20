@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE24",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE25_GARDEN",
+      "offset": 48,
+      "direction": "up"
     }
   ],
   "object_events": [

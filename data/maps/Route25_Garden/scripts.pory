@@ -1,0 +1,46 @@
+mapscripts Route25_Garden_MapScripts {}
+
+script Route25_Garden_EventScript_Boy {
+	faceplayer
+	msgbox("I didn't know BILL started a
+			garden around here!
+			The flowers are quite nice.
+
+			Though it is confusing when I
+			asked BILL about it\.
+
+			He said that there was always a
+			garden.
+			Not sure how I never noticed it!")
+	closemessage
+	setobjectmovementtype(LOCALID_BOY, MOVEMENT_TYPE_WANDER_AROUND)
+	end
+}
+
+script Route25_Garden_EventScript_Girl {
+	faceplayer
+	msgbox("I would probably be more excited
+			being here\.
+
+			If the only POK\eMON here weren't
+			just MARILL and DONPHAN.
+
+			No wonder I never noticed it.
+			It's forgettable!
+
+			Curious about that cave entrance
+			at the top there\.
+			I wonder where it leads?")
+	closemessage
+	setobjectmovementtype(LOCALID_GIRL, MOVEMENT_TYPE_WANDER_AROUND)
+	end
+}
+
+script Route25_Garden_EventScript_Sign {
+	msgbox("THE GARDEN
+
+			Please mind the flowers.
+			I worked hard on them.", MSGBOX_SIGN)
+	closemessage
+	end
+}

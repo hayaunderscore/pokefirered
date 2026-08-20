@@ -1524,6 +1524,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     u32 nameHash = 0;
     u32 personalityValue;
+    u32 finalPersonality;
+    u32 ot;
+    u32 shinyValue;
     u8 fixedIV;
     s32 i, j;
 
@@ -1611,6 +1614,60 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                     SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
                 }
                 break;
+            }
+            case F_TRAINER_FULLY_CUSTOM:
+            {
+            	const struct TrainerMonCustom *partyData = gTrainers[trainerNum].partyCustom;
+
+            	for (j = 0; gSpeciesNames[partyData[i].species][j] != EOS; j++)
+                 	nameHash += gSpeciesNames[partyData[i].species][j];
+
+             	personalityValue += nameHash << 8;
+
+              	// Force specific gender n such
+               	if (partyData[i].gender > 0 && gSpeciesInfo[partyData[i].species].genderRatio != MON_GENDERLESS)
+               		finalPersonality = (personalityValue & 0xFFFFFF00) | (partyData[i].gender == 1 ? 0xFF : 0x00);
+                else
+                 	finalPersonality = personalityValue;
+
+                for (j = 0; j < NUM_NATURES; j++)
+                {
+                	if (GetNatureFromPersonality(finalPersonality) == partyData[i].nature)
+                 		break;
+                	finalPersonality += 0x100;
+                }
+
+	            if (partyData[i].shiny) {
+					// Force an XOR
+					ot = HIHALF(finalPersonality) ^ LOHALF(finalPersonality);
+				} else {
+				    do
+			        {
+			            ot = Random32();
+			            shinyValue = GET_SHINY_VALUE(ot, finalPersonality);
+			        } while (shinyValue < SHINY_ODDS);
+			    }
+
+              	// Set this to 31 for now, we adjust IVs later
+              	CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 31, TRUE, finalPersonality, OT_ID_PRESET, ot);
+               	if (partyData[i].heldItem > ITEM_NONE)
+                	SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
+
+                for (j = 0; j < MAX_MON_MOVES; j++)
+                {
+                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
+                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
+                }
+
+                for (j = 0; j < 6; j++)
+                {
+                	SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].iv[j]);
+                 	// SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].ev[j]); TODO
+                }
+
+                if (partyData[i].ball != POKEBALL_COUNT)
+                	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
+            	break;
             }
             }
         }

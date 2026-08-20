@@ -7,6 +7,7 @@
 #include "constants/moves.h"
 #include "constants/battle_ai.h"
 #include "constants/trainers.h"
+#include "pokeball.h"
 
 #define BATTLER_OFFSET(i) (gHeap + 0x8000 + MON_PIC_SIZE * (i))
 
@@ -300,6 +301,9 @@ const union AnimCmd *const gAnims_MonPic[] =
 
 #include "data/trainer_parties.h"
 #include "data/text/trainer_class_names.h"
+const struct Trainer gTrainers[] = {
 #include "data/trainers.h"
+#include "data/trainers_expansion.h"
+};
 #include "data/text/species_names.h"
 #include "data/text/move_names.h"

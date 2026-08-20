@@ -1,0 +1,52 @@
+=== TRAINER_ABYSS_QUEEN_ABBY ===
+Name: ABBY
+Class: Abyss Queen
+Pic: Queen Abby
+Gender: Female
+Music: Female
+Items: Full Restore / Full Restore / Full Restore / Full Restore
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Azumarill @ Leftovers
+Ability: Thick Fat
+Brave Nature
+- Hydro Pump
+- Ice Beam
+- Encore
+- Protect
+
+Lanturn @ Leftovers
+Ability: Volt Absorb
+- Thunder
+- Rain Dance
+- Substitute
+- Toxic
+
+Dragonair
+Ability: Shed Skin
+- Dragon Dance
+- Body Slam
+- Protect
+- Flamethrower
+
+Vaporeon
+Ability: Water Absorb
+- Ice Beam
+- Surf
+- Quick Attack
+- Wish
+
+Blastoise
+Ability: Torrent
+- Counter
+- Body Slam
+- Hydro Pump
+- Substitute
+
+Milotic @ Leftovers
+Ability: Marvel Scale
+- Hypnosis
+- Mirror Coat
+- Surf
+- Recover

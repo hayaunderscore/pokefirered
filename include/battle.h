@@ -2,6 +2,7 @@
 #define GUARD_BATTLE_H
 
 #include <limits.h>
+#include "constants/global.h"
 #include "global.h"
 #include "constants/battle.h"
 #include "constants/battle_script_commands.h"
@@ -100,10 +101,45 @@ struct TrainerMonItemCustomMoves
     u16 moves[MAX_MON_MOVES];
 };
 
+struct TrainerMonCustom 
+{
+	u8 iv[6];
+	u8 ev[6];
+	u8 lvl;
+	u16 species;
+	u16 heldItem;
+	u16 ability;
+	u16 friendship;
+	u16 nature;
+	u16 ball;
+	u16 moves[MAX_MON_MOVES];
+	u8 gender;
+	u8 shiny;
+	u8 nickname[POKEMON_NAME_LENGTH];
+};
+
 #define NO_ITEM_DEFAULT_MOVES(party) { .NoItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = 0
 #define NO_ITEM_CUSTOM_MOVES(party) { .NoItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET
 #define ITEM_DEFAULT_MOVES(party) { .ItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_HELD_ITEM
 #define ITEM_CUSTOM_MOVES(party) { .ItemCustomMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = F_TRAINER_PARTY_CUSTOM_MOVESET | F_TRAINER_PARTY_HELD_ITEM
+
+// Custom party with custom values, ported from pokeemerald-expansion somewhat
+#define CUSTOM(...) { .Custom = (const struct TrainerMonCustom[]){ __VA_ARGS__ } }, .partyFlags = F_TRAINER_FULLY_CUSTOM
+
+// Various constants
+
+// Trainer gender
+#define TRAINER_GENDER_MALE 0
+#define TRAINER_GENDER_FEMALE 1
+
+// Trainer pokemon gender
+#define TRAINER_MON_RANDOM_GENDER 0
+#define TRAINER_MON_MALE 1
+#define TRAINER_MON_FEMALE 2
+
+// expansions
+#define TRAINER_PARTY_IVS(hp, atk, def, spatk, spdef, spe) { hp, atk, def, spatk, spdef, spe }
+#define TRAINER_PARTY_EVS(hp, atk, def, spatk, spdef, spe) { hp, atk, def, spatk, spdef, spe }
 
 union TrainerMonPtr
 {
@@ -125,6 +161,7 @@ struct Trainer
     /*0x1C*/ u32 aiFlags;
     /*0x20*/ u8 partySize;
     /*0x24*/ const union TrainerMonPtr party;
+             const struct TrainerMonCustom partyCustom[6];
 };
 
 extern const struct Trainer gTrainers[];
