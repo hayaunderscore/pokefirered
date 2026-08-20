@@ -1,8 +1,10 @@
 #include "battle.h"
 #include "constants/items.h"
+#include "constants/pokemon.h"
 #include "constants/vars.h"
 #include "event_data.h"
 #include "battle_setup.h"
+#include "pokemon.h"
 #include "script_pokemon_util.h"
 #include "constants/flags.h"
 
@@ -37,15 +39,21 @@ void ReleaseTrainerFlyValue()
 
 void StartTrainerFlyBattle()
 {
+	bool32 isModernFatefulEncounter = TRUE;
+	u32 val;
+
 	if (IsTrainerFlyActive())
 	{
-		u32 val;
 		val = VarGet(VAR_TRAINER_FLY_VALUE);
 
 		// regular pokemon
 		if (val < TRAINER_FLY_MAP_TRAINER_START)
 		{
 			CreateScriptedWildMon(gTrainerFlyMap[val], VarGet(VAR_TRAINER_FLY_LEVEL), ITEM_NONE);
+			// Set this to be a fateful encounter
+			// Otherwise they won't obey!
+			if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) == SPECIES_MEW || GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) == SPECIES_DEOXYS)
+				SetMonData(&gEnemyParty[0], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
 			StartScriptedWildBattle();
 		}
 		else // probably a trainer...
