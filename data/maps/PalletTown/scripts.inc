@@ -898,3 +898,15 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	release
 # 450 "data/maps/PalletTown/scripts.pory"
 	end
+
+PalletTown_EventScript_NewRockByTheWater::
+# 454 "data/maps/PalletTown/scripts.pory"
+	msgbox PalletTown_EventScript_NewRockByTheWater_Text_0
+# 455 "data/maps/PalletTown/scripts.pory"
+	release
+	end
+
+
+PalletTown_EventScript_NewRockByTheWater_Text_0:
+# 454 "data/maps/PalletTown/scripts.pory"
+	.string "There is a new rock by the water.$"

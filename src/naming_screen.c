@@ -283,6 +283,7 @@ static const u8 *const sNamingScreenKeyboardText[][KBROW_COUNT];
 static const struct SpriteSheet sSpriteSheets[];
 static const struct SpritePalette sSpritePalettes[];
 static const struct NamingScreenTemplate *const sNamingScreenTemplates[];
+static const u8 sForceBlueCharacters[];
 
 static const u16 sPCIconOff_Gfx[] = INCBIN_U16("graphics/naming_screen/pc_icon_off.4bpp");
 static const u16 sPCIconOn_Gfx[] = INCBIN_U16("graphics/naming_screen/pc_icon_on.4bpp");
@@ -1819,6 +1820,10 @@ static void DeleteTextCharacter(void)
     PlaySE(SE_BALL);
 }
 
+static const u8 sForceBlueCharacters[] = {
+	CHAR_B, CHAR_L, CHAR_U, CHAR_E, CHAR_SPACE
+};
+
 // Returns TRUE if the text entry is now full
 static bool8 AddTextCharacter(void)
 {
@@ -1826,7 +1831,10 @@ static bool8 AddTextCharacter(void)
     s16 y;
 
     GetCursorPos(&x, &y);
-    BufferCharacter(GetCharAtKeyboardPos(x, y));
+    if (sNamingScreen->templateNum == NAMING_SCREEN_RIVAL)
+    	BufferCharacter(sForceBlueCharacters[GetTextEntryPosition()]);
+    else
+    	BufferCharacter(GetCharAtKeyboardPos(x, y));
     DrawTextEntry();
     CopyBgTilemapBufferToVram(3);
     PlaySE(SE_SELECT);
@@ -2107,7 +2115,7 @@ static const struct NamingScreenTemplate sMonNamingScreenTemplate = {
 
 static const struct NamingScreenTemplate sRivalNamingScreenTemplate = {
     .copyExistingString = FALSE,
-    .maxChars = PLAYER_NAME_LENGTH,
+    .maxChars = 4,
     .iconFunction = 4,
     .addGenderIcon = 0,
     .initialPage = KBPAGE_LETTERS_UPPER,

@@ -53,10 +53,10 @@ ViridianCity_Text_ShowYouHowToCatchMons::
     .string "Whenever you catch a POKéMON,\n"
     .string "the POKéDEX automatically updates\l"
     .string "its data.\p"
-    .string "…You don't know how to catch\n"
+    .string "…You already know how to catch\n"
     .string "a POKéMON?\p"
-    .string "I suppose I had better show you\n"
-    .string "then!$"
+    .string "I don't think I need to teach\n"
+    .string "you then.$"
 
 ViridianCity_Text_ThatWasEducationalTakeThis::
     .string "There! Now tell me, that was\n"

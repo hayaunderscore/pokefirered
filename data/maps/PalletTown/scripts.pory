@@ -449,3 +449,9 @@ PalletTown_EventScript_SignLadyStartShowSign::
 	release
 	end
 `
+
+script PalletTown_EventScript_NewRockByTheWater {
+	msgbox("There is a new rock by the water.")
+	release
+	end
+}

@@ -451,26 +451,8 @@ ViridianCity_EventScript_DoTutorialBattle::
 # 226 "data/maps/ViridianCity/scripts.pory"
 	msgbox ViridianCity_Text_ShowYouHowToCatchMons
 # 227 "data/maps/ViridianCity/scripts.pory"
-	closemessage
-# 228 "data/maps/ViridianCity/scripts.pory"
-	goto_if_questlog EventScript_ReleaseEnd
-# 229 "data/maps/ViridianCity/scripts.pory"
-	special QuestLog_CutRecording
-# 230 "data/maps/ViridianCity/scripts.pory"
-	special StartOldManTutorialBattle
-# 231 "data/maps/ViridianCity/scripts.pory"
-	waitstate
-# 232 "data/maps/ViridianCity/scripts.pory"
-	lock
-# 233 "data/maps/ViridianCity/scripts.pory"
-	faceplayer
-# 234 "data/maps/ViridianCity/scripts.pory"
-	msgbox ViridianCity_Text_ThatWasEducationalTakeThis
-# 235 "data/maps/ViridianCity/scripts.pory"
 	setvar VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2
-# 236 "data/maps/ViridianCity/scripts.pory"
-	giveitem ITEM_TEACHY_TV
-# 237 "data/maps/ViridianCity/scripts.pory"
-	msgbox ViridianCity_Text_WatchThatToLearnBasics
-# 238 "data/maps/ViridianCity/scripts.pory"
+# 228 "data/maps/ViridianCity/scripts.pory"
+	closemessage
+# 229 "data/maps/ViridianCity/scripts.pory"
 	return

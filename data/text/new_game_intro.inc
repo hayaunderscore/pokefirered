@@ -13,6 +13,9 @@ gNameChoice_Leaf::
 gNameChoice_Fire::
     .string "FIRE$"
 
+gNameChoice_Blue::
+	.string "BLUE$"
+
 gNameChoice_Gary::
     .string "GARY$"
 
@@ -218,6 +221,10 @@ gOakSpeech_Text_YourNameWhatIsIt::
 gOakSpeech_Text_SoYourNameIsPlayer::
     .string "Right…\n"
     .string "So your name is {PLAYER}.$"
+
+gOakSpeech_Text_TheTrueName::
+    .string "{PLAYER}…\n"
+    .string "The true name.$"
 
 gOakSpeech_Text_WhatWasHisName::
     .string "This is my grandson.\p"
