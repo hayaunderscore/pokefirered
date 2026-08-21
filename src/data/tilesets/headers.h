@@ -768,3 +768,25 @@ const struct Tileset gTileset_PokemonTech =
     .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTech,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_General2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesManaged_General2,
+    .palettes = gTilesetPalettes_PorytilesManaged_General2,
+    .metatiles = gMetatiles_PorytilesManaged_General2,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_General2,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PokemonTechBuilding =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_PokemonTechBuilding,
+    .palettes = gTilesetPalettes_PorytilesManaged_PokemonTechBuilding,
+    .metatiles = gMetatiles_PorytilesManaged_PokemonTechBuilding,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechBuilding,
+    .callback = NULL,
+};

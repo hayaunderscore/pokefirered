@@ -4400,10 +4400,22 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building2",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonTech",
       "border_filepath": "data/layouts/PokemonTech_Inside_1F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTech_Inside_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_OUTSIDE",
+      "name": "PokemonTech_Outside_Layout",
+      "width": 40,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokemonTechBuilding",
+      "border_filepath": "data/layouts/PokemonTech_Outside/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTech_Outside/map.bin"
     }
   ]
 }
