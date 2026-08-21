@@ -8,33 +8,36 @@ Items: Full Restore / Full Restore / Full Restore / Full Restore
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Azumarill @ Leftovers
+Azumarill (F) @ Leftovers
 Ability: Thick Fat
 Level: 80
-Brave Nature
+EVs: 8 HP / 88 Atk / 48 Def / 156 SpA / 68 SpD / 136 Spe
+Mild Nature
 - Hydro Pump
 - Ice Beam
 - Encore
 - Protect
 
-Lanturn @ Leftovers
+Lanturn (F) @ Leftovers
 Ability: Volt Absorb
 Level: 80
+EVs: 156 HP / 28 Atk / 112 Def / 28 SpA / 148 SpD / 36 Spe
 Jolly Nature
 - Thunder
 - Rain Dance
 - Substitute
 - Toxic
 
-Dragonair
+Dragonair (F) @ Lum Berry
 Ability: Shed Skin
 Level: 80
+EVs: 28 HP / 40 Atk / 128 Def / 76 SpA / 92 SpD / 144 Spe
 - Dragon Dance
-- Body Slam
+- Return
 - Protect
 - Flamethrower
 
-Vaporeon
+Vaporeon (F) @ Salac Berry
 Ability: Water Absorb
 Level: 80
 - Ice Beam
@@ -42,17 +45,22 @@ Level: 80
 - Quick Attack
 - Wish
 
-Blastoise
+Blastoise (M) @ Leftovers
 Ability: Torrent
 Level: 80
+EVs: 84 HP / 144 Atk / 32 Def / 68 SpA / 16 SpD / 164 Spe
+Sassy Nature
 - Counter
 - Body Slam
 - Hydro Pump
 - Substitute
 
-Milotic @ Leftovers
+Milotic (F) @ Leftovers
 Ability: Marvel Scale
 Level: 80
+EVs: 124 HP / 40 Atk / 80 Def / 68 SpA / 96 SpD / 100 Spe
+Careful Nature
+IVs: 0 Atk
 - Hypnosis
 - Mirror Coat
 - Surf

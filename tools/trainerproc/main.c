@@ -1911,7 +1911,7 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
             fprint_string(f, trainer->macro);
             fprintf(f, "\n");
         }
-        
+
         // Add flag to mark this as a custom party
         fprintf(f, "        .partyFlags = F_TRAINER_FULLY_CUSTOM,\n");
 
@@ -1981,6 +1981,12 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
                 fprint_stats(f, "TRAINER_PARTY_EVS", pokemon->evs);
                 fprintf(f, ",\n");
             }
+            else
+            {
+	           	fprintf(f, "            .ev = ");
+	            fprint_stats(f, "TRAINER_PARTY_EVS", (struct Stats){ .hp = 1, .attack = 1, .defense = 1, .special_attack = 1, .special_defense = 1, .speed = 1 });
+	            fprintf(f, ",\n");
+            }
 
             if (pokemon->ivs_line)
             {
@@ -2020,6 +2026,10 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
             {
                 fprintf(f, "#line %d\n", pokemon->friendship_line);
                 fprintf(f, "            .friendship = %d,\n", pokemon->friendship);
+            }
+            else
+            {
+            	fprintf(f, "            .friendship = %d,\n", 255);
             }
 
             if (pokemon->nature_line)

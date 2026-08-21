@@ -1662,11 +1662,13 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 for (j = 0; j < 6; j++)
                 {
                 	SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].iv[j]);
-                 	// SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].ev[j]); TODO
+                 	SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].ev[j]);
                 }
 
                 if (partyData[i].ball != POKEBALL_COUNT)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
+
+                SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
             	break;
             }
             }
