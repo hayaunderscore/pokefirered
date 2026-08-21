@@ -746,3 +746,25 @@ const struct Tileset gTileset_HallOfFame =
     .callback = NULL,
 };
 
+
+const struct Tileset gTileset_Building2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesManaged_Building2,
+    .palettes = gTilesetPalettes_PorytilesManaged_Building2,
+    .metatiles = gMetatiles_PorytilesManaged_Building2,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_Building2,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PokemonTech =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_PokemonTech,
+    .palettes = gTilesetPalettes_PorytilesManaged_PokemonTech,
+    .metatiles = gMetatiles_PorytilesManaged_PokemonTech,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTech,
+    .callback = NULL,
+};

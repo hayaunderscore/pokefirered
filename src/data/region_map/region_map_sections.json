@@ -1135,6 +1135,10 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "id": "MAPSEC_POKEMON_TECH",
+      "name": "POKéMON TECH"
     }
   ]
 }

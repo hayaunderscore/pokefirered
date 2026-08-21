@@ -10,6 +10,7 @@ AI: Check Bad Move / Try To Faint / Check Viability
 
 Azumarill @ Leftovers
 Ability: Thick Fat
+Level: 80
 Brave Nature
 - Hydro Pump
 - Ice Beam
@@ -18,6 +19,8 @@ Brave Nature
 
 Lanturn @ Leftovers
 Ability: Volt Absorb
+Level: 80
+Jolly Nature
 - Thunder
 - Rain Dance
 - Substitute
@@ -25,6 +28,7 @@ Ability: Volt Absorb
 
 Dragonair
 Ability: Shed Skin
+Level: 80
 - Dragon Dance
 - Body Slam
 - Protect
@@ -32,6 +36,7 @@ Ability: Shed Skin
 
 Vaporeon
 Ability: Water Absorb
+Level: 80
 - Ice Beam
 - Surf
 - Quick Attack
@@ -39,6 +44,7 @@ Ability: Water Absorb
 
 Blastoise
 Ability: Torrent
+Level: 80
 - Counter
 - Body Slam
 - Hydro Pump
@@ -46,6 +52,7 @@ Ability: Torrent
 
 Milotic @ Leftovers
 Ability: Marvel Scale
+Level: 80
 - Hypnosis
 - Mirror Coat
 - Surf

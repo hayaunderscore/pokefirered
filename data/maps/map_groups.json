@@ -42,7 +42,8 @@
     "gMapGroup_IndoorFiveIslandRoute",
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
-    "gMapGroup_IndoorSevenIslandRoute"
+    "gMapGroup_IndoorSevenIslandRoute",
+    "gMapGroup_IndoorPokemonTech"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -555,5 +556,8 @@
   ],
   "gMapGroup_IndoorSevenIslandRoute": [
     "SevenIsland_SevaultCanyon_House"
+  ],
+  "gMapGroup_IndoorPokemonTech": [
+    "PokemonTech_Inside_1F"
   ]
 }

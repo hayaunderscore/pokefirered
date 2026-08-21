@@ -1911,6 +1911,9 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
             fprint_string(f, trainer->macro);
             fprintf(f, "\n");
         }
+        
+        // Add flag to mark this as a custom party
+        fprintf(f, "        .partyFlags = F_TRAINER_FULLY_CUSTOM,\n");
 
         if (trainer->party_size_line)
         {

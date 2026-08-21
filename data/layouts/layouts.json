@@ -4392,6 +4392,18 @@
       "secondary_tileset": "gTileset_CeruleanCity",
       "border_filepath": "data/layouts/Route25_Garden/border.bin",
       "blockdata_filepath": "data/layouts/Route25_Garden/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_INSIDE_1F",
+      "name": "PokemonTech_Inside_1F_Layout",
+      "width": 21,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTech",
+      "border_filepath": "data/layouts/PokemonTech_Inside_1F/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTech_Inside_1F/map.bin"
     }
   ]
 }

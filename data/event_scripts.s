@@ -1363,3 +1363,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route25_Garden/scripts.inc"
 	.include "data/maps/Route25_Garden/text.inc"
+
+	.include "data/maps/PokemonTech_Inside_1F/scripts.inc"
+	.include "data/maps/PokemonTech_Inside_1F/text.inc"
