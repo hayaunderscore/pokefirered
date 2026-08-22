@@ -747,12 +747,19 @@
 #define TRAINER_CHAMPION_REMATCH_CHARMANDER      741
 #define TRAINER_CUE_BALL_PAXTON                  742
 #define TRAINER_ABYSS_QUEEN_ABBY                 743
+#define TRAINER_BUG_CATCHER_ELI                  744
+#define TRAINER_LASS_HANA                        745
+#define TRAINER_YOUNGSTER_WOOP                   746
+#define TRAINER_BUG_CATCHER_BROOK                747
+#define TRAINER_CRUSH_GIRL_PETRA                 748
+#define TRAINER_PICNICKER_ARAN                   749
+#define TRAINER_LASS_GISELLE                     750
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             744
+#define NUM_TRAINERS                             751
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

@@ -1,1 +1,153 @@
-mapscripts PokemonTech_Inside_1F_MapScripts {}
+mapscripts PokemonTech_Inside_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTech_Inside_1F_EventScript_OnTransition
+}
+
+script PokemonTech_Inside_1F_EventScript_OnTransition {
+	setflag(FLAG_HIDE_POKETECH_BULLY)
+	// giselle event
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		clearflag(FLAG_HIDE_POKETECH_BULLY)
+	}
+}
+
+script PokemonTech_Inside_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Youngster {
+	lock
+	faceplayer
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		msgbox("What's HER deal?
+
+				No matter what, I won't let anyone
+				say that my RATTATA is worthless!")
+	} else {
+		msgbox("This school is awesome!
+
+				With this knowledge, I can finally
+				become the best RATTATA trainer
+				the world has ever seen!")
+	}
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Girl {
+	lock
+	faceplayer
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		msgbox("I'm worried about this school if a
+				single student can lock down the
+				entire place like this.
+
+				Is she TEAM ROCKET in disguise?")
+	} else {
+		msgbox("Not sure what all the commotion is
+				about with this place.
+
+				I don't get it. You get to learn a
+				lot more when you go on a POK\eMON
+				journey yourself!")
+	}
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_OldLady {
+	lock
+	faceplayer
+	msgbox("Waiting for my granddaughter to
+			finish her classes\.
+
+			I don't think this school is that
+			serious to warrant 9-5 study hours\.")
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_UpstairsKid {
+	lock
+	faceplayer
+	msgbox("Sorry mate, upstairs area is still
+			being mopped.
+
+			Can't have anyone slipping and sliding
+			now, would I?")
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Lass {
+	lock
+	faceplayer
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		msgbox("Despite the fact that it's break time
+				I still cannot leave from here\.
+
+				I can still hold on\. Hoo boy\.\.")
+	}
+	else {
+		msgbox("Class is under session here!
+
+				\.I got too rowdy and now I'm carrying
+				buckets of water\.
+
+				So heavy\.")
+	}
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_PlaygroundSign {
+	msgbox("PLAYGROUND", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Class1_1Sign {
+	msgbox("CLASS 1-1", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Class1_2Sign {
+	msgbox("CLASS 1-2", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Bully {
+	lock
+	faceplayer
+	msgbox("HALT!
+
+			You are forbidden from leaving unless
+			we get permission to by the boss!")
+	release
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Eli {
+	trainerbattle_single(TRAINER_BUG_CATCHER_ELI,
+			"Fear the wrath of my bug-type
+			POK\eMON!",
+			"Aw shucks\.")
+	msgbox("Could you not say to people that I
+			lost to you?", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTech_Inside_1F_EventScript_Hana {
+	trainerbattle_single(TRAINER_LASS_HANA,
+			"My POK\eMON are cute! Wanna fight
+			with them?",
+			"Meanie!")
+	msgbox("I should've probably listened
+			to my instructors more\.", MSGBOX_AUTOCLOSE)
+	end
+}

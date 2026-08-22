@@ -790,3 +790,14 @@ const struct Tileset gTileset_PokemonTechBuilding =
     .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechBuilding,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PokemonTechClassroom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_PokemonTechClassroom,
+    .palettes = gTilesetPalettes_PorytilesManaged_PokemonTechClassroom,
+    .metatiles = gMetatiles_PorytilesManaged_PokemonTechClassroom,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechClassroom,
+    .callback = NULL,
+};

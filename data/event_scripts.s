@@ -1369,3 +1369,6 @@ Text_TestMsg::
 
 	.include "data/maps/PokemonTech_Outside/scripts.inc"
 	.include "data/maps/PokemonTech_Outside/text.inc"
+
+	.include "data/maps/PokemonTech_Inside_1_1/scripts.inc"
+	.include "data/maps/PokemonTech_Inside_1_1/text.inc"

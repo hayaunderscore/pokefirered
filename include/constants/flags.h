@@ -439,7 +439,7 @@
 #define FLAG_HIDE_POKEMON_MANSION_3F_IRON                       0x1A3
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM14                      0x1A4
 #define FLAG_HIDE_POKEMON_MANSION_B1F_FULL_RESTORE              0x1A5
-#define FLAG_0x1A6                                              0x1A6
+#define FLAG_HIDE_GISELLE_IN_POKETECH                           0x1A6
 #define FLAG_HIDE_POKEMON_MANSION_B1F_TM22                      0x1A7
 #define FLAG_HIDE_POKEMON_MANSION_B1F_SECRET_KEY                0x1A8
 #define FLAG_HIDE_VICTORY_ROAD_1F_RARE_CANDY                    0x1A9
@@ -461,7 +461,7 @@
 #define FLAG_HIDE_FUCHSIA_CITY_WARDENS_HOUSE_RARE_CANDY         0x1B9
 #define FLAG_HIDE_TWO_ISLAND_REVIVE                             0x1BA
 #define FLAG_HIDE_THREE_ISLAND_ZINC                             0x1BB
-#define FLAG_0x1BC                                              0x1BC
+#define FLAG_HIDE_POKETECH_BULLY                                0x1BC
 #define FLAG_0x1BD                                              0x1BD
 #define FLAG_HIDE_VIRIDIAN_FOREST_POTION_2                      0x1BE
 #define FLAG_HIDE_MT_MOON_B2F_REVIVE                            0x1BF
@@ -766,10 +766,10 @@
 #define FLAG_USED_CUT_ON_RUIN_VALLEY_BRAILLE             0x2E3
 #define FLAG_FOUGHT_DEOXYS                               0x2E4
 #define FLAG_CANNOT_TRY_LUCKY_EGG_ON_MT_MOON             0x2E5
-#define FLAG_0x2E6                                       0x2E6
-#define FLAG_0x2E7                                       0x2E7
-#define FLAG_0x2E8                                       0x2E8
-#define FLAG_0x2E9                                       0x2E9
+#define FLAG_SCHOOL_OF_HARD_KNOCKS                       0x2E6
+#define FLAG_DELIVERING_SS_ANNE_LETTER                   0x2E7
+#define FLAG_SS_ANNE_DELAYED                             0x2E8
+#define FLAG_ABYSS_ROUTE                                 0x2E9
 #define FLAG_0x2EA                                       0x2EA
 #define FLAG_0x2EB                                       0x2EB
 #define FLAG_REVIVED_DOME                                0x2EC

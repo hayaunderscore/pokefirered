@@ -468,6 +468,8 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON                  0x1119
 #define OBJ_EVENT_PAL_TAG_RS_GROUDON_REFLECTION       0x111A
 #define OBJ_EVENT_PAL_TAG_RS_SUBMARINE_SHADOW         0x111B
+#define OBJ_EVENT_PAL_TAG_JOE                         0x111C
+#define OBJ_EVENT_PAL_TAG_GISELLE                     0x111D
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -497,6 +499,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Meteorite,               OBJ_EVENT_PAL_TAG_METEORITE},
     {gObjectEventPal_SSAnne,                  OBJ_EVENT_PAL_TAG_SS_ANNE},
     {gObjectEventPal_Seagallop,               OBJ_EVENT_PAL_TAG_SEAGALLOP},
+    {gObjectEventPal_Joe,                     OBJ_EVENT_PAL_TAG_JOE},
+    {gObjectEventPal_Giselle,                 OBJ_EVENT_PAL_TAG_GISELLE},
     {},
 };
 
@@ -598,6 +602,20 @@ static const u16 sGreenNPCReflectionPaletteTags[] = {
     OBJ_EVENT_PAL_TAG_NPC_GREEN_REFLECTION,
 };
 
+static const u16 sJoeReflectionPaletteTags[] = {
+    OBJ_EVENT_PAL_TAG_JOE,
+    OBJ_EVENT_PAL_TAG_JOE,
+    OBJ_EVENT_PAL_TAG_JOE,
+    OBJ_EVENT_PAL_TAG_JOE,
+};
+
+static const u16 sGiselleReflectionPaletteTags[] = {
+    OBJ_EVENT_PAL_TAG_GISELLE,
+    OBJ_EVENT_PAL_TAG_GISELLE,
+    OBJ_EVENT_PAL_TAG_GISELLE,
+    OBJ_EVENT_PAL_TAG_GISELLE,
+};
+
 static const struct PairedPalettes gSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_PLAYER_RED,          sPlayerReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_PLAYER_GREEN,        sPlayerReflectionPaletteTags},
@@ -611,6 +629,8 @@ static const struct PairedPalettes gSpecialObjectReflectionPaletteSets[] = {
     {OBJ_EVENT_PAL_TAG_RS_GROUDON,          sRSGroudonReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_NPC_GREEN,           sGreenNPCReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_RS_SUBMARINE_SHADOW, sRSSubmarineShadowReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_JOE,                 sJoeReflectionPaletteTags},
+    {OBJ_EVENT_PAL_TAG_GISELLE,             sGiselleReflectionPaletteTags},
     {OBJ_EVENT_PAL_TAG_NONE, NULL},
 };
 

@@ -1,0 +1,121 @@
+mapscripts PokemonTech_Inside_1_1_MapScripts {}
+
+script PokemonTech_Inside_1_1_EventScript_Camper {
+	lock
+	faceplayer
+	msgbox("Hey! Quit bugging me!
+			I'm studying!")
+	applymovement(LOCALID_CAMPER, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Inside_1_1_EventScript_Picnicker {
+	lock
+	faceplayer
+	msgbox("Sorry if my partner rudely told
+			you to stop bugging him.
+
+			He gets agitated way too easily.")
+	applymovement(LOCALID_PICNICKER, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Inside_1_1_EventScript_Lass {
+	lock
+	faceplayer
+	msgbox("I'm not really sure if I'm
+			learning any meaningful things
+			around here\.")
+	applymovement(LOCALID_LASS, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Inside_1_1_EventScript_Kid {
+	lock
+	faceplayer
+	msgbox("I like learning things!
+			It makes my brain tingle!")
+	applymovement(LOCALID_KID, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Inside_1_1_EventScript_Teacher {
+	lock
+	faceplayer
+	msgbox("I'm the teacher for this class.
+
+			Hm? You're not from around here.")
+	release
+	end
+}
+
+script PokemonTech_Inside_1_1_EventScript_Joe {
+	lock
+	faceplayer
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		msgbox("You might wanna leave as soon
+				as possible\.
+
+				Unless of course, one of her goons
+				are already at the door\.")
+		release
+		end
+	}
+	msgbox("Hi. My name is JOE.
+
+			Oh? You have something for me?")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	playfanfare(MUS_OBTAIN_TMHM)
+	message("{PLAYER} delivered LETTER to JOE.")
+	waitmessage
+	waitfanfare
+	call(EventScript_RestorePrevTextColor)
+	removeitem(ITEM_LETTER)
+	msgbox("A letter? From whom?
+
+			Oh, from THE SAILOR! I knew I
+			forgot something back home\.")
+	closemessage
+	playse(SE_BANG)
+	delay(30)
+	fadenewbgm(MUS_ENCOUNTER_ROCKET)
+	applymovement(LOCALID_JOE, moves(
+		face_down
+		emote_exclamation_mark
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	waitmovement(0)
+	delay(40)
+	msgbox("Uh oh\. Looks like it's break time\.
+
+			And that's the time SHE riles up
+			the student body for her gain\.
+
+			You might wanna leave as soon
+			as possible\.
+
+			Unless one of her goons are
+			already at the door\.")
+	release
+	fadenewbgm(MUS_SEVII_67)
+	setflag(FLAG_SCHOOL_OF_HARD_KNOCKS)
+	end
+}

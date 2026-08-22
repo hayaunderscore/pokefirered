@@ -167,6 +167,7 @@
 #define TRAINER_PIC_LADY                  146
 #define TRAINER_PIC_PAINTER               147
 #define TRAINER_PIC_QUEEN_ABBY            148
+#define TRAINER_PIC_GISELLE               149
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0
@@ -442,6 +443,7 @@
 #define FACILITY_CLASS_CHAMPION_RIVAL_2       149
 #define FACILITY_CLASS_ABYSS_QUEEN            150
 
+#define F_TRAINER_MALE 0
 #define F_TRAINER_FEMALE (1 << 7)
 
 // All trainer parties specify the IV, level, and species for each Pokémon in the

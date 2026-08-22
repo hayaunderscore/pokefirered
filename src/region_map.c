@@ -1029,7 +1029,11 @@ static void InitRegionMapType(void)
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
-    if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
+    // Some maps have ids that are located beyond SEVII_MAPSEC_START,
+    // but are actually in kanto
+    if (gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TECH)
+    	region = REGIONMAP_KANTO;
+    else if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
         // Mapsec is in Sevii Islands, determine which map to use
         while (region == REGIONMAP_KANTO)

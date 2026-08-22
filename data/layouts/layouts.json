@@ -4396,7 +4396,7 @@
     {
       "id": "LAYOUT_POKEMON_TECH_INSIDE_1F",
       "name": "PokemonTech_Inside_1F_Layout",
-      "width": 21,
+      "width": 32,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4416,6 +4416,18 @@
       "secondary_tileset": "gTileset_PokemonTechBuilding",
       "border_filepath": "data/layouts/PokemonTech_Outside/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTech_Outside/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_INSIDE_1_1",
+      "name": "PokemonTech_Inside_1_1_Layout",
+      "width": 11,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTechClassroom",
+      "border_filepath": "data/layouts/PokemonTech_Inside_1_1/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTech_Inside_1_1/map.bin"
     }
   ]
 }

@@ -6,3 +6,65 @@ Route6_EventScript_UndergroundPathSign::
 	msgbox Route6_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+
+script Route6_EventScript_SaffronSign {
+	msgbox("ROUTE 6
+			SAFFRON CITY - VERMILLION CITY
+
+			\au SAFFRON CITY
+			\al POK\eMON TECH
+			\ad VERMILLION CITY", MSGBOX_SIGN)
+	end
+}
+
+script Route6_EventScript_PokemonTech_GuardScript {
+	if (var(VAR_MAP_SCENE_POKETECH_GUARD) == 1) {
+		lockall
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Hi, how's it going?")
+		releaseall
+		return
+	}
+	if (!flag(FLAG_DELIVERING_SS_ANNE_LETTER)) {
+		lockall
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("I'm on guard duty.
+				Are you a student?
+
+				\.No?
+
+				I'm sorry, but unless you're a
+				relative, I can't allow you to go
+				any further.")
+		releaseall
+		applymovement(LOCALID_POKETECH_GUARD, Common_Movement_FaceOriginalDirection)
+		return
+	}
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("I'm on guard duty.
+			Are you a student?
+
+			\.You have a letter to send to
+			someone here?
+
+			Sure, you can go on through.")
+	setvar(VAR_MAP_SCENE_POKETECH_GUARD, 1)
+	releaseall
+}
+
+script Route6_EventScript_PokemonTech_Guard {
+	faceplayer
+	call(Route6_EventScript_PokemonTech_GuardScript)
+	end
+}
+
+script Route6_EventScript_PokemonTech_GuardTrigger {
+	call(Route6_EventScript_PokemonTech_GuardScript)
+	if (!flag(FLAG_DELIVERING_SS_ANNE_LETTER)) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_right
+		))
+	}
+	end
+}

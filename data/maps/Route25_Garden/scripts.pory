@@ -1,4 +1,14 @@
-mapscripts Route25_Garden_MapScripts {}
+mapscripts Route25_Garden_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route25_Garden_EventScript_OnTransition
+}
+
+script Route25_Garden_EventScript_OnTransition {
+	// The route starts here.
+	// Yes, you don't need a Blastoise, nor need the lucky egg.
+	setflag(FLAG_ABYSS_ROUTE)
+	// Secondary flag to delay the SS Anne
+	setflag(FLAG_SS_ANNE_DELAYED)
+}
 
 script Route25_Garden_EventScript_Boy {
 	faceplayer
@@ -10,7 +20,7 @@ script Route25_Garden_EventScript_Boy {
 			asked BILL about it\.
 
 			He said that there was always a
-			garden.
+			garden here.
 			Not sure how I never noticed it!")
 	closemessage
 	setobjectmovementtype(LOCALID_BOY, MOVEMENT_TYPE_WANDER_AROUND)
@@ -23,7 +33,7 @@ script Route25_Garden_EventScript_Girl {
 			being here\.
 
 			If the only POK\eMON here weren't
-			just MARILL and DONPHAN.
+			just MARILL and PHANPY.
 
 			No wonder I never noticed it.
 			It's forgettable!
