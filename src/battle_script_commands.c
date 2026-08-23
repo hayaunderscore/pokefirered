@@ -5324,6 +5324,7 @@ static void Cmd_getmoneyreward(void)
     u8 lastMonLevel = 0;
 
     const struct TrainerMonItemCustomMoves *party4; //This needs to be out here
+    const struct TrainerMonCustom *party5; // Better safe than sorry
 
     if (gBattleOutcome == B_OUTCOME_WON)
     {
@@ -5363,6 +5364,13 @@ static void Cmd_getmoneyreward(void)
                     lastMonLevel = party4[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
                 }
                 break;
+            case F_TRAINER_FULLY_CUSTOM:
+	           	{
+	                party5 = gTrainers[gTrainerBattleOpponent_A].partyCustom;
+	                
+	                lastMonLevel = party5[gTrainers[gTrainerBattleOpponent_A].partySize - 1].lvl;
+	            }
+	            break;
             }
             for (; gTrainerMoneyTable[i].classId != 0xFF; i++)
             {

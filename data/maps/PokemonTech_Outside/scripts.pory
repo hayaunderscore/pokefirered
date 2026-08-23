@@ -1,1 +1,104 @@
 mapscripts PokemonTech_Outside_MapScripts {}
+
+script PokemonTech_Outside_EventScript_Woop {
+	trainerbattle_single(TRAINER_YOUNGSTER_WOOP,
+			"A guy told me he beat a champion
+			with only a WOOPER.
+
+			I have a WOOPER! Let's test that
+			theory with you!",
+			"It appears I have been lied to\.")
+	msgbox("Maybe I shouldn't rely on only
+            WOOPER then.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTech_Outside_EventScript_Brook {
+	trainerbattle_single(TRAINER_BUG_CATCHER_BROOK,
+			"Hey! Let me see your bug types!",
+			"Just my luck!")
+	msgbox("You must be a really strong
+            POK\eMON trainer!", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTech_Outside_EventScript_Petra {
+	trainerbattle_single(TRAINER_CRUSH_GIRL_PETRA,
+			"Tell me, do I look good?",
+			"Should really work more on my looks\.")
+	msgbox("Gosh darn it!
+
+            What should I do to get more
+            attension from people?", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTech_Outside_EventScript_Aran {
+	trainerbattle_single(TRAINER_PICNICKER_ARAN,
+			"I am your last fight before our
+            leader. Are you ready?",
+			"You're more than ready!")
+	msgbox("Never thought I'd see the day
+            someone would have the chance\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTech_Outside_EventScript_Giselle {
+	trainerbattle_single(TRAINER_LASS_GISELLE,
+			"Ohohoho!
+			And who are you?
+
+			A travelling, losing, POK\eMON
+			trainer?
+
+			How's your badge collection looking?
+
+			Heh, unlike you mon ch\eri, I have
+			no need for those filmsy badges!
+
+			Here in POK\eMON TECH, we battle
+			with the most accurate simulations
+			possible!
+
+			It's time to show you what a REAL
+			trainer looks like!",
+			"I\. I lost?
+
+			But how?", PokemonTech_Outside_EventScript_GiselleAftermath, FALSE)
+	end
+}
+
+script PokemonTech_Outside_EventScript_GiselleAftermath {
+    msgbox("How\.
+
+            How\. did I lose?
+
+            It\. it was perfect!
+            The simulations said so!
+
+            You\. you\.
+
+            You cheated!
+            You couldn't have beaten me!
+
+            You ruined everything!
+
+            Grah!
+            I'll be back, whatever your name is!
+
+            And the next time we'll meet,
+            I'll prove to everyone that you are
+            nothing more than a cheat!")
+    closemessage
+    playbgm(MUS_RIVAL_EXIT, 0)
+    applymovement(LOCALID_GISELLE, moves(
+        walk_down * 2
+        walk_right * 6
+        jump_right
+        walk_right * 2
+        jump_right
+    ))
+    waitmovement(0)
+    removeobject(LOCALID_GISELLE)
+    fadedefaultbgm
+}

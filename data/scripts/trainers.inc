@@ -2834,7 +2834,7 @@ EventScript_TriggerTrainerFly_Text_0:
 	.string "YOU WOULD GO OUT OF YOUR WAY\n"
 	.string "TO TRY SOMETHING SO GRAND\p"
 	.string "SO MYSTERIOUS AND MYSTICAL\p"
-	.string "SO… FAKE…\p"
+	.string "YET NONEXISTING\p"
 	.string "IN AN ATTEMPT TO SUMMON {COLOR BLUE}ME{COLOR RED}?\p"
 	.string "HOW REMARKABLE\p"
 	.string "{COLOR BLUE}I {COLOR RED}HOPE YOU'RE READY FOR WHAT\n"

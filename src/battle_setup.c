@@ -346,7 +346,7 @@ void StartSouthernIslandBattle(void)
 void StartLegendaryBattle(void)
 {
     u16 species;
-    
+
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_LEGENDARY | BATTLE_TYPE_LEGENDARY_FRLG;
@@ -602,7 +602,16 @@ static u8 GetSumOfEnemyPartyLevel(u16 opponentId, u8 numMons)
                 sum += party[i].lvl;
         }
         break;
-    }
+    case F_TRAINER_FULLY_CUSTOM:
+    	{
+	   		const struct TrainerMonCustom *partyCustom;
+		
+		    partyCustom = gTrainers[opponentId].partyCustom;
+			for (i = 0; i < count; ++i)
+			    sum += partyCustom[i].lvl;
+     	}
+      	break;
+	}
     return sum;
 }
 

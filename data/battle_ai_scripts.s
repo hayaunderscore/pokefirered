@@ -2200,7 +2200,7 @@ AI_CV_SunnyDay_End::
 	end
 
 AI_CV_BellyDrum::
-	if_hp_less_than AI_USER, 90, AI_CV_BellyDrum_ScoreDown2
+	if_hp_less_than AI_USER, 70, AI_CV_BellyDrum_ScoreDown2
 	goto AI_CV_BellyDrum_End
 
 AI_CV_BellyDrum_ScoreDown2::

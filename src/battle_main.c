@@ -1520,6 +1520,31 @@ static void SpriteCB_UnusedDebugSprite_Step(struct Sprite *sprite)
     }
 }
 
+void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMonCustom *partyEntry)
+{
+    bool32 noMoveSet = TRUE;
+    u32 j;
+
+    for (j = 0; j < MAX_MON_MOVES; ++j)
+    {
+        if (partyEntry->moves[j] != MOVE_NONE)
+            noMoveSet = FALSE;
+    }
+    if (noMoveSet)
+    {
+        GiveMonInitialMoveset(mon);
+        // TODO: Figure out a default strategy when moves are not set, to generate a good moveset
+        return;
+    }
+
+    for (j = 0; j < MAX_MON_MOVES; ++j)
+    {
+        u32 pp = gBattleMoves[partyEntry->moves[j]].pp;
+        SetMonData(mon, MON_DATA_MOVE1 + j, &partyEntry->moves[j]);
+        SetMonData(mon, MON_DATA_PP1 + j, &pp);
+    }
+}
+
 static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     u32 nameHash = 0;
@@ -1653,11 +1678,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                	if (partyData[i].heldItem > ITEM_NONE)
                 	SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
-                for (j = 0; j < MAX_MON_MOVES; j++)
-                {
-                    SetMonData(&party[i], MON_DATA_MOVE1 + j, &partyData[i].moves[j]);
-                    SetMonData(&party[i], MON_DATA_PP1 + j, &gBattleMoves[partyData[i].moves[j]].pp);
-                }
+                CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
 
                 for (j = 0; j < 6; j++)
                 {
@@ -1667,6 +1688,9 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 
                 if (partyData[i].ball != POKEBALL_COUNT)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
+                
+                if (partyData[i].nickname != NULL)
+                	SetMonData(&party[i], MON_DATA_NICKNAME, &partyData[i].nickname);
 
                 SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
             	break;
