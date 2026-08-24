@@ -356,8 +356,12 @@
 #define MOVE_WATER_PULSE 352
 #define MOVE_DOOM_DESIRE 353
 #define MOVE_PSYCHO_BOOST 354
+// All of these moves take up the same TM slot (55)
+#define MOVE_ABYSS 355
+#define MOVE_RAPTURE 356
+#define MOVE_STRIKE 357
 
-#define MOVES_COUNT 355
+#define MOVES_COUNT 358
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

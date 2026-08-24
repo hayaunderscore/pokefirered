@@ -1255,3 +1255,10 @@ static const u16 sTMHMMoves[] =
     MOVE_WATERFALL,
     MOVE_DIVE,
 };
+
+static const u16 sTM55Moves[] = 
+{
+	MOVE_RAPTURE,
+	MOVE_ABYSS,
+	MOVE_STRIKE
+};

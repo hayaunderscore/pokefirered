@@ -452,7 +452,7 @@
 #define MAIL_NONE 0xFF
 
 #define NUM_TECHNICAL_MACHINES 50
-#define NUM_HIDDEN_MACHINES     8
+#define NUM_HIDDEN_MACHINES     9
 
 // Secondary IDs for rods
 #define OLD_ROD   0

@@ -4715,6 +4715,10 @@ void ItemUseCB_PPUp(u8 taskId, TaskFunc func)
 u16 ItemIdToBattleMoveId(u16 item)
 {
     u16 tmNumber = item - ITEM_TM01_FOCUS_PUNCH;
+    
+    // In the case of TM55, this depends on the starter you get
+    if (item == ITEM_TM55)
+    	return sTM55Moves[VarGet(VAR_STARTER_MON)];
 
     return sTMHMMoves[tmNumber];
 }

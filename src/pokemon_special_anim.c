@@ -617,7 +617,7 @@ static u16 GetAnimTypeByItemId(u16 itemId)
             return sItemAnimMap[i].animType;
     }
 
-    if (itemId >= ITEM_TM01 && itemId <= ITEM_HM08)
+    if (itemId >= ITEM_TM01 && itemId <= ITEM_TM55)
     {
         return PSA_ITEM_ANIM_TYPE_TMHM;
     }

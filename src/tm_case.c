@@ -1,3 +1,5 @@
+#include "constants/vars.h"
+#include "event_data.h"
 #include "global.h"
 #include "tm_case.h"
 #include "gflib.h"
@@ -678,7 +680,7 @@ static void InitTMCaseListMenuItems(void)
 static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
 {
     StringCopy(gStringVar4, gText_FontSmall);
-    if (itemId >= ITEM_HM01)
+    if (itemId >= ITEM_HM01 && itemId != ITEM_TM55)
     {
         StringAppend(gStringVar4, sText_ClearTo18);
         StringAppend(gStringVar4, gText_NumberClear01);
@@ -688,7 +690,7 @@ static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
     else
     {
         StringAppend(gStringVar4, gText_NumberClear01);
-        ConvertIntToDecimalStringN(gStringVar1, itemId - ITEM_TM01 + 1, STR_CONV_MODE_LEADING_ZEROS, 2);
+        ConvertIntToDecimalStringN(gStringVar1, (itemId == ITEM_TM55 ? 55 : itemId - ITEM_TM01 + 1), STR_CONV_MODE_LEADING_ZEROS, 2);
         StringAppend(gStringVar4, gStringVar1);
     }
     StringAppend(gStringVar4, sText_SingleSpace);
@@ -732,11 +734,38 @@ static void List_ItemPrintFunc(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
+extern const u8 gMoveDescription_Rapture[];
+extern const u8 gMoveDescription_Abyss[];
+extern const u8 gMoveDescription_Strike[];
+
 static void PrintDescription(s32 itemIndex)
 {
     const u8 * str;
-    if (itemIndex != LIST_CANCEL)
-        str = ItemId_GetDescription(BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemIndex));
+    u16 itemId;
+    u16 var;
+
+    if (itemIndex == LIST_CANCEL)
+        itemId = ITEM_NONE;
+    else
+        itemId = BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemIndex);
+
+    if (itemId == ITEM_TM55)
+    {
+    	var = VarGet(VAR_STARTER_MON);
+     	switch (var) {
+      		case 0: // BULBASAUR
+        		str = gMoveDescription_Rapture;
+        		break;
+          	case 1: // SQUIRTLE
+           		str = gMoveDescription_Abyss;
+             	break;
+            case 2:
+            	str = gMoveDescription_Strike;
+             	break;
+      	}
+    }
+    else if (itemIndex != LIST_CANCEL)
+        str = ItemId_GetDescription(itemId);
     else
         str = gText_TMCaseWillBePutAway;
     FillWindowPixelBuffer(WIN_DESCRIPTION, 0);
@@ -944,7 +973,7 @@ static void ReturnToList(u8 taskId)
 static void Task_SelectedTMHM_Field(u8 taskId)
 {
     u8 * strbuf;
-    
+
     // Create context window
     TMCase_SetWindowBorder2(WIN_SELECTED_MSG);
     if (!MenuHelpers_IsLinkActive() && InUnionRoom() != TRUE)
@@ -974,7 +1003,7 @@ static void Task_SelectedTMHM_Field(u8 taskId)
                                   sTMCaseDynamicResources->menuActionIndices);
 
     Menu_InitCursor(sTMCaseDynamicResources->contextMenuWindowId, FONT_NORMAL, 0, 2, GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT) + 2, sTMCaseDynamicResources->numMenuActions, 0);
-    
+
     // Print label text next to the context window
     strbuf = Alloc(256);
     GetTMNumberAndMoveString(strbuf, gSpecialVar_ItemId);
