@@ -5611,20 +5611,21 @@
       "moveId": "Dive"
     },
     {
-      "english": "????????",
-      "itemId": "ITEM_NONE",
+      "english": "TM55",
+      "itemId": "ITEM_TM55",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "?????",
+      "description_english": "This shouldn't exist.",
       "importance": 0,
       "registrability": 0,
-      "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "pocket": "POCKET_TM_CASE",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "NULL",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
-      "secondaryId": 0
+      "secondaryId": 0,
+      "moveId": "Dive"
     },
     {
       "english": "????????",

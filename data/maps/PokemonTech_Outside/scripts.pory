@@ -51,7 +51,8 @@ script PokemonTech_Outside_EventScript_Giselle {
 			A travelling, losing, POK\eMON
 			trainer?
 
-			How's your badge collection looking?
+			How's your badge collection looking,
+			huh?
 
 			Heh, unlike you mon ch\eri, I have
 			no need for those filmsy badges!
@@ -83,12 +84,15 @@ script PokemonTech_Outside_EventScript_GiselleAftermath {
 
             You ruined everything!
 
-            Grah!
-            I'll be back, whatever your name is!
+            Ah!")
+    giveitem(ITEM_TM55)
+    msgbox("Grah! My TM!
 
-            And the next time we'll meet,
-            I'll prove to everyone that you are
-            nothing more than a cheat!")
+		    I'll be back, whoever you are!
+
+		    And the next time we'll meet,
+		    I'll prove to everyone that you are
+		    nothing more than a cheat!")
     closemessage
     playbgm(MUS_RIVAL_EXIT, 0)
     applymovement(LOCALID_GISELLE, moves(

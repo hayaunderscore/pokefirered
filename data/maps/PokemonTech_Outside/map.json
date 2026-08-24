@@ -57,6 +57,48 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonTech_Outside_EventScript_Giselle",
       "flag": "FLAG_HIDE_POKETECH_BULLY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
+      "x": 3,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "PokemonTech_Outside_EventScript_Brook",
+      "flag": "FLAG_HIDE_POKETECH_BULLY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CRUSH_GIRL",
+      "x": 9,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "PokemonTech_Outside_EventScript_Petra",
+      "flag": "FLAG_HIDE_POKETECH_BULLY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
+      "x": 3,
+      "y": 10,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "5",
+      "script": "PokemonTech_Outside_EventScript_Aran",
+      "flag": "FLAG_HIDE_POKETECH_BULLY"
     }
   ],
   "warp_events": [

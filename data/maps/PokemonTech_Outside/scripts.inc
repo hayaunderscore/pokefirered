@@ -41,48 +41,52 @@ PokemonTech_Outside_EventScript_Giselle::
 
 
 PokemonTech_Outside_EventScript_GiselleAftermath::
-# 72 "data/maps/PokemonTech_Outside/scripts.pory"
+# 73 "data/maps/PokemonTech_Outside/scripts.pory"
 	msgbox PokemonTech_Outside_EventScript_GiselleAftermath_Text_0
-# 92 "data/maps/PokemonTech_Outside/scripts.pory"
+# 88 "data/maps/PokemonTech_Outside/scripts.pory"
+	giveitem ITEM_TM55
+# 89 "data/maps/PokemonTech_Outside/scripts.pory"
+	message PokemonTech_Outside_EventScript_GiselleAftermath_Text_1
+# 96 "data/maps/PokemonTech_Outside/scripts.pory"
 	closemessage
-# 93 "data/maps/PokemonTech_Outside/scripts.pory"
+# 97 "data/maps/PokemonTech_Outside/scripts.pory"
 	playbgm MUS_RIVAL_EXIT, 0
-# 94 "data/maps/PokemonTech_Outside/scripts.pory"
+# 98 "data/maps/PokemonTech_Outside/scripts.pory"
 	applymovement LOCALID_GISELLE, PokemonTech_Outside_EventScript_GiselleAftermath_Movement_0
-# 101 "data/maps/PokemonTech_Outside/scripts.pory"
+# 105 "data/maps/PokemonTech_Outside/scripts.pory"
 	waitmovement 0
-# 102 "data/maps/PokemonTech_Outside/scripts.pory"
+# 106 "data/maps/PokemonTech_Outside/scripts.pory"
 	removeobject LOCALID_GISELLE
-# 103 "data/maps/PokemonTech_Outside/scripts.pory"
+# 107 "data/maps/PokemonTech_Outside/scripts.pory"
 	fadedefaultbgm
 	return
 
 
-# 94 "data/maps/PokemonTech_Outside/scripts.pory"
+# 98 "data/maps/PokemonTech_Outside/scripts.pory"
 PokemonTech_Outside_EventScript_GiselleAftermath_Movement_0:
-# 95 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_down
-# 95 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_down
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 96 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 97 "data/maps/PokemonTech_Outside/scripts.pory"
-	jump_right
-# 98 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
-# 98 "data/maps/PokemonTech_Outside/scripts.pory"
-	walk_right
 # 99 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_down
+# 99 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_down
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 100 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 101 "data/maps/PokemonTech_Outside/scripts.pory"
+	jump_right
+# 102 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 102 "data/maps/PokemonTech_Outside/scripts.pory"
+	walk_right
+# 103 "data/maps/PokemonTech_Outside/scripts.pory"
 	jump_right
 	step_end
 
@@ -149,7 +153,8 @@ PokemonTech_Outside_EventScript_Giselle_Text_0:
 	.string "And who are you?\p"
 	.string "A travelling, losing, POKéMON\n"
 	.string "trainer?\p"
-	.string "How's your badge collection looking?\p"
+	.string "How's your badge collection looking,\n"
+	.string "huh?\p"
 	.string "Heh, unlike you mon chéri, I have\n"
 	.string "no need for those filmsy badges!\p"
 	.string "Here in POKéMON TECH, we battle\n"
@@ -159,12 +164,12 @@ PokemonTech_Outside_EventScript_Giselle_Text_0:
 	.string "trainer looks like!$"
 
 PokemonTech_Outside_EventScript_Giselle_Text_1:
-# 65 "data/maps/PokemonTech_Outside/scripts.pory"
+# 66 "data/maps/PokemonTech_Outside/scripts.pory"
 	.string "I… I lost?\p"
 	.string "But how?$"
 
 PokemonTech_Outside_EventScript_GiselleAftermath_Text_0:
-# 72 "data/maps/PokemonTech_Outside/scripts.pory"
+# 73 "data/maps/PokemonTech_Outside/scripts.pory"
 	.string "How…\p"
 	.string "How… did I lose?\p"
 	.string "It… it was perfect!\n"
@@ -173,8 +178,12 @@ PokemonTech_Outside_EventScript_GiselleAftermath_Text_0:
 	.string "You cheated!\n"
 	.string "You couldn't have beaten me!\p"
 	.string "You ruined everything!\p"
-	.string "Grah!\n"
-	.string "I'll be back, whatever your name is!\p"
+	.string "Ah!$"
+
+PokemonTech_Outside_EventScript_GiselleAftermath_Text_1:
+# 89 "data/maps/PokemonTech_Outside/scripts.pory"
+	.string "Grah! My TM!\p"
+	.string "I'll be back, whoever you are!\p"
 	.string "And the next time we'll meet,\n"
 	.string "I'll prove to everyone that you are\l"
 	.string "nothing more than a cheat!$"

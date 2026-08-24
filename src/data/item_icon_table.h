@@ -369,7 +369,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_HM07]           = {gItemIcon_TMHM, gItemIconPalette_WaterTMHM},
     [ITEM_HM08]           = {gItemIcon_TMHM, gItemIconPalette_WaterTMHM},
     // ????????
-    [ITEM_15B]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_TM55]           = {gItemIcon_TMHM, gItemIconPalette_WaterTMHM},
     [ITEM_15C]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     // FireRed/LeafGreen key items
     [ITEM_OAKS_PARCEL]    = {gItemIcon_OaksParcel, gItemIconPalette_OaksParcel},
