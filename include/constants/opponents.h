@@ -751,7 +751,7 @@
 #define TRAINER_LASS_HANA                        745
 #define TRAINER_YOUNGSTER_WOOP                   746
 #define TRAINER_BUG_CATCHER_BROOK                747
-#define TRAINER_CRUSH_GIRL_PETRA                 748
+#define TRAINER_LASS_PETRA                       748
 #define TRAINER_PICNICKER_ARAN                   749
 #define TRAINER_LASS_GISELLE                     750
 

@@ -606,7 +606,7 @@ VermilionCity_EventScript_CheckTicket_Text_2:
 # 289 "data/maps/VermilionCity/scripts.pory"
 	.string "… …\n"
 	.string "… …\p"
-	.string "Say, you look… {PAUSE 30}familiar.\n"
+	.string "Say, you look… {PAUSE 30}familiar.{PAUSE 30}\n"
 	.string "What's your name?\p"
 	.string "… …\n"
 	.string "… …\p"

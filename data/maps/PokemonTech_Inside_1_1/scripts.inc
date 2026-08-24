@@ -86,46 +86,49 @@ PokemonTech_Inside_1_1_EventScript_Joe::
 # 71 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	goto_if_set FLAG_SCHOOL_OF_HARD_KNOCKS, PokemonTech_Inside_1_1_EventScript_Joe_2
 # 80 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_1
-# 83 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	textcolor NPC_TEXT_COLOR_NEUTRAL
-# 84 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	playfanfare MUS_OBTAIN_TMHM
-# 85 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	message PokemonTech_Inside_1_1_EventScript_Joe_Text_2
-# 86 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	waitmessage
-# 87 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	waitfanfare
-# 88 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	call EventScript_RestorePrevTextColor
-# 89 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	removeitem ITEM_LETTER
-# 90 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_3
+	checktrainerflag TRAINER_LASS_GISELLE
+	goto_if 1, PokemonTech_Inside_1_1_EventScript_Joe_5
 # 94 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	closemessage
-# 95 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	playse SE_BANG
-# 96 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	delay 30
+	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_2
 # 97 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	fadenewbgm MUS_ENCOUNTER_ROCKET
+	textcolor NPC_TEXT_COLOR_NEUTRAL
 # 98 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	applymovement LOCALID_JOE, PokemonTech_Inside_1_1_EventScript_Joe_Movement_0
+	playfanfare MUS_OBTAIN_TMHM
+# 99 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	message PokemonTech_Inside_1_1_EventScript_Joe_Text_3
+# 100 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	waitmessage
+# 101 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	waitfanfare
 # 102 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	applymovement LOCALID_PLAYER, PokemonTech_Inside_1_1_EventScript_Joe_Movement_1
-# 105 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	waitmovement 0
-# 106 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	delay 40
-# 107 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	call EventScript_RestorePrevTextColor
+# 103 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	removeitem ITEM_LETTER
+# 104 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_4
-# 117 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	release
-# 118 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
-	fadenewbgm MUS_SEVII_67
+# 108 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	closemessage
+# 109 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	playse SE_BANG
+# 110 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	delay 30
+# 111 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	fadenewbgm MUS_ENCOUNTER_ROCKET
+# 112 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	applymovement LOCALID_JOE, PokemonTech_Inside_1_1_EventScript_Joe_Movement_0
+# 116 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	applymovement LOCALID_PLAYER, PokemonTech_Inside_1_1_EventScript_Joe_Movement_1
 # 119 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	waitmovement 0
+# 120 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	delay 40
+# 121 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_5
+# 131 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	release
+# 132 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	fadenewbgm MUS_SEVII_67
+# 133 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	setflag FLAG_SCHOOL_OF_HARD_KNOCKS
 	end
 
@@ -136,6 +139,13 @@ PokemonTech_Inside_1_1_EventScript_Joe_2:
 	release
 	end
 
+PokemonTech_Inside_1_1_EventScript_Joe_5:
+# 81 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	msgbox PokemonTech_Inside_1_1_EventScript_Joe_Text_1
+# 91 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	release
+	end
+
 
 # 8 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 PokemonTech_Inside_1_1_EventScript_Camper_Movement_0:
@@ -143,17 +153,17 @@ PokemonTech_Inside_1_1_EventScript_Camper_Movement_0:
 	face_original_direction
 	step_end
 
-# 98 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 112 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 PokemonTech_Inside_1_1_EventScript_Joe_Movement_0:
-# 99 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 113 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	face_down
-# 100 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 114 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	emote_exclamation_mark
 	step_end
 
-# 102 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 116 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 PokemonTech_Inside_1_1_EventScript_Joe_Movement_1:
-# 103 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 117 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	face_down
 	step_end
 
@@ -192,22 +202,32 @@ PokemonTech_Inside_1_1_EventScript_Joe_Text_0:
 	.string "are already at the door…$"
 
 PokemonTech_Inside_1_1_EventScript_Joe_Text_1:
-# 80 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+# 81 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+	.string "Oh, you defeated her?\n"
+	.string "Good job.\p"
+	.string "No, I do not know where she ran\n"
+	.string "off to.\p"
+	.string "…Hey, ain't that an S.S. TICKET?\p"
+	.string "The S.S. ANNE should probably be\n"
+	.string "on VERMILLION HARBOR now.$"
+
+PokemonTech_Inside_1_1_EventScript_Joe_Text_2:
+# 94 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	.string "Hi. My name is JOE.\p"
 	.string "Oh? You have something for me?$"
 
-PokemonTech_Inside_1_1_EventScript_Joe_Text_2:
-# 85 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+PokemonTech_Inside_1_1_EventScript_Joe_Text_3:
+# 99 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	.string "{PLAYER} delivered LETTER to JOE.$"
 
-PokemonTech_Inside_1_1_EventScript_Joe_Text_3:
-# 90 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+PokemonTech_Inside_1_1_EventScript_Joe_Text_4:
+# 104 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	.string "A letter? From whom?\p"
 	.string "Oh, from THE SAILOR! I knew I\n"
 	.string "forgot something back home…$"
 
-PokemonTech_Inside_1_1_EventScript_Joe_Text_4:
-# 107 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
+PokemonTech_Inside_1_1_EventScript_Joe_Text_5:
+# 121 "data/maps/PokemonTech_Inside_1_1/scripts.pory"
 	.string "Uh oh… Looks like it's break time…\p"
 	.string "And that's the time SHE riles up\n"
 	.string "the student body for her gain…\p"

@@ -16,7 +16,7 @@
   "connections": [
     {
       "map": "MAP_ROUTE6",
-      "offset": 7,
+      "offset": 11,
       "direction": "right"
     }
   ],
@@ -24,16 +24,16 @@
     {
       "type": "clone",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 40,
-      "y": 15,
+      "x": 50,
+      "y": 19,
       "target_local_id": "7",
       "target_map": "MAP_ROUTE6"
     },
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 12,
-      "y": 2,
+      "x": 22,
+      "y": 6,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -47,8 +47,8 @@
       "local_id": "LOCALID_GISELLE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GISELLE",
-      "x": 6,
-      "y": 12,
+      "x": 16,
+      "y": 16,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -61,8 +61,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
-      "x": 3,
-      "y": 6,
+      "x": 13,
+      "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -74,9 +74,9 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_CRUSH_GIRL",
-      "x": 9,
-      "y": 8,
+      "graphics_id": "OBJ_EVENT_GFX_LASS",
+      "x": 19,
+      "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
@@ -89,8 +89,8 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 3,
-      "y": 10,
+      "x": 13,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -99,24 +99,61 @@
       "trainer_sight_or_berry_tree_id": "5",
       "script": "PokemonTech_Outside_EventScript_Aran",
       "flag": "FLAG_HIDE_POKETECH_BULLY"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_CUT_TREE",
+      "x": 12,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_CutTree",
+      "flag": "FLAG_TEMP_11"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
+      "x": 12,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
+      "movement_range_x": 2,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
-      "x": 22,
-      "y": 11,
+      "x": 32,
+      "y": 15,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_TECH_INSIDE_1F",
       "dest_warp_id": "0"
     },
     {
-      "x": 14,
-      "y": 4,
+      "x": 24,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_POKEMON_TECH_INSIDE_1F",
       "dest_warp_id": "1"
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 16,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Outside_EventScript_Sign"
+    }
+  ]
 }

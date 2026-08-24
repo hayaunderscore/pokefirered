@@ -1,4 +1,18 @@
-mapscripts PokemonTech_Outside_MapScripts {}
+mapscripts PokemonTech_Outside_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTech_Outside_EventScript_OnTransition
+}
+
+script PokemonTech_Outside_EventScript_OnTransition {
+	if (defeated(TRAINER_LASS_GISELLE)) {
+		clearflag(FLAG_SCHOOL_OF_HARD_KNOCKS)
+		setflag(FLAG_HIDE_POKETECH_BULLY)
+		return
+	}
+	setflag(FLAG_HIDE_POKETECH_BULLY)
+	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
+		clearflag(FLAG_HIDE_POKETECH_BULLY)
+	}
+}
 
 script PokemonTech_Outside_EventScript_Woop {
 	trainerbattle_single(TRAINER_YOUNGSTER_WOOP,
@@ -23,9 +37,9 @@ script PokemonTech_Outside_EventScript_Brook {
 }
 
 script PokemonTech_Outside_EventScript_Petra {
-	trainerbattle_single(TRAINER_CRUSH_GIRL_PETRA,
-			"Tell me, do I look good?",
-			"Should really work more on my looks\.")
+	trainerbattle_single(TRAINER_LASS_PETRA,
+			"Tell me, do I look beautiful?",
+			"Tell me!")
 	msgbox("Gosh darn it!
 
             What should I do to get more
@@ -98,11 +112,19 @@ script PokemonTech_Outside_EventScript_GiselleAftermath {
     applymovement(LOCALID_GISELLE, moves(
         walk_down * 2
         walk_right * 6
-        jump_right
+        jump_2_right
         walk_right * 2
-        jump_right
+        jump_2_right
     ))
     waitmovement(0)
     removeobject(LOCALID_GISELLE)
+    clearflag(FLAG_SCHOOL_OF_HARD_KNOCKS)
+    clearflag(FLAG_SS_ANNE_DELAYED)
+    clearflag(FLAG_DELIVERING_SS_ANNE_LETTER)
     fadedefaultbgm
+}
+
+script PokemonTech_Outside_EventScript_Sign {
+	msgbox("Learn about POK\eMON!
+			POK\eMON TECHNICAL INSTITUTE", MSGBOX_SIGN)
 }

@@ -126,10 +126,10 @@ Scyther
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_CRUSH_GIRL_PETRA ===
+=== TRAINER_LASS_PETRA ===
 Name: PETRA
-Class: Crush Girl
-Pic: Crush Girl
+Class: Lass
+Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: No

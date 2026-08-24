@@ -289,7 +289,7 @@ script VermilionCity_EventScript_CheckTicket {
 		msgbox("\. \.
 				\. \.
 
-				Say, you look\. {PAUSE 30}familiar.
+				Say, you look\. {PAUSE 30}familiar.{PAUSE 30}
 				What's your name?
 
 				\. \.

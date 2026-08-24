@@ -77,6 +77,20 @@ script PokemonTech_Inside_1_1_EventScript_Joe {
 		release
 		end
 	}
+	if (defeated(TRAINER_LASS_GISELLE)) {
+		msgbox("Oh, you defeated her?
+				Good job.
+
+				No, I do not know where she ran
+				off to.
+
+				\.Hey, ain't that an S.S. TICKET?
+
+				The S.S. ANNE should probably be
+				on VERMILLION HARBOR now.")
+		release
+		end
+	}
 	msgbox("Hi. My name is JOE.
 
 			Oh? You have something for me?")
