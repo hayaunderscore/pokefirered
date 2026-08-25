@@ -355,7 +355,7 @@ const u8 gMoveDescription_ShockWave[] = _("A rapid jolt of\nelectricity strikes\
 const u8 gMoveDescription_WaterPulse[] = _("An attack with a\npulsing blast of\nwater. It may also\nconfuse the foe.");
 const u8 gMoveDescription_DoomDesire[] = _("A move that attacks\nthe foe with a\nblast of light two\nturns after use.");
 const u8 gMoveDescription_PsychoBoost[] = _("An intense attack\nthat also sharply\nreduces the user's\nSP. ATK stat.");
-const u8 gMoveDescription_Abyss[] = _("An attack that\nplunges the foe\ninto the ABYSS.");
+const u8 gMoveDescription_Abyss[] = _("A yawning chasm of\ndarkness opens\nbeneath the foe.\n");
 const u8 gMoveDescription_Rapture[] = _("An attack that\ninitiates a RAPTURE\nonto the foe.");
 const u8 gMoveDescription_Strike[] = _("An attack that\nSTRIKEs the foe\ndown to LAND.");
 
