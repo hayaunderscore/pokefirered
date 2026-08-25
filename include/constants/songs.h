@@ -358,6 +358,6 @@
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_TEACHY_TV_MENU
+#define END_MUS                     MUS_VS_REGI
 
 #endif  // GUARD_CONSTANTS_SONGS_H

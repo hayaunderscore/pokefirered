@@ -1042,6 +1042,8 @@ SECTIONS {
         src/*.o(.rodata);
         data/*.o(.rodata);
     } > ROM =0
+    
+    __rom_end = .;
 
     /* DWARF debug sections.
        Symbols in the DWARF debugging sections are relative to the beginning
