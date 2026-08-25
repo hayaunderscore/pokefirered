@@ -3,6 +3,7 @@
 #include "quest_log.h"
 #include "list_menu.h"
 #include "diploma.h"
+#include "debug.h"
 #include "script.h"
 #include "field_player_avatar.h"
 #include "overworld.h"
@@ -33,6 +34,7 @@
 #include "dynamic_placeholder_text_util.h"
 #include "new_menu_helpers.h"
 #include "trainer_fly.h"
+#include "config/debug.h"
 #include "constants/songs.h"
 #include "constants/items.h"
 #include "constants/maps.h"
@@ -213,6 +215,11 @@ void AnimatePcTurnOn(void)
 {
     u8 taskId;
 
+#if DEBUG_OVERWORLD_MENU == TRUE
+    if (gIsDebugPC)
+        return;
+#endif
+
     if (FuncIsActiveTask(Task_AnimatePcTurnOn) != TRUE)
     {
         taskId = CreateTask(Task_AnimatePcTurnOn, 8);
@@ -289,6 +296,14 @@ void AnimatePcTurnOff()
     s8 deltaX = 0;
     s8 deltaY = 0;
     u8 direction = GetPlayerFacingDirection();
+
+#if DEBUG_OVERWORLD_MENU == TRUE
+    if (gIsDebugPC)
+    {
+        gIsDebugPC = FALSE;
+        return;
+    }
+#endif
 
     switch (direction)
     {
@@ -2560,4 +2575,8 @@ void StartNewTrainerFlyBattle(void)
 {
 	// I prefer having the actual stuff happen somewhere else, actually.
 	StartTrainerFlyBattle();
+}
+u16 ScriptGetPartyMonSpecies(void)
+{
+    return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }

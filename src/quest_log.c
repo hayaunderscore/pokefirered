@@ -28,6 +28,7 @@
 #include "constants/quest_log.h"
 #include "constants/field_weather.h"
 #include "constants/event_object_movement.h"
+#include "config/overworld.h"
 
 enum {
     WIN_TOP_BAR,      // Contains the "Previously on..." text
@@ -455,6 +456,9 @@ void TryStartQuestLogPlayback(u8 taskId)
         if (gSaveBlock1Ptr->questLog[i].startType != 0)
             sNumScenes++;
     }
+
+    if (FlagGet(OW_FLAG_DISABLE_QUEST_LOG))
+        sNumScenes = 0;
 
     if (sNumScenes != 0)
     {

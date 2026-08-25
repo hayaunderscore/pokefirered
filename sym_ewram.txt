@@ -135,3 +135,4 @@
 	.include "src/trainer_tower.o"
 	.include "src/berry_powder.o"
 	.include "src/option_menu_plus.o"
+	.include "src/debug.o"

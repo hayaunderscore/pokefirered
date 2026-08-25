@@ -447,4 +447,5 @@ gSpecials::
 	def_special LoopWingFlapSound
 	def_special CreateEnemyEventMon
 	def_special StartNewTrainerFlyBattle
+	def_special ScriptGetPartyMonSpecies
 gSpecialsEnd::

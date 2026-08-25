@@ -69,3 +69,4 @@ build-cmake-*/
 CMakeLists.txt
 compile_commands.json
 pokefirered*.*
+src/data/map_group_count.h
