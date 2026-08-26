@@ -1,3 +1,5 @@
+#include "constants/flags.h"
+#include "constants/opponents.h"
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -3576,6 +3578,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         else
             moveBattler2 = MOVE_NONE;
     }
+    if (gTrainerBattleOpponent_A == TRAINER_RIVAL_SS_ANNE_RATICATE && GetBattlerSide(battler1) == B_SIDE_PLAYER)
+	{
+		if (moveBattler1 == MOVE_ABYSS || moveBattler1 == MOVE_RAPTURE || moveBattler1 == MOVE_STRIKE)
+		{
+			FlagSet(FLAG_PROCEEDED_ROUTE);
+			FlagClear(FLAG_FLAWED_ROUTE);
+		}
+		else
+		{
+			FlagClear(FLAG_PROCEEDED_ROUTE);
+			FlagSet(FLAG_FLAWED_ROUTE);
+		}
+	}
     // both move priorities are different than 0
     if (gBattleMoves[moveBattler1].priority != 0 || gBattleMoves[moveBattler2].priority != 0)
     {

@@ -5869,6 +5869,8 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_COOLTRAINER:
         case TRAINER_CLASS_GENTLEMAN:
         case TRAINER_CLASS_RIVAL_LATE:
+        	if (gTrainerBattleOpponent_A == TRAINER_RIVAL_SS_ANNE_RATICATE)
+         		return MUS_ENCOUNTER_DEOXYS;
         default:
             return MUS_VS_TRAINER;
         }

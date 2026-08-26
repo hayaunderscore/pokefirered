@@ -20,37 +20,6 @@ SSAnne_2F_Corridor_EventScript_RivalTriggerRight::
 	goto SSAnne_2F_Corridor_EventScript_RivalTrigger
 	end
 
-SSAnne_2F_Corridor_EventScript_RivalTrigger::
-	textcolor NPC_TEXT_COLOR_MALE
-	playse SE_EXIT
-	delay 5
-	playbgm MUS_ENCOUNTER_RIVAL, 0
-	addobject LOCALID_SS_ANNE_RIVAL
-	delay 10
-	applymovement LOCALID_SS_ANNE_RIVAL, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	delay 20
-	call_if_eq VAR_TEMP_1, 0, SSAnne_2F_Corridor_EventScript_RivalApproachLeft
-	call_if_eq VAR_TEMP_1, 1, SSAnne_2F_Corridor_EventScript_RivalApproachMid
-	call_if_eq VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalApproachRight
-	msgbox SSAnne_2F_Corridor_Text_RivalIntro
-	setvar VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL
-	call_if_eq VAR_STARTER_MON, 2, SSAnne_2F_Corridor_EventScript_RivalSquirtle
-	call_if_eq VAR_STARTER_MON, 1, SSAnne_2F_Corridor_EventScript_RivalBulbasaur
-	call_if_eq VAR_STARTER_MON, 0, SSAnne_2F_Corridor_EventScript_RivalCharmander
-	msgbox SSAnne_2F_Corridor_Text_RivalPostBattle
-	closemessage
-	delay 10
-	playbgm MUS_RIVAL_EXIT, 0
-	call_if_eq VAR_TEMP_1, 0, SSAnne_2F_Corridor_EventScript_RivalExitLeft
-	call_if_eq VAR_TEMP_1, 1, SSAnne_2F_Corridor_EventScript_RivalExitMid
-	call_if_eq VAR_TEMP_1, 2, SSAnne_2F_Corridor_EventScript_RivalExitRight
-	fadedefaultbgm
-	removeobject LOCALID_SS_ANNE_RIVAL
-	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1
-	releaseall
-	end
-
 SSAnne_2F_Corridor_EventScript_RivalApproachLeft::
 	applymovement LOCALID_SS_ANNE_RIVAL, SSAnne_2F_Corridor_Movement_RivalApproachLeft
 	waitmovement 0
@@ -169,3 +138,149 @@ SSAnne_2F_Corridor_EventScript_Sailor::
 	msgbox SSAnne_2F_Corridor_Text_ThisShipIsLuxuryLiner, MSGBOX_NPC
 	end
 `
+
+script SSAnne_2F_Corridor_EventScript_RivalKillThatFuckingRat {
+	closemessage
+	fadenewbgm(MUS_DUMMY)
+	savebgm(MUS_DUMMY)
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(90)
+	msgbox("Eh? Something wrong?
+
+		What, are you scared?
+
+		\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+		\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+
+		Hah! Of what, a POKéMON battle?
+
+		Too bad! I'll give you a reason to
+		be scared! Come on!
+
+		\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+		\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.\.
+
+		What's gotten into you?
+
+		Just send out your POKéMON already!")
+	trainerbattle_no_intro(
+		TRAINER_RIVAL_SS_ANNE_RATICATE, "W-what?
+
+										What\. what was that?
+
+										No! Time-out! Time-out!
+
+										I forfeit!")
+}
+
+script SSAnne_2F_Corridor_EventScript_RivalTrigger {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	playse(SE_EXIT)
+	delay(5)
+	playbgm(MUS_ENCOUNTER_RIVAL, 0)
+	addobject(LOCALID_SS_ANNE_RIVAL)
+	delay(10)
+	applymovement(LOCALID_SS_ANNE_RIVAL, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	delay(20)
+	switch (var(VAR_TEMP_1)) {
+		case 0:
+			call(SSAnne_2F_Corridor_EventScript_RivalApproachLeft)
+			break
+		case 1:
+			call(SSAnne_2F_Corridor_EventScript_RivalApproachMid)
+			break
+		case 2:
+			call(SSAnne_2F_Corridor_EventScript_RivalApproachRight)
+			break
+	}
+	msgbox(SSAnne_2F_Corridor_Text_RivalIntro)
+	setvar(VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL)
+	if (checkpartymove(MOVE_ABYSS) || checkpartymove(MOVE_RAPTURE) || checkpartymove(MOVE_STRIKE)) {
+		call(SSAnne_2F_Corridor_EventScript_RivalKillThatFuckingRat)
+		playbgm(MUS_DUMMY, 0)
+		closemessage
+		delay(10)
+		if (flag(FLAG_PROCEEDED_ROUTE)) {
+			msgbox("\.
+
+					I\.
+
+					G-get away from me! What did you do
+					to your POKéMON?
+
+					What did you do to MY POKéMON?
+
+					I\.
+
+					I have to go!")
+		} elif (flag(FLAG_FLAWED_ROUTE)) {
+			msgbox("\.
+
+					{PLAYER}\.
+
+					Are you okay?", MSGBOX_YESNO)
+			if (var(VAR_RESULT) == TRUE) {
+				msgbox("\.Sure.
+
+						Just\. needed to ask.
+
+						You seem quite out of it these days
+						for\. some reason.
+
+						I'll get out of your hair.")
+			} else {
+				msgbox("\.
+
+						I-I'm sorry\.
+
+						I'll let you be.")
+			}
+		}
+		closemessage
+		switch (var(VAR_TEMP_1)) {
+			case 0:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitLeft)
+				break
+			case 1:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitMid)
+				break
+			case 2:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitRight)
+				break
+		}
+	}
+	else {
+		switch (var(VAR_STARTER_MON)) {
+			case 0:
+				call(SSAnne_2F_Corridor_EventScript_RivalCharmander)
+				break
+			case 1:
+				call(SSAnne_2F_Corridor_EventScript_RivalBulbasaur)
+				break
+			case 2:
+				call(SSAnne_2F_Corridor_EventScript_RivalSquirtle)
+				break
+		}
+		closemessage
+		delay(10)
+		playbgm(MUS_RIVAL_EXIT, 0)
+		switch (var(VAR_TEMP_1)) {
+			case 0:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitLeft)
+				break
+			case 1:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitMid)
+				break
+			case 2:
+				call(SSAnne_2F_Corridor_EventScript_RivalExitRight)
+				break
+		}
+		fadedefaultbgm
+	}
+	removeobject(LOCALID_SS_ANNE_RIVAL)
+	setvar(VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1)
+	releaseall
+	end
+}

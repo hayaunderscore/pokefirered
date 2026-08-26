@@ -754,12 +754,13 @@
 #define TRAINER_LASS_PETRA                       748
 #define TRAINER_PICNICKER_ARAN                   749
 #define TRAINER_LASS_GISELLE                     750
+#define TRAINER_RIVAL_SS_ANNE_RATICATE           751
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             751
+#define NUM_TRAINERS                             752
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

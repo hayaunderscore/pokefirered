@@ -770,8 +770,8 @@
 #define FLAG_DELIVERING_SS_ANNE_LETTER                   0x2E7
 #define FLAG_SS_ANNE_DELAYED                             0x2E8
 #define FLAG_ABYSS_ROUTE                                 0x2E9
-#define FLAG_0x2EA                                       0x2EA
-#define FLAG_0x2EB                                       0x2EB
+#define FLAG_FLAWED_ROUTE                                0x2EA
+#define FLAG_PROCEEDED_ROUTE                             0x2EB
 #define FLAG_REVIVED_DOME                                0x2EC
 #define FLAG_REVIVED_HELIX                               0x2ED
 #define FLAG_REVIVED_AMBER                               0x2EE
