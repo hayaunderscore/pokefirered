@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+        with:
+          submodules: recursive
 
       - name: Install binutils
         run: |
@@ -30,6 +32,6 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: FRLGV.gba
-          path: pokefirered.gba
+          path: pokefirered_modern.gba
           retention-days: 2
           archive: false
