@@ -353,7 +353,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(LUGIA),
     SPECIES_TO_HOENN(HO_OH),
     SPECIES_TO_HOENN(CELEBI),
-    SPECIES_TO_HOENN(OLD_UNOWN_B),
+    SPECIES_TO_HOENN(RAINER),
     SPECIES_TO_HOENN(OLD_UNOWN_C),
     SPECIES_TO_HOENN(OLD_UNOWN_D),
     SPECIES_TO_HOENN(OLD_UNOWN_E),
@@ -769,7 +769,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(LUGIA),
     SPECIES_TO_NATIONAL(HO_OH),
     SPECIES_TO_NATIONAL(CELEBI),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_B),
+    SPECIES_TO_NATIONAL(RAINER),
     SPECIES_TO_NATIONAL(OLD_UNOWN_C),
     SPECIES_TO_NATIONAL(OLD_UNOWN_D),
     SPECIES_TO_NATIONAL(OLD_UNOWN_E),
@@ -1320,7 +1320,7 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(LUGIA),
     HOENN_TO_NATIONAL(HO_OH),
     HOENN_TO_NATIONAL(CELEBI),
-    HOENN_TO_NATIONAL(OLD_UNOWN_B),
+    HOENN_TO_NATIONAL(RAINER),
     HOENN_TO_NATIONAL(OLD_UNOWN_C),
     HOENN_TO_NATIONAL(OLD_UNOWN_D),
     HOENN_TO_NATIONAL(OLD_UNOWN_E),
@@ -5233,8 +5233,11 @@ u16 HoennToNationalOrder(u16 hoennNum)
 
 u16 SpeciesToCryId(u16 species)
 {
-    if (species < SPECIES_OLD_UNOWN_B - 1)
+    if (species < SPECIES_RAINER - 1)
         return species;
+    
+    if (species == SPECIES_RAINER - 1) // Rainer's cry is at the end of the list...
+    	return sHoennSpeciesIdToCryId[SPECIES_CHIMECHO - 277] + 1;
 
     if (species <= SPECIES_OLD_UNOWN_Z - 1)
         return SPECIES_UNOWN - 1;

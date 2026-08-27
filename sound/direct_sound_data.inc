@@ -1863,6 +1863,9 @@ Cry_Deoxys::
 Cry_Chimecho::
 	.incbin "sound/direct_sound_samples/cries/chimecho.bin"
 
+	.align 2
+Cry_Rainer::
+	.incbin "sound/direct_sound_samples/cries/rainer.bin"
 
 	.align 2
 DirectSoundWaveData_register_noise::

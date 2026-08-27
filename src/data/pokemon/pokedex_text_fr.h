@@ -2718,3 +2718,8 @@ const u8 gDeoxysPokedexText[] = _(
     "altering its appearance.");
 
 const u8 gDeoxysPokedexTextUnused[] = _("");
+
+const u8 gRainerPokedexText[] = _(
+	"This POKéMON is simultaneously mortal\n"
+	"and divine, yet none at once. In a\n"
+	"normal world, it should not exist.");

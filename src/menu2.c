@@ -264,7 +264,7 @@ static const u8 sMonPosAttributes[][PSA_MON_ATTR_COUNT] = {
     [SPECIES_LUGIA           - 1] = { 8, 42,  8, 20, 52},
     [SPECIES_HO_OH           - 1] = {13, 37,  8, 14, 52},
     [SPECIES_CELEBI          - 1] = {21, 33,  8, 26, 43},
-    [SPECIES_OLD_UNOWN_B     - 1] = {31, 18,  8, 30, 28},
+    [SPECIES_RAINER     - 1] = {31, 18,  8, 30, 28},
     [SPECIES_OLD_UNOWN_C     - 1] = {32, 23,  8, 31, 33},
     [SPECIES_OLD_UNOWN_D     - 1] = {28, 25,  8, 27, 35},
     [SPECIES_OLD_UNOWN_E     - 1] = {33, 25,  8, 32, 35},
@@ -652,7 +652,7 @@ u8 Menu2_GetMonPosAttribute(u16 species, u32 personality, u8 attributeId)
             species = SPECIES_OLD_UNOWN_QMARK;
             break;
         default:
-            species = SPECIES_OLD_UNOWN_B + unownLetter - 1;
+            species = SPECIES_RAINER + unownLetter - 1;
             break;
         }
     }

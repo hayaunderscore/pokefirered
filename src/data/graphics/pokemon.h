@@ -2721,6 +2721,13 @@ const u32 gMonShinyPalette_Chimecho[] = INCBIN_U32("graphics/pokemon/chimecho/sh
 const u8 gMonIcon_Chimecho[] = INCBIN_U8("graphics/pokemon/chimecho/icon.4bpp");
 const u8 gMonFootprint_Chimecho[] = INCBIN_U8("graphics/pokemon/chimecho/footprint.1bpp");
 
+const u32 gMonFrontPic_Rainer[] = INCBIN_U32("graphics/pokemon/rainer/front.4bpp.lz");
+const u32 gMonPalette_Rainer[] = INCBIN_U32("graphics/pokemon/rainer/normal.gbapal.lz");
+const u32 gMonBackPic_Rainer[] = INCBIN_U32("graphics/pokemon/rainer/back.4bpp.lz");
+const u32 gMonShinyPalette_Rainer[] = INCBIN_U32("graphics/pokemon/rainer/shiny.gbapal.lz");
+const u8 gMonIcon_Rainer[] = INCBIN_U8("graphics/pokemon/rainer/icon.4bpp");
+const u8 gMonFootprint_Rainer[] = INCBIN_U8("graphics/pokemon/rainer/footprint.1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/front.4bpp.lz");
 const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
 

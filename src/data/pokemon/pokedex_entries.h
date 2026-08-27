@@ -5030,4 +5030,17 @@ const struct PokedexEntry gPokedexEntries[] =
         .trainerScale = 337,
         .trainerOffset = 2,
     },
+
+    [NATIONAL_DEX_RAINER] =
+    {
+	    .categoryName = _("GOD"),
+	    .height = 16,
+	    .weight = 855,
+	    .description = gRainerPokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 256,
+	    .pokemonOffset = 1,
+	    .trainerScale = 329,
+	    .trainerOffset = 3,
+    },
 };

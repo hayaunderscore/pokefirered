@@ -6059,7 +6059,7 @@ static const u32 sTMHMLearnsets[][2] =
                                         | TMHM(HM01_CUT)
                                         | TMHM(HM05_FLASH)),
 
-    [SPECIES_OLD_UNOWN_B] = TMHM_LEARNSET(0),
+    [SPECIES_RAINER] = TMHM_LEARNSET(0),
 
     [SPECIES_OLD_UNOWN_C] = TMHM_LEARNSET(0),
 
