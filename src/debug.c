@@ -129,7 +129,6 @@ enum FlagsVarsMenu
     DEBUG_FLAGVAR_MENU_ITEM_DEXFLAGS_RESET,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_POKEDEX,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_NATDEX,
-    DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_RUN_SHOES,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_LOCATIONS,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_BADGES_ALL,
     DEBUG_FLAGVAR_MENU_ITEM_TOGGLE_COLISSION,
@@ -387,7 +386,7 @@ static const u8 sDebugText_Sound[] =            _("Sound…{CLEAR_TEXT_TO 110}{R
 static const u8 sDebugText_Cancel[] =           _("Cancel");
 // Script menu
 static const u8 sDebugText_Util_Script_1[] =               _("Script 1");
-static const u8 sDebugText_Util_Script_2[] =               _("Script 2");
+static const u8 sDebugText_Util_Script_2[] =               _("Point of divergence");
 static const u8 sDebugText_Util_Script_3[] =               _("Script 3");
 static const u8 sDebugText_Util_Script_4[] =               _("Script 4");
 static const u8 sDebugText_Util_Script_5[] =               _("Script 5");

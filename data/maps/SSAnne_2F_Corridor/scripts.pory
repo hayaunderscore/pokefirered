@@ -218,6 +218,7 @@ script SSAnne_2F_Corridor_EventScript_SinkingShip {
 	setflag(FLAG_SYS_PREVENT_MAP_FADE)
 	fadescreenspeed(FADE_TO_BLACK, 4)
 	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
 	msgbox("\.
 
 			It would seem you have met an
@@ -225,6 +226,13 @@ script SSAnne_2F_Corridor_EventScript_SinkingShip {
 
 			That doesn't mean it's the end,
 			however.
+
+			After all, {PAUSE 30}all of this\.
+
+			Is {COLOR BLUE}her{COLOR DARK_GRAY} scenario.
+
+			You wouldn't want your star performer
+			to suddenly die now, {PAUSE 30}would you?
 
 			So {PLAYER}\.
 

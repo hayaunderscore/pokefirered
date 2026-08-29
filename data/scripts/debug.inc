@@ -94,6 +94,10 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	clearflag FLAG_PROCEEDED_ROUTE
+	clearflag FLAG_FLAWED_ROUTE
+	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 0
+	warp MAP_SSANNE_2F_CORRIDOR, 0
 	end
 
 Debug_EventScript_Script_3::
