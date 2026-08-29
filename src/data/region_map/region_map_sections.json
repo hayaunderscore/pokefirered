@@ -1139,6 +1139,10 @@
     {
       "id": "MAPSEC_POKEMON_TECH",
       "name": "POKéMON TECH"
+    },
+    {
+      "id": "MAPSEC_SUNKEN_S_S_ANNE",
+      "name": "SUNKEN ANNE"
     }
   ]
 }

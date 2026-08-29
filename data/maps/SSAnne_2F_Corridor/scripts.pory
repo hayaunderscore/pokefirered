@@ -174,6 +174,66 @@ script SSAnne_2F_Corridor_EventScript_RivalKillThatFuckingRat {
 										I forfeit!")
 }
 
+script SSAnne_2F_Corridor_EventScript_SinkingShip {
+	playse(SE_M_HYDRO_PUMP)
+	delay(30)
+	applymovement(LOCALID_SS_ANNE_RIVAL, moves(
+		walk_in_place_fast_down
+		emote_exclamation_mark
+		delay_16
+		delay_16
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_down
+		emote_exclamation_mark
+		delay_16
+		delay_16
+	))
+	waitmovement(0)
+	msgbox("\.
+
+			Wait\.
+
+			Is the ship sinking?!
+			We gotta get out of here!")
+	closemessage
+	if (var(VAR_TEMP_1) == 0) {
+		applymovement(LOCALID_SS_ANNE_RIVAL, moves(
+			walk_fast_right
+		))
+		waitmovement(0)
+	}
+	applymovement(LOCALID_SS_ANNE_RIVAL, moves(
+		walk_fast_down * 7
+	))
+	waitmovement(0)
+	fadescreen(FADE_TO_WHITE)
+	delay(30)
+	hideobjectat(LOCALID_PLAYER, 0)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	playse(SE_M_DIVE)
+	waitse
+	delay(120)
+	setflag(FLAG_SYS_PREVENT_MAP_FADE)
+	fadescreenspeed(FADE_TO_BLACK, 4)
+	delay(30)
+	msgbox("\.
+
+			It would seem you have met an
+			unfortunate fate,{PAUSE 30} haven't you?
+
+			That doesn't mean it's the end,
+			however.
+
+			So {PLAYER}\.
+
+			Wake up.")
+	releaseall
+	showobjectat(LOCALID_PLAYER, 0)
+	warpsilent(MAP_SUNKEN_ANNE_2F_CORRIDOR, 0)
+}
+
 script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	textcolor(NPC_TEXT_COLOR_MALE)
 	playse(SE_EXIT)
@@ -215,6 +275,8 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 					I\.
 
 					I have to go!")
+			closemessage
+			call(SSAnne_2F_Corridor_EventScript_SinkingShip)
 		} elif (flag(FLAG_FLAWED_ROUTE)) {
 			msgbox("\.
 
@@ -237,18 +299,18 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 
 						I'll let you be.")
 			}
-		}
-		closemessage
-		switch (var(VAR_TEMP_1)) {
-			case 0:
-				call(SSAnne_2F_Corridor_EventScript_RivalExitLeft)
-				break
-			case 1:
-				call(SSAnne_2F_Corridor_EventScript_RivalExitMid)
-				break
-			case 2:
-				call(SSAnne_2F_Corridor_EventScript_RivalExitRight)
-				break
+			closemessage
+			switch (var(VAR_TEMP_1)) {
+				case 0:
+					call(SSAnne_2F_Corridor_EventScript_RivalExitLeft)
+					break
+				case 1:
+					call(SSAnne_2F_Corridor_EventScript_RivalExitMid)
+					break
+				case 2:
+					call(SSAnne_2F_Corridor_EventScript_RivalExitRight)
+					break
+			}
 		}
 	}
 	else {

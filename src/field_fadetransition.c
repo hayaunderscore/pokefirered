@@ -1,3 +1,5 @@
+#include "constants/flags.h"
+#include "event_data.h"
 #include "global.h"
 #include "gflib.h"
 #include "field_fadetransition.h"
@@ -57,12 +59,14 @@ void WarpFadeInScreen(void)
     {
     case FALSE:
         palette_bg_faded_fill_black();
-        FadeScreen(FADE_FROM_BLACK, 0);
+        if (!FlagGet(FLAG_SYS_PREVENT_MAP_FADE))
+        	FadeScreen(FADE_FROM_BLACK, 0);
         palette_bg_faded_fill_black();
         break;
     case TRUE:
         palette_bg_faded_fill_white();
-        FadeScreen(FADE_FROM_WHITE, 0);
+        if (!FlagGet(FLAG_SYS_PREVENT_MAP_FADE))
+        	FadeScreen(FADE_FROM_WHITE, 0);
         palette_bg_faded_fill_white();
         break;
     }
@@ -74,12 +78,14 @@ static void WarpFadeInScreenWithDelay(void)
     {
     case FALSE:
         palette_bg_faded_fill_black();
-        FadeScreen(FADE_FROM_BLACK, 3);
+        if (!FlagGet(FLAG_SYS_PREVENT_MAP_FADE))
+        	FadeScreen(FADE_FROM_BLACK, 3);
         palette_bg_faded_fill_black();
         break;
     case TRUE:
         palette_bg_faded_fill_white();
-        FadeScreen(FADE_FROM_WHITE, 3);
+        if (!FlagGet(FLAG_SYS_PREVENT_MAP_FADE))
+        	FadeScreen(FADE_FROM_WHITE, 3);
         palette_bg_faded_fill_white();
         break;
     }

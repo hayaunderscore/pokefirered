@@ -1374,3 +1374,9 @@ Text_TestMsg::
 
 	.include "data/maps/PokemonTech_Inside_1_1/scripts.inc"
 	.include "data/maps/PokemonTech_Inside_1_1/text.inc"
+
+	.include "data/maps/SunkenAnne_2F_Corridor/scripts.inc"
+	.include "data/maps/SunkenAnne_2F_Corridor/text.inc"
+
+	.include "data/maps/SunkenAnne_2F_Room/scripts.inc"
+	.include "data/maps/SunkenAnne_2F_Room/text.inc"

@@ -31,7 +31,6 @@ Debug_CheatStart::
 	special SetUnlockedPokedexFlags
 	setflag FLAG_SYS_NATIONAL_DEX
 	special EnableNationalPokedex
-	setflag FLAG_SYS_B_DASH
 	setflag FLAG_GOT_BICYCLE
 	additem ITEM_BICYCLE
 	setflag FLAG_BADGE01_GET

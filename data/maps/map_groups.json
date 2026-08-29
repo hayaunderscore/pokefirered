@@ -51,7 +51,8 @@
     "RecordCorner",
     "BattleColosseum_4P",
     "UnionRoom",
-    "Route25_Garden"
+    "Route25_Garden",
+    "SunkenAnne_2F_Room"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -176,7 +177,8 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "SunkenAnne_2F_Corridor"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",

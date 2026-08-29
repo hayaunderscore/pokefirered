@@ -1,0 +1,30 @@
+mapscripts SunkenAnne_2F_Corridor_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SunkenAnne_2F_Corridor_EventScript_OnTransition
+}
+
+script SunkenAnne_2F_Corridor_EventScript_OnTransition {
+	clearflag(FLAG_SYS_PREVENT_MAP_FADE)
+}
+
+script SunkenAnne_2F_Corridor_EventScript_LockedDoor {
+	lock
+	delay(16)
+	playse(SE_BANG)
+	waitse
+	msgbox("It won't open.", MSGBOX_SIGN)
+	release
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_OldMan {
+	lock
+	faceplayer
+	msgbox("Egads! The ship sank!
+
+			Someone like you should definitely
+			get out of here as fast as you can.
+
+			Which is why I'm not doing that.")
+	release
+	end
+}

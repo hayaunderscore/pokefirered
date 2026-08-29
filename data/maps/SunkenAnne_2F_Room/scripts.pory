@@ -1,0 +1,64 @@
+mapscripts SunkenAnne_2F_Room_MapScripts {}
+
+script SunkenAnne_2F_Room_EventScript_PokeManiac {
+	lock
+	faceplayer
+	msgbox("Gah!
+			Oh\. It's just another survivor.
+
+			Trying to get out of this mess?
+			Don't bother.
+
+			All the exits are all completely
+			blocked off. We're stuck here!
+
+			Don't worry though- you're safe as
+			there will be rescuers.
+
+			I think\.")
+	release
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_LittleGirl {
+	lock
+	faceplayer
+	msgbox("Mommy and daddy told me to stay
+			here for a while\.
+
+			Sniff\. I just wanna go home\.")
+	release
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_Rocker {
+	lock
+	faceplayer
+	msgbox("Never thought I'd ever see this
+			ship sink\.
+
+			Wonder what caused it anyway?
+			TEAM ROCKET?")
+	release
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_Marigold {
+	trainerbattle_single(TRAINER_LASS_MARIGOLD, "Despite everything,
+												I am not denying a battle!", "Still lost, anyway\.")
+	msgbox("I'd really recommend keeping your
+			attention up in this ship.
+
+			You never know what might happen!", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_Karlson {
+	trainerbattle_single(TRAINER_GENTLEMAN_KARLSON, "Young woman, would you mind
+													giving me a glass of milk?", "Lactose intolerant, I see.")
+	msgbox("Do they even sell milk during a
+			crisis like this?", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}
