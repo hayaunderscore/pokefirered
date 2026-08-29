@@ -920,6 +920,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_dead_regi.o(.rodata);
         sound/songs/midi/mus_vs_wild.o(.rodata);
         sound/songs/midi/mus_vs_champion.o(.rodata);
+        sound/songs/midi/mus_ud_ambitus_temporis.o(.rodata);
         sound/songs/midi/mus_pallet.o(.rodata);
         sound/songs/midi/mus_oak_lab.o(.rodata);
         sound/songs/midi/mus_oak.o(.rodata);
@@ -1043,7 +1044,7 @@ SECTIONS {
         src/*.o(.rodata);
         data/*.o(.rodata);
     } > ROM =0
-    
+
     __rom_end = .;
 
     /* DWARF debug sections.

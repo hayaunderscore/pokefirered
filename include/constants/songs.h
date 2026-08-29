@@ -355,10 +355,11 @@
 #define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
 #define MUS_VS_REGI               347
 #define MUS_VS_DEAD_REGI          348
+#define MUS_UD_AMBITUS_TEMPORIS   349
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_VS_DEAD_REGI
+#define END_MUS                     MUS_UD_AMBITUS_TEMPORIS
 
 #endif  // GUARD_CONSTANTS_SONGS_H

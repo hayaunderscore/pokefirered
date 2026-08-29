@@ -8220,7 +8220,7 @@ voicegroup196::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 249, 25, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 64, 216, 51, 224
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 249, 25, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 64, 216, 51, 224
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 51, 204, 92, 226
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 204, 103, 64
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_overdrive_guitar, 128, 0, 255, 214
 	voice_keysplit voicegroup197, KeySplitTable1 @ Custom Distortion Guitar split by high and low samples might need more work
@@ -8258,7 +8258,7 @@ voicegroup196::
 	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
-	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_mystery_dungeon_koto, 255, 188, 202, 89
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127

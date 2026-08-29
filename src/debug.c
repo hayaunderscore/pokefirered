@@ -2085,7 +2085,7 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
     u16 species;
 
     // Reset Pokedex to emtpy
-    
+
     memset(&gSaveBlock2Ptr->pokedex.owned, 0, sizeof(gSaveBlock2Ptr->pokedex.owned));
     memset(&gSaveBlock2Ptr->pokedex.seen, 0, sizeof(gSaveBlock2Ptr->pokedex.seen));
 
@@ -3693,6 +3693,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_TEACHY_TV_MENU) \
     X(MUS_VS_REGI) \
     X(MUS_VS_DEAD_REGI) \
+    X(MUS_UD_AMBITUS_TEMPORIS) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

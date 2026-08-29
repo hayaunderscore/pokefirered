@@ -823,6 +823,7 @@ MUS_SLOW_PALLET           = 59 01
 MUS_TEACHY_TV_MENU        = 5A 01
 MUS_VS_REGI               = 5B 01
 MUS_VS_DEAD_REGI          = 5C 01
+MUS_UD_AMBITUS_TEMPORIS   = 5D 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

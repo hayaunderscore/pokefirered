@@ -310,6 +310,9 @@ DirectSoundWaveData_sc88pro_accordion::
 DirectSoundWaveData_unused_sc55_tom::
 	.incbin "sound/direct_sound_samples/unused_sc55_tom.bin"
 
+	.align 2
+DirectSoundWaveData_mystery_dungeon_koto::
+	.incbin "sound/direct_sound_samples/mystery_dungeon_koto.bin"
 
 	.align 2
 Cry_Bulbasaur::
