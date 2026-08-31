@@ -9,6 +9,8 @@
 //Other pokeemerald-expansion contributors, including:
 //Lunos, MGriffin, DizzyEgg, Jasper/Bassoonian, psf
 //pokefirered port: RavePossum
+#include "constants/global.h"
+#include "constants/pokemon.h"
 #include "global.h"
 #include "battle.h"
 #include "coins.h"
@@ -1746,7 +1748,11 @@ static void DebugAction_Util_Player_Gender(u8 taskId)
 static void DebugAction_Util_Player_Id(u8 taskId)
 {
     u32 trainerId = ((Random() << 16) | Random());
+    u32 i;
     SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
+    for (i = 0; i < PARTY_SIZE; i++) {
+    	SetMonData(&gSaveBlock1Ptr->playerParty[i], MON_DATA_OT_ID, &trainerId);
+    }
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
 }

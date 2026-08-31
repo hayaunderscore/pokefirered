@@ -17,8 +17,8 @@ script SunkenAnne_1F_Corridor_EventScript_Rock {
 }
 
 script SunkenAnne_1F_Corridor_EventScript_Vector {
-	trainerbattle_single(TRAINER_POKEMANIAC_VECTOR, "Committing crimes in both
-													direction\. and magnitude!", "Uh, no!")
+	trainerbattle_single(TRAINER_POKEMANIAC_VECTOR, "Committing crimes in both direction\.
+													and magnitude!", "Uh, no!")
 	msgbox("Oh yeah!
 
 			\.
