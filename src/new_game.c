@@ -110,6 +110,8 @@ void NewGameInitData(void)
 
     StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
     gDifferentSaveFile = TRUE;
+    gSaveBlock2Ptr->_saveSentinel = 0xFF;
+    gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
     gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
@@ -149,6 +151,9 @@ void NewGameInitData(void)
     RunScriptImmediately(EventScript_ResetAllMapFlags);
     StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
     ResetTrainerTowerResults();
+
+    memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
+    FlagSet(FLAG_SYS_INITIALIZED_FOLLOWER);
 }
 
 static void ResetMiniGamesResults(void)

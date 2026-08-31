@@ -1,5 +1,7 @@
+#include "constants/global.h"
 #include "global.h"
 #include "gflib.h"
+#include "load_save.h"
 #include "m4a.h"
 #include "task.h"
 #include "scanline_effect.h"
@@ -1004,6 +1006,15 @@ void CB2_InitCopyrightScreenAfterBootup(void)
         ResetMenuAndMonGlobals();
         Save_ResetSaveCounters();
         LoadGameSave(SAVE_NORMAL);
+        if (gSaveFileStatus == SAVE_STATUS_OUTDATED) {
+			if (UpdateSaveFile())
+       			gSaveFileStatus = SAVE_STATUS_UPDATED;
+			else
+          	{
+           		gSaveBlock2Ptr->_saveSentinel = 0xFF;
+             gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
+           	}
+        }
         if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
             Sav2_ClearSetDefault();
         SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);

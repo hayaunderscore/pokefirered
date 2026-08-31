@@ -5,6 +5,7 @@
 #include "party_menu.h"
 #include "overworld.h"
 #include "trainer_see.h"
+#include "follow_me.h"
 
 static void FieldCallback_Teleport(void);
 static void Task_StartTeleport(u8 taskId);
@@ -12,6 +13,9 @@ static void StartTeleportFieldEffect(void);
 
 bool8 SetUpFieldMove_Teleport(void)
 {
+	if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_LEAVE_ROUTE))
+        return FALSE;
+	
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
     {
         gFieldCallback2 = FieldCallback_PrepareFadeInFromMenu;

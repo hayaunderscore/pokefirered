@@ -12,6 +12,7 @@
 #include "field_player_avatar.h"
 #include "field_specials.h"
 #include "field_weather.h"
+#include "follow_me.h"
 #include "fieldmap.h"
 #include "item.h"
 #include "item_menu.h"
@@ -264,7 +265,7 @@ void FieldUseFunc_Bike(u8 taskId)
      || MetatileBehavior_IsIsolatedVerticalRail(behavior) == TRUE
      || MetatileBehavior_IsIsolatedHorizontalRail(behavior) == TRUE)
         DisplayItemMessageInCurrentContext(taskId, gTasks[taskId].data[3], FONT_NORMAL, gText_CantDismountBike);
-    else if (Overworld_IsBikingAllowed() == TRUE && !IsBikingDisallowedByPlayer())
+    else if (Overworld_IsBikingAllowed() == TRUE && !IsBikingDisallowedByPlayer() && FollowerCanBike())
     {
         sItemUseOnFieldCB = ItemUseOnFieldCB_Bicycle;
         SetUpItemUseOnFieldCallback(taskId);
@@ -278,6 +279,7 @@ static void ItemUseOnFieldCB_Bicycle(u8 taskId)
     if (!TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         PlaySE(SE_BIKE_BELL);
     GetOnOffBike(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE);
+    FollowMe_HandleBike();
     ClearPlayerHeldMovementAndUnfreezeObjectEvents();
     UnlockPlayerFieldControls();
     DestroyTask(taskId);
@@ -613,6 +615,8 @@ static void Task_UsedBlackWhiteFlute(u8 taskId)
 
 bool8 CanUseEscapeRopeOnCurrMap(void)
 {
+	if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_LEAVE_ROUTE))
+        return FALSE;
     if (gMapHeader.allowEscaping)
         return TRUE;
     else

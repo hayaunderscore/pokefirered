@@ -1,0 +1,35 @@
+mapscripts SunkenAnne_1F_Corridor_MapScripts {}
+
+script SunkenAnne_1F_Corridor_EventScript_Ashe {
+	trainerbattle_single(TRAINER_PICNICKER_ASHE, "Oh goodie!\nA person!", "I'm never getting out of here\.")
+	msgbox("I feel like I'm going to be sick\.", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}
+
+script SunkenAnne_1F_Corridor_EventScript_Rock {
+	trainerbattle_single(TRAINER_FISHERMAN_ROCK, "Wanna see the stuff I hauled in
+													this ship?", "Guess its back to fishing!")
+	msgbox("Fishing is a good way to distract
+			yourself from the horrors.", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}
+
+script SunkenAnne_1F_Corridor_EventScript_Vector {
+	trainerbattle_single(TRAINER_POKEMANIAC_VECTOR, "Committing crimes in both
+													direction\. and magnitude!", "Uh, no!")
+	msgbox("Oh yeah!
+
+			\.
+			I have nothing else to do here.", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}
+
+script SunkenAnne_1F_Corridor_EventScript_Ella {
+	trainerbattle_single(TRAINER_LASS_ELLA, "AAAAA! Water!", "I hate this place so much!")
+	msgbox("Please let this be over soon.", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}

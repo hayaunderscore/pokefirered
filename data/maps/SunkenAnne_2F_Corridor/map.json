@@ -108,6 +108,13 @@
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_HEAL_SPOT",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "elevation": 0,
+      "dest_map": "MAP_SUNKEN_ANNE_1F_CORRIDOR",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [

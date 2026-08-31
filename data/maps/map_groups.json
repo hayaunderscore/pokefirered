@@ -178,7 +178,8 @@
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
     "SixIsland_AlteringCave",
-    "SunkenAnne_2F_Corridor"
+    "SunkenAnne_2F_Corridor",
+    "SunkenAnne_1F_Corridor"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",

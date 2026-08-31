@@ -1322,3 +1322,5 @@ const u8 gText_Receive[] = _("RECEIVE");
 const u8 gText_Send[] = _("SEND");
 const u8 gText_Toss[] = _("TOSS");
 const u8 gText_DelAllCancelOk[] = _("DEL. ALL{CLEAR_TO 0x57}CANCEL{CLEAR_TO 0xA4}OK");
+const u8 gText_SaveFileOldUpdated[] = _("Your save file is old and needs\nto be updated.\pPlease back up your old save\nsave if you wish to keep it.");
+const u8 gText_SaveFileOldErrored[] = _("Your save file is old and needs\nto be updated.\pThe attempt to update the save\nfile has failed.\pPlease report this to\nabby-hazzard989(at)netzero.net.");

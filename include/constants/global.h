@@ -30,6 +30,10 @@
 #define GAME_LANGUAGE (LANGUAGE_ENGLISH)
 #endif
 
+#define SAVE_VERSION_0 0
+#define SAVE_VERSION_1 1
+#define SAVE_VERSION (SAVE_VERSION_1)
+
 // capacities of various saveblock objects
 #define DAYCARE_MON_COUNT   2
 #define PC_ITEMS_COUNT      30
@@ -123,5 +127,8 @@
 #define CONNECTION_EAST     4
 #define CONNECTION_DIVE     5
 #define CONNECTION_EMERGE   6
+
+#define SIDEWAYS_STAIRS_IMPLEMENTED         FALSE
+#define POST_BATTLE_FOLLOWER_FIX            FALSE   //if you experience the follower de-syncing with the player after battle, set to TRUE
 
 #endif //GUARD_CONSTANTS_GLOBAL_H

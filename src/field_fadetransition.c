@@ -1,5 +1,6 @@
 #include "constants/flags.h"
 #include "event_data.h"
+#include "follow_me.h"
 #include "global.h"
 #include "gflib.h"
 #include "field_fadetransition.h"
@@ -32,9 +33,9 @@ static void Task_ExitDoor(u8 taskId);
 static void Task_ExitNonAnimDoor(u8 taskId);
 static void Task_ExitNonDoor(u8 taskId);
 static void Task_TeleportWarpIn(u8 taskId);
-static void Task_Teleport2Warp(u8 taskId);
-static void Task_TeleportWarp(u8 taskId);
-static void Task_DoorWarp(u8 taskId);
+// static void Task_Teleport2Warp(u8 taskId);
+// static void Task_TeleportWarp(u8 taskId);
+// static void Task_DoorWarp(u8 taskId);
 static void Task_StairWarp(u8 taskId);
 static void ForceStairsMovement(u16 metatileBehavior, s16 *x, s16 *y);
 static void GetStairsMovementDirection(u8 metatileBehavior, s16 *x, s16 *y);
@@ -130,7 +131,7 @@ static void WarpFadeOutScreenWithDelay(void) // Unused
     }
 }
 
-static void SetPlayerVisibility(bool8 visible)
+void SetPlayerVisibility(bool8 visible)
 {
     SetPlayerInvisibility(!visible);
 }
@@ -299,6 +300,7 @@ void FieldCB_DefaultWarpExit(void)
     Overworld_PlaySpecialMapMusic();
     QuestLog_DrawPreviouslyOnQuestHeaderIfInPlaybackMode();
     SetUpWarpExitTask(FALSE);
+    FollowMe_WarpSetEnd();
     LockPlayerFieldControls();
 }
 
@@ -332,6 +334,7 @@ static void Task_ExitDoor(u8 taskId)
     switch (task->data[0])
     {
     case 0: // Never reached
+    	HideFollower();
         SetPlayerVisibility(0);
         FreezeObjectEvents();
         PlayerGetDestCoords(x, y);
@@ -339,6 +342,7 @@ static void Task_ExitDoor(u8 taskId)
         task->data[0] = 1;
         break;
     case 5:
+    	HideFollower();
         SetPlayerVisibility(0);
         FreezeObjectEvents();
         DoOutwardBarnDoorWipe();
@@ -401,6 +405,8 @@ static void Task_ExitDoor(u8 taskId)
             task->data[0] = 4;
         break;
     case 4:
+   		FollowMe_SetIndicatorToComeOutDoor();
+       	FollowMe_WarpSetEnd();
         UnfreezeObjectEvents();
         UnlockPlayerFieldControls();
         DestroyTask(taskId);
@@ -417,6 +423,7 @@ static void Task_ExitNonAnimDoor(u8 taskId)
     switch (task->data[0])
     {
     case 0:
+    	HideFollower();
         SetPlayerVisibility(0);
         FreezeObjectEvents();
         PlayerGetDestCoords(x, y);
@@ -433,6 +440,8 @@ static void Task_ExitNonAnimDoor(u8 taskId)
     case 2:
         if (walkrun_is_standing_still())
         {
+       		FollowMe_SetIndicatorToComeOutDoor();
+            FollowMe_WarpSetEnd();
             task->data[0] = 3;
         }
         break;
@@ -693,7 +702,7 @@ void ReturnFromLinkRoom(void)
     CreateTask(Task_ReturnFromLinkRoomWarp, 10);
 }
 
-static void Task_Teleport2Warp(u8 taskId)
+void Task_Teleport2Warp(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
     switch (task->data[0])
@@ -715,7 +724,7 @@ static void Task_Teleport2Warp(u8 taskId)
     }
 }
 
-static void Task_TeleportWarp(u8 taskId)
+void Task_TeleportWarp(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
     switch (task->data[0])
@@ -746,7 +755,8 @@ static void Task_TeleportWarp(u8 taskId)
     }
 }
 
-static void Task_DoorWarp(u8 taskId)
+/*
+void Task_DoorWarp(u8 taskId)
 {
     struct Task *task = &gTasks[taskId];
     s16 *xp = &task->data[2];
@@ -796,6 +806,7 @@ static void Task_DoorWarp(u8 taskId)
         break;
     }
 }
+*/
 
 static void Task_StairWarp(u8 taskId)
 {
@@ -817,6 +828,7 @@ static void Task_StairWarp(u8 taskId)
                 data[15]--;
             else
             {
+            	EscalatorMoveFollower(1); // TODO
                 TryFadeOutOldMapMusic();
                 PlayRainStoppingSoundEffect();
                 playerSpr->oam.priority = 1;
@@ -915,6 +927,7 @@ static void Task_ExitStairs(u8 taskId)
         Overworld_PlaySpecialMapMusic();
         WarpFadeInScreen();
         LockPlayerFieldControls();
+        EscalatorMoveFollower(0);
         ExitStairsMovement(&data[1], &data[2], &data[3], &data[4], &data[5]);
         data[0]++;
         break;

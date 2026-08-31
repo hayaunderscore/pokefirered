@@ -61,8 +61,8 @@ script SunkenAnne_2F_Room_EventScript_BlueTrigger {
 
 			\.
 
-			Well no point in dwelling in that
-			now, especially at this time!
+			Well no point in dwelling in that now,
+			especially at this time!
 
 			Clearly the law enforcement ain't
 			gonna help us, so how about let's
@@ -70,6 +70,19 @@ script SunkenAnne_2F_Room_EventScript_BlueTrigger {
 
 			Just like\. old times.")
 	closemessage
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	message("{RIVAL} will now follow you!")
+	waitmessage
+	playfanfare(MUS_OBTAIN_BADGE)
+	waitfanfare
+	loadword(0, BlueFollow)
+	setfollower(LOCALID_SUNKEN_ANNE_BLUE, FOLLOWER_FLAG_CUSTOM_FOLLOW_SCRIPT)
 	setvar(VAR_MAP_SCENE_SUNKEN_ANNE, 1)
+	closemessage
+	end
+}
+
+script(local) BlueFollow {
+	msgbox("{RIVAL}: \.", MSGBOX_SIGN)
 	end
 }

@@ -272,6 +272,32 @@ static void Task_SetWin0BldRegsAndCheckSaveFile(u8 taskId)
                 gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
             }
             break;
+        case SAVE_STATUS_UPDATED:
+            SetStdFrame0OnBg(0);
+            gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
+            PrintSaveErrorStatus(taskId, gText_SaveFileOldUpdated);
+            if (IsMysteryGiftEnabled() == TRUE)
+            {
+                gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
+            }
+            else
+            {
+                gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
+            }
+            break;
+        case SAVE_STATUS_OUTDATED:
+            SetStdFrame0OnBg(0);
+            gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
+            PrintSaveErrorStatus(taskId, gText_SaveFileOldErrored);
+            if (IsMysteryGiftEnabled() == TRUE)
+            {
+                gTasks[taskId].tMenuType = MAIN_MENU_MYSTERYGIFT;
+            }
+            else
+            {
+                gTasks[taskId].tMenuType = MAIN_MENU_CONTINUE;
+            }
+            break;
         case SAVE_STATUS_EMPTY:
         default:
             LoadUserFrameToBg(0);
@@ -505,6 +531,11 @@ static void Task_ExecuteMainMenuSelection(u8 taskId)
             gPlttBufferFaded[0] = RGB_BLACK;
             gExitStairsMovementDisabled = FALSE;
             FreeAllWindowBuffers();
+            if (gSaveBlock2Ptr->_saveSentinel != 0xFF)
+            {
+	           	gSaveBlock2Ptr->_saveSentinel = 0xFF;
+	            gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
+            }
             if (!gSaveBlock2Ptr->optionsQuestLog)
             	TryStartQuestLogPlayback(taskId);
             else 

@@ -13,6 +13,7 @@
 #include "constants/sound.h"
 #include "constants/species.h"
 #include "constants/vars.h"
+#include "constants/follow_me.h"
 #include "constants/battle.h"
 #include "constants/heal_locations.h"
 #include "constants/field_effects.h"
@@ -1386,3 +1387,6 @@ Text_TestMsg::
 
 Text_MonCryScript::
 	.string "{STR_VAR_2}: {STR_VAR_3}$"
+
+	.include "data/maps/SunkenAnne_1F_Corridor/scripts.inc"
+	.include "data/maps/SunkenAnne_1F_Corridor/text.inc"

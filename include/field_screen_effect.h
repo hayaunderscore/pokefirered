@@ -9,6 +9,9 @@ void DoOutwardBarnDoorWipe(void);
 void Task_BarnDoorWipe(u8 taskId);
 void FieldCB_RushInjuredPokemonToCenter(void);
 void WriteFlashScanlineEffectBuffer(u8 flashLevel);
+void SetPlayerVisibility(bool8 visible);
+void Task_Teleport2Warp(u8 taskId);
+void Task_TeleportWarp(u8 taskId);
 
 extern const s32 gMaxFlashLevel;
 

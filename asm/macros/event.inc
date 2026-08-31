@@ -1886,3 +1886,25 @@
 		msgbox Text_MonCryScript
 		waitmoncry
 	.endm
+
+	@ sets an NPC up to follow the player
+    .macro setfollower localId:req, flags:req
+    .byte 0xd5
+    .byte \localId
+    .2byte \flags
+    .endm
+    
+    @ remove the following NPC (assumes there will only ever be one)
+    .macro destroyfollower
+    .byte 0xd6
+    .endm
+    
+    @ makes the player and follower face one another
+    .macro facefollower
+    .byte 0xd7
+    .endm
+    
+    @ checks if you have a follower. returns the result to VAR_RESULT
+    .macro checkfollower
+    .byte 0xd8
+    .endm

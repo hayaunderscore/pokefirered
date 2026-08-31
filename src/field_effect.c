@@ -28,6 +28,7 @@
 #include "constants/songs.h"
 #include "constants/sound.h"
 #include "trainer_see.h"
+#include "follow_me.h"
 
 extern struct CompressedSpritePalette gMonPaletteTable[]; // Intentionally declared (incorrectly) without const in order to match
 extern const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[];
@@ -1293,6 +1294,7 @@ static bool8 FallWarpEffect_7(struct Task *task)
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_SURFING);
     }
     DestroyTask(FindTaskIdByFunc(Task_FallWarpFieldEffect));
+    FollowMe_WarpSetEnd();
     return FALSE;
 }
 
@@ -1361,6 +1363,9 @@ static bool8 EscalatorWarpEffect_2(struct Task *task)
         task->data[0]++;
         task->data[2] = 0;
         task->data[3] = 0;
+
+        EscalatorMoveFollower(task->data[1]);
+
         if ((u8)task->data[1] == 0)
         {
             task->data[0] = 4;
@@ -3044,6 +3049,7 @@ static void UseSurfEffect_4(struct Task *task)
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_GFX_RIDE));
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         ObjectEventSetHeldMovement(objectEvent, GetJumpSpecialMovementAction(objectEvent->movementDirection));
+        FollowMe_FollowerToWater();
         gFieldEffectArguments[0] = task->data[1];
         gFieldEffectArguments[1] = task->data[2];
         gFieldEffectArguments[2] = gPlayerAvatar.objectEventId;
