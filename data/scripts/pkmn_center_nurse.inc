@@ -1,5 +1,6 @@
 EventScript_PkmnCenterNurse::
 	goto_if_questlog EventScript_ReleaseEnd
+	goto_if_set FLAG_SUNKEN_ANNE, EventScript_PkmnCenterNurseEmergency
 	message Text_WelcomeWantToHealPkmn
 	waitmessage
 	multichoice 19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1)
@@ -8,6 +9,22 @@ EventScript_PkmnCenterNurse::
 	case 1 EventScript_PkmnCenterNurse_Goodbye
 	case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
 	end
+
+EventScript_PkmnCenterNurseEmergency::
+	incrementgamestat GAME_STAT_USED_POKECENTER
+	faceplayer
+	message EventScript_PkmnCenterNurseEmergency_Text_0
+	waitmessage
+	delay 16
+	closemessage
+	call EventScript_OutOfCenterPartyHeal
+	special SetUsedPkmnCenterQuestLogEvent
+	msgbox Text_WeHopeToSeeYouAgain
+	return
+
+EventScript_PkmnCenterNurseEmergency_Text_0:
+	.string "We're in a bit of an emergency,\n"
+	.string "so I'll skip the chit-chat.$"
 
 EventScript_PkmnCenterNurse_HealPkmn::
 	incrementgamestat GAME_STAT_USED_POKECENTER

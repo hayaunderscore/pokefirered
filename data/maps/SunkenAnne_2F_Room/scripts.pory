@@ -55,8 +55,8 @@ script SunkenAnne_2F_Room_EventScript_Marigold {
 }
 
 script SunkenAnne_2F_Room_EventScript_Karlson {
-	trainerbattle_single(TRAINER_GENTLEMAN_KARLSON, "Young woman, would you mind
-													giving me a glass of milk?", "Lactose intolerant, I see.")
+	trainerbattle_single(TRAINER_GENTLEMAN_KARLSON, "Young lady, would you mind giving
+													me a glass of milk?", "Lactose intolerant, I see.")
 	msgbox("Do they even sell milk during a
 			crisis like this?", MSGBOX_AUTOCLOSE)
 	closemessage

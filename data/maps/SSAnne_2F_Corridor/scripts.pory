@@ -239,6 +239,7 @@ script SSAnne_2F_Corridor_EventScript_SinkingShip {
 			Wake up.")
 	releaseall
 	showobjectat(LOCALID_PLAYER, 0)
+	setflag(FLAG_SUNKEN_ANNE)
 	warpsilent(MAP_SUNKEN_ANNE_2F_CORRIDOR, 0)
 }
 

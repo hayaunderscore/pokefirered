@@ -1,0 +1,55 @@
+mapscripts SunkenAnne_2F_HealSpot_MapScripts {}
+
+script SunkenAnne_2F_HealSpot_EventScript_Nurse {
+	lock
+	faceplayer
+	call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script SunkenAnne_2F_HealSpot_EventScript_Girl1 {
+	lock
+	faceplayer
+	msgbox("I'm scared\.
+			I hope this will be over soon.")
+	release
+	end
+}
+
+script SunkenAnne_2F_HealSpot_EventScript_Girl2 {
+	lock
+	faceplayer
+	msgbox("First time on the S.S. ANNE, and
+			its an absolute disaster!")
+	release
+	end
+}
+
+script SunkenAnne_2F_HealSpot_EventScript_LittleGirl {
+	lock
+	faceplayer
+	msgbox("I feel like I'm lost sometimes\.
+			Especially now\.
+
+			But atleast I have NIDORINO by
+			my side!
+
+			Right, NIDORINO?")
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+text SunkenAnne_2F_HealSpot_Text {
+	"Rino!"
+}
+
+script SunkenAnne_2F_HealSpot_EventScript_Nidorino {
+	moncryscript(SPECIES_NIDORINO, SunkenAnne_2F_HealSpot_Text)
+	release
+	end
+}

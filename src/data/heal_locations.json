@@ -167,6 +167,14 @@
       "y": 16,
       "respawn_map": "MAP_POKEMON_TECH_INSIDE_1F",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_SUNKEN_ANNE_2F_CORRIDOR",
+      "map": "MAP_SUNKEN_ANNE_2F_CORRIDOR",
+      "x": 26,
+      "y": 11,
+      "respawn_map": "MAP_SUNKEN_ANNE_2F_HEAL_SPOT",
+      "respawn_npc": "1"
     }
   ]
 }

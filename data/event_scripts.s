@@ -1380,3 +1380,9 @@ Text_TestMsg::
 
 	.include "data/maps/SunkenAnne_2F_Room/scripts.inc"
 	.include "data/maps/SunkenAnne_2F_Room/text.inc"
+
+	.include "data/maps/SunkenAnne_2F_HealSpot/scripts.inc"
+	.include "data/maps/SunkenAnne_2F_HealSpot/text.inc"
+
+Text_MonCryScript::
+	.string "{STR_VAR_2}: {STR_VAR_3}$"

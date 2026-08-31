@@ -4,6 +4,7 @@ mapscripts SunkenAnne_2F_Corridor_MapScripts {
 
 script SunkenAnne_2F_Corridor_EventScript_OnTransition {
 	clearflag(FLAG_SYS_PREVENT_MAP_FADE)
+	setrespawn(HEAL_LOCATION_SUNKEN_ANNE_2F_CORRIDOR)
 }
 
 script SunkenAnne_2F_Corridor_EventScript_LockedDoor {
@@ -26,5 +27,49 @@ script SunkenAnne_2F_Room_EventScript_OldMan {
 
 			Which is why I'm not doing that.")
 	release
+	end
+}
+
+script SunkenAnne_2F_Room_EventScript_BlueTrigger {
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	applymovement(LOCALID_SUNKEN_ANNE_BLUE, moves(
+		walk_in_place_down
+	))
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_SUNKEN_ANNE_BLUE, moves(
+		emote_exclamation_mark
+		delay_16 * 4
+		walk_down
+		walk_right
+		walk_in_place_down
+		delay_16
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("{RIVAL}: {PLAYER}!
+			You're alright!
+
+			Man, I don't know what happened
+			here but we really need to get out
+			as soon as possible!
+
+			I was worried you wouldn't\.
+			survive\.
+
+			\.
+
+			Well no point in dwelling in that
+			now, especially at this time!
+
+			Clearly the law enforcement ain't
+			gonna help us, so how about let's
+			tag along together?
+
+			Just like\. old times.")
+	closemessage
+	setvar(VAR_MAP_SCENE_SUNKEN_ANNE, 1)
 	end
 }

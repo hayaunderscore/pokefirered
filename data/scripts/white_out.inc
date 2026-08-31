@@ -2,7 +2,9 @@ EventScript_AfterWhiteOutHeal::
 	lockall
 	textcolor NPC_TEXT_COLOR_FEMALE
 	msgbox Text_FirstShouldRestoreMonsHealth
-	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
+	faceplayer
+	call_if_unset FLAG_SUNKEN_ANNE, EventScript_PkmnCenterNurse_TakeAndHealPkmn
+	call_if_set FLAG_SUNKEN_ANNE, EventScript_OutOfCenterPartyHeal
 	call_if_unset FLAG_DEFEATED_BROCK, EventScript_AfterWhiteOutHealMsgPreBrock
 	call_if_set FLAG_DEFEATED_BROCK, EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_Bow

@@ -1,3 +1,5 @@
+#include "constants/event_objects.h"
+#include "constants/items.h"
 #include "global.h"
 #include "script.h"
 #include "event_data.h"
@@ -319,9 +321,9 @@ void ScriptContext_Init(void)
     sGlobalScriptContextStatus = CONTEXT_SHUTDOWN;
 }
 
-// Runs the script until the script makes a wait* call, then returns true if 
-// there's more script to run, or false if the script has hit the end. 
-// This function also returns false if the context is finished 
+// Runs the script until the script makes a wait* call, then returns true if
+// there's more script to run, or false if the script has hit the end.
+// This function also returns false if the context is finished
 // or waiting (after a call to _Stop)
 bool8 ScriptContext_RunScript(void)
 {
@@ -580,4 +582,24 @@ void InitRamScript_NoObjectEvent(u8 *script, u16 scriptSize)
     if (scriptSize > sizeof(gSaveBlock1Ptr->ramScript.data.script))
         scriptSize = sizeof(gSaveBlock1Ptr->ramScript.data.script);
     InitRamScript(script, scriptSize, MAP_GROUP(MAP_UNDEFINED), MAP_NUM(MAP_UNDEFINED), 0xFF);
+}
+
+void GetObjectEventTrainerRangeFromTemplate(void)
+{
+	const struct ObjectEventTemplate* event = &gMapHeader.events->objectEvents[gSpecialVar_LastTalked - 1];
+
+	gSpecialVar_Result = ITEM_NONE;
+	gSpecialVar_0x8005 = 1;
+
+	if (event->kind == OBJ_KIND_NORMAL)
+    {
+    	// Type of item
+    	gSpecialVar_Result = event->objUnion.normal.trainerRange_berryTreeId;
+     	// Count of said item
+    	gSpecialVar_0x8005 = event->objUnion.normal.movementRangeX;
+    }
+	else if (event->kind == OBJ_KIND_CLONE)
+	{
+		// TODO
+	}
 }

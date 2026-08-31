@@ -4452,6 +4452,18 @@
       "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/SunkenAnne_2F_Room/border.bin",
       "blockdata_filepath": "data/layouts/SunkenAnne_2F_Room/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUNKEN_ANNE_2F_HEAL_SPOT",
+      "name": "SunkenAnne_2F_HealSpot_Layout",
+      "width": 6,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SunkenAnne_2F_HealSpot/border.bin",
+      "blockdata_filepath": "data/layouts/SunkenAnne_2F_HealSpot/map.bin"
     }
   ]
 }

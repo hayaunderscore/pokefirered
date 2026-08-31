@@ -107,6 +107,11 @@ void SetWhiteoutRespawnWarpAndHealerNpc(struct WarpData * warp)
             warp->y = 11;
             VarSet(VAR_MAP_SCENE_TRAINER_TOWER, 0);
         }
+        else if (sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][0] == MAP_GROUP(MAP_SUNKEN_ANNE_2F_HEAL_SPOT) && sWhiteoutRespawnHealCenterMapIdxs[healLocationIdx - 1][1] == MAP_NUM(MAP_SUNKEN_ANNE_2F_HEAL_SPOT))
+        {
+        	warp->x = 4;
+         	warp->y = 6;
+        }
         else
         {
             warp->x = 7;

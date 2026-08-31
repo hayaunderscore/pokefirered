@@ -632,7 +632,7 @@
 #define FLAG_0x25F                                       0x25F
 #define FLAG_0x260                                       0x260
 #define FLAG_0x261                                       0x261
-#define FLAG_0x262                                       0x262
+#define FLAG_SUNKEN_ANNE                                 0x262
 #define FLAG_GOT_EEVEE                                   0x263
 #define FLAG_FOUND_BOTH_VERMILION_GYM_SWITCHES           0x264
 #define FLAG_CINNABAR_GYM_QUIZ_1                         0x265
@@ -794,7 +794,7 @@
 #define FLAG_OAKS_RATING_IS_VIA_PC                       0x2FF
 
 // Unused?
-#define FLAG_0x300               0x300
+#define FLAG_ITEM_SUNKEN_ANNE_HYPER_POTION               0x300
 #define FLAG_0x301               0x301
 #define FLAG_0x302               0x302
 #define FLAG_0x303               0x303

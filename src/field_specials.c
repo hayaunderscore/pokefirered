@@ -2488,6 +2488,9 @@ bool8 IsPlayerNotInTrainerTowerLobby(void)
     // I'm not even sure how this works but this prevents a weird memory corruption from happening...
     else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_TECH_INSIDE_1F) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_TECH_INSIDE_1F))
         return FALSE;
+    // I'm not even sure how this works but this prevents a weird memory corruption from happening...
+    else if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SUNKEN_ANNE_2F_HEAL_SPOT) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SUNKEN_ANNE_2F_HEAL_SPOT))
+        return FALSE;
     else
         return TRUE;
 }
