@@ -534,7 +534,7 @@
 #define FLAG_HIDE_GUARD_IN_VERMILLION                           0x200
 #define FLAG_HIDE_CARA_IN_LAVENDER_TOWN                         0x201
 #define FLAG_HIDE_TOWER_GISELLE                                 0x202
-#define FLAG_0x203               0x203
+#define FLAG_HIDE_TOWER_CARA                                    0x203
 #define FLAG_0x204               0x204
 #define FLAG_0x205               0x205
 #define FLAG_0x206               0x206

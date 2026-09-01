@@ -319,3 +319,29 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Brick Break
 - Ancient Power
 - Rock Slide
+
+=== TRAINER_AN_ATTACK_THA_CARA ===
+Name: CARA
+Class: Cara
+Pic: Cara
+Gender: Female
+Music: Female
+Double Battle: No
+Items: Super Potion / Super Potion
+AI: Check Bad Move / Try To Faint / Check Viability / Above Opponent Level
+
+Muk
+Ability: Stench
+Level: 30
+- Haze
+- Sludge Bomb
+- Focus Punch
+- Acid Armor
+
+Gengar
+Ability: Levitate
+Level: 30
+- Curse
+- Hypnosis
+- Shadow Ball
+- Will-O-Wisp

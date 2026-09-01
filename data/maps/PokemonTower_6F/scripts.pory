@@ -1,9 +1,7 @@
 raw `
-PokemonTower_6F_MapScripts::
-	.byte 0
-
 PokemonTower_6F_EventScript_MarowakGhost::
 	lockall
+	goto_if_eq VAR_MAP_SCENE_CARA_LAVENDER_TOWN, 1, PokemonTower_6F_EventScript_Cara
 	textcolor NPC_TEXT_COLOR_MON
 	msgbox PokemonTower_6F_Text_BeGoneIntruders
 	goto_if_questlog EventScript_ReleaseEnd
@@ -48,3 +46,105 @@ PokemonTower_6F_EventScript_Jennifer::
 	msgbox PokemonTower_6F_Text_JenniferPostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+mapscripts PokemonTower_6F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTower_6F_EventScript_OnTransition
+}
+
+script PokemonTower_6F_EventScript_OnTransition {
+	setflag(FLAG_HIDE_TOWER_CARA)
+}
+
+script PokemonTower_6F_EventScript_Cara {
+	fadenewbgm(MUS_DUMMY)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	addobject(LOCALID_TOWER_CARA)
+	applymovement(LOCALID_TOWER_CARA, moves(
+		walk_right * 8
+		walk_down * 2
+	))
+	waitmovement(0)
+	delay(30)
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(60)
+	savebgm(MUS_DUMMY)
+	msgbox("Tee-hee!
+			Did you miss me?
+
+			What was that all about earlier?
+			Trying to get rid of me?
+
+			If you must know, you're making
+			a big, big mistake here!
+
+			Don't you know when its time
+			to turn back?
+
+			Do you think the qualms of the
+			ABYSS will be happy by what you
+			are doing here?
+
+			\.
+
+			If it weren't for you\.
+			{COLOR LIGHT_BLUE}They{COLOR RED} would be here by now.
+
+			You've ruined my plans.
+
+			Despite it all, everything just
+			seems to fall apart at the end.
+
+			No matter what I do\.
+
+			Even when I was just a little girl
+			strolling through BURNED TOWER\.
+
+			Nothing goes my way.
+
+			Tee-hee!
+
+			But while I still can\.
+			I must stop you.")
+	trainerbattle_no_intro(TRAINER_AN_ATTACK_THA_CARA, "You\.")
+	playbgm(MUS_DUMMY, 0)
+	msgbox("You\.
+
+			\.
+
+			Has the ABYSS truly betrayed me?
+
+			Truly oh truly, has it broken the
+			trust I had on it\.
+
+			Only to be used as a stepping
+			stone for YOU.
+
+			{PLAYER}\.
+
+			Do you see the HAND on your shoulder?
+
+			Do you think that going forward
+			with all of this\.
+
+			Is needed for what you desire?
+
+			\.
+
+			Heehee! I'm never getting an answer.
+
+			Go on!
+			Use the move on me!
+
+			Use it!
+			You don't have a choice anyway!")
+	closemessage
+	delay(30)
+	setvar(VAR_LAST_TALKED, LOCALID_TOWER_CARA)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	call(EventScript_UseTM55)
+	savebgm(MUS_POKE_TOWER)
+	setvar(VAR_MAP_SCENE_POKEMON_TOWER_6F, 1)
+	releaseall
+	end
+}

@@ -44,6 +44,7 @@
 #define AI_SCRIPT_DOUBLE_BATTLE (1 << 7)
 #define AI_SCRIPT_HP_AWARE (1 << 8)
 #define AI_SCRIPT_UNKNOWN (1 << 9)
+#define AI_SCRIPT_ABOVE_OPPONENT_LEVEL (1 << 10)
 // 10 - 28 are not used
 #define AI_SCRIPT_ROAMING (1 << 29)
 #define AI_SCRIPT_SAFARI (1 << 30)

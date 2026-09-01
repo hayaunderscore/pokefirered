@@ -1,4 +1,4 @@
-const u8 gTrainerClassNames[][13] = {
+const u8 gTrainerClassNames[][15] = {
     [TRAINER_CLASS_NONE]                = _("{PKMN} TRAINER"),
     [TRAINER_CLASS_PKMN_TRAINER_UNUSED] = _("{PKMN} TRAINER"),
     [TRAINER_CLASS_AQUA_LEADER]         = _("AQUA LEADER"),
@@ -108,4 +108,5 @@ const u8 gTrainerClassNames[][13] = {
     [TRAINER_CLASS_PAINTER]             = _("PAINTER"),
     [TRAINER_CLASS_ABYSS_QUEEN]         = _("ABYSS QUEEN"),
     [TRAINER_CLASS_RIVAL_GENERIC]       = _("RIVAL"),
+    [TRAINER_CLASS_CARA]                = _("An attack tha?")
 };

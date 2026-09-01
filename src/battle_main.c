@@ -1,3 +1,4 @@
+#include "constants/battle_ai.h"
 #include "constants/flags.h"
 #include "constants/opponents.h"
 #include "global.h"
@@ -559,6 +560,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_BOSS, 25},
     {TRAINER_CLASS_ABYSS_QUEEN, 50},
     {TRAINER_CLASS_RIVAL_GENERIC, 12},
+    {TRAINER_CLASS_CARA, 0},
     { 0xFF, 5},
 };
 
@@ -1557,6 +1559,24 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     u32 shinyValue;
     u8 fixedIV;
     s32 i, j;
+    
+    u32 reallevel = 0;
+	u32 fixedLVL = 0;
+	u32 min, max, rand, range;
+	{
+		if (GetMonData(&gPlayerParty[5], MON_DATA_SPECIES) != SPECIES_NONE)
+			fixedLVL = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[1], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[2], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[3], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[4], MON_DATA_LEVEL) + GetMonData(&gPlayerParty[5], MON_DATA_LEVEL)) / 6;
+		else if ((GetMonData(&gPlayerParty[5], MON_DATA_SPECIES) == SPECIES_NONE) && (GetMonData(&gPlayerParty[4], MON_DATA_SPECIES) != SPECIES_NONE))
+			fixedLVL = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[1], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[2], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[3], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[4], MON_DATA_LEVEL)) / 5;
+		else if ((GetMonData(&gPlayerParty[4], MON_DATA_SPECIES) == SPECIES_NONE) && (GetMonData(&gPlayerParty[3], MON_DATA_SPECIES) != SPECIES_NONE))
+			fixedLVL = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[1], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[2], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[3], MON_DATA_LEVEL)) / 4;
+		else if ((GetMonData(&gPlayerParty[3], MON_DATA_SPECIES) == SPECIES_NONE) && (GetMonData(&gPlayerParty[2], MON_DATA_SPECIES) != SPECIES_NONE))
+			fixedLVL = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[1], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[2], MON_DATA_LEVEL)) / 3;
+		else if ((GetMonData(&gPlayerParty[2], MON_DATA_SPECIES) == SPECIES_NONE) && (GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) != SPECIES_NONE))
+			fixedLVL = (GetMonData(&gPlayerParty[0], MON_DATA_LEVEL)+GetMonData(&gPlayerParty[1], MON_DATA_LEVEL)) / 2;
+		else if ((GetMonData(&gPlayerParty[1], MON_DATA_SPECIES) == SPECIES_NONE) && (GetMonData(&gPlayerParty[0], MON_DATA_SPECIES) != SPECIES_NONE))
+			fixedLVL = GetMonData(&gPlayerParty[0], MON_DATA_LEVEL);
+	}
 
     if (trainerNum == TRAINER_SECRET_BASE)
         return 0;
@@ -1675,9 +1695,16 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 			            shinyValue = GET_SHINY_VALUE(ot, finalPersonality);
 			        } while (shinyValue < SHINY_ODDS);
 			    }
+				
+				reallevel = partyData[i].lvl;
+
+				// This prevents ABYSS and similar moves to be used to cheese an important battle.
+				if (gTrainers[trainerNum].aiFlags & AI_SCRIPT_ABOVE_OPPONENT_LEVEL) {
+					reallevel = fixedLVL + 1;
+				}
 
               	// Set this to 31 for now, we adjust IVs later
-              	CreateMon(&party[i], partyData[i].species, partyData[i].lvl, 31, TRUE, finalPersonality, OT_ID_PRESET, ot);
+              	CreateMon(&party[i], partyData[i].species, reallevel, 31, TRUE, finalPersonality, OT_ID_PRESET, ot);
                	if (partyData[i].heldItem > ITEM_NONE)
                 	SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
