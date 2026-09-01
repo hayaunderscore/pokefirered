@@ -1,17 +1,8 @@
 raw `
-LavenderTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, LavenderTown_OnTransition
-	.byte 0
-
-LavenderTown_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_LAVENDER_TOWN
-	setvar VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1
-	setflag FLAG_HIDE_SS_ANNE_RIVAL
-	end
-
 LavenderTown_EventScript_LittleGirl::
 	lock
 	faceplayer
+	goto_if_set FLAG_DID_SUNKEN_ANNE, LavenderTown_EventScript_Cara
 	msgbox LavenderTown_Text_DoYouBelieveInGhosts, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, YES, LavenderTown_EventScript_LittleGirlBelieve
 	msgbox LavenderTown_Text_JustImaginingWhiteHand
@@ -47,3 +38,90 @@ LavenderTown_EventScript_PokemonTowerSign::
 	msgbox LavenderTown_Text_PokemonTowerSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts LavenderTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: LavenderTown_OnTransition
+}
+
+script LavenderTown_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_LAVENDER_TOWN)
+	setvar(VAR_MAP_SCENE_S_S_ANNE_2F_CORRIDOR, 1)
+	setflag(FLAG_HIDE_SS_ANNE_RIVAL)
+	clearflag(FLAG_HIDE_CARA_IN_LAVENDER_TOWN)
+	if (flag(FLAG_DID_SUNKEN_ANNE)) {
+		// Only move CARA if we did do the sunken anne
+		setobjectxyperm(LOCALID_CARA, 18, 7)
+		// Hide CARA if we already TM55'd her
+		if (var(VAR_MAP_SCENE_CARA_LAVENDER_TOWN) > 0) {
+			setflag(FLAG_HIDE_CARA_IN_LAVENDER_TOWN)
+		}
+		setobjectmovementtype(LOCALID_CARA, MOVEMENT_TYPE_FACE_DOWN)
+	}
+}
+
+script LavenderTown_EventScript_Cara {
+	msgbox("Oh, oh! It's terrible, awful!
+
+			Something terrible is about to
+			happen\. tee-hee!
+
+			No, no, you can't go in\. not yet!
+
+			You don't want to be there when
+			something bad happens, do you?")
+	closemessage
+	if (checkpartymove(MOVE_ABYSS) != PARTY_SIZE && checkpartymove(MOVE_RAPTURE) != PARTY_SIZE && checkpartymove(MOVE_STRIKE) != PARTY_SIZE) {
+		releaseall
+		end
+	}
+	delay(16)
+	fadenewbgm(MUS_DUMMY)
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(50)
+	msgbox("Hmm? What's wrong?
+
+			Golly, you sure are persistent
+			just standing around here.
+
+			\.
+
+			What are you doing\.?")
+	closemessage
+	delay(30)
+	do {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		switch (var(VAR_MAP_SCENE_CARA_PROCEED)) {
+			case 2:
+				msgbox("Just remove her.", MSGBOX_YESNO)
+			case 3:
+				msgbox("You won't be able to proceed
+						if you do not remove her.", MSGBOX_YESNO)
+			case 4:
+				msgbox("\.Remove her.", MSGBOX_YESNO)
+			case 5:
+				textcolor(NPC_TEXT_COLOR_FEMALE)
+				msgbox("COULD YOU JUST REMOVE HER ALREADY
+						SO WE CAN PROCEED.", MSGBOX_YESNO)
+			case 6:
+				textcolor(NPC_TEXT_COLOR_FEMALE)
+				msgbox("STOP DENYING IT.
+						YOU WANTED THIS.", MSGBOX_YESNO)
+			case 7:
+				textcolor(NPC_TEXT_COLOR_FEMALE)
+				msgbox("\.", MSGBOX_YESNO)
+			default:
+				msgbox("Remove her?", MSGBOX_YESNO)
+		}
+		if (var(VAR_MAP_SCENE_CARA_PROCEED) < value(7)) {
+			addvar(VAR_MAP_SCENE_CARA_PROCEED, 1)
+		}
+	} while (var(VAR_RESULT) == FALSE)
+	closemessage
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	call(EventScript_UseTM55)
+	releaseall
+	setvar(VAR_MAP_SCENE_CARA_LAVENDER_TOWN, 1)
+	end
+}

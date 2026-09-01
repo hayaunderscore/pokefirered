@@ -4476,6 +4476,18 @@
       "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/SunkenAnne_1F_Corridor/border.bin",
       "blockdata_filepath": "data/layouts/SunkenAnne_1F_Corridor/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUNKEN_ANNE_KITCHEN",
+      "name": "SunkenAnne_Kitchen_Layout",
+      "width": 16,
+      "height": 14,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SSAnne",
+      "border_filepath": "data/layouts/SunkenAnne_Kitchen/border.bin",
+      "blockdata_filepath": "data/layouts/SunkenAnne_Kitchen/map.bin"
     }
   ]
 }

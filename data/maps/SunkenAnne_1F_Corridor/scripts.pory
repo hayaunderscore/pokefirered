@@ -33,3 +33,48 @@ script SunkenAnne_1F_Corridor_EventScript_Ella {
 	closemessage
 	end
 }
+
+text SunkenAnne_1F_Corridor_Text_Wigglytuff {
+	"Tuff\."
+}
+
+text SunkenAnne_1F_Corridor_Text_Wigglytuff2 {
+	"Tuff!"
+}
+
+script SunkenAnne_1F_Corridor_EventScript_Wigglytuff {
+	if (var(VAR_MAP_SCENE_SUNKEN_ANNE) == 3) {
+		moncryscript(SPECIES_WIGGLYTUFF, SunkenAnne_1F_Corridor_Text_Wigglytuff2)
+		release
+		end
+	}
+	moncryscript(SPECIES_WIGGLYTUFF, SunkenAnne_1F_Corridor_Text_Wigglytuff, CRY_MODE_WEAK)
+	if (var(VAR_MAP_SCENE_SUNKEN_ANNE) == 2) {
+		bufferitemname(STR_VAR_2, ITEM_POKE_DOLL)
+		msgbox("Use the {STR_VAR_2} on it?", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == TRUE) {
+			applymovement(LOCALID_WIGGLYTUFF, moves(
+				delay_16
+				jump_in_place_down * 2
+				delay_16 * 2
+			))
+			waitmovement(0)
+			moncryscript(SPECIES_WIGGLYTUFF, SunkenAnne_1F_Corridor_Text_Wigglytuff2)
+			bufferitemname(STR_VAR_2, ITEM_POKE_DOLL)
+			msgbox("It seems like it likes the
+					{STR_VAR_2}!")
+			applymovement(LOCALID_WIGGLYTUFF, moves(
+				walk_up
+				walk_left
+				face_right
+			))
+			waitmovement(0)
+			setvar(VAR_MAP_SCENE_SUNKEN_ANNE, 3)
+			setvar(VAR_MAP_SCENE_VERMILION_CITY, 2)
+			setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 0)
+			setflag(FLAG_HIDE_SS_ANNE)
+		}
+	}
+	release
+	end
+}

@@ -12,6 +12,11 @@ VermilionCity_Text_SSAnneHasDepartedForYear::
     .string "She'll be back in VERMILION about\n"
     .string "this time next year.$"
 
+VermilionCity_Text_SSAnneHasSunk::
+    .string "The S.S. ANNE sunk into the ocean?\p"
+    .string "That explains the amount of\n"
+    .string "reporters coming in here.$"
+
 VermilionCity_Text_BuildingOnThisLand::
     .string "I'm putting up a building on this\n"
     .string "plot of land. I own it all.\p"
@@ -74,6 +79,10 @@ VermilionCity_Text_DontHaveNeededSSTicket::
 VermilionCity_Text_TheShipSetSail::
     .string "The ship set sail.$"
 
+VermilionCity_Text_TheShipHasSunk::
+    .string "…\p"
+    .string "What are you still doing here?$"
+
 VermilionCity_Text_BoardSeagallopTriPass::
     .string "Ah, you have a TRI-PASS.\p"
     .string "Would you like to board\n"
@@ -128,4 +137,3 @@ VermilionCity_Text_Route2AideHasPackageForYou::
     .string "ROUTE 2, {PLAYER}.\p"
     .string "If you're in the ROUTE 2 area,\n"
     .string "please look for him.$"
-

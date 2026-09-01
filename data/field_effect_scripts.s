@@ -72,6 +72,7 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_MoveDeoxysRock          @ FLDEFF_MOVE_DEOXYS_ROCK
 	.4byte gFldEffScript_DestroyDeoxysRock       @ FLDEFF_DESTROY_DEOXYS_ROCK
 	.4byte gFldEffScript_PhotoFlash              @ FLDEFF_PHOTO_FLASH
+	.4byte gFldEffScript_UseTM55                 @ FLDEFF_USE_TM55
 
 gFldEffScript_ExclamationMarkIcon::
 	callnative FldEff_ExclamationMarkIcon1
@@ -221,6 +222,10 @@ gFldEffScript_SandDisguise::
 
 gFldEffScript_UseRockSmash::
 	callnative FldEff_UseRockSmash
+	end 
+
+gFldEffScript_UseTM55::
+	callnative FldEff_UseTM55
 	end 
 
 gFldEffScript_UseStrength::

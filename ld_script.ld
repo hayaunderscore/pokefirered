@@ -195,6 +195,7 @@ SECTIONS {
         src/image_processing_effects.o(.text);
         src/battle_ai_script_commands.o(.text);
         src/fldeff_rocksmash.o(.text);
+        src/fldeff_tm55.o(.text);
         src/fldeff_dig.o(.text);
         src/fldeff_flash.o(.text);
         src/post_battle_event_funcs.o(.text);

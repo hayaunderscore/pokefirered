@@ -84,7 +84,7 @@ script PokemonTech_Outside_EventScript_Giselle {
 }
 
 script PokemonTech_Outside_EventScript_GiselleAftermath {
-    msgbox("How\.
+    msgbox("GISELLE: How\.
 
             How\. did I lose?
 

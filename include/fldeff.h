@@ -53,4 +53,8 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId);
 bool8 SetUpFieldMove_SweetScent(void);
 bool8 FldEff_SweetScent(void);
 
+// TM55
+bool8 SetUpFieldMove_TM55(void);
+bool8 FldEff_UseTM55(void);
+
 #endif // GUARD_FLDEFF_H

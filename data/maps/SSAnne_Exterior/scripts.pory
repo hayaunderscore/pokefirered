@@ -1,17 +1,4 @@
 raw `
-SSAnne_Exterior_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SSAnne_Exterior_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, SSAnne_Exterior_OnFrame
-	.byte 0
-
-SSAnne_Exterior_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SSANNE_EXTERIOR
-	end
-
-SSAnne_Exterior_OnFrame::
-	map_script_2 VAR_MAP_SCENE_VERMILION_CITY, 1, SSAnne_Exterior_ExitSSAnne
-	.2byte 0
-
 SSAnne_Exterior_ExitSSAnne::
 	lockall
 	getplayerxy VAR_0x8004, VAR_0x8005
@@ -65,3 +52,235 @@ SSAnne_Exterior_Movement_WalkDown::
 	walk_down
 	step_end
 `
+
+mapscripts SSAnne_Exterior_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SSAnne_Exterior_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_VERMILION_CITY, 1: SSAnne_Exterior_ExitSSAnne
+		VAR_MAP_SCENE_SUNKEN_ANNE, 3: SSAnne_Exterior_EventScript_SunkenAftermath
+	]
+}
+
+script SSAnne_Exterior_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_SSANNE_EXTERIOR)
+	setflag(FLAG_HIDE_RIVAL_IN_SS_ANNE_DOCK)
+	setflag(FLAG_HIDE_SAILOR_IN_SS_ANNE_DOCK)
+	if (var(VAR_MAP_SCENE_SUNKEN_ANNE) == 3) {
+		clearflag(FLAG_HIDE_SAILOR_IN_SS_ANNE_DOCK)
+	}
+	end
+}
+
+script SSAnne_Exterior_EventScript_SunkenAftermath {
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	destroyfollower
+	playbgm(MUS_DUMMY, FALSE)
+	msgbox("Seriously\. How did it sink?
+
+			The S.S. ANNE is in great shape!
+			It couldn't have sank!
+
+			Unless\.")
+	closemessage
+	applymovement(LOCALID_SAILOR, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 4
+		walk_left
+		walk_down * 4
+	))
+	waitmovement(0)
+	msgbox("\.Looks like people managed to
+			survive after all\.
+
+			Hey kid\.
+
+			Did you have anything to do with
+			all of this?
+
+			\.
+
+			Look, kid.
+
+			I've seen lots of things.
+
+			And when my gut tells me there's
+			something wrong with someone\.
+
+			That's real bad news for everyone
+			involved.
+
+			It seems like\.{PAUSE 30} you've been hanging
+			out with bad company.
+
+			\.
+
+			That doesn't mean I'm blaming YOU
+			entirely for this.
+
+			It could be anyone.
+			It could be TEAM ROCKET.
+
+			But\.
+
+			\.
+
+			Look, just go already.
+
+			There's nothing left for anyone
+			to see here.")
+	closemessage
+	applymovement(LOCALID_SAILOR, moves(
+		walk_up * 5
+	))
+	waitmovement(0)
+	removeobject(LOCALID_SAILOR)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up
+		face_down
+	))
+	waitmovement(0)
+	delay(30)
+	playse(SE_M_DIVE)
+	addobject(LOCALID_BLUE)
+	applymovement(LOCALID_BLUE, moves(
+		jump_up
+	))
+	delay(30)
+	msgbox("BLUE: \.
+			{PLAYER}?
+
+			Are you alright?
+
+			\.What?
+			Did you get cold feet?
+
+			No seriously, what's the matter?
+
+			\.
+
+			Are you still thinking about why the
+			S.S. ANNE sank?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox("{PLAYER}\.
+
+				\.
+
+				It wasn't your fault.
+				Don't worry about it.
+
+				There might've been something wrong
+				with the engine- or it simply
+				has too many people- or--!
+
+				\.
+
+				Look {PLAYER}, regardless of all
+				of this\.
+
+				You're not the one who needs to
+				apologize.
+
+				I\.
+				I'll get out of your hair.
+
+				\.
+
+				I guess\. see you on the POK\eMON
+				LEAGUE then?
+
+				Well then catch ya later then\.
+				or should I say\.
+
+				Smell ya later!")
+	} else {
+		msgbox("You don't?
+
+				\.
+
+				Honestly, it's best if we just\.
+				forgot this all happened.
+
+				It's taxing for both of us.
+
+				\.
+
+				I guess\. see you on the POK\eMON
+				LEAGUE then?
+
+				Well then catch ya later then\.
+				or should I say\.
+
+				Smell ya later!")
+	}
+	closemessage
+	playbgm(MUS_RIVAL_EXIT, FALSE)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_left
+		face_right
+	))
+	waitmovement(0)
+	applymovement(LOCALID_BLUE, moves(
+		walk_up * 7
+	))
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_right
+		face_up
+	))
+	waitmovement(0)
+	applymovement(LOCALID_BLUE, moves(
+		delay_16 * 2
+		walk_down * 5
+	))
+	waitmovement(0)
+	msgbox("BLUE: Oh yeah!
+			You didn't get the CUT HM yet,
+			didn't you?
+
+			I already taught it to one of my
+			POK\eMON, so I have no use for it.")
+	giveitem(ITEM_HM01)
+	msgbox("I don't think you can go challenge
+			LT. SURGE, since its blocked by a
+			guard by the entrance.
+
+			Lots of reporters too it seems\.
+
+			Considering the S.S. ANNE sunk, it's
+			definitely a scoop for the ages!
+
+			And like gramps said, all press is
+			bad press, so try to avoid them.
+
+			Anyway, smell ya later for real this
+			time!")
+	closemessage
+	applymovement(LOCALID_BLUE, moves(
+		walk_up * 5
+	))
+	waitmovement(0)
+	playse(SE_EXIT)
+	fadenewbgm(MUS_SS_ANNE)
+	clearflag(FLAG_SUNKEN_ANNE)
+	setvar(VAR_MAP_SCENE_SUNKEN_ANNE, 4)
+	setflag(FLAG_DID_SUNKEN_ANNE)
+	setrespawn(HEAL_LOCATION_VERMILION_CITY)
+	removeobject(LOCALID_BLUE)
+	end
+}
+
+script SSAnne_Exterior_EventScript_CantGoBack {
+	msgbox("\.
+
+			It is done.
+
+			There is no need to return.", MSGBOX_AUTOCLOSE)
+	release
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up
+	))
+	waitmovement(0)
+	end
+}

@@ -302,7 +302,7 @@ FollowerPositionFixScript::
 	callnative FollowerTrainerSightingPositionFix
 FollowerPositionFixScriptReturn:
 	return
-    
+
 FollowerIntoPlayerScript::
 	setvar 0x8000 0x0
 	callnative FollowerIntoPlayer
@@ -313,7 +313,7 @@ FollowerIntoPlayerScript::
 	setvar 0x8000 0x1
 	callnative FollowerIntoPlayer
 	return
-    
+
 WalkCall:
 	compare VAR_RESULT 0x0
 	call_if_eq WalkDownCall
@@ -325,7 +325,7 @@ WalkCall:
 	call_if_eq WalkRightCall
 	waitmovement 0x8005
 	return
-	
+
 WalkDownCall:
 	applymovement 0x8005 WalkDown
 	return
@@ -341,10 +341,10 @@ WalkLeftCall:
 WalkRightCall:
 	applymovement 0x8005 WalkRight
 	return
-    
+
 WalkDown:
     walk_down
-    step_end 
+    step_end
 
 WalkUp:
     walk_up
@@ -357,3 +357,76 @@ WalkLeft:
 WalkRight:
     walk_right
     step_end
+
+EventScript_UseTM55::
+	checkpartymove MOVE_ABYSS
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_4
+EventScript_UseTM55_1:
+	checkpartymove MOVE_ABYSS
+	compare_var_to_value VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_9
+	checkpartymove MOVE_RAPTURE
+	compare_var_to_value VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_10
+	checkpartymove MOVE_STRIKE
+	compare_var_to_value VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_11
+EventScript_UseTM55_8:
+	bufferpartymonnick STR_VAR_1, VAR_RESULT
+	buffermovename STR_VAR_2, VAR_TEMP_5
+	msgbox Text_MonUsedMove
+	closemessage
+	dofieldeffect FLDEFF_USE_TM55
+	waitstate
+	goto EventScript_TM55Effect
+	end
+
+EventScript_UseTM55_2:
+	end
+
+EventScript_UseTM55_3:
+	checkpartymove MOVE_STRIKE
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_2
+	goto EventScript_UseTM55_1
+
+EventScript_UseTM55_4:
+	checkpartymove MOVE_RAPTURE
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_ne EventScript_UseTM55_3
+	goto EventScript_UseTM55_1
+
+EventScript_UseTM55_9:
+	copyvar VAR_TEMP_4, VAR_RESULT
+	setvar VAR_TEMP_5, MOVE_ABYSS
+	goto EventScript_UseTM55_8
+
+EventScript_UseTM55_10:
+	copyvar VAR_TEMP_4, VAR_RESULT
+	setvar VAR_TEMP_5, MOVE_RAPTURE
+	goto EventScript_UseTM55_8
+
+EventScript_UseTM55_11:
+	copyvar VAR_TEMP_4, VAR_RESULT
+	setvar VAR_TEMP_5, MOVE_STRIKE
+	goto EventScript_UseTM55_8
+
+EventScript_FldEffTM55::
+	lockall
+	dofieldeffect FLDEFF_USE_TM55
+	waitstate
+	goto EventScript_TM55Effect
+	return
+
+EventScript_TM55Effect::
+	fadescreen FADE_TO_WHITE
+	delay 30
+	playse SE_M_EARTHQUAKE
+	waitse
+	playse SE_M_DIVE
+	waitse
+	delay 30
+	removeobject VAR_LAST_TALKED
+	fadescreen FADE_FROM_WHITE
+	return

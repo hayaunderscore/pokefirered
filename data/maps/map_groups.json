@@ -179,7 +179,8 @@
     "SixIsland_PatternBush",
     "SixIsland_AlteringCave",
     "SunkenAnne_2F_Corridor",
-    "SunkenAnne_1F_Corridor"
+    "SunkenAnne_1F_Corridor",
+    "SunkenAnne_Kitchen"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",

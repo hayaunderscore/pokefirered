@@ -266,7 +266,7 @@ script SSAnne_2F_Corridor_EventScript_RivalTrigger {
 	}
 	msgbox(SSAnne_2F_Corridor_Text_RivalIntro)
 	setvar(VAR_LAST_TALKED, LOCALID_SS_ANNE_RIVAL)
-	if (checkpartymove(MOVE_ABYSS) || checkpartymove(MOVE_RAPTURE) || checkpartymove(MOVE_STRIKE)) {
+	if (checkpartymove(MOVE_ABYSS) != PARTY_SIZE || checkpartymove(MOVE_RAPTURE) != PARTY_SIZE || checkpartymove(MOVE_STRIKE) != PARTY_SIZE) {
 		call(SSAnne_2F_Corridor_EventScript_RivalKillThatFuckingRat)
 		playbgm(MUS_DUMMY, 0)
 		closemessage

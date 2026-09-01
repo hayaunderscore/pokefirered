@@ -1,0 +1,59 @@
+mapscripts SunkenAnne_Kitchen_MapScripts {}
+
+script SunkenAnne_Kitchen_EventScript_Captain {
+	fadenewbgm(MUS_DUMMY)
+	delay(60)
+	msgbox("\.
+
+			Sometimes\.
+			Do you wonder if anything is real?
+
+			\.
+
+			The water.
+
+			It's\.{PAUSE 30} calling to me.{PAUSE 30}
+			It's calling to us.
+
+			It's asking for our attention.
+
+			Asking to be revealed\.
+
+			\.")
+	closemessage
+	applymovement(LOCALID_CAPTAIN, moves(
+		face_player
+	))
+	waitmovement(0)
+	applymovement(LOCALID_CAPTAIN, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	// bufferspeciesname(1, SPECIES_WIGGLYTUFF)
+	msgbox("Gah!
+			Wha\.
+
+			What happened?
+
+			\.
+
+			What's with all the\.{PAUSE 30} water?
+
+			\.The ship sunk?
+
+			The exit is blocked by a WIGGLYTUFF?
+
+			\.Let's get out of here.
+			And take this.")
+	giveitem(ITEM_POKE_DOLL)
+	msgbox("Quick! Before the ship sinks!")
+	closemessage
+	playse(SE_EXIT)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(LOCALID_CAPTAIN)
+	setflag(FLAG_HIDE_SUNKEN_ANNE_CAPTAIN)
+	setvar(VAR_MAP_SCENE_SUNKEN_ANNE, 2)
+	fadescreen(FADE_FROM_BLACK)
+	end
+}

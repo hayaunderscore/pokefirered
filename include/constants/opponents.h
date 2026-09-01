@@ -761,12 +761,13 @@
 #define TRAINER_FISHERMAN_ROCK                   755
 #define TRAINER_POKEMANIAC_VECTOR                756
 #define TRAINER_LASS_ELLA                        757
+#define TRAINER_RIVAL_GISELLE_TOWER              758
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             758
+#define NUM_TRAINERS                             759
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H

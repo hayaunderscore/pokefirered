@@ -1,7 +1,4 @@
 raw `
-PokemonTower_2F_MapScripts::
-	.byte 0
-
 PokemonTower_2F_EventScript_Channeler::
 	msgbox PokemonTower_2F_Text_SilphScopeCouldUnmaskGhosts, MSGBOX_NPC
 	end
@@ -101,3 +98,14 @@ PokemonTower_2F_Movement_RivalExitDown::
 	walk_in_place_faster_right
 	step_end
 `
+
+mapscripts PokemonTower_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTower_2F_EventScript_RemoveRival
+}
+
+script PokemonTower_2F_EventScript_RemoveRival {
+	if (flag(FLAG_DID_SUNKEN_ANNE) && var(VAR_MAP_SCENE_POKEMON_TOWER_2F) == value(0)) {
+		setvar(VAR_MAP_SCENE_POKEMON_TOWER_2F, 2)
+		setflag(FLAG_HIDE_TOWER_RIVAL)
+	}
+}

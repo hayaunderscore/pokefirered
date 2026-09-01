@@ -1,7 +1,4 @@
 raw `
-PokemonTower_3F_MapScripts::
-	.byte 0
-
 PokemonTower_3F_EventScript_Patricia::
 	trainerbattle_single TRAINER_CHANNELER_PATRICIA, PokemonTower_3F_Text_PatriciaIntro, PokemonTower_3F_Text_PatriciaDefeat
 	msgbox PokemonTower_3F_Text_PatriciaPostBattle, MSGBOX_AUTOCLOSE
@@ -17,3 +14,114 @@ PokemonTower_3F_EventScript_Hope::
 	msgbox PokemonTower_3F_Text_HopePostBattle, MSGBOX_AUTOCLOSE
 	end
 `
+
+mapscripts PokemonTower_3F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTower_3F_EventScript_AddRival
+}
+
+script PokemonTower_3F_EventScript_AddRival {
+	setflag(FLAG_HIDE_TOWER_GISELLE)
+	if (flag(FLAG_ABYSS_ROUTE) && var(VAR_MAP_SCENE_POKEMON_TOWER_2F) < 3) {
+		// This route is available regardless if you sunk the ANNE or not!
+		clearflag(FLAG_HIDE_TOWER_GISELLE)
+	}
+}
+
+script PokemonTower_3F_EventScript_RivalTriggerLeft {
+	lockall
+	setvar(VAR_TEMP_1, 1)
+	goto(PokemonTower_3F_EventScript_Rival)
+	end
+}
+
+script PokemonTower_3F_EventScript_RivalTriggerRight {
+	lockall
+	setvar(VAR_TEMP_1, 0)
+	goto(PokemonTower_3F_EventScript_Rival)
+	end
+}
+
+script PokemonTower_3F_EventScript_Rival {
+	playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+	switch (var(VAR_TEMP_1)) {
+		case 0:
+			applymovement(LOCALID_TOWER_GISELLE, moves(
+				walk_left * 9
+				walk_down * 3
+			))
+		case 1:
+			applymovement(LOCALID_TOWER_GISELLE, moves(
+				walk_left * 9
+				walk_down * 4
+			))
+	}
+	waitmovement(0)
+	if (var(VAR_TEMP_1) == value(1)) {
+		applymovement(LOCALID_TOWER_GISELLE, moves(
+			walk_in_place_left
+		))
+		applymovement(LOCALID_PLAYER, moves(
+			walk_in_place_right
+		))
+		waitmovement(0)
+	}
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("GISELLE: Oh! Didn't expect to see
+			you here, miss\.
+
+			\.Come to think of it I never
+			got your name.
+
+			\.
+			{PLAYER}?
+
+			Well {PLAYER}, while you were moping
+			around challenging GYMs\.
+
+			I decided to train in this TOWER!
+			Pretty, 'cool' right?
+
+			Ohohoho!
+			Surely with this I can defeat you!
+
+			Also, did your POK\eMON get stronger?")
+	setvar(VAR_LAST_TALKED, LOCALID_TOWER_GISELLE)
+	trainerbattle_no_intro(TRAINER_RIVAL_GISELLE_TOWER, "You meanie!
+														You\. had to have cheated again!")
+	msgbox("Ah dang it!
+			You and your POK\eMON\.
+
+			Well, a proper lady has to cut her
+			losses somewhat, so I'll be the
+			proper person and let you be.
+
+			Come to think of it, where are all
+			the MAROWAKs at?
+
+			There's no parental figure for my
+			little CUBONE here\.
+
+			\.\.just like myself\.
+
+			Oh! What was I saying again?
+
+			Ah yes, Ta ta! See you!")
+	closemessage
+	playbgm(MUS_RIVAL_EXIT, FALSE)
+	switch (var(VAR_TEMP_1)) {
+		case 0:
+			applymovement(LOCALID_TOWER_GISELLE, moves(
+				walk_left
+				walk_down * 7
+			))
+		case 1:
+			applymovement(LOCALID_TOWER_GISELLE, moves(
+				walk_down * 6
+			))
+	}
+	waitmovement(0)
+	removeobject(LOCALID_TOWER_GISELLE)
+	fadedefaultbgm
+	setvar(VAR_MAP_SCENE_POKEMON_TOWER_2F, 3)
+	end
+}

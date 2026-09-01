@@ -1390,3 +1390,6 @@ Text_MonCryScript::
 
 	.include "data/maps/SunkenAnne_1F_Corridor/scripts.inc"
 	.include "data/maps/SunkenAnne_1F_Corridor/text.inc"
+
+	.include "data/maps/SunkenAnne_Kitchen/scripts.inc"
+	.include "data/maps/SunkenAnne_Kitchen/text.inc"

@@ -70,6 +70,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PokemonTower_3F_EventScript_ItemEscapeRope",
       "flag": "FLAG_HIDE_POKEMON_TOWER_3F_ESCAPE_ROPE"
+    },
+    {
+      "local_id": "LOCALID_TOWER_GISELLE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GISELLE",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_TOWER_GISELLE"
     }
   ],
   "warp_events": [
@@ -88,6 +103,25 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_POKEMON_TOWER_2F",
+      "var_value": "2",
+      "script": "PokemonTower_3F_EventScript_RivalTriggerLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_POKEMON_TOWER_2F",
+      "var_value": "2",
+      "script": "PokemonTower_3F_EventScript_RivalTriggerRight"
+    }
+  ],
   "bg_events": []
 }
