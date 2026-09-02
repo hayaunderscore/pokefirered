@@ -785,6 +785,9 @@ static bool8 CheckStandardWildEncounter(u32 metatileAttributes)
     if (FlagGet(OW_FLAG_NO_ENCOUNTER))
         return FALSE;
 #endif
+	
+	if (FlagGet(FLAG_SYS_DISABLE_ENCOUNTERS))
+		return FALSE;
 
     return TryStandardWildEncounter(metatileAttributes);
 }

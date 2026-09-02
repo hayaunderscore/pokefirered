@@ -327,7 +327,6 @@ Pic: Cara
 Gender: Female
 Music: Female
 Double Battle: No
-Items: Super Potion / Super Potion
 AI: Check Bad Move / Try To Faint / Check Viability / Above Opponent Level
 
 Muk
@@ -335,7 +334,7 @@ Ability: Stench
 Level: 30
 - Haze
 - Sludge Bomb
-- Focus Punch
+- Taunt
 - Acid Armor
 
 Gengar
@@ -345,3 +344,11 @@ Level: 30
 - Hypnosis
 - Shadow Ball
 - Will-O-Wisp
+
+Rainer
+Ability: Torrent
+Level: 30
+- Transform
+- Substitute
+- Abyss
+- Surf

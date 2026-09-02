@@ -115,6 +115,20 @@
       "elevation": 3,
       "dest_map": "MAP_POKEMON_TOWER_5F",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 41,
+      "y": 18,
+      "elevation": 3,
+      "dest_map": "MAP_POKEMON_TOWER_7F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 40,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TOWER_6F",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
@@ -125,7 +139,7 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_POKEMON_TOWER_6F",
       "var_value": "0",
-      "script": "PokemonTower_6F_EventScript_MarowakGhost"
+      "script": "PokemonTower_6F_EventScript_MarowakGhostTop"
     },
     {
       "type": "trigger",
@@ -134,8 +148,17 @@
       "elevation": 3,
       "var": "VAR_MAP_SCENE_POKEMON_TOWER_6F",
       "var_value": "0",
-      "script": "PokemonTower_6F_EventScript_MarowakGhost"
+      "script": "PokemonTower_6F_EventScript_MarowakGhostRight"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 40,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTower_6F_EventScript_Nightmare"
+    }
+  ]
 }

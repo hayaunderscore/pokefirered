@@ -1053,7 +1053,7 @@ void Overworld_PlaySpecialMapMusic(void)
     else if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING) && Overworld_MusicCanOverrideMapMusic(MUS_SURF))
         music = MUS_SURF;
 
-    if (music != GetCurrentMapMusic())
+    if (music != GetCurrentMapMusic() && !FlagGet(FLAG_DONT_CHANGE_MUSIC))
         PlayNewMapMusic(music);
 }
 

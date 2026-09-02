@@ -377,6 +377,7 @@ EventScript_UseTM55_8:
 	buffermovename STR_VAR_2, VAR_TEMP_5
 	msgbox Text_MonUsedMove
 	closemessage
+	setfieldeffectargument 0, VAR_RESULT
 	dofieldeffect FLDEFF_USE_TM55
 	waitstate
 	goto EventScript_TM55Effect

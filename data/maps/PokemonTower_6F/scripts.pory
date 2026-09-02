@@ -15,6 +15,16 @@ PokemonTower_6F_EventScript_MarowakGhost::
 	releaseall
 	end
 
+PokemonTower_6F_EventScript_MarowakGhostTop::
+	setvar VAR_TEMP_1, 0
+	goto PokemonTower_6F_EventScript_MarowakGhost
+	end
+
+PokemonTower_6F_EventScript_MarowakGhostRight::
+	setvar VAR_TEMP_1, 1
+	goto PokemonTower_6F_EventScript_MarowakGhost
+	end
+
 PokemonTower_6F_EventScript_DefeatedMarowakGhost::
 	message PokemonTower_6F_Text_GhostWasCubonesMother
 	waitmessage
@@ -49,65 +59,62 @@ PokemonTower_6F_EventScript_Jennifer::
 
 mapscripts PokemonTower_6F_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: PokemonTower_6F_EventScript_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_POKEMON_TOWER_6F, 3: PokemonTower_6F_EventScript_Cara2
+	]
 }
 
 script PokemonTower_6F_EventScript_OnTransition {
 	setflag(FLAG_HIDE_TOWER_CARA)
+	if (var(VAR_MAP_SCENE_POKEMON_TOWER_6F) == value(3)) {
+		clearflag(FLAG_HIDE_TOWER_CARA)
+		setobjectxyperm(LOCALID_TOWER_CARA, 40, 9)
+		setweather(WEATHER_RAIN)
+		setobjectmovementtype(LOCALID_TOWER_CARA, MOVEMENT_TYPE_FACE_DOWN)
+		playbgm(MUS_DUMMY, TRUE)
+		savebgm(MUS_DUMMY)
+	}
 }
 
-script PokemonTower_6F_EventScript_Cara {
-	fadenewbgm(MUS_DUMMY)
+script PokemonTower_6F_EventScript_Cara2 {
+	lockall
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	addobject(LOCALID_TOWER_CARA)
-	applymovement(LOCALID_TOWER_CARA, moves(
-		walk_right * 8
-		walk_down * 2
-	))
-	waitmovement(0)
-	delay(30)
-	setweather(WEATHER_SHADE)
-	doweather
+	fadescreenspeed(FADE_FROM_BLACK, 2)
 	delay(60)
-	savebgm(MUS_DUMMY)
-	msgbox("Tee-hee!
-			Did you miss me?
+	clearflag(FLAG_DONT_CHANGE_MUSIC)
+	if (!flag(FLAG_DOING_CARA_FIGHT)) {
+		msgbox("If it weren't for you\.
+				{COLOR LIGHT_BLUE}They{COLOR RED} would be here by now.
 
-			What was that all about earlier?
-			Trying to get rid of me?
+				You've ruined my plans.
 
-			If you must know, you're making
-			a big, big mistake here!
+				Despite it all, everything just
+				seems to fall apart at the end.
 
-			Don't you know when its time
-			to turn back?
+				No matter what I do\.
 
-			Do you think the qualms of the
-			ABYSS will be happy by what you
-			are doing here?
+				Even when I was just a little girl
+				strolling through BURNED TOWER\.
 
-			\.
+				Nothing goes my way.
 
-			If it weren't for you\.
-			{COLOR LIGHT_BLUE}They{COLOR RED} would be here by now.
+				Tee-hee!
 
-			You've ruined my plans.
-
-			Despite it all, everything just
-			seems to fall apart at the end.
-
-			No matter what I do\.
-
-			Even when I was just a little girl
-			strolling through BURNED TOWER\.
-
-			Nothing goes my way.
-
-			Tee-hee!
-
-			But while I still can\.
-			I must stop you.")
+				But while I still can\.
+				I must stop you.")
+	} else {
+		msgbox("Oh? You're back!")
+	}
+	setvar(VAR_MAP_SCENE_POKEMON_TOWER_6F, 0)
+	clearflag(FLAG_DONT_TRANSITION_MUSIC)
+	clearflag(FLAG_SYS_PREVENT_MAP_FADE)
+	clearflag(FLAG_DONT_SHOW_MAP_NAME_POPUP)
+	setflag(FLAG_DOING_CARA_FIGHT) // This is so we can skip the cutscene later when we white out
 	trainerbattle_no_intro(TRAINER_AN_ATTACK_THA_CARA, "You\.")
 	playbgm(MUS_DUMMY, 0)
+	setweather(WEATHER_FOG_DIAGONAL)
+	doweather
+	delay(30)
 	msgbox("You\.
 
 			\.
@@ -122,7 +129,8 @@ script PokemonTower_6F_EventScript_Cara {
 
 			{PLAYER}\.
 
-			Do you see the HAND on your shoulder?
+			Do you see the HAND\.{PAUSE 30} on your
+			shoulder?
 
 			Do you think that going forward
 			with all of this\.
@@ -145,6 +153,72 @@ script PokemonTower_6F_EventScript_Cara {
 	call(EventScript_UseTM55)
 	savebgm(MUS_POKE_TOWER)
 	setvar(VAR_MAP_SCENE_POKEMON_TOWER_6F, 1)
+	clearflag(FLAG_DOING_CARA_FIGHT)
+	setflag(FLAG_SYS_DISABLE_ENCOUNTERS)
 	releaseall
+	end
+}
+
+script PokemonTower_6F_EventScript_Cara {
+	fadenewbgm(MUS_DUMMY)
+	if (!flag(FLAG_DOING_CARA_FIGHT)) {
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		addobject(LOCALID_TOWER_CARA)
+		switch (var(VAR_TEMP_1)) {
+			case 0:
+				applymovement(LOCALID_TOWER_CARA, moves(
+					walk_right * 8
+					walk_down * 2
+				))
+			case 1:
+				applymovement(LOCALID_TOWER_CARA, moves(
+					walk_right * 9
+					walk_down * 3
+				))
+		}
+		waitmovement(0)
+		delay(60)
+		savebgm(MUS_DUMMY)
+		msgbox("Tee-hee!
+				Did you miss me?
+
+				What was that all about earlier?
+				Trying to get rid of me?
+
+				If you must know, you're making
+				a big, big mistake here!
+
+				Don't you know when its time to
+				turn back?
+
+				Do you think the qualms of the
+				ABYSS will be happy by what you
+				are doing here?")
+		closemessage
+		delay(30)
+	}
+	fadescreenspeed(FADE_TO_BLACK, 2)
+	delay(30)
+	setvar(VAR_MAP_SCENE_POKEMON_TOWER_6F, 3)
+	releaseall
+	setflag(FLAG_DONT_TRANSITION_MUSIC)
+	setflag(FLAG_SYS_PREVENT_MAP_FADE)
+	setflag(FLAG_DONT_SHOW_MAP_NAME_POPUP)
+	setflag(FLAG_DONT_CHANGE_MUSIC)
+	savebgm(MUS_DUMMY)
+	warpsilent(MAP_POKEMON_TOWER_6F, 3)
+	end
+}
+
+script PokemonTower_6F_EventScript_Nightmare {
+	lock
+	msgbox("A grave.
+
+			You feel like something should be
+			here\.{PAUSE 30} yet it isn't.
+
+			Sometimes, some things are best
+			left forgotten.")
+	release
 	end
 }

@@ -1780,11 +1780,11 @@
     {
       "id": "LAYOUT_POKEMON_TOWER_6F",
       "name": "PokemonTower_6F_Layout",
-      "width": 24,
+      "width": 50,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/PokemonTower_6F/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTower_6F/map.bin"

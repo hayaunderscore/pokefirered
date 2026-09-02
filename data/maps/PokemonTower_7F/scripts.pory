@@ -1,7 +1,4 @@
 raw `
-PokemonTower_7F_MapScripts::
-	.byte 0
-
 PokemonTower_7F_EventScript_MrFuji::
 	lock
 	faceplayer
@@ -231,3 +228,11 @@ PokemonTower_7F_Movement_Grunt3ExitLeft::
 	walk_down
 	step_end
 `
+
+mapscripts PokemonTower_7F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTower_7F_EventScript_OnTransition
+}
+
+script PokemonTower_7F_EventScript_OnTransition {
+	clearflag(FLAG_SYS_DISABLE_ENCOUNTERS)
+}
