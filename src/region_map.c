@@ -934,6 +934,8 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_POKEMON_TECH        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_SUNKEN_S_S_ANNE     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1031,7 +1033,7 @@ static void InitRegionMapType(void)
     j = REGIONMAP_KANTO;
     // Some maps have ids that are located beyond SEVII_MAPSEC_START,
     // but are actually in kanto
-    if (gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TECH)
+    if (gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TECH || gMapHeader.regionMapSectionId == MAPSEC_SUNKEN_S_S_ANNE)
     	region = REGIONMAP_KANTO;
     else if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
@@ -3017,6 +3019,7 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     case MAPSEC_MT_MOON:
         return FlagGet(FLAG_WORLD_MAP_MT_MOON_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_S_S_ANNE:
+    case MAPSEC_SUNKEN_S_S_ANNE:
         return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_UNDERGROUND_PATH:
         return FlagGet(FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -3200,6 +3203,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->y = 4;
         break;
     case MAPSEC_S_S_ANNE:
+    case MAPSEC_SUNKEN_S_S_ANNE:
         sMapCursor->x = 14;
         sMapCursor->y = 9;
         break;
