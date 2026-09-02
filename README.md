@@ -1,7 +1,7 @@
 # FRLGV.IPS
 
 <p align="center">
-<img width="720" height="480" alt="STARTPOINT" src="https://github.com/user-attachments/assets/f16c7381-4880-462c-97e9-177b549937ee" style="image-rendering: pixelated;" />
+<img width="720" height="480" alt="STARTPOINT" src="3new/STARTPOINT.png" />
 </p>
 
 <p align="center">
