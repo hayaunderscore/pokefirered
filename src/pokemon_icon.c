@@ -21,9 +21,9 @@ static void DestroyMonIconInternal(struct Sprite *sprite);
 static void FreeAndDestroyMonIconSprite_(struct Sprite *sprite);
 
 const u16 gMonIconPalettes[][16] = {
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_0.gbapal"),
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_1.gbapal"),
-    INCBIN_U16("graphics/pokemon/icon_palettes/icon_palette_2.gbapal")
+    INCGFX_U16("graphics/pokemon/icon_palettes/icon_palette_0.pal", ".gbapal"),
+    INCGFX_U16("graphics/pokemon/icon_palettes/icon_palette_1.pal", ".gbapal"),
+    INCGFX_U16("graphics/pokemon/icon_palettes/icon_palette_2.pal", ".gbapal")
 };
 
 const u8 *const gMonIconTable[] = {

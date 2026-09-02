@@ -172,13 +172,13 @@ static void SendRecvDone(void);
 static void LinkTest_PrintHex(u32 pos, u8 a0, u8 a1, u8 a2);
 #endif
 
-static const u16 sWirelessLinkDisplayPal[] = INCBIN_U16("graphics/link/wireless_display.gbapal");
-static const u16 sWirelessLinkDisplayGfx[] = INCBIN_U16("graphics/link/wireless_display.4bpp.lz");
-static const u16 sWirelessLinkDisplayTilemap[] = INCBIN_U16("graphics/link/wireless_display.bin.lz");
+static const u16 sWirelessLinkDisplayPal[] = INCGFX_U16("graphics/link/wireless_display.png", ".gbapal");
+static const u16 sWirelessLinkDisplayGfx[] = INCGFX_U16("graphics/link/wireless_display.png", ".4bpp.lz");
+static const u16 sWirelessLinkDisplayTilemap[] = INCGFX_U16("graphics/link/wireless_display.bin", ".lz");
 #if REVISION >= 0xA
 #else
-static const u16 sLinkTestFontPal[] = INCBIN_U16("graphics/link/test_font.gbapal");
-static const u16 sLinkTestFontGfx[] = INCBIN_U16("graphics/link/test_font.4bpp");
+static const u16 sLinkTestFontPal[] = INCGFX_U16("graphics/link/test_font.png", ".gbapal");
+static const u16 sLinkTestFontGfx[] = INCGFX_U16("graphics/link/test_font.png", ".4bpp");
 #endif
 
 static const struct BlockRequest sBlockRequests[] = {

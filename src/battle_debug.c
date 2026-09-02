@@ -60,8 +60,8 @@ static const struct OamData sOamData_Arrow =
     .affineParam = 0,
 };
 
-static const u32 sArrowSheet_Gfx[] = INCBIN_U32("graphics/interface/arrow_sheet.4bpp.lz");
-static const u32 sArrowSheet_Pal[] = INCBIN_U32("graphics/interface/arrow_sheet.gbapal.lz");
+static const u32 sArrowSheet_Gfx[] = INCGFX_U32("graphics/interface/arrow_sheet.png", ".4bpp.lz");
+static const u32 sArrowSheet_Pal[] = INCGFX_U32("graphics/interface/arrow_sheet.pal", ".gbapal.lz");
 
 static const struct CompressedSpriteSheet sSpriteSheet_Arrows =
 {

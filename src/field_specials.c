@@ -2093,30 +2093,30 @@ void DaisyMassageServices(void)
 }
 
 static const u16 sEliteFourLightingPalettes[][16] = {
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_0.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_1.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_2.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_3.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_4.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_5.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_6.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_7.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_8.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_9.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_10.gbapal"),
-    INCBIN_U16("graphics/field_specials/elite_four_lighting_11.gbapal")
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_0.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_1.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_2.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_3.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_4.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_5.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_6.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_7.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_8.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_9.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_10.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/elite_four_lighting_11.pal", ".gbapal")
 };
 
 static const u16 sChampionRoomLightingPalettes[][16] = {
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_0.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_1.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_2.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_3.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_4.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_5.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_6.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_7.gbapal"),
-    INCBIN_U16("graphics/field_specials/champion_room_lighting_8.gbapal")
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_0.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_1.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_2.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_3.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_4.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_5.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_6.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_7.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/champion_room_lighting_8.pal", ".gbapal")
 };
 
 static const u8 sEliteFourLightingTimers[] = {
@@ -2331,17 +2331,17 @@ void CutMoveOpenDottedHoleDoor(void)
 }
 
 static const u16 sDeoxysObjectPals[][16] = {
-    INCBIN_U16("graphics/field_specials/deoxys_rock_0.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_1.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_2.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_3.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_4.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_5.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_6.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_7.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_8.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_9.gbapal"),
-    INCBIN_U16("graphics/field_specials/deoxys_rock_10.gbapal")
+    INCGFX_U16("graphics/field_specials/deoxys_rock_0.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_1.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_2.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_3.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_4.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_5.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_6.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_7.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_8.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_9.pal", ".gbapal"),
+    INCGFX_U16("graphics/field_specials/deoxys_rock_10.pal", ".gbapal")
 };
 
 static const u8 sDeoxysCoords[][2] = {

@@ -132,7 +132,7 @@ static const struct BgTemplate sOptionMenuBgTemplates[] =
    },
 };
 
-static const u16 sOptionMenuPalette[] = INCBIN_U16("graphics/misc/option_menu.gbapal");
+static const u16 sOptionMenuPalette[] = INCGFX_U16("graphics/misc/option_menu.pal", ".gbapal");
 static const u16 sOptionMenuItemCounts[MENUITEM_COUNT] = {3, 2, 2, 2, 2, 10, 0};
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =

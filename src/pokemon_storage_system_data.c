@@ -48,9 +48,9 @@ static bool8 SetMenuTextsForItem(void);
 static void CreateCursorSprites(void);
 static void ToggleCursorMultiMoveMode(void);
 
-static const u16 sPokeStorageMisc1Pal[] = INCBIN_U16("graphics/pokemon_storage/misc1.gbapal");
-static const u16 sHandCursorTiles[] = INCBIN_U16("graphics/pokemon_storage/cursor.4bpp");
-static const u16 sHandCursorShadowTiles[] = INCBIN_U16("graphics/pokemon_storage/cursor_shadow.4bpp");
+static const u16 sPokeStorageMisc1Pal[] = INCGFX_U16("graphics/pokemon_storage/misc1.pal", ".gbapal");
+static const u16 sHandCursorTiles[] = INCGFX_U16("graphics/pokemon_storage/cursor.png", ".4bpp");
+static const u16 sHandCursorShadowTiles[] = INCGFX_U16("graphics/pokemon_storage/cursor_shadow.png", ".4bpp");
 
 // Modes for selecting and moving Pokémon in the box. Multiple Pokémon can be
 // selected by pressing the Select button to change the cursor, then holding

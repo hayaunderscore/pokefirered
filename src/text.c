@@ -28,9 +28,9 @@ static void SpriteCB_TextCursor(struct Sprite *sprite);
 
 COMMON_DATA TextFlags gTextFlags = {0};
 
-static const u8 sDownArrowTiles[]    = INCBIN_U8("graphics/fonts/down_arrows.4bpp");
-static const u8 sDoubleArrowTiles1[] = INCBIN_U8("graphics/fonts/down_arrow_3.4bpp");
-static const u8 sDoubleArrowTiles2[] = INCBIN_U8("graphics/fonts/down_arrow_4.4bpp");
+static const u8 sDownArrowTiles[]    = INCGFX_U8("graphics/fonts/down_arrows.png", ".4bpp");
+static const u8 sDoubleArrowTiles1[] = INCGFX_U8("graphics/fonts/down_arrow_3.png", ".4bpp");
+static const u8 sDoubleArrowTiles2[] = INCGFX_U8("graphics/fonts/down_arrow_4.png", ".4bpp");
 
 static const u8 sDownArrowYCoords[]           = { 0, 16, 32, 16 };
 static const u8 sWindowVerticalScrollSpeeds[] = {
@@ -95,9 +95,9 @@ struct
     [CHAR_DPAD_NONE]      = { 0x22,  8, 12 },
 };
 
-const u8 gKeypadIconTiles[] = INCBIN_U8("graphics/fonts/keypad_icons.4bpp");
+const u8 gKeypadIconTiles[] = INCGFX_U8("graphics/fonts/keypad_icons.png", ".4bpp");
 
-static const u16 sFontSmallLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_small.hwlatfont");
+static const u16 sFontSmallLatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_small.png", ".hwlatfont");
 static const u8 sFontSmallLatinGlyphWidths[] = 
 {
      5,  5,  5,  5,  5,  5,  5,  5,  5,  4,  5,  4,  4,  5, 
@@ -138,9 +138,9 @@ static const u8 sFontSmallLatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
      8,  8,  8,  8,  8,  8,  8,  5
 };
-static const u16 sFontSmallJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_small.fwjpnfont");
+static const u16 sFontSmallJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_small.png", ".fwjpnfont");
 
-static const u16 sFontNormalCopy1LatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_normal.fwlatfont");
+static const u16 sFontNormalCopy1LatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_normal.png", ".fwlatfont");
 static const u8 sFontNormalCopy1LatinGlyphWidths[] =
 {
      6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
@@ -181,9 +181,9 @@ static const u8 sFontNormalCopy1LatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
      8,  8,  8,  8,  8,  8,  8,  6
 };
-static const u16 sFontTallJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_tall.fwjpnfont");
+static const u16 sFontTallJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_tall.png", ".fwjpnfont");
 
-static const u16 sFontNormalLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_normal.fwlatfont");
+static const u16 sFontNormalLatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_normal.png", ".fwlatfont");
 static const u8 sFontNormalLatinGlyphWidths[] =
 {
      6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
@@ -224,7 +224,7 @@ static const u8 sFontNormalLatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
      8,  8,  8,  8,  8,  8,  8,  6
 };
-static const u16 sFontNormalJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_normal.fwjpnfont");
+static const u16 sFontNormalJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_normal.png", ".fwjpnfont");
 static const u8 sFontNormalJapaneseGlyphWidths[] =
 {
      0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
@@ -249,7 +249,7 @@ static const u8 sFontNormalJapaneseGlyphWidths[] =
     10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0
 };
 
-static const u16 sFontMaleLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_male.fwlatfont");
+static const u16 sFontMaleLatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_male.png", ".fwlatfont");
 static const u8 sFontMaleLatinGlyphWidths[] =
 {
      6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
@@ -290,7 +290,7 @@ static const u8 sFontMaleLatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
      8,  8,  8,  8,  8,  8,  8,  6
 };
-static const u16 sFontMaleJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_male.fwjpnfont");
+static const u16 sFontMaleJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_male.png", ".fwjpnfont");
 static const u8 sFontMaleJapaneseGlyphWidths[] = 
 {
      0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
@@ -315,7 +315,7 @@ static const u8 sFontMaleJapaneseGlyphWidths[] =
     10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0
 };
 
-static const u16 sFontFemaleLatinGlyphs[] = INCBIN_U16("graphics/fonts/latin_female.fwlatfont");
+static const u16 sFontFemaleLatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_female.png", ".fwlatfont");
 static const u8 sFontFemaleLatinGlyphWidths[] =
 {
      6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,  6,
@@ -356,7 +356,7 @@ static const u8 sFontFemaleLatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,  8,
      8,  8,  8,  8,  8,  8,  8,  6
 };
-static const u16 sFontFemaleJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_female.fwjpnfont");
+static const u16 sFontFemaleJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_female.png", ".fwjpnfont");
 static const u8 sFontFemaleJapaneseGlyphWidths[] =
 {
      0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
@@ -381,7 +381,7 @@ static const u8 sFontFemaleJapaneseGlyphWidths[] =
     10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  0
 };
 
-static const u16 sFontBoldJapaneseGlyphs[] = INCBIN_U16("graphics/fonts/japanese_bold.fwjpnfont");
+static const u16 sFontBoldJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_bold.png", ".fwjpnfont");
 
 u16 FontFunc_Small(struct TextPrinter *textPrinter)
 {

@@ -39,9 +39,9 @@ static void Task_HandleDiplomaInput(u8);
 static void Task_DiplomaInit(u8);
 static void Task_DiplomaExit(u8);
 
-static const u32 sDiplomaGfx[] = INCBIN_U32("graphics/diploma/diploma.4bpp.lz");
-static const u32 sDiplomaTilemap[] = INCBIN_U32("graphics/diploma/diploma.bin.lz");
-static const u16 sDiplomaPal[] = INCBIN_U16("graphics/diploma/diploma.gbapal");
+static const u32 sDiplomaGfx[] = INCGFX_U32("graphics/diploma/diploma.png", ".4bpp.lz");
+static const u32 sDiplomaTilemap[] = INCGFX_U32("graphics/diploma/diploma.bin", ".lz");
+static const u16 sDiplomaPal[] = INCGFX_U16("graphics/diploma/diploma.png", ".gbapal");
 
 // Leftover text from RSE (some of which is also unused there)
 static const u8 sText_Player[] = _("{HIGHLIGHT TRANSPARENT}プレイヤー");

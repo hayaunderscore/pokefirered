@@ -119,9 +119,9 @@ static void InitScanlineEffect(void);
 static void FillScanlineEffectWithValue1col(s16 a0);
 static void FillScanlineEffectWithValue2col(s16 a0);
 
-static const u16 sUnionRoomChat_TextEntry_Pal[] = INCBIN_U16("graphics/union_room_chat/text_entry.gbapal");
-static const u16 gUnionRoomChat_Unused_Pal[] = INCBIN_U16("graphics/union_room_chat/unused.gbapal"); // Loaded, but nothing uses it
-static const u16 sUnionRoomChat_Messages_Pal[] = INCBIN_U16("graphics/union_room_chat/messages.gbapal");
+static const u16 sUnionRoomChat_TextEntry_Pal[] = INCGFX_U16("graphics/union_room_chat/text_entry.pal", ".gbapal");
+static const u16 gUnionRoomChat_Unused_Pal[] = INCGFX_U16("graphics/union_room_chat/unused.pal", ".gbapal"); // Loaded, but nothing uses it
+static const u16 sUnionRoomChat_Messages_Pal[] = INCGFX_U16("graphics/union_room_chat/messages.pal", ".gbapal");
 
 static const struct BgTemplate sBgTemplates[] = {
     {

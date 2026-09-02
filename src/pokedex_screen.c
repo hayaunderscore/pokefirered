@@ -138,10 +138,10 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y);
 static void Task_DexScreen_RegisterNonKantoMonBeforeNationalDex(u8 taskId);
 static void Task_DexScreen_RegisterMonToPokedex(u8 taskId);
 
-const u32 sCategoryMonInfoBgTiles[] = INCBIN_U32("graphics/pokedex/mini_page.4bpp.lz");
-const u32 sKantoDexTiles[] = INCBIN_U32("graphics/pokedex/kanto_dex_bgtiles.4bpp.lz");
-const u32 sNatDexTiles[] = INCBIN_U32("graphics/pokedex/national_dex_bgtiles.4bpp.lz");
-const u16 sKantoDexPalette[0x100] = INCBIN_U16("graphics/pokedex/kanto_dex_bgpals.gbapal");
+const u32 sCategoryMonInfoBgTiles[] = INCGFX_U32("graphics/pokedex/mini_page.png", ".4bpp.lz");
+const u32 sKantoDexTiles[] = INCGFX_U32("graphics/pokedex/kanto_dex_bgtiles.png", ".4bpp.lz");
+const u32 sNatDexTiles[] = INCGFX_U32("graphics/pokedex/national_dex_bgtiles.png", ".4bpp.lz");
+const u16 sKantoDexPalette[0x100] = INCGFX_U16("graphics/pokedex/kanto_dex_bgpals.pal", ".gbapal");
 
 const u16 sDexScreen_CategoryCursorPals[] = {
     RGB(24, 22, 17), RGB(26, 24, 20),
@@ -152,47 +152,47 @@ const u16 sDexScreen_CategoryCursorPals[] = {
     RGB(26, 20, 15), RGB(27, 23, 19)
 };
 
-const u16 sNationalDexPalette[0x100] = INCBIN_U16("graphics/pokedex/national_dex_bgpals.gbapal");
-const u32 sTopMenuIconTiles_Cave[] = INCBIN_U32("graphics/pokedex/cat_icon_cave.4bpp.lz");
-const u32 sTopMenuIconTiles_Urban[] = INCBIN_U32("graphics/pokedex/cat_icon_urban.4bpp.lz");
-const u32 sTopMenuSelectionIconTiles_Cancel[] = INCBIN_U32("graphics/pokedex/cat_icon_cancel.4bpp.lz");
-const u32 sTopMenuIconTiles_Forest[] = INCBIN_U32("graphics/pokedex/cat_icon_forest.4bpp.lz");
-const u32 sTopMenuIconTiles_Grassland[] = INCBIN_U32("graphics/pokedex/cat_icon_grassland.4bpp.lz");
-const u32 sTopMenuIconTiles_QuestionMark[] = INCBIN_U32("graphics/pokedex/cat_icon_qmark.4bpp.lz");
-const u32 sTopMenuIconTiles_Mountain[] = INCBIN_U32("graphics/pokedex/cat_icon_mountain.4bpp.lz");
-const u32 sTopMenuIconTiles_Rare[] = INCBIN_U32("graphics/pokedex/cat_icon_rare.4bpp.lz");
-const u32 sTopMenuIconTiles_Sea[] = INCBIN_U32("graphics/pokedex/cat_icon_sea.4bpp.lz");
-const u32 sTopMenuIconTiles_Numerical[] = INCBIN_U32("graphics/pokedex/cat_icon_numerical.4bpp.lz");
-const u32 sTopMenuIconTiles_RoughTerrain[] = INCBIN_U32("graphics/pokedex/cat_icon_rough_terrain.4bpp.lz");
-const u32 sTopMenuIconTiles_WatersEdge[] = INCBIN_U32("graphics/pokedex/cat_icon_waters_edge.4bpp.lz");
-const u32 sTopMenuIconTiles_Type[] = INCBIN_U32("graphics/pokedex/cat_icon_type.4bpp.lz");
-const u32 sTopMenuIconTiles_Lightest[] = INCBIN_U32("graphics/pokedex/cat_icon_lightest.4bpp.lz");
-const u32 sTopMenuIconTiles_Smallest[] = INCBIN_U32("graphics/pokedex/cat_icon_smallest.4bpp.lz");
-const u16 sTopMenuIconPals_Cave[] = INCBIN_U16("graphics/pokedex/cat_icon_cave.gbapal");
-const u16 sTopMenuIconPals_Urban[] = INCBIN_U16("graphics/pokedex/cat_icon_urban.gbapal");
-const u16 sTopMenuSelectionIconPals_Cancel[] = INCBIN_U16("graphics/pokedex/cat_icon_cancel.gbapal");
-const u16 sTopMenuIconPals_Forest[] = INCBIN_U16("graphics/pokedex/cat_icon_forest.gbapal");
-const u16 sTopMenuIconPals_Grassland[] = INCBIN_U16("graphics/pokedex/cat_icon_grassland.gbapal");
-const u16 sTopMenuIconPals_QuestionMark[] = INCBIN_U16("graphics/pokedex/cat_icon_qmark.gbapal");
-const u16 sTopMenuIconPals_Mountain[] = INCBIN_U16("graphics/pokedex/cat_icon_mountain.gbapal");
-const u16 sTopMenuIconPals_Rare[] = INCBIN_U16("graphics/pokedex/cat_icon_rare.gbapal");
-const u16 sTopMenuIconPals_Sea[] = INCBIN_U16("graphics/pokedex/cat_icon_sea.gbapal");
-const u16 sTopMenuIconPals_Numerical[] = INCBIN_U16("graphics/pokedex/cat_icon_numerical.gbapal");
-const u16 sTopMenuIconPals_RoughTerrain[] = INCBIN_U16("graphics/pokedex/cat_icon_rough_terrain.gbapal");
-const u16 sTopMenuIconPals_WatersEdge[] = INCBIN_U16("graphics/pokedex/cat_icon_waters_edge.gbapal");
-const u16 sTopMenuIconPals_Type[] = INCBIN_U16("graphics/pokedex/cat_icon_type.gbapal");
-const u16 sTopMenuIconPals_Lightest[] = INCBIN_U16("graphics/pokedex/cat_icon_lightest.gbapal");
-const u16 sTopMenuIconPals_Smallest[] = INCBIN_U16("graphics/pokedex/cat_icon_smallest.gbapal");
-const u8 sDexScreen_CaughtIcon[] = INCBIN_U8("graphics/pokedex/caught_marker.4bpp");
-const u32 sTilemap_AreaMap_Kanto[] = INCBIN_U32("graphics/pokedex/map_kanto.4bpp.lz");
-const u32 sTilemap_AreaMap_OneIsland[] = INCBIN_U32("graphics/pokedex/map_one_island.4bpp.lz");
-const u32 sTilemap_AreaMap_TwoIsland[] = INCBIN_U32("graphics/pokedex/map_two_island.4bpp.lz");
-const u32 sTilemap_AreaMap_ThreeIsland[] = INCBIN_U32("graphics/pokedex/map_three_island.4bpp.lz");
-const u32 sTilemap_AreaMap_FourIsland[] = INCBIN_U32("graphics/pokedex/map_four_island.4bpp.lz");
-const u32 sTilemap_AreaMap_FiveIsland[] = INCBIN_U32("graphics/pokedex/map_five_island.4bpp.lz");
-const u32 sTilemap_AreaMap_SixIsland[] = INCBIN_U32("graphics/pokedex/map_six_island.4bpp.lz");
-const u32 sTilemap_AreaMap_SevenIsland[] = INCBIN_U32("graphics/pokedex/map_seven_island.4bpp.lz");
-const u16 sBlitTiles_WideEllipse[] = INCBIN_U16("graphics/pokedex/blit_wide_ellipse.4bpp");
+const u16 sNationalDexPalette[0x100] = INCGFX_U16("graphics/pokedex/national_dex_bgpals.pal", ".gbapal");
+const u32 sTopMenuIconTiles_Cave[] = INCGFX_U32("graphics/pokedex/cat_icon_cave.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Urban[] = INCGFX_U32("graphics/pokedex/cat_icon_urban.png", ".4bpp.lz");
+const u32 sTopMenuSelectionIconTiles_Cancel[] = INCGFX_U32("graphics/pokedex/cat_icon_cancel.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Forest[] = INCGFX_U32("graphics/pokedex/cat_icon_forest.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Grassland[] = INCGFX_U32("graphics/pokedex/cat_icon_grassland.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_QuestionMark[] = INCGFX_U32("graphics/pokedex/cat_icon_qmark.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Mountain[] = INCGFX_U32("graphics/pokedex/cat_icon_mountain.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Rare[] = INCGFX_U32("graphics/pokedex/cat_icon_rare.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Sea[] = INCGFX_U32("graphics/pokedex/cat_icon_sea.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Numerical[] = INCGFX_U32("graphics/pokedex/cat_icon_numerical.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_RoughTerrain[] = INCGFX_U32("graphics/pokedex/cat_icon_rough_terrain.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_WatersEdge[] = INCGFX_U32("graphics/pokedex/cat_icon_waters_edge.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Type[] = INCGFX_U32("graphics/pokedex/cat_icon_type.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Lightest[] = INCGFX_U32("graphics/pokedex/cat_icon_lightest.png", ".4bpp.lz");
+const u32 sTopMenuIconTiles_Smallest[] = INCGFX_U32("graphics/pokedex/cat_icon_smallest.png", ".4bpp.lz");
+const u16 sTopMenuIconPals_Cave[] = INCGFX_U16("graphics/pokedex/cat_icon_cave.png", ".gbapal");
+const u16 sTopMenuIconPals_Urban[] = INCGFX_U16("graphics/pokedex/cat_icon_urban.png", ".gbapal");
+const u16 sTopMenuSelectionIconPals_Cancel[] = INCGFX_U16("graphics/pokedex/cat_icon_cancel.png", ".gbapal");
+const u16 sTopMenuIconPals_Forest[] = INCGFX_U16("graphics/pokedex/cat_icon_forest.png", ".gbapal");
+const u16 sTopMenuIconPals_Grassland[] = INCGFX_U16("graphics/pokedex/cat_icon_grassland.png", ".gbapal");
+const u16 sTopMenuIconPals_QuestionMark[] = INCGFX_U16("graphics/pokedex/cat_icon_qmark.png", ".gbapal");
+const u16 sTopMenuIconPals_Mountain[] = INCGFX_U16("graphics/pokedex/cat_icon_mountain.png", ".gbapal");
+const u16 sTopMenuIconPals_Rare[] = INCGFX_U16("graphics/pokedex/cat_icon_rare.png", ".gbapal");
+const u16 sTopMenuIconPals_Sea[] = INCGFX_U16("graphics/pokedex/cat_icon_sea.png", ".gbapal");
+const u16 sTopMenuIconPals_Numerical[] = INCGFX_U16("graphics/pokedex/cat_icon_numerical.png", ".gbapal");
+const u16 sTopMenuIconPals_RoughTerrain[] = INCGFX_U16("graphics/pokedex/cat_icon_rough_terrain.png", ".gbapal");
+const u16 sTopMenuIconPals_WatersEdge[] = INCGFX_U16("graphics/pokedex/cat_icon_waters_edge.png", ".gbapal");
+const u16 sTopMenuIconPals_Type[] = INCGFX_U16("graphics/pokedex/cat_icon_type.png", ".gbapal");
+const u16 sTopMenuIconPals_Lightest[] = INCGFX_U16("graphics/pokedex/cat_icon_lightest.png", ".gbapal");
+const u16 sTopMenuIconPals_Smallest[] = INCGFX_U16("graphics/pokedex/cat_icon_smallest.png", ".gbapal");
+const u8 sDexScreen_CaughtIcon[] = INCGFX_U8("graphics/pokedex/caught_marker.png", ".4bpp");
+const u32 sTilemap_AreaMap_Kanto[] = INCGFX_U32("graphics/pokedex/map_kanto.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_OneIsland[] = INCGFX_U32("graphics/pokedex/map_one_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_TwoIsland[] = INCGFX_U32("graphics/pokedex/map_two_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_ThreeIsland[] = INCGFX_U32("graphics/pokedex/map_three_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_FourIsland[] = INCGFX_U32("graphics/pokedex/map_four_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_FiveIsland[] = INCGFX_U32("graphics/pokedex/map_five_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_SixIsland[] = INCGFX_U32("graphics/pokedex/map_six_island.png", ".4bpp.lz");
+const u32 sTilemap_AreaMap_SevenIsland[] = INCGFX_U32("graphics/pokedex/map_seven_island.png", ".4bpp.lz");
+const u16 sBlitTiles_WideEllipse[] = INCGFX_U16("graphics/pokedex/blit_wide_ellipse.png", ".4bpp");
 
 #include "data/pokemon/pokedex_orders.h"
 
@@ -810,7 +810,7 @@ static const u8 *const sDexCategoryNamePtrs[] = {
     gText_DexCategory_RarePkmn,
 };
 
-const u16 sPalette_Silhouette[] = INCBIN_U16("graphics/pokedex/silhouette_sprite_pal.gbapal");
+const u16 sPalette_Silhouette[] = INCGFX_U16("graphics/pokedex/silhouette_sprite_pal.pal", ".gbapal");
 
 static const u8 sDexScreenPageTurnColumns[][30] = {
     {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30},

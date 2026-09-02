@@ -53,7 +53,7 @@ static void Task_DestroyTrainerApproachTask(u8 taskId);
 static void SpriteCB_TrainerIcons(struct Sprite *sprite);
 static void SetIconSpriteData(struct Sprite *sprite, u16 fldEffId, u8 spriteAnimNum);
 
-static const u16 sGfx_Emoticons[] = INCBIN_U16("graphics/misc/emoticons.4bpp");
+static const u16 sGfx_Emoticons[] = INCGFX_U16("graphics/misc/emoticons.png", ".4bpp", "-mwidth 2 -mheight 2");
 
 // u8 func(struct ObjectEvent * trainerObj, s16 range, s16 x, s16 y)
 // range is the maximum distance the trainer can see

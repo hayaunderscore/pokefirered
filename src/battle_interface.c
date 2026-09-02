@@ -362,7 +362,7 @@ static const struct SubspriteTable sStatusSummaryBar_SubspriteTable_Exit[] = {
     {ARRAY_COUNT(sStatusSummaryBar_Subsprites_Exit), sStatusSummaryBar_Subsprites_Exit}
 };
 
-static const u16 sBattleInterface_Unused[] = INCBIN_U16("graphics/battle_interface/unused.4bpp");
+static const u16 sBattleInterface_Unused[] = INCGFX_U16("graphics/battle_interface/unused.png", ".4bpp");
 
 static const struct CompressedSpriteSheet sPartySummaryBarSpriteSheets[] = {
     {gBattleInterface_PartySummaryBar_Gfx, 16 * TILE_SIZE_4BPP, TAG_PARTY_SUMMARY_BAR_PLAYER_TILE},

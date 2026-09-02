@@ -661,8 +661,8 @@ static const u8 *const sFieldMoveDescriptionTable[] =
     [FIELD_MOVE_SWEET_SCENT] = gText_LureWildPokemon,
 };
 
-static const u32 sHeldItemGfx[] = INCBIN_U32("graphics/party_menu/hold_icons.4bpp");
-static const u16 sHeldItemPalette[] = INCBIN_U16("graphics/party_menu/hold_icons.gbapal");
+static const u32 sHeldItemGfx[] = INCGFX_U32("graphics/party_menu/hold_icons.png", ".4bpp");
+static const u16 sHeldItemPalette[] = INCGFX_U16("graphics/party_menu/hold_icons.png", ".gbapal");
 
 static const struct OamData sOamData_HeldItem =
 {

@@ -19,7 +19,7 @@ static void PrintTextOnSaveFailedScreen(const u8 *a0);
 static bool32 TryWipeDamagedSectors(void);
 static bool32 WipeDamagedSectors(u32 damagedSectors);
 
-static const u16 sSaveFailedScreenPals[] = INCBIN_U16("graphics/interface/save_failed_screen.gbapal");
+static const u16 sSaveFailedScreenPals[] = INCGFX_U16("graphics/interface/save_failed_screen.pal", ".gbapal");
 
 void SetNotInSaveFailedScreen(void)
 {

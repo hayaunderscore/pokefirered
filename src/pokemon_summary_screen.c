@@ -340,12 +340,12 @@ extern const u16 gSummaryScreen_StatusAilmentIcon_Pal[];
 extern const u32 gSummaryScreen_HpBar_Gfx[];
 extern const u32 gSummaryScreen_ExpBar_Gfx[];
 
-static const u32 sTextHeaderPalette[] = INCBIN_U32("graphics/summary_screen/text_header.gbapal");
-static const u16 sMonMarkingSpritePalette[] = INCBIN_U16("graphics/summary_screen/marking.gbapal");
-static const u32 sTextMovesPalette[] = INCBIN_U32("graphics/summary_screen/text_moves.gbapal");
-static const u16 sMoveSelectionCursorPals[] = INCBIN_U16("graphics/summary_screen/move_selection_cursor.gbapal");
-static const u32 sMoveSelectionCursorTiles_Left[] = INCBIN_U32("graphics/summary_screen/move_selection_cursor_left.4bpp.lz");
-static const u32 sMoveSelectionCursorTiles_Right[] = INCBIN_U32("graphics/summary_screen/move_selection_cursor_right.4bpp.lz");
+static const u32 sTextHeaderPalette[] = INCGFX_U32("graphics/summary_screen/text_header.pal", ".gbapal");
+static const u16 sMonMarkingSpritePalette[] = INCGFX_U16("graphics/summary_screen/marking.pal", ".gbapal");
+static const u32 sTextMovesPalette[] = INCGFX_U32("graphics/summary_screen/text_moves.pal", ".gbapal");
+static const u16 sMoveSelectionCursorPals[] = INCGFX_U16("graphics/summary_screen/move_selection_cursor.pal", ".gbapal");
+static const u32 sMoveSelectionCursorTiles_Left[] = INCGFX_U32("graphics/summary_screen/move_selection_cursor_left.png", ".4bpp.lz");
+static const u32 sMoveSelectionCursorTiles_Right[] = INCGFX_U32("graphics/summary_screen/move_selection_cursor_right.png", ".4bpp.lz");
 
 static const struct OamData sMoveSelectionCursorOamData =
 {
@@ -559,8 +559,8 @@ static const union AnimCmd * const sHpOrExpBarAnimTable[] =
     sHpOrExpAnim_11
 };
 
-static const u16 sPokeSummary_HpBarPalYellow[] = INCBIN_U16("graphics/summary_screen/hp_bar_yellow.gbapal");
-static const u16 sPokeSummary_HpBarPalRed[] = INCBIN_U16("graphics/summary_screen/hp_bar_red.gbapal");
+static const u16 sPokeSummary_HpBarPalYellow[] = INCGFX_U16("graphics/summary_screen/hp_bar_yellow.pal", ".gbapal");
+static const u16 sPokeSummary_HpBarPalRed[] = INCGFX_U16("graphics/summary_screen/hp_bar_red.pal", ".gbapal");
 
 static const struct OamData sPokerusIconObjOamData = {
     .y = 0,
@@ -588,8 +588,8 @@ static const union AnimCmd * const sPokerusIconObjAnimTable[] =
     sPokerusIconObjAnim0
 };
 
-static const u16 sPokerusIconObjPal[] = INCBIN_U16("graphics/summary_screen/pokerus_cured.gbapal");
-static const u32 sPokerusIconObjTiles[] = INCBIN_U32("graphics/summary_screen/pokerus_cured.4bpp.lz");
+static const u16 sPokerusIconObjPal[] = INCGFX_U16("graphics/summary_screen/pokerus_cured.png", ".gbapal");
+static const u32 sPokerusIconObjTiles[] = INCGFX_U32("graphics/summary_screen/pokerus_cured.png", ".4bpp.lz");
 
 static const struct OamData sStarObjOamData =
 {
@@ -618,10 +618,10 @@ static const union AnimCmd * const sStarObjAnimTable[] =
     sStarObjAnim0
 };
 
-static const u16 sStarObjPal[] = INCBIN_U16( "graphics/summary_screen/shiny_star.gbapal");
-static const u32 sStarObjTiles[] = INCBIN_U32( "graphics/summary_screen/shiny_star.4bpp.lz");
-static const u32 sBgTilemap_MovesInfoPage[] = INCBIN_U32( "graphics/summary_screen/moves_info_page.bin.lz");
-static const u32 sBgTilemap_MovesPage[] = INCBIN_U32( "graphics/summary_screen/moves_page.bin.lz");
+static const u16 sStarObjPal[] = INCGFX_U16("graphics/summary_screen/shiny_star.png", ".gbapal");
+static const u32 sStarObjTiles[] = INCGFX_U32("graphics/summary_screen/shiny_star.png", ".4bpp.lz");
+static const u32 sBgTilemap_MovesInfoPage[] = INCGFX_U32("graphics/summary_screen/moves_info_page.bin", ".lz");
+static const u32 sBgTilemap_MovesPage[] = INCGFX_U32("graphics/summary_screen/moves_page.bin", ".lz");
 
 #include "data/text/nature_names.h"
 

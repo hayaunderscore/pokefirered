@@ -53,7 +53,7 @@ static void AnimTask_WaterSport_Step(u8);
 static void CreateWaterSportDroplet(struct Task *);
 static void CreateWaterPulseRingBubbles(struct Sprite *, s32, s32);
 
-static const u8 sUnusedWater_Gfx[] = INCBIN_U8("graphics/battle_anims/unused/water.4bpp");
+static const u8 sUnusedWater_Gfx[] = INCGFX_U8("graphics/battle_anims/unused/water.png", ".4bpp");
 static const u8 sUnusedWater[] = INCBIN_U8("graphics/battle_anims/unused/water.bin");
 
 static const union AnimCmd sAnim_RainDrop[] =

@@ -651,7 +651,7 @@ static void SpriteCB_ChooseBoxArrow(struct Sprite *sprite)
 }
 
 // Unused, since LoadChooseBoxMenuGfx is always called with `loadPal` as false
-static const u16 sChooseBoxMenu_Pal[] = INCBIN_U16("graphics/pokemon_storage/unused_choose_box_menu.gbapal");
+static const u16 sChooseBoxMenu_Pal[] = INCGFX_U16("graphics/pokemon_storage/unused_choose_box_menu.pal", ".gbapal");
 
-static const u8 sChooseBoxMenuCenter_Gfx[] = INCBIN_U8("graphics/pokemon_storage/choose_box_menu_center.4bpp");
-static const u8 sChooseBoxMenuCorners_Gfx[] = INCBIN_U8("graphics/pokemon_storage/choose_box_menu_corners.4bpp");
+static const u8 sChooseBoxMenuCenter_Gfx[] = INCGFX_U8("graphics/pokemon_storage/choose_box_menu_center.png", ".4bpp");
+static const u8 sChooseBoxMenuCorners_Gfx[] = INCGFX_U8("graphics/pokemon_storage/choose_box_menu_corners.png", ".4bpp");

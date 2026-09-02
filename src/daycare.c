@@ -133,9 +133,9 @@ static const u8 *const sCompatibilityMessages[] =
 static const u8 sNewLineText[] = _("\n");
 static const u8 sJapaneseEggNickname[] = _("タマゴ"); // "tamago" ("egg" in Japanese)
 
-static const u16 sEggPalette[] = INCBIN_U16("graphics/pokemon/egg/normal.gbapal");
-static const u8 sEggHatchTiles[] = INCBIN_U8("graphics/misc/egg_hatch.4bpp");
-static const u8 sEggShardTiles[] = INCBIN_U8("graphics/misc/egg_shard.4bpp");
+static const u16 sEggPalette[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
+static const u8 sEggHatchTiles[] = INCGFX_U8("graphics/misc/egg_hatch.png", ".4bpp");
+static const u8 sEggShardTiles[] = INCGFX_U8("graphics/misc/egg_shard.png", ".4bpp");
 
 static const struct OamData sOamData_EggHatch =
 {

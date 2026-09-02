@@ -323,7 +323,7 @@ static const struct SpriteTemplate sSpriteTemplate_MenuText = {
     .callback = SpriteCallbackDummy
 };
 
-static const u16 sMenuText_Pal[] = INCBIN_U16("graphics/trade/text.gbapal");
+static const u16 sMenuText_Pal[] = INCGFX_U16("graphics/trade/text.pal", ".gbapal");
 static const struct SpritePalette sSpritePalette_MenuText = {
     .data = sMenuText_Pal,
     .tag = PALTAG_MENU_TEXT

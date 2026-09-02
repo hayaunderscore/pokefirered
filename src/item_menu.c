@@ -297,7 +297,7 @@ static const struct ScrollArrowsTemplate sPocketSwitchArrowPairTemplate = {
     .palNum = 0,
 };
 
-static const u8 sBlit_SelectButton[] = INCBIN_U8("graphics/interface/select_button.4bpp");
+static const u8 sBlit_SelectButton[] = INCGFX_U8("graphics/interface/select_button.png", ".4bpp");
 
 #define tSwitchDir     data[11]
 #define tSwitchCounter data[12]

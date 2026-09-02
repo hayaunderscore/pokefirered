@@ -164,26 +164,26 @@ enum
     MSG_FMT_ITEM_NAME,
 };
 
-static const u32 sScrollingBg_Gfx[]     = INCBIN_U32("graphics/pokemon_storage/scrolling_bg.4bpp.lz");
-static const u32 sScrollingBg_Tilemap[] = INCBIN_U32("graphics/pokemon_storage/scrolling_bg.bin.lz");
+static const u32 sScrollingBg_Gfx[]     = INCGFX_U32("graphics/pokemon_storage/scrolling_bg.png", ".4bpp.lz");
+static const u32 sScrollingBg_Tilemap[] = INCGFX_U32("graphics/pokemon_storage/scrolling_bg.bin", ".lz");
 
 // Unused
-static const u16 sMenu_Pal[] = INCBIN_U16("graphics/pokemon_storage/menu.gbapal");
+static const u16 sMenu_Pal[] = INCGFX_U16("graphics/pokemon_storage/menu.pal", ".gbapal");
 
-static const u32 sMenu_Tilemap[]             = INCBIN_U32("graphics/pokemon_storage/menu.bin.lz");
+static const u32 sMenu_Tilemap[]             = INCGFX_U32("graphics/pokemon_storage/menu.bin", ".lz");
 static const u16 sPkmnData_Tilemap[]         = INCBIN_U16("graphics/pokemon_storage/pkmn_data.bin");
-static const u16 sScrollingBg_Pal[]          = INCBIN_U16("graphics/pokemon_storage/scrolling_bg.gbapal");
-static const u16 sScrollingBgMoveItems_Pal[] = INCBIN_U16("graphics/pokemon_storage/scrolling_bg_move_items.gbapal");
+static const u16 sScrollingBg_Pal[]          = INCGFX_U16("graphics/pokemon_storage/scrolling_bg.png", ".gbapal");
+static const u16 sScrollingBgMoveItems_Pal[] = INCGFX_U16("graphics/pokemon_storage/scrolling_bg_move_items.pal", ".gbapal");
 static const u16 sCloseBoxButton_Tilemap[]   = INCBIN_U16("graphics/pokemon_storage/close_box_button.bin");
 static const u16 sPartySlotFilled_Tilemap[]  = INCBIN_U16("graphics/pokemon_storage/party_slot_filled.bin");
 static const u16 sPartySlotEmpty_Tilemap[]   = INCBIN_U16("graphics/pokemon_storage/party_slot_empty.bin");
-static const u16 sPokeStorageMisc2Pal[]      = INCBIN_U16("graphics/pokemon_storage/misc2.gbapal");
-static const u16 sWaveform_Gfx[]             = INCBIN_U16("graphics/pokemon_storage/waveform.4bpp");
+static const u16 sPokeStorageMisc2Pal[]      = INCGFX_U16("graphics/pokemon_storage/misc2.pal", ".gbapal");
+static const u16 sWaveform_Gfx[]             = INCGFX_U16("graphics/pokemon_storage/waveform.png", ".4bpp");
 
 // Unused
-static const u16 sUnused_Pal[] = INCBIN_U16("graphics/pokemon_storage/unused.gbapal");
+static const u16 sUnused_Pal[] = INCGFX_U16("graphics/pokemon_storage/unused.pal", ".gbapal");
 
-static const u16 sItemInfoFrame_Pal[] = INCBIN_U16("graphics/pokemon_storage/item_info_frame.gbapal");
+static const u16 sItemInfoFrame_Pal[] = INCGFX_U16("graphics/pokemon_storage/item_info_frame.png", ".gbapal");
 
 static const struct WindowTemplate sWindowTemplates[] = {
     {

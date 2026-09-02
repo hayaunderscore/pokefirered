@@ -283,8 +283,8 @@ static const struct SpriteTemplate sSpriteTemplate_Confetti = {
     .callback = SpriteCB_Confetti
 };
 
-static const u16 sHallOfFame_Pal[] = INCBIN_U16("graphics/hall_of_fame/hall_of_fame.gbapal");
-static const u32 sHallOfFame_Gfx[] = INCBIN_U32("graphics/hall_of_fame/hall_of_fame.4bpp.lz");
+static const u16 sHallOfFame_Pal[] = INCGFX_U16("graphics/hall_of_fame/hall_of_fame.png", ".gbapal");
+static const u32 sHallOfFame_Gfx[] = INCGFX_U32("graphics/hall_of_fame/hall_of_fame.png", ".4bpp.lz", "-num_tiles 29 -Wnum_tiles");
 
 static const struct HallofFameMon sDummyHofMon = {
     .tid = 0x03EA03EA, // (u16[]){1002, 1002} corrupted sprite template?

@@ -1,42 +1,42 @@
 #include "global.h"
 #include "text_window_graphics.h"
 
-const u16 gSignpostWindow_Gfx[] = INCBIN_U16("graphics/text_window/signpost.4bpp");
+const u16 gSignpostWindow_Gfx[] = INCGFX_U16("graphics/text_window/signpost.png", ".4bpp", "-num_tiles 19 -Wnum_tiles");
 
-static const u16 sUserFrame_Type1_Gfx[] = INCBIN_U16("graphics/text_window/type1.4bpp");
-static const u16 sUserFrame_Type2_Gfx[] = INCBIN_U16("graphics/text_window/type2.4bpp");
+static const u16 sUserFrame_Type1_Gfx[] = INCGFX_U16("graphics/text_window/type1.png", ".4bpp");
+static const u16 sUserFrame_Type2_Gfx[] = INCGFX_U16("graphics/text_window/type2.png", ".4bpp");
 static const u16 sUserFrame_Empty1[16] = {0};
-static const u16 sUserFrame_Type3_Gfx[] = INCBIN_U16("graphics/text_window/type3.4bpp");
-static const u16 sUserFrame_Type4_Gfx[] = INCBIN_U16("graphics/text_window/type4.4bpp");
-static const u16 sUserFrame_Type5_Gfx[] = INCBIN_U16("graphics/text_window/type5.4bpp");
-static const u16 sUserFrame_Type6_Gfx[] = INCBIN_U16("graphics/text_window/type6.4bpp");
-static const u16 sUserFrame_Type7_Gfx[] = INCBIN_U16("graphics/text_window/type7.4bpp");
-static const u16 sUserFrame_Type8_Gfx[] = INCBIN_U16("graphics/text_window/type8.4bpp");
+static const u16 sUserFrame_Type3_Gfx[] = INCGFX_U16("graphics/text_window/type3.png", ".4bpp");
+static const u16 sUserFrame_Type4_Gfx[] = INCGFX_U16("graphics/text_window/type4.png", ".4bpp");
+static const u16 sUserFrame_Type5_Gfx[] = INCGFX_U16("graphics/text_window/type5.png", ".4bpp");
+static const u16 sUserFrame_Type6_Gfx[] = INCGFX_U16("graphics/text_window/type6.png", ".4bpp");
+static const u16 sUserFrame_Type7_Gfx[] = INCGFX_U16("graphics/text_window/type7.png", ".4bpp");
+static const u16 sUserFrame_Type8_Gfx[] = INCGFX_U16("graphics/text_window/type8.png", ".4bpp");
 static const u16 sUserFrame_Empty2[16] = {0};
-static const u16 sUserFrame_Type9_Gfx[] = INCBIN_U16("graphics/text_window/type9.4bpp");
-static const u16 sUserFrame_Type10_Gfx[] = INCBIN_U16("graphics/text_window/type10.4bpp");
+static const u16 sUserFrame_Type9_Gfx[] = INCGFX_U16("graphics/text_window/type9.png", ".4bpp");
+static const u16 sUserFrame_Type10_Gfx[] = INCGFX_U16("graphics/text_window/type10.png", ".4bpp");
 static const u16 sUserFrame_Empty3[16] = {0};
 
-static const u16 sUserFrame_Type1_Pal[] = INCBIN_U16("graphics/text_window/type1.gbapal");
-static const u16 sUserFrame_Type2_Pal[] = INCBIN_U16("graphics/text_window/type2.gbapal");
-static const u16 sUserFrame_Type3_Pal[] = INCBIN_U16("graphics/text_window/type3.gbapal");
-static const u16 sUserFrame_Type4_Pal[] = INCBIN_U16("graphics/text_window/type4.gbapal");
-static const u16 sUserFrame_Type5_Pal[] = INCBIN_U16("graphics/text_window/type5.gbapal");
-static const u16 sUserFrame_Type6_Pal[] = INCBIN_U16("graphics/text_window/type6.gbapal");
-static const u16 sUserFrame_Type7_Pal[] = INCBIN_U16("graphics/text_window/type7.gbapal");
-static const u16 sUserFrame_Type8_Pal[] = INCBIN_U16("graphics/text_window/type8.gbapal");
-static const u16 sUserFrame_Type9_Pal[] = INCBIN_U16("graphics/text_window/type9.gbapal");
-static const u16 sUserFrame_Type10_Pal[] = INCBIN_U16("graphics/text_window/type10.gbapal");
+static const u16 sUserFrame_Type1_Pal[] = INCGFX_U16("graphics/text_window/type1.png", ".gbapal");
+static const u16 sUserFrame_Type2_Pal[] = INCGFX_U16("graphics/text_window/type2.png", ".gbapal");
+static const u16 sUserFrame_Type3_Pal[] = INCGFX_U16("graphics/text_window/type3.png", ".gbapal");
+static const u16 sUserFrame_Type4_Pal[] = INCGFX_U16("graphics/text_window/type4.png", ".gbapal");
+static const u16 sUserFrame_Type5_Pal[] = INCGFX_U16("graphics/text_window/type5.png", ".gbapal");
+static const u16 sUserFrame_Type6_Pal[] = INCGFX_U16("graphics/text_window/type6.png", ".gbapal");
+static const u16 sUserFrame_Type7_Pal[] = INCGFX_U16("graphics/text_window/type7.png", ".gbapal");
+static const u16 sUserFrame_Type8_Pal[] = INCGFX_U16("graphics/text_window/type8.png", ".gbapal");
+static const u16 sUserFrame_Type9_Pal[] = INCGFX_U16("graphics/text_window/type9.png", ".gbapal");
+static const u16 sUserFrame_Type10_Pal[] = INCGFX_U16("graphics/text_window/type10.png", ".gbapal");
 
-const u16 gStdTextWindow_Gfx[] = INCBIN_U16("graphics/text_window/std.4bpp");
-const u16 gQuestLogWindow_Gfx[] = INCBIN_U16("graphics/text_window/quest_log.4bpp");
+const u16 gStdTextWindow_Gfx[] = INCGFX_U16("graphics/text_window/std.png", ".4bpp");
+const u16 gQuestLogWindow_Gfx[] = INCGFX_U16("graphics/text_window/quest_log.png", ".4bpp");
 
 const u16 gTextWindowPalettes[][16] = {
-    INCBIN_U16("graphics/text_window/stdpal_0.gbapal"),
-    INCBIN_U16("graphics/text_window/stdpal_1.gbapal"),
-    INCBIN_U16("graphics/text_window/stdpal_2.gbapal"),
-    INCBIN_U16("graphics/text_window/stdpal_3.gbapal"),
-    INCBIN_U16("graphics/text_window/stdpal_4.gbapal")
+    INCGFX_U16("graphics/text_window/stdpal_0.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/stdpal_1.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/stdpal_2.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/stdpal_3.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/stdpal_4.pal", ".gbapal")
 };
 
 const struct TextWindowGraphics gUserFrames[] = {

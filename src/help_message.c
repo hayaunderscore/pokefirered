@@ -5,7 +5,7 @@
 
 static EWRAM_DATA u8 sHelpMessageWindowId = 0;
 
-const u8 gHelpMessageWindow_Gfx[] = INCBIN_U8("graphics/help_system/msg_window.4bpp");
+const u8 gHelpMessageWindow_Gfx[] = INCGFX_U8("graphics/help_system/msg_window.png", ".4bpp");
 
 static const struct WindowTemplate sHelpMessageWindowTemplate = {
     .bg = 0,

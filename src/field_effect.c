@@ -63,27 +63,27 @@ static void SpriteCB_PokecenterMonitor(struct Sprite *sprite);
 static void SpriteCB_HallOfFameMonitor(struct Sprite *sprite);
 
 // Unused
-static const u16 sNewGameOakObject_Gfx[] = INCBIN_U16("graphics/field_effects/pics/new_game_oak.4bpp");
-static const u16 sNewGameOakObject_Pal[] = INCBIN_U16("graphics/field_effects/pics/new_game_oak.gbapal");
+static const u16 sNewGameOakObject_Gfx[] = INCGFX_U16("graphics/field_effects/pics/new_game_oak.png", ".4bpp");
+static const u16 sNewGameOakObject_Pal[] = INCGFX_U16("graphics/field_effects/pics/new_game_oak.png", ".gbapal");
 
-static const u16 sPokeballGlow_Gfx[] = INCBIN_U16("graphics/field_effects/pics/pokeball_glow.4bpp");
-static const u16 sPokeballGlow_Pal[] = INCBIN_U16("graphics/field_effects/pics/pokeball_glow.gbapal");
-static const u16 sPokecenterMonitor_Gfx[] = INCBIN_U16("graphics/field_effects/pics/pokemoncenter_monitor.4bpp");
-static const u16 sHofMonitor_Pal[] = INCBIN_U16("graphics/field_effects/pics/hof_monitor.gbapal");
-static const u16 sHofMonitor_Gfx[] = INCBIN_U16("graphics/field_effects/pics/hof_monitor.4bpp");
+static const u16 sPokeballGlow_Gfx[] = INCGFX_U16("graphics/field_effects/pics/pokeball_glow.png", ".4bpp");
+static const u16 sPokeballGlow_Pal[] = INCGFX_U16("graphics/field_effects/pics/pokeball_glow.png", ".gbapal");
+static const u16 sPokecenterMonitor_Gfx[] = INCGFX_U16("graphics/field_effects/pics/pokemoncenter_monitor.png", ".4bpp");
+static const u16 sHofMonitor_Pal[] = INCGFX_U16("graphics/field_effects/pics/hof_monitor.png", ".gbapal");
+static const u16 sHofMonitor_Gfx[] = INCGFX_U16("graphics/field_effects/pics/hof_monitor.png", ".4bpp");
 
-static const u16 sFieldMoveStreaksOutdoors_Gfx[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_outdoors.4bpp");
-static const u16 sFieldMoveStreaksOutdoors_Pal[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_outdoors.gbapal");
+static const u16 sFieldMoveStreaksOutdoors_Gfx[] = INCGFX_U16("graphics/field_effects/pics/field_move_streaks_outdoors.png", ".4bpp");
+static const u16 sFieldMoveStreaksOutdoors_Pal[] = INCGFX_U16("graphics/field_effects/pics/field_move_streaks_outdoors.png", ".gbapal");
 static const u16 sFieldMoveStreaksOutdoors_Tilemap[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_outdoors.bin");
 
-static const u16 sFieldMoveStreaksIndoors_Gfx[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_indoors.4bpp");
-static const u16 sFieldMoveStreaksIndoors_Pal[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_indoors.gbapal");
+static const u16 sFieldMoveStreaksIndoors_Gfx[] = INCGFX_U16("graphics/field_effects/pics/field_move_streaks_indoors.png", ".4bpp");
+static const u16 sFieldMoveStreaksIndoors_Pal[] = INCGFX_U16("graphics/field_effects/pics/field_move_streaks_indoors.png", ".gbapal");
 static const u16 sFieldMoveStreaksIndoors_Tilemap[] = INCBIN_U16("graphics/field_effects/pics/field_move_streaks_indoors.bin");
 
-static const u16 sRockFragment_TopLeft[] = INCBIN_U16("graphics/field_effects/pics/deoxys_rock_fragment_top_left.4bpp");
-static const u16 sRockFragment_TopRight[] = INCBIN_U16("graphics/field_effects/pics/deoxys_rock_fragment_top_right.4bpp");
-static const u16 sRockFragment_BottomLeft[] = INCBIN_U16("graphics/field_effects/pics/deoxys_rock_fragment_bottom_left.4bpp");
-static const u16 sRockFragment_BottomRight[] = INCBIN_U16("graphics/field_effects/pics/deoxys_rock_fragment_bottom_right.4bpp");
+static const u16 sRockFragment_TopLeft[] = INCGFX_U16("graphics/field_effects/pics/deoxys_rock_fragment_top_left.png", ".4bpp");
+static const u16 sRockFragment_TopRight[] = INCGFX_U16("graphics/field_effects/pics/deoxys_rock_fragment_top_right.png", ".4bpp");
+static const u16 sRockFragment_BottomLeft[] = INCGFX_U16("graphics/field_effects/pics/deoxys_rock_fragment_bottom_left.png", ".4bpp");
+static const u16 sRockFragment_BottomRight[] = INCGFX_U16("graphics/field_effects/pics/deoxys_rock_fragment_bottom_right.png", ".4bpp");
 
 static bool8 (*const sFldEffScrcmdTable[])(const u8 **script, u32 *result) = {
     FieldEffectCmd_loadtiles,
