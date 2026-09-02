@@ -1,7 +1,13 @@
 # FRLGV.IPS
 
 <p align="center">
-<img width="240" height="160" alt="28947" src="https://github.com/user-attachments/assets/f16c7381-4880-462c-97e9-177b549937ee" />
+<img width="720" height="480" alt="STARTPOINT" src="https://github.com/user-attachments/assets/f16c7381-4880-462c-97e9-177b549937ee" />
+</p>
+
+<p align="center">
+<img width="240" height="160" alt="SCHOOL" src="3new/SCHOOL.png" />
+<img width="240" height="160" alt="HAUL" src="3new/HAUL.png" />
+<img width="240" height="160" alt="CALLING" src="3new/CALLING.png" />
 </p>
 
 > It's as you remember it...
