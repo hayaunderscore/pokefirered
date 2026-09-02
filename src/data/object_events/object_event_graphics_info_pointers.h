@@ -153,6 +153,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Roxanne;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Joe;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giselle;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RSReporter;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RSCameraman;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -311,4 +313,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_ROXANNE]                  = &gObjectEventGraphicsInfo_Roxanne,
     [OBJ_EVENT_GFX_JOE]                      = &gObjectEventGraphicsInfo_Joe,
     [OBJ_EVENT_GFX_GISELLE]                  = &gObjectEventGraphicsInfo_Giselle,
+    [OBJ_EVENT_GFX_RS_REPORTER]              = &gObjectEventGraphicsInfo_RSReporter,
+    [OBJ_EVENT_GFX_RS_CAMERAMAN]             = &gObjectEventGraphicsInfo_RSCameraman,
 };

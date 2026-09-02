@@ -1,8 +1,40 @@
 raw `
-Route8_MapScripts::
-	.byte 0
-
 Route8_EventScript_UndergroundPathSign::
 	msgbox Route8_Text_UndergroundPathSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route8_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route8_MapScripts_OnTransition
+}
+
+script Route8_MapScripts_OnTransition {
+	setflag(FLAG_HIDE_ANNE_REPORTERS)
+	if (flag(FLAG_DID_SUNKEN_ANNE) && !flag(FLAG_RESCUED_MR_FUJI)) {
+		clearflag(FLAG_HIDE_ANNE_REPORTERS)
+	}
+}
+
+script Route8_EventScript_Gabby {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("GABBY: Here we are live at ROUTE 8's
+			UNDERGROUND PATH!
+
+			As of the moment, we are trying to
+			get to VERMILLION CITY to get a
+			scoop on what happened at the
+			S.S. ANNE!
+
+			But, from what seems to be an
+			attempt at a cover up, they are not
+			letting us in!
+
+			The people deserve to know what
+			happened in that sinking ship!")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("You feel like you need to do
+			something else first\.")
+	release
+	end
+}

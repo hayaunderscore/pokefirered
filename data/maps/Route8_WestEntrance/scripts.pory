@@ -1,7 +1,4 @@
 raw `
-Route8_WestEntrance_MapScripts::
-	.byte 0
-
 Route8_WestEntrance_EventScript_Guard::
 	msgbox Route8_WestEntrance_Text_HiHowsItGoing, MSGBOX_NPC
 	end
@@ -96,3 +93,49 @@ Route8_WestEntrance_Movement_BlockPlayerEntry::
 	walk_right
 	step_end
 `
+
+mapscripts Route8_WestEntrance_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route8_WestEntrance_MapScripts_OnTransition
+}
+
+script Route8_WestEntrance_MapScripts_OnTransition {
+	setflag(FLAG_HIDE_ANNE_REPORTERS)
+	if (flag(FLAG_DID_SUNKEN_ANNE) && !flag(FLAG_RESCUED_MR_FUJI)) {
+		clearflag(FLAG_HIDE_ANNE_REPORTERS)
+		setobjectmovementtype(LOCALID_BLOCKADE_SAFFRON_WEST_WOMAN, MOVEMENT_TYPE_LOOK_AROUND)
+		setobjectmovementtype(LOCALID_BLOCKADE_SAFFRON_WEST_SCIENTIST, MOVEMENT_TYPE_LOOK_AROUND)
+		setobjectmovementtype(LOCALID_BLOCKADE_SAFFRON_WEST_OLDMAN, MOVEMENT_TYPE_LOOK_AROUND)
+	}
+}
+
+script Route8_WestEntrance_EventScript_BlockadeWoman {
+	lock
+	faceplayer
+	msgbox("We are trying to block off all
+			entrances to VERMILLION CITY.")
+	release
+	end
+}
+
+script Route8_WestEntrance_EventScript_BlockadeScientist {
+	lock
+	faceplayer
+	msgbox("Trying to block off all of those
+			REPORTERS is tiring\.")
+	release
+	end
+}
+
+script Route8_WestEntrance_EventScript_BlockadeOldMan {
+	lock
+	faceplayer
+	msgbox("I am too old to get into these kind
+			of politics.
+
+			Nevertheless, I'd rather not see
+			anyone get uncomfortable,
+			especially those who were on that
+			ship when it sank.")
+	release
+	end
+}

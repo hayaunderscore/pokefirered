@@ -1,8 +1,4 @@
 raw `
-Route12_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, Route12_OnResume
-	.byte 0
-
 Route12_OnResume::
 	call_if_set FLAG_SYS_SPECIAL_WILD_BATTLE, Route12_EventScript_TryRemoveSnorlax
 	end
@@ -59,3 +55,53 @@ Route12_EventScript_FishingSign::
 	msgbox Route12_Text_SportfishingArea, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route12_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route12_MapScripts_OnTransition
+	MAP_SCRIPT_ON_RESUME: Route12_OnResume
+}
+
+script Route12_MapScripts_OnTransition {
+	setflag(FLAG_HIDE_ANNE_REPORTERS)
+	if (flag(FLAG_DID_SUNKEN_ANNE) && !flag(FLAG_RESCUED_MR_FUJI)) {
+		clearflag(FLAG_HIDE_ANNE_REPORTERS)
+	}
+}
+
+script Route12_EventScript_BlockadeLady {
+	lock
+	faceplayer
+	msgbox("The young-ins over here have been
+			trying to remove this SNORLAX.
+
+			Alas, to no avail\.
+
+			I believe that there is an item to
+			help wake it up, but these people
+			are desparate to go to VERMILLION.")
+	release
+	end
+}
+
+script Route12_EventScript_BlockadeScientist {
+	lock
+	faceplayer
+	msgbox("I need to get to VERMILLION FAST.
+
+			What things can we find that was
+			left on the S.S. ANNE?")
+	release
+	end
+}
+
+script Route12_EventScript_BlockadeGirl {
+	lock
+	faceplayer
+	msgbox("I am helping these people remove
+			this SNORLAX.
+
+			I might just give up soon,
+			honestly.")
+	release
+	end
+}

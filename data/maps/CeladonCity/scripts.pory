@@ -11,12 +11,6 @@ CeladonCity_EventScript_LittleGirl::
 	msgbox CeladonCity_Text_GotMyKoffingInCinnabar, MSGBOX_NPC
 	end
 
-CeladonCity_EventScript_OldMan1::
-	lock
-	msgbox CeladonCity_Text_GymIsGreatFullOfWomen
-	release
-	end
-
 CeladonCity_EventScript_Woman::
 	msgbox CeladonCity_Text_GameCornerIsBadForCitysImage, MSGBOX_NPC
 	end
@@ -103,3 +97,27 @@ CeladonCity_EventScript_GameCornerSign::
 	msgbox CeladonCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 `
+
+script CeladonCity_EventScript_OldMan1 {
+	lock
+	msgbox(CeladonCity_Text_GymIsGreatFullOfWomen)
+	if (checkpartymove(MOVE_ABYSS) != PARTY_SIZE && checkpartymove(MOVE_RAPTURE) != PARTY_SIZE && checkpartymove(MOVE_STRIKE) != PARTY_SIZE) {
+		release
+		end
+	}
+	// He gets what he fucking deserves
+	closemessage
+	delay(16)
+	fadenewbgm(MUS_DUMMY)
+	delay(50)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	if (msgbox("Remove him?", MSGBOX_YESNO)) {
+		call(EventScript_UseTM55)
+		removeobject(LOCALID_CELADON_CREEP)
+		setflag(FLAG_HIDE_CELADON_FUCKING_CREEP)
+		delay(50)
+	}
+	fadedefaultbgm
+	release
+	end
+}

@@ -343,6 +343,8 @@ script VermilionCity_OnTransition {
 }
 
 script VermilionCity_EventScript_Guard {
+	lock
+	faceplayer
 	msgbox("I'm sorry but under LT. SURGE's
 			orders I cannot let you in.")
 	applymovement(VAR_LAST_TALKED, moves(

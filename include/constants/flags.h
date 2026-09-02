@@ -535,8 +535,8 @@
 #define FLAG_HIDE_CARA_IN_LAVENDER_TOWN                         0x201
 #define FLAG_HIDE_TOWER_GISELLE                                 0x202
 #define FLAG_HIDE_TOWER_CARA                                    0x203
-#define FLAG_0x204               0x204
-#define FLAG_0x205               0x205
+#define FLAG_HIDE_ANNE_REPORTERS                                0x204
+#define FLAG_HIDE_CELADON_FUCKING_CREEP                         0x205
 #define FLAG_0x206               0x206
 #define FLAG_0x207               0x207
 #define FLAG_0x208               0x208
