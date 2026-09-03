@@ -166,6 +166,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route16_EventScript_Snorlax",
       "flag": "FLAG_HIDE_ROUTE_16_SNORLAX"
+    },
+    {
+      "local_id": "LOCALID_ROUTE16_GABBY",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RS_REPORTER",
+      "x": 14,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GabbyAndTy_EventScript_GabbyBattle",
+      "flag": "FLAG_HIDE_ROUTE_16_GABBY_AND_TY"
+    },
+    {
+      "local_id": "LOCALID_ROUTE16_TY",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RS_CAMERAMAN",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "GabbyAndTy_EventScript_GabbyBattle",
+      "flag": "FLAG_HIDE_ROUTE_16_GABBY_AND_TY"
     }
   ],
   "warp_events": [

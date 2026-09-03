@@ -121,3 +121,10 @@ script CeladonCity_EventScript_OldMan1 {
 	release
 	end
 }
+
+script CeladonCity_EventScript_ContestHallSign {
+	msgbox("POKéMON CONTEST HALL
+			“The gathering place for TRAINERS!”", MSGBOX_SIGN)
+	closemessage
+	end
+}

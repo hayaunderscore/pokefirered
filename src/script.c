@@ -1,5 +1,7 @@
 #include "constants/event_objects.h"
 #include "constants/items.h"
+#include "constants/map_event_ids.h"
+#include "constants/region_map_sections.h"
 #include "global.h"
 #include "script.h"
 #include "event_data.h"
@@ -609,4 +611,19 @@ u8* ReadWord(u8 index)
     struct ScriptContext *ctx = &sGlobalScriptContext;
 
     return (T1_READ_PTR(&ctx->data[index]));
+}
+
+void GetMapNum(void)
+{
+	gSpecialVar_Result = MAP_NUM(gSaveBlock1Ptr->location.mapNum);
+	gSpecialVar_0x8004 = MAP_GROUP(gSaveBlock1Ptr->location.mapGroup);
+}
+
+void GetGabbyAndTyLocalIds(void) {
+	// TODO
+	if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE16) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE16))
+	{
+		gSpecialVar_0x8004 = LOCALID_ROUTE16_GABBY;
+		gSpecialVar_0x8005 = LOCALID_ROUTE16_TY;
+	}
 }

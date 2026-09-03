@@ -1,0 +1,133 @@
+// Semi-faithful port of the interviewer battles in Emerald
+// Because why not
+
+script GabbyAndTy_EventScript_GabbyBattle {
+	// TODO do all battles
+	trainerbattle_double(TRAINER_GABBY_AND_TY_1, GabbyAndTy_Text_GabbyPreFirstBattle, GabbyAndTy_Text_GabbyDefeatFirstTime, GabbyAndTy_Text_GabbyNotEnoughMons, GabbyAndTy_EventScript_FirstInterview)
+	end
+}
+
+script GabbyAndTy_EventScript_FirstInterview {
+	faceplayer
+	msgbox(GabbyAndTy_Text_WhoAreYouInterview, MSGBOX_YESNO)
+	goto(GabbyAndTy_EventScript_Interview)
+}
+
+script GabbyAndTy_EventScript_Interview {
+	if (var(VAR_RESULT) == FALSE) {
+		goto(GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut)
+	}
+	msgbox(GabbyAndTy_Text_DescribeYourFeelings, MSGBOX_DEFAULT)
+	setvar(VAR_0x8004, EASY_CHAT_TYPE_QUESTIONNAIRE)
+	call(Common_ShowEasyChatScreen)
+	lock
+	faceplayer
+	if (var(VAR_RESULT) == FALSE) {
+		goto(GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut)
+	}
+	msgbox(GabbyAndTy_Text_PerfectWellBeSeeingYou, MSGBOX_DEFAULT)
+	release
+	goto(GabbyAndTy_EventScript_Leave)
+	end
+}
+
+script GabbyAndTy_EventScript_DontGiveUpKeepingEyeOut {
+	msgbox(GabbyAndTy_Text_DontGiveUpKeepingEyeOut, MSGBOX_DEFAULT)
+	release
+	goto(GabbyAndTy_EventScript_Leave)
+	end
+}
+
+script GabbyAndTy_EventScript_Leave {
+	playse(SE_EXIT)
+	callnative(GetGabbyAndTyLocalIds)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(VAR_0x8004)
+	removeobject(VAR_0x8005)
+	fadescreen(FADE_FROM_BLACK)
+	end
+}
+
+# GabbyAndTy_EventScript_FirstInterview::
+# 	special GabbyAndTyBeforeInterview
+# 	special GetGabbyAndTyLocalIds
+# 	call_if_eq VAR_FACING, DIR_NORTH, GabbyAndTy_EventScript_FacePlayerNorth
+# 	call_if_eq VAR_FACING, DIR_SOUTH, GabbyAndTy_EventScript_FacePlayerSouth
+# 	call_if_eq VAR_FACING, DIR_EAST, GabbyAndTy_EventScript_FacePlayerEast
+# 	goto_if_set FLAG_TEMP_SKIP_GABBY_INTERVIEW, GabbyAndTy_EventScript_KeepingAnEyeOutForYou
+# 	msgbox GabbyAndTy_Text_WhoAreYouInterview, MSGBOX_YESNO
+# 	goto GabbyAndTy_EventScript_Interview
+# 	end
+
+
+text GabbyAndTy_Text_GabbyPreFirstBattle {
+	"GABBY: Oh! We've just spotted a
+	tough-looking trainer here of all
+	places!
+
+	Okay, roll camera!
+	Let's get this interview."
+}
+
+text GabbyAndTy_Text_GabbyDefeatFirstTime {
+	"GABBY: My eyes didn't lie!
+
+	I did discover an astonishing
+	TRAINER!"
+}
+
+text GabbyAndTy_Text_WhoAreYouInterview {
+	"GABBY: Awesome! Awesome!
+	Who are you?!
+
+	I knew we were onto something wild
+	when we spotted you!
+
+	Oh, please let me explain.
+
+	We travel around everywhere
+	interviewing all sorts of TRAINERS.
+
+	So, would you give us a bit of
+	your time for an INTERVIEW?"
+}
+
+text GabbyAndTy_Text_DescribeYourFeelings {
+	"You will?
+	Thank you!
+
+	Okay, I will need to describe your
+	feelings about our battle, but it
+	has to be short and sweet. Go!"
+}
+
+text GabbyAndTy_Text_PerfectWellBeSeeingYou {
+	"GABBY: Mmm yeah!
+	That's the perfect clincher!
+
+	I get the feeling that this will
+	make a great TV show.
+
+	We plan to air this on HOENN TV,
+	so you probably won't see it here\.
+
+	Okay!
+	We'll be seeing you!"
+}
+
+text GabbyAndTy_Text_DontGiveUpKeepingEyeOut {
+	"GABBY: Oh\.
+
+	Okay, but don't give up!
+	We'll be keeping an eye out for you!"
+}
+
+text GabbyAndTy_Text_KeepingAnEyeOutForYou {
+	"GABBY: We'll be keeping an eye out
+	for you!"
+}
+
+text GabbyAndTy_Text_GabbyNotEnoughMons {
+	"GABBY: Is there a strong TRAINER
+	anywhere with a lot of POK\eMON?"
+}

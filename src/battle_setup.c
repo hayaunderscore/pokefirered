@@ -1037,13 +1037,15 @@ void PlayTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_TWINS:
             music = MUS_ENCOUNTER_GIRL;
             break;
+        case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
+        	music = MUS_ENCOUNTER_REPORTER;
+         	break;
         case TRAINER_ENCOUNTER_MUSIC_MALE:
         case TRAINER_ENCOUNTER_MUSIC_INTENSE:
         case TRAINER_ENCOUNTER_MUSIC_COOL:
         case TRAINER_ENCOUNTER_MUSIC_SWIMMER:
         case TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR:
         case TRAINER_ENCOUNTER_MUSIC_HIKER:
-        case TRAINER_ENCOUNTER_MUSIC_INTERVIEWER:
         case TRAINER_ENCOUNTER_MUSIC_RICH:
             music = MUS_ENCOUNTER_BOY;
             break;

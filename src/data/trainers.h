@@ -1,16 +1,16 @@
 	[TRAINER_NONE] = {
         .trainerName = _(""),
     },
-    [TRAINER_AQUA_LEADER] = {
-        .trainerClass = TRAINER_CLASS_AQUA_LEADER,
-        .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE,
-        .trainerName = _(""),
-        .items = {},
-        .doubleBattle = FALSE,
-        .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
-        .party = NO_ITEM_DEFAULT_MOVES(sParty_AquaLeader),
-    },
+    // [TRAINER_AQUA_LEADER] = {
+    //     .trainerClass = TRAINER_CLASS_AQUA_LEADER,
+    //     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
+    //     .trainerPic = TRAINER_PIC_AQUA_LEADER_ARCHIE,
+    //     .trainerName = _(""),
+    //     .items = {},
+    //     .doubleBattle = FALSE,
+    //     .aiFlags = AI_SCRIPT_CHECK_BAD_MOVE,
+    //     .party = NO_ITEM_DEFAULT_MOVES(sParty_AquaLeader),
+    // },
     [TRAINER_AQUA_GRUNT_M] = {
         .trainerClass = TRAINER_CLASS_TEAM_AQUA,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,

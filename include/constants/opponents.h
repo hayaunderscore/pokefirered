@@ -3,7 +3,8 @@
 
 #define TRAINER_NONE                               0
 // Dummy trainers for all the RS trainer classes
-#define TRAINER_AQUA_LEADER                        1
+// Some of these are reused for FRLGV.IPS (like come on, its 80+ slots)
+#define TRAINER_GABBY_AND_TY_1                     1
 #define TRAINER_AQUA_GRUNT_M                       2
 #define TRAINER_AQUA_GRUNT_F                       3
 #define TRAINER_RS_AROMA_LADY                      4

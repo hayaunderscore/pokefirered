@@ -71,3 +71,6 @@ compile_commands.json
 pokefirered*.*
 src/data/map_group_count.h
 data/maps/*/scripts.inc
+
+# Specific poryscript scripts
+data/scripts/gabby_and_ty.inc

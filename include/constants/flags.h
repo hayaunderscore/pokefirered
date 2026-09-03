@@ -537,7 +537,7 @@
 #define FLAG_HIDE_TOWER_CARA                                    0x203
 #define FLAG_HIDE_ANNE_REPORTERS                                0x204
 #define FLAG_HIDE_CELADON_FUCKING_CREEP                         0x205
-#define FLAG_0x206               0x206
+#define FLAG_HIDE_ROUTE_16_GABBY_AND_TY                         0x206
 #define FLAG_0x207               0x207
 #define FLAG_0x208               0x208
 #define FLAG_0x209               0x209

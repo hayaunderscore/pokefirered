@@ -907,6 +907,7 @@ SECTIONS {
         sound/songs/midi/mus_encounter_rocket.o(.rodata);
         sound/songs/midi/mus_encounter_girl.o(.rodata);
         sound/songs/midi/mus_encounter_boy.o(.rodata);
+        sound/songs/midi/mus_encounter_reporter.o(.rodata);
         sound/songs/midi/mus_hall_of_fame.o(.rodata);
         sound/songs/midi/mus_viridian_forest.o(.rodata);
         sound/songs/midi/mus_mt_moon.o(.rodata);
