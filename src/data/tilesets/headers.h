@@ -801,3 +801,14 @@ const struct Tileset gTileset_PokemonTechClassroom =
     .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechClassroom,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_ContestHall =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_ContestHall,
+    .palettes = gTilesetPalettes_PorytilesManaged_ContestHall,
+    .metatiles = gMetatiles_PorytilesManaged_ContestHall,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_ContestHall,
+    .callback = NULL,
+};

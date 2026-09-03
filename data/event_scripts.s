@@ -1394,3 +1394,6 @@ Text_MonCryScript::
 
 	.include "data/maps/SunkenAnne_Kitchen/scripts.inc"
 	.include "data/maps/SunkenAnne_Kitchen/text.inc"
+
+	.include "data/maps/CeladonCity_ContestLobby/scripts.inc"
+	.include "data/maps/CeladonCity_ContestLobby/text.inc"

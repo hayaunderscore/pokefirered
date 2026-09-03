@@ -58,10 +58,6 @@ CeladonCity_EventScript_Boy::
 	msgbox CeladonCity_Text_ScaldedTongueOnTea, MSGBOX_NPC
 	end
 
-CeladonCity_EventScript_SilphCoScientist::
-	msgbox CeladonCity_Text_SomeoneStoleSilphScope, MSGBOX_NPC
-	end
-
 CeladonCity_EventScript_TrainerTips1::
 	msgbox CeladonCity_Text_ExplainXAccuracyDireHit, MSGBOX_SIGN
 	end
@@ -126,5 +122,30 @@ script CeladonCity_EventScript_ContestHallSign {
 	msgbox("POKéMON CONTEST HALL
 			“The gathering place for TRAINERS!”", MSGBOX_SIGN)
 	closemessage
+	end
+}
+
+script CeladonCity_EventScript_SilphCoScientist {
+	if (!flag(FLAG_DID_SUNKEN_ANNE)) {
+		msgbox(CeladonCity_Text_SomeoneStoleSilphScope, MSGBOX_NPC)
+		end
+	}
+	faceplayer
+	if (!checkitem(ITEM_SILPH_SCOPE)) {
+		msgbox("Ah! A young trainer.
+
+				A few hours ago I was looking for
+				the SILPH SCOPE\.
+
+				Turns out it was stolen by TEAM
+				ROCKET!
+
+				I don't think I can be trusted
+				having it anymore, so take it.")
+		giveitem(ITEM_SILPH_SCOPE)
+	}
+	msgbox("You can use the SILPH SCOPE to
+			ID ghosts on LAVENDER TOWER.")
+	release
 	end
 }

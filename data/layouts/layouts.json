@@ -4488,6 +4488,18 @@
       "secondary_tileset": "gTileset_SSAnne",
       "border_filepath": "data/layouts/SunkenAnne_Kitchen/border.bin",
       "blockdata_filepath": "data/layouts/SunkenAnne_Kitchen/map.bin"
+    },
+    {
+      "id": "LAYOUT_CELADON_CITY_CONTEST_LOBBY",
+      "name": "CeladonCity_ContestLobby_Layout",
+      "width": 15,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_ContestHall",
+      "border_filepath": "data/layouts/CeladonCity_ContestLobby/border.bin",
+      "blockdata_filepath": "data/layouts/CeladonCity_ContestLobby/map.bin"
     }
   ]
 }

@@ -8258,7 +8258,7 @@ voicegroup196::
 	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
-	voice_directsound 60, 0, DirectSoundWaveData_mystery_dungeon_koto, 255, 188, 202, 89
+	voice_directsound 60, 0, DirectSoundWaveData_mystery_dungeon_koto, 255, 243, 0, 255
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127

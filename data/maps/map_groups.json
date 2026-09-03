@@ -52,7 +52,8 @@
     "BattleColosseum_4P",
     "UnionRoom",
     "Route25_Garden",
-    "SunkenAnne_2F_Room"
+    "SunkenAnne_2F_Room",
+    "CeladonCity_ContestLobby"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

@@ -1,0 +1,65 @@
+mapscripts CeladonCity_ContestLobby_MapScripts {}
+
+script CeladonCity_ContestLobby_EventScript_Receptionist {
+	lock
+	faceplayer
+	msgbox("Hello!
+
+			This is the reception counter for
+			POK\eMON CONTESTS.
+
+			Right now, we are still setting up
+			things, so come back later.")
+	release
+	end
+}
+
+script CeladonCity_ContestLobby_EventScript_Guard {
+	lock
+	faceplayer
+	msgbox("The CONTEST HALL is still under
+			construction.
+
+			Can't let anyone in, sorry!")
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script CeladonCity_ContestLobby_EventScript_Youngster {
+	lock
+	faceplayer
+	msgbox("Oh yeah!
+			KANTO finally has a CONTEST HALL!
+
+			I was wondering when it was gonna
+			come here, especially since a lot
+			of people talk about it.")
+	release
+	end
+}
+
+script CeladonCity_ContestLobby_EventScript_Girl {
+	lock
+	faceplayer
+	msgbox("I am quite excited for the opening
+			of this location.
+
+			I don't have to go to HOENN anymore
+			to see one of these for myself!")
+	release
+	end
+}
+
+script CeladonCity_ContestLobby_EventScript_BerryBlender {
+	lock
+	msgbox("A BERRY BLENDER.
+
+			You don't have a POK\eBLOCK case
+			to go with it\.")
+	release
+	end
+}

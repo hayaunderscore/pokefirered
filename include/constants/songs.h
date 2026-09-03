@@ -357,10 +357,11 @@
 #define MUS_VS_DEAD_REGI          348
 #define MUS_UD_AMBITUS_TEMPORIS   349
 #define MUS_ENCOUNTER_REPORTER    350
+#define MUS_CONTEST_LOBBY         351
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_ENCOUNTER_REPORTER
+#define END_MUS                     MUS_CONTEST_LOBBY
 
 #endif  // GUARD_CONSTANTS_SONGS_H
