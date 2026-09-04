@@ -617,6 +617,8 @@ bool8 CanUseEscapeRopeOnCurrMap(void)
 {
 	if (!CheckFollowerFlag(FOLLOWER_FLAG_CAN_LEAVE_ROUTE))
         return FALSE;
+	if (VarGet(VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER) == 1)
+    	return FALSE;
     if (gMapHeader.allowEscaping)
         return TRUE;
     else

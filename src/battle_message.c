@@ -1,3 +1,4 @@
+#include "constants/flags.h"
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -386,6 +387,7 @@ static const u8 sText_TheGhostAppeared[] = _("The GHOST appeared!\p");
 static const u8 sText_SilphScopeUnveil[] = _("SILPH SCOPE unveiled the GHOST's\nidentity!");
 static const u8 sText_TheGhostWas[] = _("The GHOST was MAROWAK!\p\n");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
+static const u8 sText_Trainer1HesitatesToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nhesitates to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
 static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME} sent\nout {B_OPPONENT_MON1_NAME}!{PAUSE 60}");
@@ -1567,6 +1569,8 @@ void BufferStringBattle(u16 stringId)
             else
             {
                 stringPtr = sText_Trainer1WantsToBattle;
+                if (gTrainerBattleOpponent_A == TRAINER_LEADER_ERIKA && FlagGet(FLAG_DID_SUNKEN_ANNE))
+                	stringPtr = sText_Trainer1HesitatesToBattle;
             }
         }
         else

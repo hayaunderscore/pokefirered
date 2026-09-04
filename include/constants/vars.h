@@ -192,7 +192,7 @@
 
 
 #define VAR_MAP_SCENE_LUCKY_EGG_EVENT                                          0x408C
-#define VAR_0x408D                 0x408D
+#define VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER                                    0x408D
 #define VAR_0x408E                 0x408E
 #define VAR_0x408F                 0x408F
 #define VAR_0x4090                 0x4090

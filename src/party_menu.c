@@ -1,3 +1,4 @@
+#include "constants/vars.h"
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -3971,7 +3972,10 @@ static void CursorCB_FieldMove(u8 taskId)
                 DisplayCantUseFlashMessage();
                 break;
             default:
-                DisplayPartyMenuStdMessage(sFieldMoveCursorCallbacks[fieldMove].msgId);
+				if (VarGet(VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER) == 1)
+					DisplayPartyMenuStdMessage(PARTY_MSG_ABBY_NO);
+				else
+                	DisplayPartyMenuStdMessage(sFieldMoveCursorCallbacks[fieldMove].msgId);
                 break;
             }
             gTasks[taskId].func = Task_CancelAfterAorBPress;

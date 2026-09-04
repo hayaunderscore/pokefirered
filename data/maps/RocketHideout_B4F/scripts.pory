@@ -1,3 +1,92 @@
+script RocketHideout_B4F_EventScript_Giovanni {
+	lock
+	faceplayer
+	famechecker(FAMECHECKER_GIOVANNI, 0)
+	message(RocketHideout_B4F_Text_GiovanniIntro)
+	waitmessage
+	playbgm(MUS_ENCOUNTER_ROCKET, 0)
+	waitbuttonpress
+	trainerbattle_no_intro(TRAINER_BOSS_GIOVANNI, RocketHideout_B4F_Text_GiovanniDefeat)
+	if (flag(FLAG_DID_SUNKEN_ANNE)) {
+		msgbox("Darn it!
+				I've been bested.
+				By a young challenger, no less!
+
+				I see that you raise POKéMON with
+				utmost care.")
+		closemessage
+		delay(60)
+		msgbox("\. \.
+				\. \.
+
+				What is your problem?
+
+				\. \.
+				\. \.
+
+				That look in your eyes\.
+
+				It's as if you've done this multiple
+				times before.
+
+				But\. We've only started to act
+				until now.
+
+				Considering you've already traversed
+				LAVENDER TOWER, I was right about
+				you being a potential threat.
+
+				But! I shall step aside this time.
+				I hope we meet again\.")
+	} else {
+		msgbox(RocketHideout_B4F_Text_GiovanniPostBattle)
+	}
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	removeobject(LOCALID_HIDEOUT_GIOVANNI)
+	addobject(LOCALID_SILPH_SCOPE)
+	clearflag(FLAG_HIDE_SILPH_SCOPE)
+	setflag(FLAG_HIDE_CELADON_ROCKETS)
+	famechecker(FAMECHECKER_GIOVANNI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
+
+script RocketHideout_B4F_EventScript_SilphScope {
+	lock
+	faceplayer
+	if (flag(FLAG_DID_SUNKEN_ANNE)) {
+		setvar(VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER, 1)
+		msgbox("It USED to be a SILPH SCOPE.
+
+				But now that the paths have
+				diverged\.
+
+				It has been given a new purpose.")
+		removeobject(LOCALID_SILPH_SCOPE)
+		playfanfare(FANFARE_KEY_ITEM)
+		bufferitemname(STR_VAR_1, ITEM_DREAM_MAP)
+		playbgm(MUS_DUMMY, 0)
+		msgbox("You got the
+				{STR_VAR_1}.")
+		waitfanfare
+		// playbgm(MUS_DUMMY, 0)
+		setweather(WEATHER_SHADE)
+		doweather
+		delay(60)
+		additem(ITEM_DREAM_MAP)
+		putitemaway(ITEM_DREAM_MAP)
+		closemessage
+		release
+		end
+	}
+	removeobject(LOCALID_SILPH_SCOPE)
+	giveitem(ITEM_SILPH_SCOPE)
+	release
+	end
+}
+
 raw `
 .equ NUM_DOOR_GRUNTS_DEFEATED, VAR_TEMP_1
 
@@ -15,36 +104,6 @@ RocketHideout_B4F_OnLoad::
 RocketHideout_B4F_EventScript_CountGruntDefeated::
 	addvar NUM_DOOR_GRUNTS_DEFEATED, 1
 	return
-
-RocketHideout_B4F_EventScript_Giovanni::
-	lock
-	faceplayer
-	famechecker FAMECHECKER_GIOVANNI, 0
-	message RocketHideout_B4F_Text_GiovanniIntro
-	waitmessage
-	playbgm MUS_ENCOUNTER_ROCKET, 0
-	waitbuttonpress
-	trainerbattle_no_intro TRAINER_BOSS_GIOVANNI, RocketHideout_B4F_Text_GiovanniDefeat
-	msgbox RocketHideout_B4F_Text_GiovanniPostBattle
-	fadescreen FADE_TO_BLACK
-	closemessage
-	removeobject LOCALID_HIDEOUT_GIOVANNI
-	addobject LOCALID_SILPH_SCOPE
-	clearflag FLAG_HIDE_SILPH_SCOPE
-	setflag FLAG_HIDE_CELADON_ROCKETS
-	famechecker FAMECHECKER_GIOVANNI, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
-	fadescreen FADE_FROM_BLACK
-	release
-	end
-
-RocketHideout_B4F_EventScript_SilphScope::
-	lock
-	faceplayer
-	removeobject LOCALID_SILPH_SCOPE
-	giveitem ITEM_SILPH_SCOPE
-	goto_if_eq VAR_RESULT, FALSE, EventScript_BagIsFull
-	release
-	end
 
 RocketHideout_B4F_EventScript_Grunt1::
 	trainerbattle_single TRAINER_TEAM_ROCKET_GRUNT_18, RocketHideout_B4F_Text_Grunt1Intro, RocketHideout_B4F_Text_Grunt1Defeat, RocketHideout_B4F_EventScript_DefeatedGrunt1

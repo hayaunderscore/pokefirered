@@ -539,8 +539,8 @@
 #define FLAG_HIDE_CELADON_FUCKING_CREEP                         0x205
 #define FLAG_HIDE_ROUTE_16_GABBY_AND_TY                         0x206
 #define FLAG_HIDE_SABRINA_IN_CELADON_GYM                        0x207
-#define FLAG_0x208               0x208
-#define FLAG_0x209               0x209
+#define FLAG_HIDE_SAILOR_IN_GAME_CORNER                         0x208
+#define FLAG_HIDE_ERIKA_IN_CELADON_GYM                          0x209
 #define FLAG_0x20A               0x20A
 #define FLAG_0x20B               0x20B
 #define FLAG_0x20C               0x20C
@@ -653,7 +653,7 @@
 #define FLAG_DID_ESPHERE_TRADE                           0x274
 #define FLAG_DID_TANGENY_TRADE                           0x275
 #define FLAG_DID_SEELOR_TRADE                            0x276
-#define FLAG_0x277                                       0x277
+#define FLAG_INTERACTED_WITH_SAILOR                      0x277
 #define FLAG_GOT_HITMON_FROM_DOJO                        0x278
 #define FLAG_0x279                                       0x279
 #define FLAG_SILPH_2F_DOOR_1                             0x27A

@@ -90,7 +90,9 @@ mapscripts CeladonCity_Gym_MapScripts {
 script CeladonCity_Gym_MapScript_OnTransition {
 	setflag(FLAG_HIDE_SABRINA_IN_CELADON_GYM)
 	if (flag(FLAG_DID_SUNKEN_ANNE)) {
-		clearflag(FLAG_HIDE_SABRINA_IN_CELADON_GYM)
+		if (var(VAR_MAP_SCENE_CELADON_CITY) != 2) {
+			clearflag(FLAG_HIDE_SABRINA_IN_CELADON_GYM)
+		}
 		// also set the flags for the gym trees
 		setflag(FLAG_TEMP_12)
 		setflag(FLAG_TEMP_13)
@@ -99,10 +101,121 @@ script CeladonCity_Gym_MapScript_OnTransition {
 }
 
 script CeladonCity_Gym_EventScript_ErikaRoute {
+	if (var(VAR_MAP_SCENE_CELADON_CITY) == 2) {
+		goto(CeladonCity_Gym_EventScript_ErikaFightRoute)
+		end
+	}
 	msgbox("SABRINA\. I'm\. fine.
 
 			I just\. can't seem to doze off
 			like I used to.")
+	closemessage
+	end
+}
+
+script CeladonCity_Gym_EventScript_ErikaFightRoute {
+	msgbox("Auugh\.
+			My head\.
+
+			Hmm?
+			Oh! Uh-hello there!
+
+			My name is ERIKA.
+
+			\.
+
+			Why did I say it like that?
+			What's wrong with me?
+
+			\.Could you leave me alone?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == FALSE) {
+		fadenewbgm(MUS_DUMMY)
+		closemessage
+		setweather(WEATHER_SHADE)
+		doweather
+		delay(60)
+		msgbox("W-what?
+
+				Please\. I just want to rest.
+				I'm having a bad day.
+
+				\. \. \.
+				\. \. \.
+
+				Ever since I\. got myself in this
+				condition\.
+
+				I've been\. seeing things.
+
+				Having thoughts that I shouldn't
+				have.
+
+				And those thoughts\. are telling me
+				to stay away from you.
+
+				\. \. \.
+				\. \. \.
+
+				What was I saying\.?
+
+				Look, please\.
+				I don't want to battle.
+
+				I really don't want to do any
+				of this.", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == FALSE) {
+			trainerbattle_single(TRAINER_LEADER_ERIKA, CeladonCity_Gym_EventScript_ErikaBreakdown, "Ah!", CeladonCity_Gym_EventScript_ErikaDefeatBreakdown, NO_MUSIC)
+		}
+		closemessage
+		end
+	}
+	closemessage
+	end
+}
+
+text CeladonCity_Gym_EventScript_ErikaBreakdown {
+	"NO?
+	What do you mean NO?
+
+	\. \. \.
+	\. \. \.
+
+	I-I have the right to kick someone
+	out of the GYM, y'know!
+
+	\. \. \.
+	\. \. \.
+
+	Why aren't you saying anything?
+
+	Please, just say something!
+	Tell me I'm not going crazy!
+
+	Ever since the S.S. ANNE sunk,
+	I have been forced to be awake!
+
+	I don't know what it means!
+
+	Just stop it already!"
+}
+
+script CeladonCity_Gym_EventScript_ErikaDefeatBreakdown {
+	playbgm(MUS_DUMMY, 0)
+	famechecker(FAMECHECKER_ERIKA, 1)
+	clearflag(FLAG_HIDE_FAME_CHECKER_ERIKA_JOURNALS)
+	setflag(FLAG_DEFEATED_ERIKA)
+	setflag(FLAG_BADGE04_GET)
+	set_gym_trainers(4)
+	msgbox("\.
+
+			Just\.
+			Just take the BADGE!
+
+			Take it and leave!")
+	playse(SE_EXIT)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(LOCALID_CELADON_GYM_ERIKA)
+	fadescreen(FADE_FROM_BLACK)
 	closemessage
 	end
 }

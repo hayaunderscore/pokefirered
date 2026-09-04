@@ -232,7 +232,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->pressedStartButton)
     {
         gFieldInputRecord.pressedStartButton = TRUE;
-        gPlayerAvatar.abStartSelectHistory = 0;
         //DebugPrintf("%s", "CLEAR START");
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
@@ -241,10 +240,12 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     } else if (gPlayerAvatar.abStartSelectHistory == 0) {
 	   	if (CheckForTrainersWantingBattle() == TRUE)
 		{
+			gPlayerAvatar.abStartSelectHistory = 0;
 			//DebugPrintf("%s", "FOUND FUCKING TRAINER");
 			return TRUE;
 		}
     }
+    gPlayerAvatar.abStartSelectHistory = 0;
 
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;

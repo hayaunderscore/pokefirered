@@ -1,8 +1,123 @@
-raw `
-CeladonCity_GameCorner_MapScripts::
-	map_script MAP_SCRIPT_ON_LOAD, CeladonCity_GameCorner_OnLoad
-	.byte 0
+script CeladonCity_GameCorner_OnTransition {
+	setflag(FLAG_HIDE_SAILOR_IN_GAME_CORNER)
+}
 
+mapscripts CeladonCity_GameCorner_MapScripts {
+	MAP_SCRIPT_ON_LOAD: CeladonCity_GameCorner_OnLoad
+	MAP_SCRIPT_ON_TRANSITION: CeladonCity_GameCorner_OnTransition
+}
+
+script CeladonCity_EventScript_Sailor {
+	fadenewbgm(MUS_DUMMY)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Hey, kid, I remember you!
+			How are you doing?
+
+			Ah, just beat up the local ROCKETS
+			here, huh? Quite proud of ya.
+
+			If I were you, I wouldn't be messing
+			with any old crime groups, let alone
+			ones that operate a sketchy casino.
+
+			Say kid, whatcha got there?")
+	closemessage
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(60)
+	msgbox("\. \.
+			\. \.
+
+			This\.
+			This shouldn't be here.
+
+			I\.
+
+			\. \.
+			\. \.
+
+			Kid, didn't anybody tell you to not
+			pry into things you shouldn't know?
+
+			Because this is definitely one of
+			those things.
+
+			Are you really sure you want to
+			go with all of this?", MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		msgbox("If you're so sure\.
+
+				But I must warn you-
+				I will not help you in this.
+
+				There is no turning back.
+
+				I'd rather not get in touch with
+				any horrors in my whole life.
+
+				You're all alone on this one.
+
+				At best, I tell you where to find
+				the one you seek\.
+
+				But that's it.")
+	} else {
+		msgbox("If that's the case\.
+				Why are you still doing this?
+
+				You know you could stop doing
+				these\. quests, you know?
+
+				Unless\.
+				You couldn't.
+
+				\. \.
+				\. \.
+
+				Of course, I'm not one to judge
+				you.
+
+				Some people just have their own
+				reasons to do actions they shouldn't.
+
+				There's no turning back from this,
+				you know that right?
+
+				\. \.
+
+				You're all alone on this one.
+
+				At best, I tell you where to find
+				the one you seek\.
+
+				But that's it.")
+	}
+	closemessage
+	setflag(FLAG_INTERACTED_WITH_SAILOR)
+	setvar(VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER, 0)
+	setvar(VAR_MAP_SCENE_CELADON_CITY, 2)
+}
+
+script CeladonCity_GameCorner_EventScript_SailorEncounter {
+	addobject(LOCALID_CELADON_SAILOR)
+	applymovement(LOCALID_CELADON_SAILOR, moves(
+		walk_right * 7
+		walk_up * 2
+		walk_in_place_right
+	))
+	waitmovement(0)
+	call(CeladonCity_EventScript_Sailor)
+	applymovement(LOCALID_CELADON_SAILOR, moves(
+		walk_down * 3
+		walk_right
+		walk_down * 5
+	))
+	waitmovement(0)
+	removeobject(LOCALID_CELADON_SAILOR)
+	end
+}
+
+raw `
 CeladonCity_GameCorner_OnLoad::
 	call_if_unset FLAG_OPENED_ROCKET_HIDEOUT, CeladonCity_GameCorner_EventScript_HideRocketHideout
 	end
