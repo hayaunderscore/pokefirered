@@ -4500,6 +4500,18 @@
       "secondary_tileset": "gTileset_ContestHall",
       "border_filepath": "data/layouts/CeladonCity_ContestLobby/border.bin",
       "blockdata_filepath": "data/layouts/CeladonCity_ContestLobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE",
+      "name": "Route_Layout",
+      "width": 80,
+      "height": 43,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Route/border.bin",
+      "blockdata_filepath": "data/layouts/Route/map.bin"
     }
   ]
 }

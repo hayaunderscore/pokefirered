@@ -13,7 +13,13 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_ROUTE",
+      "offset": -11,
+      "direction": "left"
+    }
+  ],
   "object_events": [
     {
       "local_id": "LOCALID_SS_ANNE",

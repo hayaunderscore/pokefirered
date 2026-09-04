@@ -448,6 +448,7 @@ static bool8 StartCB_HandleInput(void)
         DestroySafariZoneStatsWindow();
         DestroyHelpMessageWindow_();
         CloseStartMenu();
+        gPlayerAvatar.abStartSelectHistory = 0;
         return TRUE;
     }
     return FALSE;

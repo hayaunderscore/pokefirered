@@ -1143,6 +1143,10 @@
     {
       "id": "MAPSEC_SUNKEN_S_S_ANNE",
       "name": "SUNKEN ANNE"
+    },
+    {
+      "id": "MAPSEC_ROUTE",
+      "name": "ROUTE"
     }
   ]
 }

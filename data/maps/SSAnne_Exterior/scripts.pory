@@ -68,6 +68,10 @@ script SSAnne_Exterior_OnTransition {
 	if (var(VAR_MAP_SCENE_SUNKEN_ANNE) == 3) {
 		clearflag(FLAG_HIDE_SAILOR_IN_SS_ANNE_DOCK)
 	}
+	if (flag(FLAG_INTERACTED_WITH_SAILOR))
+	{
+		playbgm(MUS_DUMMY, 1)
+	}
 	end
 }
 

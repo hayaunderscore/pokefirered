@@ -1,0 +1,91 @@
+mapscripts Route_MapScripts {
+	MAP_SCRIPT_ON_LOAD: Route_OnLoad
+}
+
+script Route_OnLoad {
+	if (flag(FLAG_SHOW_ROUTE_CAVE_ENTRANCE)) {
+		setmetatile(19, 10, 0x0A9, FALSE)
+	}
+}
+
+script Route_EventScript_SixPhrases_One {
+	msgbox("THE LAND")
+	closemessage
+	if (var(VAR_TEMP_0) != 0) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		setvar(VAR_TEMP_0, 1)
+	}
+	end
+}
+
+script Route_EventScript_SixPhrases_Two {
+	msgbox("SHALL OPEN UP")
+	closemessage
+	if (var(VAR_TEMP_0) != 1) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		setvar(VAR_TEMP_0, 2)
+	}
+	end
+}
+
+script Route_EventScript_SixPhrases_Three {
+	msgbox("AND EMBRACE")
+	closemessage
+	if (var(VAR_TEMP_0) != 2) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		setvar(VAR_TEMP_0, 3)
+	}
+	end
+}
+
+script Route_EventScript_SixPhrases_Four {
+	msgbox("THE WILL OF")
+	closemessage
+	if (var(VAR_TEMP_0) != 3) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		setvar(VAR_TEMP_0, 4)
+	}
+	end
+}
+
+script Route_EventScript_SixPhrases_Five {
+	msgbox("THE ABYSS")
+	closemessage
+	if (var(VAR_TEMP_0) != 4) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		setvar(VAR_TEMP_0, 5)
+	}
+	end
+}
+
+script Route_EventScript_SixPhrases_Six {
+	msgbox("AND ITS ESSENCE")
+	closemessage
+	if (var(VAR_TEMP_0) != 5) {
+		setvar(VAR_TEMP_0, 0)
+	} else {
+		if (!flag(FLAG_SHOW_ROUTE_CAVE_ENTRANCE)) {
+			setflag(FLAG_SHOW_ROUTE_CAVE_ENTRANCE)
+			fadenewbgm(MUS_DUMMY)
+			delay(100)
+			setmetatile(19, 10, 0x0A9, FALSE)
+			special(DrawWholeMapView)
+			playse(SE_BANG)
+			waitse
+			playse(SE_PIN)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_faster_up
+				emote_exclamation_mark
+			))
+			delay(100)
+			msgbox("It is done.")
+			closemessage
+		}
+	}
+	end
+}

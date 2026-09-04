@@ -137,7 +137,7 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             }
         }
     }
-    else if (newKeys & START_BUTTON) // start button is pressed, queue it
+    if (forcedMove == FALSE && (newKeys & START_BUTTON)) // start button is pressed, queue it
     {
     	// Nothing uses this variable except for the ACRO BIKE. It should be fine.
    		gPlayerAvatar.abStartSelectHistory = 1;
@@ -232,6 +232,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (input->pressedStartButton)
     {
         gFieldInputRecord.pressedStartButton = TRUE;
+        gPlayerAvatar.abStartSelectHistory = 0;
         //DebugPrintf("%s", "CLEAR START");
         FlagSet(FLAG_OPENED_START_MENU);
         PlaySE(SE_WIN_OPEN);
@@ -240,12 +241,11 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     } else if (gPlayerAvatar.abStartSelectHistory == 0) {
 	   	if (CheckForTrainersWantingBattle() == TRUE)
 		{
-			gPlayerAvatar.abStartSelectHistory = 0;
 			//DebugPrintf("%s", "FOUND FUCKING TRAINER");
 			return TRUE;
 		}
     }
-    gPlayerAvatar.abStartSelectHistory = 0;
+    // gPlayerAvatar.abStartSelectHistory = 0;
 
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;

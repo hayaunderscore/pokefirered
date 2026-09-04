@@ -541,7 +541,7 @@
 #define FLAG_HIDE_SABRINA_IN_CELADON_GYM                        0x207
 #define FLAG_HIDE_SAILOR_IN_GAME_CORNER                         0x208
 #define FLAG_HIDE_ERIKA_IN_CELADON_GYM                          0x209
-#define FLAG_0x20A               0x20A
+#define FLAG_SHOW_ROUTE_CAVE_ENTRANCE                           0x20A
 #define FLAG_0x20B               0x20B
 #define FLAG_0x20C               0x20C
 #define FLAG_0x20D               0x20D

@@ -1397,3 +1397,6 @@ Text_MonCryScript::
 
 	.include "data/maps/CeladonCity_ContestLobby/scripts.inc"
 	.include "data/maps/CeladonCity_ContestLobby/text.inc"
+
+	.include "data/maps/Route/scripts.inc"
+	.include "data/maps/Route/text.inc"

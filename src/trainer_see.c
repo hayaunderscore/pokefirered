@@ -107,8 +107,6 @@ bool8 CheckForTrainersWantingBattle(void)
 
     if (QL_IsTrainerSightDisabled() == TRUE)
         return FALSE;
-    if (gPlayerAvatar.directionHistory == 1 || gPlayerAvatar.abStartSelectHistory == 1)
-    	return FALSE;
     if (ArePlayerFieldControlsLocked())
     	return FALSE;
 

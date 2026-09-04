@@ -3685,6 +3685,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_UD_AMBITUS_TEMPORIS) \
     X(MUS_ENCOUNTER_REPORTER) \
     X(MUS_CONTEST_LOBBY) \
+    X(MUS_1121) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

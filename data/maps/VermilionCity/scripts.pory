@@ -186,16 +186,6 @@ VermilionCity_EventScript_DontHaveSSTicket::
 	goto VermilionCity_EventScript_WalkUpPier
 	end
 
-VermilionCity_EventScript_CheckSeagallopPresentTrigger::
-	setvar VAR_0x8004, SEAGALLOP_VERMILION_CITY
-	goto_if_eq VAR_MAP_SCENE_SUNKEN_ANNE, 4, VermilionCity_EventScript_ShipSunk
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, VermilionCity_EventScript_ChooseSeagallopDestRainbowPass
-	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1, VermilionCity_EventScript_ChooseSeagallopDestTriPass
-	msgbox VermilionCity_Text_TheShipSetSail
-	closemessage
-	goto VermilionCity_EventScript_WalkUpPier
-	end
-
 VermilionCity_EventScript_ShipSunk::
 	msgbox VermilionCity_Text_TheShipHasSunk
 	closemessage
@@ -252,6 +242,53 @@ VermilionCity_EventScript_HarborSign::
 	msgbox VermilionCity_Text_VermilionHarbor, MSGBOX_SIGN
 	end
 `
+
+script VermilionCity_EventScript_CheckSeagallopPresentTrigger {
+	setvar(VAR_0x8004, SEAGALLOP_VERMILION_CITY)
+	// DREAM MAP
+	if (flag(FLAG_INTERACTED_WITH_SAILOR)) {
+		goto(VermilionCity_EventScript_CheckDreamMap)
+	}
+	if (var(VAR_MAP_SCENE_SUNKEN_ANNE) == value(4)) {
+		goto(VermilionCity_EventScript_ShipSunk)
+	}
+	if (var(VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F) >= value(5)) {
+		goto(VermilionCity_EventScript_ChooseSeagallopDestRainbowPass)
+	}
+	if (var(VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F) >= value(1)) {
+		goto(VermilionCity_EventScript_ChooseSeagallopDestTriPass)
+	}
+	msgbox(VermilionCity_Text_TheShipSetSail)
+	closemessage
+	goto(VermilionCity_EventScript_WalkUpPier)
+	end
+}
+
+script VermilionCity_EventScript_CheckDreamMap {
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Alright kid.
+			I know what you're about to ask.
+
+			\qoCould you take me to the point
+			shown on this map?\qc
+
+			No. Absolutely not.
+
+			I said earlier that you're on your
+			own for this one.
+
+			And unless its groundbreaking
+			matters\.
+
+			I won't interfere.
+
+			Considering this map starts near the
+			S.S. ANNE DOCK, how about you just
+			SURF there yourself?")
+	closemessage
+	setvar(VAR_VERMILION_CITY_TICKET_CHECK_TRIGGER, 1)
+	end
+}
 
 script VermilionCity_EventScript_CheckTicket {
 	textcolor(NPC_TEXT_COLOR_MALE)

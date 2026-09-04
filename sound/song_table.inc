@@ -351,6 +351,7 @@ gSongTable::
 	song mus_ud_ambitus_temporis, 0, 0
 	song mus_encounter_reporter, 0, 0
 	song mus_contest_lobby, 0, 0
+	song mus_1121, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0
