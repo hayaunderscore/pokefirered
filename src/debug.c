@@ -3683,6 +3683,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_VS_REGI) \
     X(MUS_VS_DEAD_REGI) \
     X(MUS_UD_AMBITUS_TEMPORIS) \
+    X(MUS_ENCOUNTER_REPORTER) \
+    X(MUS_CONTEST_LOBBY) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

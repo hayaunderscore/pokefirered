@@ -1,8 +1,6 @@
 raw `
-CeladonCity_Gym_MapScripts::
-	.byte 0
-
 CeladonCity_Gym_EventScript_Erika::
+	goto_if_set FLAG_DID_SUNKEN_ANNE, CeladonCity_Gym_EventScript_ErikaRoute
 	famechecker FAMECHECKER_ERIKA, FCPICKSTATE_COLORED, UpdatePickStateFromSpecialVar8005
 	trainerbattle_single TRAINER_LEADER_ERIKA, CeladonCity_Gym_Text_ErikaIntro, CeladonCity_Gym_Text_ErikaDefeat, CeladonCity_Gym_EventScript_DefeatedErika, NO_MUSIC
 	goto_if_unset FLAG_GOT_TM19_FROM_ERIKA, CeladonCity_Gym_EventScript_GiveTM19
@@ -84,3 +82,73 @@ CeladonCity_Gym_EventScript_GymStatuePostVictory::
 	releaseall
 	end
 `
+
+mapscripts CeladonCity_Gym_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CeladonCity_Gym_MapScript_OnTransition
+}
+
+script CeladonCity_Gym_MapScript_OnTransition {
+	setflag(FLAG_HIDE_SABRINA_IN_CELADON_GYM)
+	if (flag(FLAG_DID_SUNKEN_ANNE)) {
+		clearflag(FLAG_HIDE_SABRINA_IN_CELADON_GYM)
+		// also set the flags for the gym trees
+		setflag(FLAG_TEMP_12)
+		setflag(FLAG_TEMP_13)
+		setflag(FLAG_TEMP_14)
+	}
+}
+
+script CeladonCity_Gym_EventScript_ErikaRoute {
+	msgbox("SABRINA\. I'm\. fine.
+
+			I just\. can't seem to doze off
+			like I used to.")
+	closemessage
+	end
+}
+
+script CeladonCity_Gym_EventScript_Sabrina {
+	if (var(VAR_MAP_SCENE_CELADON_CITY) == 1) {
+		msgbox("ERIKA\.
+
+				Could you just lay down for a
+				moment?")
+		closemessage
+		end
+	}
+	msgbox("ERIKA!
+			Please, just rest for a while.
+
+			You're clearly not feeling well.
+			I haven't even seen you blink!")
+	closemessage
+	faceplayer
+	playse(SE_PIN)
+	applymovement(LOCALID_CELADON_SABRINA, moves(
+		emote_exclamation_mark
+	))
+	waitmovement(0)
+	waitse
+	delay(30)
+	msgbox("Ah! Sorry.
+			I didn't see you there.
+
+			I'm SABRINA, the PSYCHIC-type leader
+			of the SAFFRON CITY GYM.
+
+			\.Were you here to challenge my
+			fellow gym leader over here?
+
+			Could you\.
+			Could you give us some privacy?
+
+			She's currently not feeling well
+			at the moment.")
+	closemessage
+	applymovement(LOCALID_CELADON_SABRINA, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	setvar(VAR_MAP_SCENE_CELADON_CITY, 1)
+	end
+}
