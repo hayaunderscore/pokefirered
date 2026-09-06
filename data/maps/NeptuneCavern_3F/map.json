@@ -1,0 +1,36 @@
+{
+  "id": "MAP_NEPTUNE_CAVERN_3F",
+  "name": "NeptuneCavern_3F",
+  "layout": "LAYOUT_NEPTUNE_CAVERN_3F",
+  "music": "MUS_ENCOUNTER_DEOXYS",
+  "region_map_section": "MAPSEC_NEPTUNE_CAVERN",
+  "requires_flash": false,
+  "weather": "WEATHER_RAIN",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_INDOOR_2",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 8,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_NEPTUNE_CAVERN_2F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 12,
+      "y": 17,
+      "elevation": 0,
+      "dest_map": "MAP_NEPTUNE_CAVERN_HALLWAY",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

@@ -18,16 +18,29 @@
       "map": "MAP_SSANNE_EXTERIOR",
       "offset": 11,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE_TOP",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [],
-  "warp_events": [],
+  "warp_events": [
+    {
+      "x": 19,
+      "y": 10,
+      "elevation": 0,
+      "dest_map": "MAP_NEPTUNE_CAVERN_1F",
+      "dest_warp_id": "0"
+    }
+  ],
   "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
       "x": 17,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_Six"
@@ -35,7 +48,7 @@
     {
       "type": "sign",
       "x": 21,
-      "y": 13,
+      "y": 14,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_Three"
@@ -43,7 +56,7 @@
     {
       "type": "sign",
       "x": 24,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_One"
@@ -51,7 +64,7 @@
     {
       "type": "sign",
       "x": 21,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_Five"
@@ -59,7 +72,7 @@
     {
       "type": "sign",
       "x": 17,
-      "y": 15,
+      "y": 16,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_Two"
@@ -67,7 +80,7 @@
     {
       "type": "sign",
       "x": 14,
-      "y": 14,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Route_EventScript_SixPhrases_Four"

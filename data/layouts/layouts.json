@@ -4512,6 +4512,66 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Route/border.bin",
       "blockdata_filepath": "data/layouts/Route/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEPTUNE_CAVERN_1F",
+      "name": "NeptuneCavern_1F_Layout",
+      "width": 31,
+      "height": 40,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeafoamIslands",
+      "border_filepath": "data/layouts/NeptuneCavern_1F/border.bin",
+      "blockdata_filepath": "data/layouts/NeptuneCavern_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEPTUNE_CAVERN_2F",
+      "name": "NeptuneCavern_2F_Layout",
+      "width": 40,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeafoamIslands",
+      "border_filepath": "data/layouts/NeptuneCavern_2F/border.bin",
+      "blockdata_filepath": "data/layouts/NeptuneCavern_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEPTUNE_CAVERN_3F",
+      "name": "NeptuneCavern_Layout",
+      "width": 33,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeruleanCave",
+      "border_filepath": "data/layouts/NeptuneCavern_3F/border.bin",
+      "blockdata_filepath": "data/layouts/NeptuneCavern_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_NEPTUNE_CAVERN_HALLWAY",
+      "name": "NeptuneCavern_Hallway_Layout",
+      "width": 64,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/NeptuneCavern_Hallway/border.bin",
+      "blockdata_filepath": "data/layouts/NeptuneCavern_Hallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE_TOP",
+      "name": "Route_TOp_Layout",
+      "width": 40,
+      "height": 43,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/Route_TOp/border.bin",
+      "blockdata_filepath": "data/layouts/Route_TOp/map.bin"
     }
   ]
 }

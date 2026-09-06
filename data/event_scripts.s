@@ -1400,3 +1400,18 @@ Text_MonCryScript::
 
 	.include "data/maps/Route/scripts.inc"
 	.include "data/maps/Route/text.inc"
+
+	.include "data/maps/NeptuneCavern_1F/scripts.inc"
+	.include "data/maps/NeptuneCavern_1F/text.inc"
+
+	.include "data/maps/NeptuneCavern_2F/scripts.inc"
+	.include "data/maps/NeptuneCavern_2F/text.inc"
+
+	.include "data/maps/NeptuneCavern_3F/scripts.inc"
+	.include "data/maps/NeptuneCavern_3F/text.inc"
+
+	.include "data/maps/NeptuneCavern_Hallway/scripts.inc"
+	.include "data/maps/NeptuneCavern_Hallway/text.inc"
+
+	.include "data/maps/Route_TOp/scripts.inc"
+	.include "data/maps/Route_TOp/text.inc"

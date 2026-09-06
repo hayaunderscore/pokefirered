@@ -1147,6 +1147,10 @@
     {
       "id": "MAPSEC_ROUTE",
       "name": "ROUTE"
+    },
+    {
+      "id": "MAPSEC_NEPTUNE_CAVERN",
+      "name": "NEPTUNE CAVERN"
     }
   ]
 }

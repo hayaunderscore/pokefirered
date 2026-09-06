@@ -53,7 +53,12 @@
     "UnionRoom",
     "Route25_Garden",
     "SunkenAnne_2F_Room",
-    "CeladonCity_ContestLobby"
+    "CeladonCity_ContestLobby",
+    "NeptuneCavern_1F",
+    "NeptuneCavern_2F",
+    "NeptuneCavern_3F",
+    "NeptuneCavern_Hallway",
+    "Route_TOp"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

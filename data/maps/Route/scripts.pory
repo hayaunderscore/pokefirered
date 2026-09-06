@@ -20,7 +20,7 @@ script Route_EventScript_SixPhrases_One {
 }
 
 script Route_EventScript_SixPhrases_Two {
-	msgbox("SHALL OPEN UP")
+	msgbox("SHALL LISTEN TO")
 	closemessage
 	if (var(VAR_TEMP_0) != 1) {
 		setvar(VAR_TEMP_0, 0)
@@ -31,7 +31,7 @@ script Route_EventScript_SixPhrases_Two {
 }
 
 script Route_EventScript_SixPhrases_Three {
-	msgbox("AND EMBRACE")
+	msgbox("THE BEAUTIFUL CALL")
 	closemessage
 	if (var(VAR_TEMP_0) != 2) {
 		setvar(VAR_TEMP_0, 0)
@@ -42,7 +42,7 @@ script Route_EventScript_SixPhrases_Three {
 }
 
 script Route_EventScript_SixPhrases_Four {
-	msgbox("THE WILL OF")
+	msgbox("OF THE ABYSS")
 	closemessage
 	if (var(VAR_TEMP_0) != 3) {
 		setvar(VAR_TEMP_0, 0)
@@ -53,7 +53,7 @@ script Route_EventScript_SixPhrases_Four {
 }
 
 script Route_EventScript_SixPhrases_Five {
-	msgbox("THE ABYSS")
+	msgbox("AND EMBRACE IT")
 	closemessage
 	if (var(VAR_TEMP_0) != 4) {
 		setvar(VAR_TEMP_0, 0)
@@ -64,7 +64,7 @@ script Route_EventScript_SixPhrases_Five {
 }
 
 script Route_EventScript_SixPhrases_Six {
-	msgbox("AND ITS ESSENCE")
+	msgbox("FOREVERMORE")
 	closemessage
 	if (var(VAR_TEMP_0) != 5) {
 		setvar(VAR_TEMP_0, 0)

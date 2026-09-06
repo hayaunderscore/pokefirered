@@ -1,0 +1,231 @@
+mapscripts NeptuneCavern_Hallway_MapScripts {}
+
+script NeptuneCavern_Hallway_EventScriptLog1 {
+	signmsg
+	msgbox(
+		"LOG 1
+
+		Before reading this\.
+
+		Do note that the information here
+		here has some things that might
+		drive people insane\.
+
+		Except for certain people.
+		Myself included.
+
+		If you do not want to risk your
+		life for this\.
+
+		TURN BACK NOW.", MSGBOX_YESNO)
+	closemessage
+	normalmsg
+	if (var(VAR_RESULT) == TRUE) {
+		warp(MAP_ROUTE, 0)
+		end
+	}
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog2 {
+	signmsg
+	msgbox(
+		"LOG 2
+
+		Did you know MR. FUJI had a
+		daughter?
+
+		That daughter is me.
+
+		After the falling out of the MEWTWO
+		PROJECT, I decided to take his old
+		mantle of leading the research lab
+		over at CINNABAR ISLAND.
+
+		Over the years, I have found and
+		proven some things\.
+
+		Except for this one.")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog3 {
+	signmsg
+	msgbox(
+		"LOG 3
+
+		It all started\.
+		on the CINNABAR ISLAND coastline.
+
+		I felt like I needed to have some
+		fresh air, so I surfed along there.
+
+		\.
+
+		That's\. when I saw IT.
+
+		I have no idea if it was just a
+		hallucination or not, but at the
+		time\. it felt so\. real.
+
+		A being that no person can truly
+		perceive.
+
+		I do not know what it was.
+
+		I wanted to prove the existence of
+		what seems to be an 'undiscovered'
+		POK\eMON, but\.")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog4 {
+	signmsg
+	msgbox(
+		"LOG 4
+
+		When I shared my findings with the
+		other researchers\.
+
+		They began exhibiting\.
+		weird symptoms.
+
+		They would lash out at me, trying to
+		say that I shouldn't keep going with
+		this, rambling about the thoughts in
+		their head\.
+
+		It's like they're going insane.
+
+		And yet\.
+		I am completely unaffected by this.")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog5 {
+	signmsg
+	msgbox(
+		"LOG 5
+
+		I can't be the only person who has
+		no issue with this.
+
+		I called one of my old friends from
+		JOHTO about this\.
+
+		She had no issues thinking about the
+		paper.
+
+		Is there something in common with
+		both of us?
+
+		Despite the warnings from the rest
+		of my colleagues, I kept going.
+
+		I needed to find what was on here.
+		What it all truly means.
+
+		No matter what it takes.")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog6 {
+	signmsg
+	msgbox(
+		"LOG 6 6 6 6  66 66
+		66
+
+		NO NO NO NO NO NO NO NO NO NO
+
+		NO. NO.
+
+		WHAT IS THIS
+
+		WHERE AM I
+
+		WHO AM I
+
+		WHO ARE THE ŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒŒ
+
+		THE ABYSS\.
+
+		IT TRULY IS FACINATING
+		ISN'T IT")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog7 {
+	signmsg
+	msgbox(
+		"LOG 7
+
+		Do not read LOG 6.
+		
+		I remember what I saw.
+		
+		My colleagues were confused about
+		me and my condition.
+		
+		They truly cannot perceive IT.
+		
+		No one should know about this.
+		Not yet.
+		
+		It calls for someone.")
+	closemessage
+	normalmsg
+	end
+}
+
+script NeptuneCavern_Hallway_EventScriptLog8 {
+	signmsg
+	msgbox(
+		"LOG 8
+
+		If people are somehow still reading
+		this, I have one piece of advice.
+		
+		At the first look of that THING,
+		you RUN.
+		
+		First time I saw it I made the
+		mistake of trying to investigate it
+		and that's\.
+		
+		\.how I lost my leg.
+		
+		These creatures\.
+		These concepts\.
+		
+		None of them can be known by the
+		human psyche.
+		
+		Except for some of us.
+		But who are the 'us'?
+		
+		Some say it's just all in my head,
+		but if you ask me?
+		
+		There's an entire world in there
+		somewhere.
+		
+		And if we can communicate with it,
+		then\.
+		
+		With a force like that on our side\.
+		
+		It could be a powerful ally.")
+	closemessage
+	normalmsg
+	end
+}

@@ -58,3 +58,19 @@ EventScript_AskSaveGame::
 	special Field_AskSaveTheGame
 	waitstate
 	return
+
+EventScript_EndOfCurrentContentNPC::
+	faceplayer
+	lockall
+	msgbox EventScript_EndOfCurrentContentNPC_Text_0
+	releaseall
+	end
+
+EventScript_EndOfCurrentContentNPC_Text_0:
+	.string "Hi! My name is ELLEN.\p"
+	.string "This is currently the end of what\n"
+	.string "this hack currently has to offer!\p"
+	.string "Feel free to roam around what is\n"
+	.string "currently available but…\p"
+	.string "You will find nothing else beyond\n"
+	.string "this mortal plane.$"
