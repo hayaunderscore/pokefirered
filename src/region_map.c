@@ -714,6 +714,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_DOTTED_HOLE,
         .name = sMapsecName_DOTTED_HOLE,
         .desc = gText_RegionMap_AreaDesc_DottedHole
+    }, {
+        .id = MAPSEC_NEPTUNE_CAVERN,
+        .name = sMapsecName_NEPTUNE_CAVERN,
+        .desc = gText_RegionMap_AreaDesc_NeptuneCavern
     }
 };
 
@@ -936,6 +940,8 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_POKEMON_TECH        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_SUNKEN_S_S_ANNE     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_ROUTE               - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_NEPTUNE_CAVERN      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1033,7 +1039,7 @@ static void InitRegionMapType(void)
     j = REGIONMAP_KANTO;
     // Some maps have ids that are located beyond SEVII_MAPSEC_START,
     // but are actually in kanto
-    if (gMapHeader.regionMapSectionId == MAPSEC_POKEMON_TECH || gMapHeader.regionMapSectionId == MAPSEC_SUNKEN_S_S_ANNE)
+    if (gMapHeader.regionMapSectionId > MAPSEC_SPECIAL_AREA)
     	region = REGIONMAP_KANTO;
     else if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
@@ -3020,6 +3026,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_MT_MOON_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_S_S_ANNE:
     case MAPSEC_SUNKEN_S_S_ANNE:
+    case MAPSEC_ROUTE:
+    case MAPSEC_NEPTUNE_CAVERN:
         return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_UNDERGROUND_PATH:
         return FlagGet(FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
@@ -3280,6 +3288,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 4;
         sMapCursor->y = 6;
         break;
+    case MAPSEC_NEPTUNE_CAVERN:
+	   	sMapCursor->x = 11;
+	    sMapCursor->y = 9;
+	    break;
     case MAPSEC_ROUTE_2:
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN))
         {
