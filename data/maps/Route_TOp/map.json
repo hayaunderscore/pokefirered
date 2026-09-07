@@ -18,6 +18,11 @@
       "map": "MAP_ROUTE",
       "offset": 0,
       "direction": "down"
+    },
+    {
+      "map": "MAP_CADMIUM_ISLAND",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

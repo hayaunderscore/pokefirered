@@ -1,10 +1,19 @@
 mapscripts Route_MapScripts {
 	MAP_SCRIPT_ON_LOAD: Route_OnLoad
+	MAP_SCRIPT_ON_TRANSITION: Route_OnTransition
 }
 
 script Route_OnLoad {
 	if (flag(FLAG_SHOW_ROUTE_CAVE_ENTRANCE)) {
 		setmetatile(19, 10, 0x0A9, FALSE)
+	}
+}
+
+script Route_OnTransition {
+	if (flag(FLAG_ADD_WARP_TO_ROUTE_ENTRANCE)) {
+		setdynamicwarp(MAP_NEPTUNE_CAVERN_HALLWAY, 3, 6)
+	} else {
+		setdynamicwarp(MAP_NEPTUNE_CAVERN_1F, 15, 31)
 	}
 }
 

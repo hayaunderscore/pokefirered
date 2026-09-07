@@ -461,6 +461,12 @@ static void WaitForVBlank(void)
 {
     gMain.intrCheck &= ~INTR_FLAG_VBLANK;
 
+    if(!gWirelessCommType)
+    {
+        asm("swi 0x5");
+        return;
+    }
+
     while (!(gMain.intrCheck & INTR_FLAG_VBLANK))
         ;
 }

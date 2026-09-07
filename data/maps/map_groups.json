@@ -43,7 +43,8 @@
     "gMapGroup_IndoorTwoIslandRoute",
     "gMapGroup_IndoorSixIslandRoute",
     "gMapGroup_IndoorSevenIslandRoute",
-    "gMapGroup_IndoorPokemonTech"
+    "gMapGroup_IndoorPokemonTech",
+    "gMapGroup_IndoorCadmium"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -58,7 +59,8 @@
     "NeptuneCavern_2F",
     "NeptuneCavern_3F",
     "NeptuneCavern_Hallway",
-    "Route_TOp"
+    "Route_TOp",
+    "CadmiumIsland"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -573,5 +575,9 @@
   "gMapGroup_IndoorPokemonTech": [
     "PokemonTech_Inside_1F",
     "PokemonTech_Inside_1_1"
+  ],
+  "gMapGroup_IndoorCadmium": [
+    "CadmiumIsland_PokemonCenter_1F",
+    "CadmiumIsland_PokemonCenter_2F"
   ]
 }

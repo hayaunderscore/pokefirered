@@ -610,6 +610,41 @@ gFameCheckerFlavorText_Giovanni5:: @ 0x81B0106
 	.string "No, that can't be right.\n"
 	.string "GIOVANNI's kid has red hair.$"
 
+gFameCheckerFlavorText_Abby0::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+
+gFameCheckerFlavorText_Abby1::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+
+gFameCheckerFlavorText_Abby2::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+
+gFameCheckerFlavorText_Abby3::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+
+gFameCheckerFlavorText_Abby4::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+
+gFameCheckerFlavorText_Abby5::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
+	.string "CITY.\p"
+	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
 
 gFameCheckerPersonName_ProfOak:: @ 0x81B0188
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}PROF. OAK$"
@@ -796,6 +831,16 @@ gFameCheckerPersonQuote_Giovanni:: @ 0x81B0BB5
 	.string "to you.\p"
 	.string "I will concentrate solely on\n"
 	.string "bettering myself, and none other.$"
+
+gFameCheckerPersonName_Abby::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}GIOVANNI$"
+
+gFameCheckerPersonQuote_Abby::
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: ABBY\n"
+	.string "To: {PLAYER}, THE HAND\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}IMPRESSIVE!\p"
+	.string "THAT'S ALL FOLKS!\n"
+	.string "MAY WE MEET AGAIN!$"
 
 gFameCheckerFlavorTextOriginLocation_ProfOak0:: @ 0x81B0C45
 	.string "PALLET TOWN$"
@@ -1085,6 +1130,24 @@ gFameCheckerFlavorTextOriginLocation_Giovanni4::
 gFameCheckerFlavorTextOriginLocation_Giovanni5::
 	.string "ROCKET WAREHOUSE$"
 
+gFameCheckerFlavorTextOriginLocation_Abby0::
+	.string "CADMIUM ISLAND$"
+
+gFameCheckerFlavorTextOriginLocation_Abby1::
+	.string "VIRIDIAN CITY$"
+
+gFameCheckerFlavorTextOriginLocation_Abby2::
+	.string "CELADON CITY$"
+
+gFameCheckerFlavorTextOriginLocation_Abby3::
+	.string "ROUTE 25$"
+
+gFameCheckerFlavorTextOriginLocation_Abby4::
+	.string "TANOBY CHAMBERS$"
+
+gFameCheckerFlavorTextOriginLocation_Abby5::
+	.string "CINNABAR LAB$"
+
 gFameCheckerFlavorTextOriginObjectName_ProfOak0::
 	.string "SIGN$"
 
@@ -1372,6 +1435,24 @@ gFameCheckerFlavorTextOriginObjectName_Giovanni4::
 
 gFameCheckerFlavorTextOriginObjectName_Giovanni5::
 	.string "GIDEON$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby0::
+	.string "ABBY$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby1::
+	.string "OLD MAN$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby2::
+	.string "IHE$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby3::
+	.string "BILL$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby4::
+	.string "MOLLY$"
+
+gFameCheckerFlavorTextOriginObjectName_Abby5::
+	.string "AMBER$"
 
 PokemonJournal_Text_SpecialFeatureBrock::
 	.string "POKéMON JOURNAL\p"

@@ -1,1 +1,8 @@
-mapscripts Route_TOp_MapScripts {}
+mapscripts Route_TOp_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route_TOp_OnTransition
+}
+
+script Route_TOp_OnTransition {
+	// Cool warp, bro
+	setflag(FLAG_ADD_WARP_TO_ROUTE_ENTRANCE)
+}

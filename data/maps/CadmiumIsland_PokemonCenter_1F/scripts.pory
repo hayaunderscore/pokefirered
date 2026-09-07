@@ -1,0 +1,16 @@
+mapscripts CadmiumIsland_PokemonCenter_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CadmiumIsland_PokemonCenter_1F_OnTransition
+}
+
+script CadmiumIsland_PokemonCenter_1F_OnTransition {
+	setrespawn(HEAL_LOCATION_CADMIUM_ISLAND)
+	end
+}
+
+script CadmiumIsland_PokemonCenter_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	call(EventScript_PkmnCenterNurse)
+	release
+	end
+}

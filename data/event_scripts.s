@@ -1415,3 +1415,12 @@ Text_MonCryScript::
 
 	.include "data/maps/Route_TOp/scripts.inc"
 	.include "data/maps/Route_TOp/text.inc"
+
+	.include "data/maps/CadmiumIsland/scripts.inc"
+	.include "data/maps/CadmiumIsland/text.inc"
+
+	.include "data/maps/CadmiumIsland_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/CadmiumIsland_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/CadmiumIsland_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/CadmiumIsland_PokemonCenter_2F/text.inc"

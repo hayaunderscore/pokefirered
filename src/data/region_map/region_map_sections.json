@@ -1155,6 +1155,14 @@
     {
       "id": "MAPSEC_NEPTUNE_CAVERN",
       "name": "NEPTUNE CAVERN"
+    },
+    {
+      "id": "MAPSEC_CADMIUM_ISLAND",
+      "name": "CADMIUM ISLAND",
+      "x": 11,
+      "y": 8,
+      "width": 1,
+      "height": 1
     }
   ]
 }

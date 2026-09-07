@@ -175,6 +175,14 @@
       "y": 11,
       "respawn_map": "MAP_SUNKEN_ANNE_2F_HEAL_SPOT",
       "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_CADMIUM_ISLAND",
+      "map": "MAP_CADMIUM_ISLAND",
+      "x": 35,
+      "y": 26,
+      "respawn_map": "MAP_CADMIUM_ISLAND",
+      "respawn_npc": "1"
     }
   ]
 }

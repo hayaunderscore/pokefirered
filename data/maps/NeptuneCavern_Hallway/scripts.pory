@@ -1,9 +1,22 @@
 mapscripts NeptuneCavern_Hallway_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: NeptuneCavern_Hallway_OnTransition
+	MAP_SCRIPT_ON_LOAD: NeptuneCavern_Hallway_OnLoad
 }
 
 script NeptuneCavern_Hallway_OnTransition {
 	setflag(FLAG_WORLD_MAP_NEPTUNE_CAVERN)
+}
+
+script NeptuneCavern_Hallway_OnLoad {
+	if (flag(FLAG_ADD_WARP_TO_ROUTE_ENTRANCE)) {
+		end
+	}
+	setmetatile(2, 6, 0x281, TRUE)
+	setmetatile(3, 6, 0x281, TRUE)
+	setmetatile(4, 6, 0x281, TRUE)
+	setmetatile(2, 7, 0x281, TRUE)
+	setmetatile(3, 7, 0x281, TRUE)
+	setmetatile(4, 7, 0x281, TRUE)
 }
 
 script NeptuneCavern_Hallway_EventScriptLog1 {

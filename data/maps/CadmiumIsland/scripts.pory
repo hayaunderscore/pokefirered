@@ -1,0 +1,121 @@
+mapscripts CadmiumIsland_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CadmiumIsland_OnTransition
+}
+
+script CadmiumIsland_OnTransition {
+	setflag(FLAG_WORLD_MAP_CADMIUM_ISLAND)
+	end
+}
+
+script CadmiumIsland_EventScript_Sign {
+	msgbox("CADMIUM ISLAND
+			The wonderful paradise", MSGBOX_SIGN)
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_AbbyEncounter {
+	setvar(VAR_MAP_SCENE_CADMIUM_ISLAND_ABBY, 1)
+	lock
+	applymovement(LOCALID_PLAYER, moves(face_up))
+	waitmovement(0)
+	fadenewbgm(MUS_DUMMY)
+	delay(60)
+	setweather(WEATHER_RAIN)
+	doweather
+	delay(166)
+	setweather(WEATHER_NONE)
+	doweather
+	delay(166)
+	setweather(WEATHER_RAIN)
+	doweather
+	delay(166)
+	setweather(WEATHER_NONE)
+	doweather
+	delay(166)
+	setweather(WEATHER_RAIN)
+	doweather
+	delay(166)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("YOU'RE HERE.")
+	closemessage
+	setweather(WEATHER_RAIN_THUNDERSTORM)
+	doweather
+	delay(166)
+	msgbox("{COLOR BLUE}I {COLOR RED}HAVE BEEN\.{PAUSE 30}
+			EXPECTING YOU.
+
+			WELL. HERE IT IS.
+			THE CLIMAX.
+
+			SO\.{PAUSE 30} HI!{PAUSE 30}
+
+			YOU'RE PROBABLY WONDERING WHAT IS
+			CURRENTLY HAPPENING RIGHT NOW\.
+
+			BUT DON'T WORRY, {PLAYER}\.
+			IT'S NOTHING SERIOUS.
+
+			YOU HAVE DONE WELL TO FIND THE
+			SECRETS {COLOR BLUE}I {COLOR RED}HAVE HIDDEN IN THIS
+			REALM\.
+
+			AND NOW THAT YOU'RE HERE\.
+
+			THE LAST TASK YOU NEED TO UPHOLD
+			CAN FINALLY BEGIN.
+
+			AS A REWARD FOR YOUR CURRENT
+			EFFORTS SO FAR\.
+
+			{COLOR BLUE}I{COLOR RED} BESTOW YOU THIS.")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{PLAYER} received the THUNDERBADGE
+			from !{PAUSE_MUSIC}{PLAY_BGM}{MUS_OBTAIN_BADGE}{PAUSE 0xFE}{PAUSE 0x56}{RESUME_MUSIC}")
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("YOU SHOULD NOW BE ABLE TO FLY.
+			BE CAREFUL THOUGH!
+
+			YOU MUST NOT EXPOSE THAT BADGE
+			TO THE AIR.
+
+			{COLOR BLUE}I {COLOR RED}WILL NOT OFFER A SECOND ONE IF
+			YOU BREAK THIS.
+
+			ATLEAST, RIGHT NOW.
+			{COLOR BLUE}MY {COLOR RED}HANDS ARE QUITE TIED :V
+
+			BACK TO THE TOPIC AT QUESTION\.
+
+			YOU MUST FIND THE ANOMALIES 6.
+
+			THEY MUST BE LEFT ALIVE.
+			DO NOT USE YOUR MOVE ON THEM.
+
+			{COLOR BLUE}I {COLOR RED}WANT LESS CASUALTIES TO HAPPEN
+			THIS TIME. TYVM :3
+
+			{COLOR BLUE}I {COLOR RED}SUGGEST YOU STOP BY AT VIRIDIAN
+			CITY.
+
+			YOU KNOW WHO {COLOR BLUE}I'M{COLOR RED} TALKING ABOUT.
+
+			NOW GO!
+
+			RETURN WHEN YOU HAVE TALKED TO
+			ALL OF THEM.
+
+			AND USE YOUR DAMN FAMECHECKER!
+
+			NO ONE USES THAT FOR SOME
+			REASON\.")
+	famechecker(FAMECHECKER_ABBY, 0)
+	setflag(FLAG_BADGE03_GET)
+	// setflag(FLAG_DEFEATED_LT_SURGE)
+	closemessage
+	setweather(WEATHER_SUNNY)
+	doweather
+	delay(166)
+	release
+	end
+}

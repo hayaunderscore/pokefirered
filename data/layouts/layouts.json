@@ -4556,7 +4556,7 @@
       "height": 10,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/NeptuneCavern_Hallway/border.bin",
       "blockdata_filepath": "data/layouts/NeptuneCavern_Hallway/map.bin"
@@ -4572,6 +4572,42 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Route_TOp/border.bin",
       "blockdata_filepath": "data/layouts/Route_TOp/map.bin"
+    },
+    {
+      "id": "LAYOUT_CADMIUM_ISLAND",
+      "name": "CadmiumIsland_Layout",
+      "width": 52,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_SeviiIslands67",
+      "border_filepath": "data/layouts/CadmiumIsland/border.bin",
+      "blockdata_filepath": "data/layouts/CadmiumIsland/map.bin"
+    },
+    {
+      "id": "LAYOUT_CADMIUM_ISLAND_POKEMON_CENTER_1F",
+      "name": "CadmiumIsland_PokemonCenter_1F_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/CadmiumIsland_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/CadmiumIsland_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CADMIUM_ISLAND_POKEMON_CENTER_2F",
+      "name": "CadmiumIsland_PokemonCenter_2F_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/CadmiumIsland_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/CadmiumIsland_PokemonCenter_2F/map.bin"
     }
   ]
 }

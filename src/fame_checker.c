@@ -158,7 +158,8 @@ static const u16 sTrainerIdxs[] = {
     [FAMECHECKER_LANCE]    = TRAINER_ELITE_FOUR_LANCE,
     [FAMECHECKER_BILL]     = FAME_CHECKER_BILL,
     [FAMECHECKER_MRFUJI]   = FAME_CHECKER_MR_FUJI,
-    [FAMECHECKER_GIOVANNI] = TRAINER_BOSS_GIOVANNI
+    [FAMECHECKER_GIOVANNI] = TRAINER_BOSS_GIOVANNI,
+    [FAMECHECKER_ABBY]     = TRAINER_ABYSS_QUEEN_ABBY,
 };
 
 static const u8 *const sNonTrainerNamePointers[] = {
@@ -185,6 +186,7 @@ static const u8 sFameCheckerTrainerPicIdxs[] = {
     [FAMECHECKER_BILL]     = TRAINER_PIC_PSYCHIC_M,
     [FAMECHECKER_MRFUJI]   = TRAINER_PIC_GENTLEMAN,
     [FAMECHECKER_GIOVANNI] = TRAINER_PIC_LEADER_GIOVANNI,
+    [FAMECHECKER_ABBY]     = TRAINER_PIC_QUEEN_ABBY,
 };
 
 static const u8 sFameCheckerTrainerGenders_Unused[] = {
@@ -204,6 +206,7 @@ static const u8 sFameCheckerTrainerGenders_Unused[] = {
     [FAMECHECKER_BILL]     = MALE,
     [FAMECHECKER_MRFUJI]   = MALE,
     [FAMECHECKER_GIOVANNI] = MALE,
+    [FAMECHECKER_ABBY]     = FEMALE,
 };
 
 static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PERSONS] =
@@ -224,6 +227,7 @@ static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PER
     gFameCheckerPersonName_Bill,
     gFameCheckerPersonName_MrFuji,
     gFameCheckerPersonName_Giovanni,
+    gFameCheckerPersonName_Abby,
 
     gFameCheckerPersonQuote_ProfOak,
     gFameCheckerPersonQuote_Daisy,
@@ -240,8 +244,11 @@ static const u8 *const sFameCheckerNameAndQuotesPointers[2 * NUM_FAMECHECKER_PER
     gFameCheckerPersonQuote_Lance,
     gFameCheckerPersonQuote_Bill,
     gFameCheckerPersonQuote_MrFuji,
-    gFameCheckerPersonQuote_Giovanni
+    gFameCheckerPersonQuote_Giovanni,
+    gFameCheckerPersonQuote_Abby,
 };
+
+#define FLAVOR_TEXT(person) gFameCheckerFlavorText_ ## person ## 0, gFameCheckerFlavorText_ ## person ## 1, gFameCheckerFlavorText_ ## person ## 2, gFameCheckerFlavorText_ ## person ## 3, gFameCheckerFlavorText_ ## person ## 4, gFameCheckerFlavorText_ ## person ## 5,
 
 static const u8 *const sFameCheckerFlavorTextPointers[] = {
     gFameCheckerFlavorText_ProfOak0, gFameCheckerFlavorText_ProfOak1, gFameCheckerFlavorText_ProfOak2, gFameCheckerFlavorText_ProfOak3, gFameCheckerFlavorText_ProfOak4, gFameCheckerFlavorText_ProfOak5,
@@ -259,7 +266,8 @@ static const u8 *const sFameCheckerFlavorTextPointers[] = {
     gFameCheckerFlavorText_Lance0, gFameCheckerFlavorText_Lance1, gFameCheckerFlavorText_Lance2, gFameCheckerFlavorText_Lance3, gFameCheckerFlavorText_Lance4, gFameCheckerFlavorText_Lance5,
     gFameCheckerFlavorText_Bill0, gFameCheckerFlavorText_Bill1, gFameCheckerFlavorText_Bill2, gFameCheckerFlavorText_Bill3, gFameCheckerFlavorText_Bill4, gFameCheckerFlavorText_Bill5,
     gFameCheckerFlavorText_MrFuji0, gFameCheckerFlavorText_MrFuji1, gFameCheckerFlavorText_MrFuji2, gFameCheckerFlavorText_MrFuji3, gFameCheckerFlavorText_MrFuji4, gFameCheckerFlavorText_MrFuji5,
-    gFameCheckerFlavorText_Giovanni0, gFameCheckerFlavorText_Giovanni1, gFameCheckerFlavorText_Giovanni2, gFameCheckerFlavorText_Giovanni3, gFameCheckerFlavorText_Giovanni4, gFameCheckerFlavorText_Giovanni5
+    gFameCheckerFlavorText_Giovanni0, gFameCheckerFlavorText_Giovanni1, gFameCheckerFlavorText_Giovanni2, gFameCheckerFlavorText_Giovanni3, gFameCheckerFlavorText_Giovanni4, gFameCheckerFlavorText_Giovanni5,
+    FLAVOR_TEXT(Abby)
 };
 
 static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
@@ -374,8 +382,18 @@ static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_SCIENTIST,
     OBJ_EVENT_GFX_GIOVANNI,
     OBJ_EVENT_GFX_GYM_GUY,
-    OBJ_EVENT_GFX_SCIENTIST
+    OBJ_EVENT_GFX_SCIENTIST,
+    // ABBY
+    OBJ_EVENT_GFX_ROXANNE,
+    OBJ_EVENT_GFX_OLD_MAN_1,
+    OBJ_EVENT_GFX_BLACK_BELT,
+    OBJ_EVENT_GFX_BILL,
+    OBJ_EVENT_GFX_WOMAN_1,
+    OBJ_EVENT_GFX_WOMAN_2,
 };
+
+#define FLAVOR_TEXT_ORIGIN_LOCATION(person) gFameCheckerFlavorTextOriginLocation_ ## person ## 0, gFameCheckerFlavorTextOriginLocation_ ## person ## 1, gFameCheckerFlavorTextOriginLocation_ ## person ## 2, gFameCheckerFlavorTextOriginLocation_ ## person ## 3, gFameCheckerFlavorTextOriginLocation_ ## person ## 4, gFameCheckerFlavorTextOriginLocation_ ## person ## 5,
+#define FLAVOR_TEXT_ORIGIN_OBJ_NAME(person) gFameCheckerFlavorTextOriginObjectName_ ## person ## 0, gFameCheckerFlavorTextOriginObjectName_ ## person ## 1, gFameCheckerFlavorTextOriginObjectName_ ## person ## 2, gFameCheckerFlavorTextOriginObjectName_ ## person ## 3, gFameCheckerFlavorTextOriginObjectName_ ## person ## 4, gFameCheckerFlavorTextOriginObjectName_ ## person ## 5,
 
 static const u8 *const sFlavorTextOriginLocationTexts[] = {
     gFameCheckerFlavorTextOriginLocation_ProfOak0, gFameCheckerFlavorTextOriginLocation_ProfOak1, gFameCheckerFlavorTextOriginLocation_ProfOak2, gFameCheckerFlavorTextOriginLocation_ProfOak3, gFameCheckerFlavorTextOriginLocation_ProfOak4, gFameCheckerFlavorTextOriginLocation_ProfOak5,
@@ -393,7 +411,8 @@ static const u8 *const sFlavorTextOriginLocationTexts[] = {
     gFameCheckerFlavorTextOriginLocation_Lance0, gFameCheckerFlavorTextOriginLocation_Lance1, gFameCheckerFlavorTextOriginLocation_Lance2, gFameCheckerFlavorTextOriginLocation_Lance3, gFameCheckerFlavorTextOriginLocation_Lance4, gFameCheckerFlavorTextOriginLocation_Lance5,
     gFameCheckerFlavorTextOriginLocation_Bill0, gFameCheckerFlavorTextOriginLocation_Bill1, gFameCheckerFlavorTextOriginLocation_Bill2, gFameCheckerFlavorTextOriginLocation_Bill3, gFameCheckerFlavorTextOriginLocation_Bill4, gFameCheckerFlavorTextOriginLocation_Bill5,
     gFameCheckerFlavorTextOriginLocation_MrFuji0, gFameCheckerFlavorTextOriginLocation_MrFuji1, gFameCheckerFlavorTextOriginLocation_MrFuji2, gFameCheckerFlavorTextOriginLocation_MrFuji3, gFameCheckerFlavorTextOriginLocation_MrFuji4, gFameCheckerFlavorTextOriginLocation_MrFuji5,
-    gFameCheckerFlavorTextOriginLocation_Giovanni0, gFameCheckerFlavorTextOriginLocation_Giovanni1, gFameCheckerFlavorTextOriginLocation_Giovanni2, gFameCheckerFlavorTextOriginLocation_Giovanni3, gFameCheckerFlavorTextOriginLocation_Giovanni4, gFameCheckerFlavorTextOriginLocation_Giovanni5
+    gFameCheckerFlavorTextOriginLocation_Giovanni0, gFameCheckerFlavorTextOriginLocation_Giovanni1, gFameCheckerFlavorTextOriginLocation_Giovanni2, gFameCheckerFlavorTextOriginLocation_Giovanni3, gFameCheckerFlavorTextOriginLocation_Giovanni4, gFameCheckerFlavorTextOriginLocation_Giovanni5,
+    FLAVOR_TEXT_ORIGIN_LOCATION(Abby)
 };
 
 static const u8 *const sFlavorTextOriginObjectNameTexts[] = {
@@ -412,7 +431,8 @@ static const u8 *const sFlavorTextOriginObjectNameTexts[] = {
     gFameCheckerFlavorTextOriginObjectName_Lance0, gFameCheckerFlavorTextOriginObjectName_Lance1, gFameCheckerFlavorTextOriginObjectName_Lance2, gFameCheckerFlavorTextOriginObjectName_Lance3, gFameCheckerFlavorTextOriginObjectName_Lance4, gFameCheckerFlavorTextOriginObjectName_Lance5,
     gFameCheckerFlavorTextOriginObjectName_Bill0, gFameCheckerFlavorTextOriginObjectName_Bill1, gFameCheckerFlavorTextOriginObjectName_Bill2, gFameCheckerFlavorTextOriginObjectName_Bill3, gFameCheckerFlavorTextOriginObjectName_Bill4, gFameCheckerFlavorTextOriginObjectName_Bill5,
     gFameCheckerFlavorTextOriginObjectName_MrFuji0, gFameCheckerFlavorTextOriginObjectName_MrFuji1, gFameCheckerFlavorTextOriginObjectName_MrFuji2, gFameCheckerFlavorTextOriginObjectName_MrFuji3, gFameCheckerFlavorTextOriginObjectName_MrFuji4, gFameCheckerFlavorTextOriginObjectName_MrFuji5,
-    gFameCheckerFlavorTextOriginObjectName_Giovanni0, gFameCheckerFlavorTextOriginObjectName_Giovanni1, gFameCheckerFlavorTextOriginObjectName_Giovanni2, gFameCheckerFlavorTextOriginObjectName_Giovanni3, gFameCheckerFlavorTextOriginObjectName_Giovanni4, gFameCheckerFlavorTextOriginObjectName_Giovanni5
+    gFameCheckerFlavorTextOriginObjectName_Giovanni0, gFameCheckerFlavorTextOriginObjectName_Giovanni1, gFameCheckerFlavorTextOriginObjectName_Giovanni2, gFameCheckerFlavorTextOriginObjectName_Giovanni3, gFameCheckerFlavorTextOriginObjectName_Giovanni4, gFameCheckerFlavorTextOriginObjectName_Giovanni5,
+    FLAVOR_TEXT_ORIGIN_OBJ_NAME(Abby)
 };
 
 static const struct SpriteSheet sUISpriteSheets[] = {

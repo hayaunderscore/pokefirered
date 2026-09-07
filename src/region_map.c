@@ -942,6 +942,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_SUNKEN_S_S_ANNE     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE               - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_NEPTUNE_CAVERN      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_CADMIUM_ISLAND      - KANTO_MAPSEC_START] = {MAP(MAP_CADMIUM_ISLAND),                        HEAL_LOCATION_CADMIUM_ISLAND},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1534,6 +1535,8 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
     if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
         FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
+    if (whichMap == REGIONMAP_KANTO && FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
+    	FillBgTilemapBufferRect(0, 0x001, 15, 12, 1, 1, 1);
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -2945,6 +2948,8 @@ static u16 GetMapsecUnderCursor(void)
         mapsec = MAPSEC_NONE;
     if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
     	mapsec = MAPSEC_NONE;
+    if (mapsec == MAPSEC_CADMIUM_ISLAND && !FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
+    	mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -3011,6 +3016,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_10_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_CADMIUM_ISLAND:
+    	return FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:

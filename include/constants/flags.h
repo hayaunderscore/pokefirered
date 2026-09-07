@@ -542,7 +542,7 @@
 #define FLAG_HIDE_SAILOR_IN_GAME_CORNER                         0x208
 #define FLAG_HIDE_ERIKA_IN_CELADON_GYM                          0x209
 #define FLAG_SHOW_ROUTE_CAVE_ENTRANCE                           0x20A
-#define FLAG_0x20B               0x20B
+#define FLAG_ADD_WARP_TO_ROUTE_ENTRANCE                         0x20B
 #define FLAG_0x20C               0x20C
 #define FLAG_0x20D               0x20D
 #define FLAG_0x20E               0x20E
@@ -1380,7 +1380,7 @@
 #define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_PREVENT_MAP_FADE                                   (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
-#define FLAG_0x831                                                  (SYS_FLAGS + 0x31)
+#define FLAG_SYS_ON_RESUME                                          (SYS_FLAGS + 0x31)
 #define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
@@ -1461,7 +1461,7 @@
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       (SYS_FLAGS + 0xC1)
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        (SYS_FLAGS + 0xC2)
 
-#define FLAG_WORLD_MAP_ROUTE                                        (SYS_FLAGS + 0xC3)
+#define FLAG_WORLD_MAP_CADMIUM_ISLAND                               (SYS_FLAGS + 0xC3)
 #define FLAG_WORLD_MAP_NEPTUNE_CAVERN                               (SYS_FLAGS + 0xC4)
 #define FLAG_0x8C5                                                  (SYS_FLAGS + 0xC5)
 #define FLAG_0x8C6                                                  (SYS_FLAGS + 0xC6)
