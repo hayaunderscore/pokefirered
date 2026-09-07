@@ -1146,7 +1146,11 @@
     },
     {
       "id": "MAPSEC_ROUTE",
-      "name": "ROUTE"
+      "name": "ROUTE",
+      "x": 11,
+      "y": 9,
+      "width": 3,
+      "height": 1
     },
     {
       "id": "MAPSEC_NEPTUNE_CAVERN",

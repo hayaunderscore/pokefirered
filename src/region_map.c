@@ -2943,6 +2943,8 @@ static u16 GetMapsecUnderCursor(void)
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, sMapCursor->y, sMapCursor->x);
     if ((mapsec == MAPSEC_NAVEL_ROCK || mapsec == MAPSEC_BIRTH_ISLAND) && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
         mapsec = MAPSEC_NONE;
+    if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
+    	mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -2958,6 +2960,8 @@ static u16 GetDungeonMapsecUnderCursor(void)
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, sMapCursor->y, sMapCursor->x);
     if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
         mapsec = MAPSEC_NONE;
+    if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
+    	mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -3026,9 +3030,10 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_MT_MOON_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_S_S_ANNE:
     case MAPSEC_SUNKEN_S_S_ANNE:
+    	return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE:
     case MAPSEC_NEPTUNE_CAVERN:
-        return FlagGet(FLAG_WORLD_MAP_SSANNE_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+        return FlagGet(FLAG_WORLD_MAP_NEPTUNE_CAVERN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_UNDERGROUND_PATH:
         return FlagGet(FLAG_WORLD_MAP_UNDERGROUND_PATH_NORTH_SOUTH_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_UNDERGROUND_PATH_2:
@@ -3614,6 +3619,11 @@ static void CreateDungeonIcons(void)
                     continue;
                 if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
                     continue;
+                if (mapsec == MAPSEC_NEPTUNE_CAVERN)
+                {
+                	if (!FlagGet(FLAG_DID_SUNKEN_ANNE)) continue;
+                 	if (!FlagGet(FLAG_INTERACTED_WITH_SAILOR)) continue;
+                }
                 CreateDungeonIconSprite(i, numIcons, x, y, numIcons + 35, 10);
                 if (GetDungeonMapsecType(mapsec) != 2)
                 {

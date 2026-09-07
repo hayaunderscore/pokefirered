@@ -1,4 +1,10 @@
-mapscripts NeptuneCavern_Hallway_MapScripts {}
+mapscripts NeptuneCavern_Hallway_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: NeptuneCavern_Hallway_OnTransition
+}
+
+script NeptuneCavern_Hallway_OnTransition {
+	setflag(FLAG_WORLD_MAP_NEPTUNE_CAVERN)
+}
 
 script NeptuneCavern_Hallway_EventScriptLog1 {
 	signmsg
@@ -170,17 +176,17 @@ script NeptuneCavern_Hallway_EventScriptLog7 {
 		"LOG 7
 
 		Do not read LOG 6.
-		
+
 		I remember what I saw.
-		
+
 		My colleagues were confused about
 		me and my condition.
-		
+
 		They truly cannot perceive IT.
-		
+
 		No one should know about this.
 		Not yet.
-		
+
 		It calls for someone.")
 	closemessage
 	normalmsg
@@ -194,36 +200,36 @@ script NeptuneCavern_Hallway_EventScriptLog8 {
 
 		If people are somehow still reading
 		this, I have one piece of advice.
-		
+
 		At the first look of that THING,
 		you RUN.
-		
+
 		First time I saw it I made the
 		mistake of trying to investigate it
 		and that's\.
-		
+
 		\.how I lost my leg.
-		
+
 		These creatures\.
 		These concepts\.
-		
+
 		None of them can be known by the
 		human psyche.
-		
+
 		Except for some of us.
 		But who are the 'us'?
-		
+
 		Some say it's just all in my head,
 		but if you ask me?
-		
+
 		There's an entire world in there
 		somewhere.
-		
+
 		And if we can communicate with it,
 		then\.
-		
+
 		With a force like that on our side\.
-		
+
 		It could be a powerful ally.")
 	closemessage
 	normalmsg

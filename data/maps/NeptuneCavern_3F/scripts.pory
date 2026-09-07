@@ -1,1 +1,7 @@
-mapscripts NeptuneCavern_3F_MapScripts {}
+mapscripts NeptuneCavern_3F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: NeptuneCavern_3F_OnTransition
+}
+
+script NeptuneCavern_3F_OnTransition {
+	setflag(FLAG_WORLD_MAP_NEPTUNE_CAVERN)
+}
