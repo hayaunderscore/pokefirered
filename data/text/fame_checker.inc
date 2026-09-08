@@ -833,7 +833,7 @@ gFameCheckerPersonQuote_Giovanni:: @ 0x81B0BB5
 	.string "bettering myself, and none other.$"
 
 gFameCheckerPersonName_Abby::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}GIOVANNI$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}ABBY$"
 
 gFameCheckerPersonQuote_Abby::
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}From: ABBY\n"

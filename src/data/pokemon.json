@@ -1,0 +1,65 @@
+{
+	"pokemon": [
+		{
+			// General Pokemon info
+			"speciesName": "??????????",
+			"id": "SPECIES_OLD_UNOWN_C",
+
+			// Pokedex related
+			"dexNumber": 353,
+			"pokedexText": ["FUCK!"],
+
+			// Stats
+			"baseHP": 0,
+			"baseAttack": 0,
+			"baseDefense": 0,
+			"baseSpAttack": 0,
+			"baseSpDefense": 0,
+			"baseSpeed": 0,
+			"types": ["MYSTERY", "MYSTERY"],
+			"catchRate": 3,
+			"evYield": {
+				"hp": 0,
+				"attack": 0,
+				"defense": 0,
+				"spAttack": 0,
+				"spDefense": 0,
+				"speed": 0,
+			},
+			"itemCommon": "ITEM_NONE",
+			"itemRare": "ITEM_RARE",
+			"genderRatio": 12.5, // Female ratio. If this is "GENDERLESS", this is considered as such
+			"eggCycles": 120,
+			"friendship": 0,
+			"growthRate": "Slow",
+			"eggGroups": ["Undiscovered", "Undiscovered"],
+			"abilities": ["NONE", "NONE"],
+			"safariZoneFleeRate": 0,
+			"bodyColor": "Purple",
+			"noFlip": false,
+
+			// Movesets
+			"levelUpMoves": [
+				{ "level": 1, "move": "TACKLE" },
+				{ "level": 1, "move": "TACKLE" },
+				{ "level": 1, "move": "TACKLE" },
+			],
+			"tmHMLearnsets": ["TM55_OHKO"],
+			"tutorLearnsets": [],
+
+			// Visual related
+			"graphicsPath": "rainer",
+			"frontPicProperties": {
+				"x": 24,
+				"y": 24,
+				"yOffset": 8,
+			},
+			"backPicProperties": {
+				"x": 24,
+				"y": 24,
+				"yOffset": 8,
+			},
+			"iconIndex": 1,
+		},
+	],
+}
