@@ -699,7 +699,7 @@ const struct Tileset gTileset_SeviiIslands67 =
     .palettes = gTilesetPalettes_SeviiIslands67,
     .metatiles = gMetatiles_SeviiIslands67,
     .metatileAttributes = gMetatileAttributes_SeviiIslands67,
-    .callback = NULL,
+    .callback = InitTilesetAnim_CadmiumIsland,
 };
 
 const struct Tileset gTileset_TrainerTower =

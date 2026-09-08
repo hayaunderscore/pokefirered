@@ -8408,3 +8408,7 @@ voicegroup198::
 	voice_directsound 76, 84, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226
 	voice_directsound 80, 94, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 226
 	voice_directsound 84, 104, DirectSoundWaveData_sd90_ambient_tom, 255, 0, 255, 235
+
+	.align 2
+voicegroup199::
+	voice_directsound 60, 0, DirectSoundWaveData_party_join, 255, 255, 255, 255

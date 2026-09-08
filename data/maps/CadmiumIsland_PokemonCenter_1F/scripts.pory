@@ -4,6 +4,7 @@ mapscripts CadmiumIsland_PokemonCenter_1F_MapScripts {
 
 script CadmiumIsland_PokemonCenter_1F_OnTransition {
 	setrespawn(HEAL_LOCATION_CADMIUM_ISLAND)
+	call(CadmiumIsland_Common_HideNPCS)
 	end
 }
 
@@ -11,6 +12,24 @@ script CadmiumIsland_PokemonCenter_1F_EventScript_Nurse {
 	lock
 	faceplayer
 	call(EventScript_PkmnCenterNurse)
+	release
+	end
+}
+
+script CadmiumIsland_PokemonCenter_1F_EventScript_Pokemaniac {
+	lock
+	faceplayer
+	msgbox("There are many things we don't know
+			about the world.
+
+			One of which is who exactly created
+			POK\eMON.
+
+			Is it ARCEUS?
+			Is it MEW?
+
+			\.Is it\.{PAUSE 30} THEM?
+			{PAUSE 30}Who knows!")
 	release
 	end
 }

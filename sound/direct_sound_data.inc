@@ -315,6 +315,10 @@ DirectSoundWaveData_mystery_dungeon_koto::
 	.incbin "sound/direct_sound_samples/mystery_dungeon_koto.bin"
 
 	.align 2
+DirectSoundWaveData_party_join::
+	.incbin "sound/direct_sound_samples/party_join.bin"
+
+	.align 2
 Cry_Bulbasaur::
 	.incbin "sound/direct_sound_samples/cries/bulbasaur.bin"
 

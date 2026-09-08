@@ -1,0 +1,50 @@
+mapscripts CadmiumIsland_LeafFanclub_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CadmiumIsland_LeafFanclub_OnTransition
+}
+
+script CadmiumIsland_LeafFanclub_OnTransition {
+	call(CadmiumIsland_Common_HideNPCS)
+	end
+}
+
+script CadmiumIsland_LeafFanclub_EventScript_Claire {
+	lock
+	faceplayer
+	msgbox("CLAIRE: Hi!
+			Welcome to the {PLAYER} FAN CLUB!
+
+			My name is CLAIRE.
+			I'm the no.1 {PLAYER} archaeologist.
+
+			Our president, VICKI, isn't around
+			right now.")
+	release
+	end
+}
+
+script CadmiumIsland_LeafFanclub_EventScript_LittleGirl {
+	// Are you seriously gonna accuse every girl with this sprite
+	// as the hellish demon that made you kill BLUE?
+	lock
+	faceplayer
+	msgbox("Oh!
+			It's {PLAYER}, in the flesh\.
+
+			\.
+
+			Did you confuse me for someone?
+			I'm sorry\.
+
+			You didn't look too happy seeing my
+			face\. Why is that?")
+	release
+	end
+}
+
+script CadmiumIsland_LeafFanclub_EventScript_Book {
+	lock
+	msgbox("It's a story about {PLAYER}.
+			It isn't complete yet\.")
+	release
+	end
+}

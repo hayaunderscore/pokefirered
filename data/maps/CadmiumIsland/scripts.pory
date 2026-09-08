@@ -1,15 +1,78 @@
+const METATILE_FORGETMENOTS = 0x379
+
 mapscripts CadmiumIsland_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: CadmiumIsland_OnTransition
+	MAP_SCRIPT_ON_LOAD: CadmiumIsland_OnLoad
+}
+
+// Common script for hiding specific NPCS
+script CadmiumIsland_Common_HideNPCS {
+	clearflag(FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM)
+	if (!flag(FLAG_ESSENCE_OLD_MAN)) {
+		setflag(FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM)
+	}
+	return
 }
 
 script CadmiumIsland_OnTransition {
 	setflag(FLAG_WORLD_MAP_CADMIUM_ISLAND)
+	call(CadmiumIsland_Common_HideNPCS)
 	end
+}
+
+script CadmiumIsland_OnLoad {
+	if (flag(FLAG_ESSENCE_OLD_MAN)) {
+		// Add sign
+		setmetatile(21, 37, 0x002, TRUE)
+		// Add a few forget-me-nots
+		setmetatile(15, 36, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(21, 36, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(16, 38, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(20, 38, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(28, 32, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(32, 32, METATILE_FORGETMENOTS, FALSE)
+		// Activate the LEAF FAN CLUB door
+		setmetatile(17, 37, 0x30C, TRUE)
+	}
 }
 
 script CadmiumIsland_EventScript_Sign {
 	msgbox("CADMIUM ISLAND
 			The wonderful paradise", MSGBOX_SIGN)
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_Picnicker {
+	lock
+	faceplayer
+	msgbox("This island is quite peaceful.
+			Barely anyone's in it though.
+
+			Maybe the lack of residents at the
+			moment makes it like that\.")
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_CooltrainerM {
+	lock
+	faceplayer
+	msgbox("There's quite a fair bit of rare
+			POK\eMON here.
+
+			The fact no one has studied them
+			boggles my mind!")
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_LeafFanclubSign {
+	if (!flag(FLAG_ESSENCE_OLD_MAN)) {
+		end
+	}
+	lock
+	msgbox("{PLAYER} FAN CLUB", MSGBOX_SIGN)
 	release
 	end
 }

@@ -134,6 +134,20 @@ static const u16 *const sTilesetAnims_CeladonGym_Flowers[] = {
     sTilesetAnims_CeladonGym_Flowers_Frame1
 };
 
+static const u16 sTilesetAnims_Cadmium_Flower_Frame0[] = INCGFX_U16("data/tilesets/secondary/sevii_islands_67/anim/flower/0.png", ".4bpp");
+static const u16 sTilesetAnims_Cadmium_Flower_Frame1[] = INCGFX_U16("data/tilesets/secondary/sevii_islands_67/anim/flower/1.png", ".4bpp");
+static const u16 sTilesetAnims_Cadmium_Flower_Frame2[] = INCGFX_U16("data/tilesets/secondary/sevii_islands_67/anim/flower/2.png", ".4bpp");
+static const u16 sTilesetAnims_Cadmium_Flower_Frame3[] = INCGFX_U16("data/tilesets/secondary/sevii_islands_67/anim/flower/3.png", ".4bpp");
+static const u16 sTilesetAnims_Cadmium_Flower_Frame4[] = INCGFX_U16("data/tilesets/secondary/sevii_islands_67/anim/flower/4.png", ".4bpp");
+
+static const u16 *const sTilesetAnims_Cadmium_Flower[] = {
+    sTilesetAnims_Cadmium_Flower_Frame0,
+    sTilesetAnims_Cadmium_Flower_Frame1,
+    sTilesetAnims_Cadmium_Flower_Frame2,
+    sTilesetAnims_Cadmium_Flower_Frame3,
+    sTilesetAnims_Cadmium_Flower_Frame4
+};
+
 static void ResetTilesetAnimBuffer(void)
 {
     sTilesetDMA3TransferBufferSize = 0;
@@ -329,4 +343,24 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCounter = 0;
     sSecondaryTilesetAnimCounterMax = 256;
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
+}
+
+static void QueueAnimTiles_Cadmium_Flowers(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(sTilesetAnims_Cadmium_Flower);
+    
+    AppendTilesetAnimToBuffer(sTilesetAnims_Cadmium_Flower[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(884)), 4 * TILE_SIZE_4BPP);
+}
+
+static void TilesetAnim_CadmiumIsland(u16 timer)
+{
+    if (timer % 16 == 2)
+        QueueAnimTiles_Cadmium_Flowers(timer / 16);
+}
+
+void InitTilesetAnim_CadmiumIsland(void)
+{
+    sSecondaryTilesetAnimCounter = 0;
+    sSecondaryTilesetAnimCounterMax = 256;
+    sSecondaryTilesetAnimCallback = TilesetAnim_CadmiumIsland;
 }

@@ -543,7 +543,7 @@
 #define FLAG_HIDE_ERIKA_IN_CELADON_GYM                          0x209
 #define FLAG_SHOW_ROUTE_CAVE_ENTRANCE                           0x20A
 #define FLAG_ADD_WARP_TO_ROUTE_ENTRANCE                         0x20B
-#define FLAG_0x20C               0x20C
+#define FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM                       0x20C
 #define FLAG_0x20D               0x20D
 #define FLAG_0x20E               0x20E
 #define FLAG_0x20F               0x20F
@@ -1248,9 +1248,9 @@
 #define FLAG_DEFEATED_CHAMP           0x4BC
 
 // Unused?
-#define FLAG_0x4BD               0x4BD
-#define FLAG_0x4BE               0x4BE
-#define FLAG_0x4BF               0x4BF
+#define FLAG_ESSENCE_OLD_MAN          0x4BD
+#define FLAG_ESSENCE_IKE              0x4BE
+#define FLAG_ESSENCE_BILL             0x4BF
 #define FLAG_0x4C0               0x4C0
 #define FLAG_0x4C1               0x4C1
 #define FLAG_0x4C2               0x4C2

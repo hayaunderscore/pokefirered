@@ -4608,6 +4608,18 @@
       "secondary_tileset": "gTileset_PokemonCenter",
       "border_filepath": "data/layouts/CadmiumIsland_PokemonCenter_2F/border.bin",
       "blockdata_filepath": "data/layouts/CadmiumIsland_PokemonCenter_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_CADMIUM_ISLAND_LEAF_FANCLUB",
+      "name": "CadmiumIsland_LeafFanclub_Layout",
+      "width": 18,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FanClubDaycare",
+      "border_filepath": "data/layouts/CadmiumIsland_LeafFanclub/border.bin",
+      "blockdata_filepath": "data/layouts/CadmiumIsland_LeafFanclub/map.bin"
     }
   ]
 }

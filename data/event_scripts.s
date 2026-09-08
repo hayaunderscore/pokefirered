@@ -1424,3 +1424,6 @@ Text_MonCryScript::
 
 	.include "data/maps/CadmiumIsland_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/CadmiumIsland_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/CadmiumIsland_LeafFanclub/scripts.inc"
+	.include "data/maps/CadmiumIsland_LeafFanclub/text.inc"

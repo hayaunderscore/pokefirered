@@ -617,10 +617,10 @@ gFameCheckerFlavorText_Abby0::
 	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
 
 gFameCheckerFlavorText_Abby1::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
-	.string "CITY.\p"
-	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE SECOND\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}Something tells me…\n"
+	.string "you should see my son's cousin.\p"
+	.string "He's over at CELADON, I think.\n$"
 
 gFameCheckerFlavorText_Abby2::
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"

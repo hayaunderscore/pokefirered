@@ -352,6 +352,7 @@ gSongTable::
 	song mus_encounter_reporter, 0, 0
 	song mus_contest_lobby, 0, 0
 	song mus_1121, 0, 0
+	song se_party_join, 1, 1
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -98,6 +98,7 @@ ViridianCity_EventScript_OldManGymLeaderReturned::
 ViridianCity_EventScript_TutorialOldMan::
 	lock
 	faceplayer
+	goto_if_eq VAR_MAP_SCENE_CADMIUM_ISLAND_ABBY, 1, ViridianCity_EventScript_OldManEssence
 	goto_if_set FLAG_BADGE01_GET, ViridianCity_EventScript_AskIfTeachyTVHelpful
 	goto_if_ge VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 2, ViridianCity_EventScript_TutorialCompleted
 	goto_if_eq VAR_MAP_SCENE_VIRIDIAN_CITY_OLD_MAN, 1, ViridianCity_EventScript_TutorialStart
@@ -228,3 +229,55 @@ ViridianCity_EventScript_DoTutorialBattle::
 	closemessage
 	return
 `
+
+script ViridianCity_EventScript_OldManEssence {
+	if (flag(FLAG_ESSENCE_OLD_MAN)) {
+		goto(ViridianCity_EventScript_AskIfTeachyTVHelpful)
+		return
+	}
+	msgbox("Well, now, I've had my coffee, and
+			that's what I need to get going!
+
+			But I made it too strong.
+			It gave me a headache…
+
+			Hmm? What is it?
+			Looking for me specifically?
+
+			Why, I'm honored!
+			But why this old man?")
+	closemessage
+	fadenewbgm(MUS_DUMMY)
+	delay(60)
+	msgbox("\.Say, there's some weird aura
+			emitting out of that FAME CHECKER\.")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Your FAME CHECKER is reacting to
+			the OLD MAN's reaction!")
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	playse(SE_PARTY_JOIN)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Collected the OLD MAN essence.
+
+			Something new was added on
+			CADMIUM ISLAND.")
+	closemessage
+	fadedefaultbgm
+	fadescreen(FADE_FROM_WHITE)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Hmm? What was that?
+			A blind light caught me for a moment\.
+
+			Something tells me\.
+			you should see my son's cousin.
+
+			He's over at CELADON, I think.")
+	closemessage
+	famechecker(FAMECHECKER_ABBY, 1)
+	setflag(FLAG_ESSENCE_OLD_MAN)
+	return
+}

@@ -974,6 +974,7 @@ SECTIONS {
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
         sound/songs/midi/mus_contest_lobby.o(.rodata);
         sound/songs/midi/mus_1121.o(.rodata);
+        sound/songs/midi/se_party_join.o(.rodata);
     } > ROM =0
 
     lib_rodata :
