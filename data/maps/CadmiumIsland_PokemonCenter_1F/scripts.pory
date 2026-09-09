@@ -33,3 +33,23 @@ script CadmiumIsland_PokemonCenter_1F_EventScript_Pokemaniac {
 	release
 	end
 }
+
+script CadmiumIsland_PokemonCenter_1F_EventScript_Youngster {
+	lock
+	faceplayer
+	msgbox("Catching rare POK\eMON is fun!
+			This island has loads of them!")
+	release
+	end
+}
+
+script CadmiumIsland_PokemonCenter_1F_EventScript_Woman {
+	lock
+	faceplayer
+	msgbox("This island is located on a
+			previously unused patch of land.
+
+			Somehow, it became lived in.")
+	release
+	end
+}

@@ -22,6 +22,27 @@ script CadmiumIsland_LeafFanclub_EventScript_Claire {
 	end
 }
 
+script CadmiumIsland_LeafFanclub_EventScript_Ellen {
+	lock
+	faceplayer
+	msgbox("ELLEN: Hello! What brings you to
+			your own fan club?
+
+			My name is ELLEN.
+			I'm the no.1 {PLAYER} scientist.
+
+			I'm a programmer!
+			I can do almost everything.
+
+			Right now, I'm under contractual
+			obligation by {COLOR BLUE}her{COLOR RED}\.
+
+			So I can't reveal anything else.
+			Sorry!")
+	release
+	end
+}
+
 script CadmiumIsland_LeafFanclub_EventScript_LittleGirl {
 	// Are you seriously gonna accuse every girl with this sprite
 	// as the hellish demon that made you kill BLUE?

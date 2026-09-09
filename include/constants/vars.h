@@ -194,7 +194,7 @@
 #define VAR_MAP_SCENE_LUCKY_EGG_EVENT                                          0x408C
 #define VAR_MAP_SCENE_SAILOR_IN_GAME_CORNER                                    0x408D
 #define VAR_MAP_SCENE_CADMIUM_ISLAND_ABBY                                      0x408E
-#define VAR_0x408F                 0x408F
+#define VAR_MAP_SCENE_CELADON_CITY_CONDO                                       0x408F
 #define VAR_0x4090                 0x4090
 #define VAR_0x4091                 0x4091
 #define VAR_0x4092                 0x4092

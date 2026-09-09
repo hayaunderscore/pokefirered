@@ -369,3 +369,31 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 Whismur
 Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_RIVAL_GISELLE_CONDO ===
+Name: GISELLE
+Class: Rival Generic
+Pic: Giselle
+Gender: Female
+Music: Female
+Double Battle: No
+Items: Hyper Potion / Hyper Potion
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Ninjask
+Ability: Speed Boost
+Level: 41
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Double Team
+- Shadow Ball
+- Swords Dance
+- Return
+
+Marowak
+Ability: Rock Head
+Level: 43
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Bonemerang
+- Brick Break
+- Ancient Power
+- Flamethrower

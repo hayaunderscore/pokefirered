@@ -1427,3 +1427,6 @@ Text_MonCryScript::
 
 	.include "data/maps/CadmiumIsland_LeafFanclub/scripts.inc"
 	.include "data/maps/CadmiumIsland_LeafFanclub/text.inc"
+
+	.include "data/maps/CadmiumIsland_AbbyResidence/scripts.inc"
+	.include "data/maps/CadmiumIsland_AbbyResidence/text.inc"

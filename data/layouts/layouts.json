@@ -4620,6 +4620,18 @@
       "secondary_tileset": "gTileset_FanClubDaycare",
       "border_filepath": "data/layouts/CadmiumIsland_LeafFanclub/border.bin",
       "blockdata_filepath": "data/layouts/CadmiumIsland_LeafFanclub/map.bin"
+    },
+    {
+      "id": "LAYOUT_CADMIUM_ISLAND_ABBY_RESIDENCE",
+      "name": "CadmiumIsland_AbbyResidence_Layout",
+      "width": 11,
+      "height": 9,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding2",
+      "border_filepath": "data/layouts/CadmiumIsland_AbbyResidence/border.bin",
+      "blockdata_filepath": "data/layouts/CadmiumIsland_AbbyResidence/map.bin"
     }
   ]
 }

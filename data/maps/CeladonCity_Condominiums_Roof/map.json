@@ -14,7 +14,23 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_GISELLE_CONDO",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GISELLE",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_GISELLE_IN_CONDO_ROOF"
+    }
+  ],
   "warp_events": [
     {
       "x": 4,
@@ -38,7 +54,26 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CELADON_CITY_CONDO",
+      "var_value": "1",
+      "script": "CeladonCity_Condominiums_Roof_EventScript_GiselleFightLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_MAP_SCENE_CELADON_CITY_CONDO",
+      "var_value": "1",
+      "script": "CeladonCity_Condominiums_Roof_EventScript_GiselleFightRight"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

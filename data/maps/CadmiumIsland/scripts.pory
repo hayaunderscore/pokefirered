@@ -8,8 +8,16 @@ mapscripts CadmiumIsland_MapScripts {
 // Common script for hiding specific NPCS
 script CadmiumIsland_Common_HideNPCS {
 	clearflag(FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM)
+	clearflag(FLAG_HIDE_IKE_NPCS_IN_CADMIUM)
+	clearflag(FLAG_HIDE_BILL_NPCS_IN_CADMIUM)
 	if (!flag(FLAG_ESSENCE_OLD_MAN)) {
 		setflag(FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM)
+	}
+	if (!flag(FLAG_ESSENCE_IKE)) {
+		setflag(FLAG_HIDE_IKE_NPCS_IN_CADMIUM)
+	}
+	if (!flag(FLAG_ESSENCE_BILL)) {
+		setflag(FLAG_HIDE_BILL_NPCS_IN_CADMIUM)
 	}
 	return
 }
@@ -33,6 +41,23 @@ script CadmiumIsland_OnLoad {
 		setmetatile(32, 32, METATILE_FORGETMENOTS, FALSE)
 		// Activate the LEAF FAN CLUB door
 		setmetatile(17, 37, 0x30C, TRUE)
+	}
+	if (flag(FLAG_ESSENCE_IKE)) {
+		setmetatile(28, 38, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(32, 38, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(28, 35, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(32, 35, METATILE_FORGETMENOTS, FALSE)
+	}
+	if (flag(FLAG_ESSENCE_BILL)) {
+		setmetatile(16, 30, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(18, 30, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(17, 29, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(19, 29, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(30, 32, METATILE_FORGETMENOTS, FALSE)
+		setmetatile(30, 35, METATILE_FORGETMENOTS, FALSE)
+		// Activate the mysterious door to the other house
+		// A sign for this will be revealed at the end...
+		setmetatile(17, 28, 0x03D, TRUE)
 	}
 }
 
@@ -73,6 +98,56 @@ script CadmiumIsland_EventScript_LeafFanclubSign {
 	}
 	lock
 	msgbox("{PLAYER} FAN CLUB", MSGBOX_SIGN)
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_OldLady {
+	lock
+	faceplayer
+	msgbox("The sea whistles its tune\.
+			Can you hear it?
+
+			I hope my other relatives can live
+			here with me.")
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_FatMan {
+	lock
+	faceplayer
+	msgbox("Technology is incredible!
+
+			The FAME CHECKER can now store
+			more information.")
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_Scientist {
+	lock
+	faceplayer
+	msgbox("Odd things happen in this island.
+
+			You could chalk it up to
+			coincidence, but I have never seen
+			a consistent location for FEEBAS!
+
+			The fact that this previously
+			unknown island has them makes me
+			quite confused!")
+	release
+	end
+}
+
+script CadmiumIsland_EventScript_LittleBoy {
+	lock
+	faceplayer
+	msgbox("The sand here is nice!
+
+			It's probably the best sand in
+			the entire world!")
 	release
 	end
 }

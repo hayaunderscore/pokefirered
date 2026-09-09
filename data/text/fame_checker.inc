@@ -623,16 +623,25 @@ gFameCheckerFlavorText_Abby1::
 	.string "He's over at CELADON, I think.\n$"
 
 gFameCheckerFlavorText_Abby2::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
-	.string "CITY.\p"
-	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE THIRD\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}The world is boundless after all.\n"
+	.string "Lots of mysteries happen.\p"
+	.string "Like that one POKéMANIAC who tends\n"
+	.string "to take care of his GARDEN.\p"
+	.string "I'm not sure why he keeps insisting\n"
+	.string "it always existed.\p"
+	.string "If it really did, why does he keep\n"
+	.string "saying that?$"
 
 gFameCheckerFlavorText_Abby3::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
-	.string "CITY.\p"
-	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FOURTH\p"
+	.string "{FONT_MALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I need you to do one of my\n"
+	.string "errands over at SEVEN ISLAND.\p"
+	.string "One of my colleagues is researching\n"
+	.string "UNOWN over there.\p"
+	.string "I would go myself- but…\p"
+	.string "I need a breather after seeing…\n"
+	.string "whatever that was.$"
 
 gFameCheckerFlavorText_Abby4::
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
@@ -1443,7 +1452,7 @@ gFameCheckerFlavorTextOriginObjectName_Abby1::
 	.string "OLD MAN$"
 
 gFameCheckerFlavorTextOriginObjectName_Abby2::
-	.string "IHE$"
+	.string "BLACK BELT$"
 
 gFameCheckerFlavorTextOriginObjectName_Abby3::
 	.string "BILL$"

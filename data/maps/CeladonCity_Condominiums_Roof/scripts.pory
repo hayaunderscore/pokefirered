@@ -1,8 +1,163 @@
 raw `
-CeladonCity_Condominiums_Roof_MapScripts::
-	.byte 0
-
 CeladonCity_Condominiums_Roof_EventScript_Sign::
 	msgbox CeladonCity_Condominiums_Roof_Text_IKnowEverything, MSGBOX_SIGN
 	end
 `
+
+mapscripts CeladonCity_Condominiums_Roof_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CeladonCity_Condominiums_Roof_OnTransition
+}
+
+script CeladonCity_Condominiums_Roof_OnTransition {
+	setflag(FLAG_HIDE_GISELLE_IN_CONDO_ROOF)
+}
+
+script CeladonCity_Condominiums_Roof_EventScript_GiselleFightLeft {
+	setvar(VAR_TEMP_0, 1)
+	goto(CeladonCity_Condominiums_Roof_EventScript_GiselleFight)
+	end
+}
+
+script CeladonCity_Condominiums_Roof_EventScript_GiselleFightRight {
+	setvar(VAR_TEMP_0, 2)
+	goto(CeladonCity_Condominiums_Roof_EventScript_GiselleFight)
+	end
+}
+
+script CeladonCity_Condominiums_Roof_EventScript_GiselleFight {
+	lockall
+	playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+	addobject(LOCALID_GISELLE_CONDO)
+	playse(SE_EXIT)
+	delay(16)
+	playse(SE_PIN)
+	applymovement(LOCALID_GISELLE_CONDO, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	switch (var(VAR_TEMP_0)) {
+		case 1:
+			applymovement(LOCALID_GISELLE_CONDO, moves(
+				walk_down * 3
+				walk_right * 2
+				walk_down
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_right
+			))
+			applymovement(LOCALID_GISELLE_CONDO, moves(
+				walk_in_place_left
+			))
+			waitmovement(0)
+		case 2:
+			applymovement(LOCALID_GISELLE_CONDO, moves(
+				walk_down * 3
+				walk_right
+				walk_down
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_left
+			))
+			applymovement(LOCALID_GISELLE_CONDO, moves(
+				walk_in_place_right
+			))
+			waitmovement(0)
+	}
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("GISELLE: Heya, {PLAYER}!
+			How have you been?
+
+			Has my 'rival' gotten weaker?
+			I sure hope not!
+
+			Anyways, I've been hearing rumors
+			that some guy is giving an EEVEE.
+
+			\. \.
+			\. \.")
+	if (flag(FLAG_HIDE_EEVEE_BALL)) {
+		msgbox("WHAT?! You already got it?!
+				Dang it!
+
+				I've been beaten to the punch\.{PAUSE 30} and
+				by\. YOU, no less!
+
+				Huff\.{PAUSE 30} puff\.
+
+				How about\.{PAUSE 30} let's battle\.{PAUSE 30}
+				so I can calm myself down\.")
+	} else {
+		msgbox("I knew it! There is an EEVEE on
+				this rooftop!
+
+				But\.{PAUSE 30} I'll need to prove my
+				worth having it first!
+
+				Let's battle to see who deserves
+				that EEVEE the most!")
+	}
+	trainerbattle_no_intro(TRAINER_RIVAL_GISELLE_CONDO, "I lost again?!")
+	msgbox("Argh!
+			I've lost yet again\.
+
+			Am I even worthy of anything at
+			this point?
+
+			\.I\.
+
+			\. \.
+			\. \.
+
+			I overreacted.
+			I'm sorry.
+
+			I just\.
+
+			I feel like I've wasted my life doing\.
+			{PAUSE 30}\.all of this.
+
+			Is there even a point to me being
+			a POK\eMON TRAINER?", MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		msgbox("Oh really?
+
+				You're just saying that to make
+				me feel better!")
+	}
+	fadenewbgm(MUS_DUMMY)
+	msgbox("Yeah yeah!
+			Laugh it right up in my face!
+
+			Tell me that I'm a failure!
+			Tell me that\.
+
+			\. \.
+
+			Why are you\.{PAUSE 30}
+			shaking your head?
+
+			\.I\.
+			I'm sorry.
+
+			I'm sorry, okay!
+			I mean it!
+
+			I have to go!")
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_down
+	))
+	applymovement(LOCALID_GISELLE_CONDO, moves(
+		walk_fast_down * 8
+	))
+	waitmovement(0)
+	removeobject(LOCALID_GISELLE_CONDO)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_CONDO, 2)
+	fadedefaultbgm
+	releaseall
+	end
+}

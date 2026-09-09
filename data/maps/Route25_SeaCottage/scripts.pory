@@ -9,6 +9,7 @@ Route25_SeaCottage_MapScripts::
 Route25_SeaCottage_OnTransition::
 	call_if_unset FLAG_HELPED_BILL_IN_SEA_COTTAGE, Route25_SeaCottage_EventScript_HideClefairyBill
 	call_if_set FLAG_GOT_SS_TICKET, Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket
+	call Route25_SeaCottage_EventScript_CheckForFameCheckerEncounter
 	end
 
 Route25_SeaCottage_EventScript_HideClefairyBill::
@@ -22,6 +23,7 @@ Route25_SeaCottage_EventScript_SetReturnedAfterSSTicket::
 
 Route25_SeaCottage_EventScript_Bill::
 	lock
+	goto_if_set FLAG_ESSENCE_IKE, Route25_SeaCottage_EventScript_BillScene
 	faceplayer
 	goto_if_set RETURN_AFTER_SS_TICKET, Route25_SeaCottage_EventScript_BillGoLookAtPC
 	goto_if_set FLAG_GOT_SS_TICKET, Route25_SeaCottage_EventScript_BillGoToSSAnne
@@ -296,3 +298,209 @@ Route25_SeaCottage_Movement_BillExitTeleporter::
 	walk_down
 	step_end
 `
+
+script Route25_SeaCottage_EventScript_CheckForFameCheckerEncounter {
+	setflag(FLAG_HIDE_POLICEMAN_IN_BILLS_COTTAGE)
+	if (flag(FLAG_ESSENCE_IKE)) {
+		clearflag(FLAG_HIDE_POLICEMAN_IN_BILLS_COTTAGE)
+	}
+}
+
+script Route25_SeaCottage_EventScript_BillFacePlayer {
+	switch (var(VAR_TEMP_0)) {
+		case 0: // LEFT
+			applymovement(LOCALID_BILL_HUMAN, moves(
+				walk_in_place_fast_left
+			))
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_right
+			))
+		case 1: // TOP
+			applymovement(LOCALID_BILL_HUMAN, moves(
+				walk_in_place_fast_up
+			))
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_down
+			))
+		case 2: // RIGHT
+			applymovement(LOCALID_BILL_HUMAN, moves(
+				walk_in_place_fast_right
+			))
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_left
+			))
+	}
+}
+
+script Route25_SeaCottage_EventScript_BillFromLeft {
+	setvar(VAR_TEMP_0, 0)
+	setvar(VAR_TEMP_1, 1)
+	end
+}
+
+script Route25_SeaCottage_EventScript_BillFromTop {
+	setvar(VAR_TEMP_0, 1)
+	setvar(VAR_TEMP_1, 1)
+	end
+}
+
+script Route25_SeaCottage_EventScript_BillFromRight {
+	setvar(VAR_TEMP_0, 2)
+	setvar(VAR_TEMP_1, 1)
+	end
+}
+
+script Route25_SeaCottage_EventScript_ResetBillFacePositions {
+	setvar(VAR_TEMP_1, 0)
+	end
+}
+
+script Route25_SeaCottage_EventScript_Policeman {
+	lock
+	msgbox("What do you know about the S.S
+			ANNE and its sinking?")
+	closemessage
+	applymovement(LOCALID_BILL_HUMAN, moves(
+		walk_in_place_fast_down * 2
+	))
+	waitmovement(0)
+	msgbox("BILL: Why are you asking me?!
+			I don't know!")
+	applymovement(LOCALID_POLICEMAN_COTTAGE, moves(
+		walk_in_place_fast_up * 2
+	))
+	waitmovement(0)
+	msgbox("Weren't you invited to it?
+			Where were you during that?")
+	applymovement(LOCALID_BILL_HUMAN, moves(
+		walk_in_place_fast_down * 2
+	))
+	waitmovement(0)
+	msgbox("BILL: I wasn't there! You know I
+			can't stand fancy-dos, I gave it-
+
+			\.
+
+			I gave it to a kid!
+			Yeah! A kid!")
+	closemessage
+	release
+	end
+}
+
+script Route25_SeaCottage_EventScript_BillScene {
+	lock
+	if (flag(FLAG_ESSENCE_BILL)) {
+		faceplayer
+		goto(Route25_SeaCottage_EventScript_BillReminder)
+		end
+	}
+	fadenewbgm(MUS_DUMMY)
+	msgbox("BILL: Look man! I have no idea
+			what you're talking about!
+
+			I wasn't there!
+			I was never there!
+
+			I was just minding my own business
+			tending to my GARDEN!
+
+			I can't deal with this right now!
+			I have a project to attend to\.")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_BILL_HUMAN, moves(
+		face_player
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	msgbox("BILL: {PLAYER}!
+			Thank goodness you're here!
+
+			I need you to back me up here!
+			This guy's accusing me!")
+	applymovement(LOCALID_POLICEMAN_COTTAGE, moves(
+		walk_in_place_fast_up * 2
+	))
+	waitmovement(0)
+	applymovement(LOCALID_BILL_HUMAN, moves(
+		walk_in_place_fast_down
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_down
+	))
+	msgbox("I'm just stating the facts.
+
+			You two definitely have something
+			to do with it!")
+	call(Route25_SeaCottage_EventScript_BillFacePlayer)
+	msgbox("BILL: This guy is definitely not
+			gonna let me off the hook\.")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Your FAME CHECKER is reacting to
+			BILL's reaction!")
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("BILL: What the-")
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	playse(SE_M_DIVE)
+	waitse
+	playse(SE_PARTY_JOIN)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Collected the MANIAC essence.
+
+			Something new was added on
+			CADMIUM ISLAND.
+
+			{COLOR RED}THE NUISANCE HAS BEEN REMOVED.{COLOR DARK_GRAY}")
+	closemessage
+	removeobject(LOCALID_POLICEMAN_COTTAGE)
+	fadedefaultbgm
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	playse(SE_PIN)
+	applymovement(LOCALID_BILL_HUMAN, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	fadescreen(FADE_FROM_WHITE)
+	waitmovement(0)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("BILL: What?
+			What was that?
+
+			I\.")
+	call(Route25_SeaCottage_EventScript_BillFacePlayer)
+	msgbox("{PLAYER}\.
+
+			Thank you for getting rid of them
+			but WHAT WAS THAT?
+
+			I- look, just take this!")
+	giveitem(ITEM_RAINBOW_PASS)
+	setflag(FLAG_ESSENCE_BILL)
+	famechecker(FAMECHECKER_ABBY, 3)
+	goto(Route25_SeaCottage_EventScript_BillReminder)
+	end
+}
+
+script Route25_SeaCottage_EventScript_BillReminder {
+	msgbox("BILL: I need you to do one of my
+			errands over at SEVEN ISLAND.
+
+			One of my colleagues is researching
+			UNOWN over there.
+
+			I would go myself- but\.
+
+			I need a breather after seeing\.
+			whatever that was.")
+	release
+	end
+}

@@ -44,6 +44,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route25_SeaCottage_EventScript_Bill",
       "flag": "FLAG_HIDE_BILL_CLEFAIRY"
+    },
+    {
+      "local_id": "LOCALID_POLICEMAN_COTTAGE",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "Route25_SeaCottage_EventScript_Policeman",
+      "flag": "FLAG_HIDE_POLICEMAN_IN_BILLS_COTTAGE"
     }
   ],
   "warp_events": [
@@ -69,7 +84,80 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route25_SeaCottage_EventScript_BillFromRight"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route25_SeaCottage_EventScript_BillFromLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route25_SeaCottage_EventScript_BillFromTop"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route25_SeaCottage_EventScript_ResetBillFacePositions"
+    },
+    {
+      "type": "trigger",
+      "x": 7,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route25_SeaCottage_EventScript_ResetBillFacePositions"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route25_SeaCottage_EventScript_ResetBillFacePositions"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route25_SeaCottage_EventScript_ResetBillFacePositions"
+    },
+    {
+      "type": "trigger",
+      "x": 8,
+      "y": 4,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route25_SeaCottage_EventScript_ResetBillFacePositions"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

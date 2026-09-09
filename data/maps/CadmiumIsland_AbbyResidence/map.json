@@ -1,0 +1,29 @@
+{
+  "id": "MAP_CADMIUM_ISLAND_ABBY_RESIDENCE",
+  "name": "CadmiumIsland_AbbyResidence",
+  "layout": "LAYOUT_CADMIUM_ISLAND_ABBY_RESIDENCE",
+  "music": "MUS_SLOW_PALLET",
+  "region_map_section": "MAPSEC_CADMIUM_ISLAND",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": false,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 4,
+      "y": 7,
+      "elevation": 3,
+      "dest_map": "MAP_CADMIUM_ISLAND",
+      "dest_warp_id": "2"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

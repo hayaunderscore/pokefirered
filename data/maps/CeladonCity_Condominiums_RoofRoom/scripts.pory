@@ -4,6 +4,7 @@ CeladonCity_Condominiums_RoofRoom_MapScripts::
 
 CeladonCity_Condominiums_RoofRoom_EventScript_BlackBelt::
 	msgbox CeladonCity_Condominiums_RoofRoom_Text_TheresNothingIDontKnow, MSGBOX_NPC
+	goto_if_set FLAG_ESSENCE_OLD_MAN, CeladonCity_Condominiums_RoofRoom_EventScript_IKEScene
 	end
 
 CeladonCity_Condominiums_RoofRoom_EventScript_EeveeBall::
@@ -104,3 +105,61 @@ CeladonCity_Condominiums_RoofRoom_EventScript_ExitBlackboard::
 	releaseall
 	end
 `
+
+script CeladonCity_Condominiums_RoofRoom_EventScript_IKEScene {
+	if (var(VAR_MAP_SCENE_CELADON_CITY_CONDO) > 0) {
+		return
+	}
+	fadenewbgm(MUS_DUMMY)
+	delay(60)
+	msgbox("Your silence is deafening.
+			Are you doubting me?
+
+			Are you asking if I truly know
+			everything?
+
+			Well I do!
+			I know all about it!
+
+			So why are you staring at me with
+			such\.{PAUSE 30} contempt?")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Your FAME CHECKER is reacting to
+			the BLACK BELT's reaction!")
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	playse(SE_PARTY_JOIN)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("Collected the KNOW-IT-ALL essence.
+
+			Something new was added on
+			CADMIUM ISLAND.")
+	closemessage
+	fadedefaultbgm
+	fadescreen(FADE_FROM_WHITE)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("\.
+
+			Maybe there are things I don't
+			fully know about.
+
+			The world is boundless after all.
+			Lots of mysteries happen.
+
+			Like that one POK\eMANIAC who tends
+			to take care of his GARDEN.
+
+			I'm not sure why he keeps insisting
+			it always existed.
+
+			If it really did, why does he keep
+			saying that?")
+	famechecker(FAMECHECKER_ABBY, 2)
+	setvar(VAR_MAP_SCENE_CELADON_CITY_CONDO, 1)
+	setflag(FLAG_ESSENCE_IKE)
+	closemessage
+	end
+}

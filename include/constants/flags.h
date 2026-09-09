@@ -544,10 +544,10 @@
 #define FLAG_SHOW_ROUTE_CAVE_ENTRANCE                           0x20A
 #define FLAG_ADD_WARP_TO_ROUTE_ENTRANCE                         0x20B
 #define FLAG_HIDE_OLD_MAN_NPCS_IN_CADMIUM                       0x20C
-#define FLAG_0x20D               0x20D
-#define FLAG_0x20E               0x20E
-#define FLAG_0x20F               0x20F
-#define FLAG_0x210               0x210
+#define FLAG_HIDE_IKE_NPCS_IN_CADMIUM                           0x20D
+#define FLAG_HIDE_GISELLE_IN_CONDO_ROOF                         0x20E
+#define FLAG_HIDE_POLICEMAN_IN_BILLS_COTTAGE                    0x20F
+#define FLAG_HIDE_BILL_NPCS_IN_CADMIUM                          0x210
 #define FLAG_0x211               0x211
 #define FLAG_0x212               0x212
 #define FLAG_0x213               0x213
