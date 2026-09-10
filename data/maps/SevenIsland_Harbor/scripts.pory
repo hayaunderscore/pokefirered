@@ -1,13 +1,19 @@
 raw `
 SevenIsland_Harbor_MapScripts::
 	.byte 0
+`
 
-SevenIsland_Harbor_EventScript_Sailor::
+script SevenIsland_Harbor_EventScript_Sailor {
 	lock
 	faceplayer
-	message Text_WhereDoYouWantToSail
+	if (var(VAR_MAP_SCENE_ROUTE_SEAGALLOP_CHECK) == 1) {
+		message("Ahoy!
+				Are we going back to VERMILLION?")
+	} else {
+		message(Text_WhereDoYouWantToSail)
+	}
 	waitmessage
-	setvar VAR_0x8004, SEAGALLOP_SEVEN_ISLAND
-	goto EventScript_ChooseDestFromIsland
+	setvar(VAR_0x8004, SEAGALLOP_SEVEN_ISLAND)
+	goto(EventScript_ChooseDestFromIsland)
 	end
-`
+}

@@ -3687,6 +3687,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CONTEST_LOBBY) \
     X(MUS_1121) \
     X(SE_PARTY_JOIN) \
+    X(MUS_TOHJO_FALLS_DEPTHS) \
+    X(MUS_TURN_BACK_NOW) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

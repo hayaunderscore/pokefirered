@@ -62,6 +62,7 @@ EventScript_SailToThreeIsland2::
 	end
 
 EventScript_ChooseDestFromIsland::
+	goto_if_eq VAR_MAP_SCENE_ROUTE_SEAGALLOP_CHECK, 1, EventScript_ChooseDestFromIslandRouteAllowed
 	goto_if_ge VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 5, EventScript_SeviiDestinationsPage1
 	goto_if_ge VAR_MAP_SCENE_CINNABAR_ISLAND, 4, EventScript_ChooseDestFromIslandVermilionAllowed
 	multichoice 19, 6, MULTICHOICE_ISLAND_12, FALSE
@@ -81,6 +82,19 @@ EventScript_ChooseDestFromIslandVermilionAllowed::
 	case 3, EventScript_CancelSail
 	case SCR_MENU_CANCEL, EventScript_CancelSail
 	end
+
+EventScript_ChooseDestFromIslandRouteAllowed::
+	yesnobox 20, 8
+	switch VAR_RESULT
+	case 1, EventScript_SailToVermilion2
+	case 0, EventScript_CancelSail
+	end
+
+Text_ChooseDestYes:
+	.string "YES$"
+
+Text_ChooseDestNo:
+	.string "NO$"
 
 EventScript_SailToDest::
 	specialvar VAR_RESULT, GetSeagallopNumber

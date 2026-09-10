@@ -360,10 +360,12 @@
 #define MUS_CONTEST_LOBBY         351
 #define MUS_1121                    352
 #define SE_PARTY_JOIN               353
+#define MUS_TOHJO_FALLS_DEPTHS      354
+#define MUS_TURN_BACK_NOW           355
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     SE_PARTY_JOIN
+#define END_MUS                     MUS_TURN_BACK_NOW
 
 #endif  // GUARD_CONSTANTS_SONGS_H
