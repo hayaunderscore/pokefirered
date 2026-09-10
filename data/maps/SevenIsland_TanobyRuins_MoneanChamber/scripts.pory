@@ -1,10 +1,163 @@
-raw `
-SevenIsland_TanobyRuins_MoneanChamber_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, SevenIsland_TanobyRuins_MoneanChamber_OnTransition
-	.byte 0
+mapscripts SevenIsland_TanobyRuins_MoneanChamber_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SevenIsland_TanobyRuins_MoneanChamber_OnTransition
+	MAP_SCRIPT_ON_LOAD: SevenIsland_TanobyRuins_MoneanChamber_OnLoad
+}
 
-SevenIsland_TanobyRuins_MoneanChamber_OnTransition::
-	setworldmapflag FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER
-	call EventScript_TryDarkenRuins
+script SevenIsland_TanobyRuins_MoneanChamber_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER)
+	call(EventScript_TryDarkenRuins)
+	// Monean Chamber is unchanged in the normal route
+	if (!flag(FLAG_DID_SUNKEN_ANNE)) {
+		setflag(FLAG_HIDE_MOLLY_IN_MONEAN_CHAMBER)
+	}
 	end
-`
+}
+
+script SevenIsland_TanobyRuins_MoneanChamber_OnLoad {
+	if (flag(FLAG_TANOBY_PUZZLE_KABUTO)) {
+		setmetatile(11, 0, 0x2E0, TRUE)
+		setmetatile(11, 1, 0x2E1, FALSE)
+	}
+	// Monean Chamber is unchanged in the normal route
+	if (!flag(FLAG_DID_SUNKEN_ANNE)) {
+		setmetatile(9, 1, 0x28C, TRUE)
+		setmetatile(13, 1, 0x28C, TRUE)
+		setmetatile(9, 2, 0x28E, FALSE)
+		setmetatile(13, 2, 0x28E, FALSE)
+		setmetatile(10, 0, 0x284, TRUE)
+		setmetatile(10, 1, 0x287, TRUE)
+		setmetatile(12, 0, 0x284, TRUE)
+		setmetatile(12, 1, 0x287, TRUE)
+	}
+	end
+}
+
+script SevenIsland_TanobyRuins_MoneanChamber_EventScript_MollyInteract {
+	lock
+	msgbox("Hmm\.
+			This puzzle\.
+
+			It wasn't there before\.
+
+			Are these mysterious ruins becoming
+			more like the RUINS OF ALPH\.?
+
+			Or is it something else\.?
+
+			Haaaaaaa\.
+			If only BILL was here!")
+	release
+	end
+}
+
+script SevenIsland_TanobyRuins_MoneanChamber_EventScript_KabutoPuzzle {
+	lock
+	if (!flag(FLAG_DID_SUNKEN_ANNE)) {
+		msgbox("There is nothing here.
+
+				There would have been something
+				here\. in a different time.")
+		release
+		end
+	}
+	fadescreen(FADE_TO_BLACK)
+	setvar(VAR_0x8004, PUZZLE_KABUTO)
+	if (flag(FLAG_TANOBY_PUZZLE_KABUTO)) {
+		setvar(VAR_0x8005, TRUE)
+	} else {
+		setvar(VAR_0x8005, FALSE)
+	}
+	special(DoSlidingPuzzle)
+	waitstate
+	if (var(VAR_RESULT) && !flag(FLAG_TANOBY_PUZZLE_KABUTO)) {
+		setflag(FLAG_TANOBY_PUZZLE_KABUTO)
+		goto(SevenIsland_TanobyRuins_MoneanChamber_EventScript_PuzzleCompleted)
+	}
+	release
+	end
+}
+
+script SevenIsland_TanobyRuins_MoneanChamber_EventScript_PuzzleCompleted {
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 2)
+	setvar(VAR_0x8006, 10)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(60)
+	playse(SE_DEOXYS_MOVE)
+	setmetatile(11, 0, 0x2E0, TRUE)
+	setmetatile(11, 1, 0x2E1, FALSE)
+	special(DrawWholeMapView)
+	waitse
+	playse(SE_PIN)
+	applymovement(LOCALID_MONEAN_MOLLY, moves(
+		face_left
+		emote_exclamation_mark
+		delay_16 * 4
+		walk_left
+	))
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	message("Oh!
+			You solved the puzzle!
+
+			But you're not BILL\.
+			What's your name?
+
+			\. \.
+			\. \.
+
+			LEAF\.{PAUSE 30}
+			Cool name!
+
+			My name is MOLLY.
+			I'm a POK\eMON RESEARCHER.
+
+			Most notably, I research UNOWN.
+			The most mysterious POK\eMON.
+
+			I can take a guess that you were
+			sent here by BILL\.
+
+			Weird he brought in such a young
+			lass but\.
+
+			If he thinks you're helpful, then
+			it's the same for me!{PAUSE 30}")
+	waitmessage
+	applymovement(LOCALID_MONEAN_MOLLY, moves(
+		walk_in_place_up
+	))
+	waitmovement(0)
+	message("Now, about this door\.
+
+			\. \.
+			\. \.
+
+			Well, I've certainly never seen a
+			puzzle open up a door\.
+
+			Usually, they would just crumble
+			the floor beneath you!{PAUSE 30}")
+	waitmessage
+	applymovement(LOCALID_MONEAN_MOLLY, moves(
+		walk_in_place_left
+	))
+	waitmovement(0)
+	msgbox("How about let's explore the odd
+			mysteries of this place together?
+
+			Come on, it'll be fun!")
+	closemessage
+	applymovement(LOCALID_MONEAN_MOLLY, moves(
+		walk_up
+	))
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(LOCALID_MONEAN_MOLLY)
+	release
+	end
+}

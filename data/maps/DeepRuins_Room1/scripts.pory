@@ -1,0 +1,92 @@
+mapscripts DeepRuins_Room1_MapScripts {}
+
+script DeepRuins_Room1_EventScript_Statue1 {
+	lock
+	msgbox("TUCKED AWAY IN SILENCE
+			NEVER TO BE SEEN
+
+			OUR WORDS WILL REMAIN HERE
+			AS A SIGN OF WHATS TO COME")
+	release
+	end
+}
+
+script DeepRuins_Room1_EventScript_Statue2 {
+	lock
+	msgbox("HE DOES NOT WANT TO BE SEEN
+			FOR HE ALWAYS SLEEPS")
+	release
+	end
+}
+
+script DeepRuins_Room1_EventScript_Statue3 {
+	lock
+	msgbox("ONLY THE CHOSEN CAN OPEN THIS
+			LONELY PASSAGE
+
+			ACKNOWLEDGE THE CONSEQUENCES")
+	release
+	end
+}
+
+script DeepRuins_Room1_EventScript_Molly {
+	lock
+	faceplayer
+	msgbox("MOLLY: Gee\. it's kinda dark.
+			Yet another inscription here.
+
+			I'm more worried about what those
+			statues say\.")
+	release
+	end
+}
+
+script DeepRuins_Room1_EventScript_OmanytePuzzle {
+	lock
+	fadescreen(FADE_TO_BLACK)
+	setvar(VAR_0x8004, PUZZLE_OMANYTE)
+	if (flag(FLAG_TANOBY_PUZZLE_OMANYTE)) {
+		setvar(VAR_0x8005, TRUE)
+	} else {
+		setvar(VAR_0x8005, FALSE)
+	}
+	special(DoSlidingPuzzle)
+	waitstate
+	if (var(VAR_RESULT) && !flag(FLAG_TANOBY_PUZZLE_OMANYTE)) {
+		setflag(FLAG_TANOBY_PUZZLE_OMANYTE)
+		goto(DeepRuins_Room1_EventScript_PuzzleCompleted)
+	}
+	release
+	end
+}
+
+script DeepRuins_Room1_EventScript_PuzzleCompleted {
+	fadenewbgm(MUS_DUMMY)
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 2)
+	setvar(VAR_0x8006, 10)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("MOLLY: Well\.
+			Nothing seems to have changed\.")
+	closemessage
+	playse(SE_DEOXYS_MOVE)
+	setmetatile(16, 2, 0x2E5, FALSE)
+	setmetatile(17, 2, 0x2E6, FALSE)
+	special(DrawWholeMapView)
+	delay(30)
+	msgbox("MOLLY: What the?!")
+	closemessage
+	delay(20)
+	applymovement(LOCALID_PLAYER, Movement_SetInvisible)
+	applymovement(LOCALID_DEEP_1F_MOLLY, Movement_SetInvisible)
+	waitmovement(0)
+	playse(SE_FALL)
+	delay(60)
+	release
+	warphole2(MAP_DEEP_RUINS_HALLWAY, 0)
+	waitstate
+	end
+}

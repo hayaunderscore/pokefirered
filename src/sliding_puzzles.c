@@ -4,7 +4,6 @@
 #include "event_data.h"
 #include "gpu_regs.h"
 #include "graphics.h"
-#include "help_system.h"
 #include "main.h"
 #include "malloc.h"
 #include "menu.h"
@@ -73,7 +72,7 @@ void DoSlidingPuzzle(void)
 
 static void CB2_LoadSlidingPuzzle(void)
 {
-    gHelpSystemEnabled = FALSE;
+    // gHelpSystemEnabled = FALSE;
     SetVBlankCallback(NULL);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0);
     SetGpuReg(REG_OFFSET_BG3CNT, 0);
@@ -108,7 +107,7 @@ static void CB2_LoadSlidingPuzzle(void)
     LZ77UnCompVram(sSlidingPuzzle_Gfx, (void *)VRAM);
     LZ77UnCompVram(sSlidingPuzzle_Tilemap, (u16 *)BG_SCREEN_ADDR(7));
     InitWindows(sWindowTemplates);
-    LoadPalette(stdpal_get(2), 0xD0, 32);
+    LoadPalette(GetTextWindowPalette(2), 0xD0, 32);
     LoadCompressedSpriteSheet(&sSpriteSheet_Cursor);
     sSlidingPuzzle = AllocZeroed(sizeof(sSlidingPuzzle));
     sSlidingPuzzle->heldTile = __;
@@ -295,7 +294,7 @@ static void Task_SlidingPuzzle_Exit(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        gHelpSystemEnabled = TRUE;
+        // gHelpSystemEnabled = TRUE;
         gSpecialVar_Result = sSlidingPuzzle->solved;
         Free(sSlidingPuzzle);
         FreeAllWindowBuffers();
@@ -310,7 +309,7 @@ static void DrawInstructionsBar(u8 stringId)
     FillWindowPixelBuffer(0, PIXEL_FILL(15));
     AddTextPrinterParameterized3(0, 0, 2, 1, color, 0, sInstructions[stringId]);
     PutWindowTilemap(0);
-    CopyWindowToVram(0, COPYWIN_BOTH);
+    CopyWindowToVram(0, COPYWIN_FULL);
     ScheduleBgCopyTilemapToVram(0);
 }
 

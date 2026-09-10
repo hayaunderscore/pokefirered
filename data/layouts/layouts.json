@@ -4632,6 +4632,30 @@
       "secondary_tileset": "gTileset_GenericBuilding2",
       "border_filepath": "data/layouts/CadmiumIsland_AbbyResidence/border.bin",
       "blockdata_filepath": "data/layouts/CadmiumIsland_AbbyResidence/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEEP_RUINS_ROOM1",
+      "name": "DeepRuins_Room1_Layout",
+      "width": 21,
+      "height": 15,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TanobyRuins",
+      "border_filepath": "data/layouts/DeepRuins_Room1/border.bin",
+      "blockdata_filepath": "data/layouts/DeepRuins_Room1/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEEP_RUINS_HALLWAY",
+      "name": "DeepRuins_Hallway_Layout",
+      "width": 11,
+      "height": 50,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TanobyRuins",
+      "border_filepath": "data/layouts/DeepRuins_Hallway/border.bin",
+      "blockdata_filepath": "data/layouts/DeepRuins_Hallway/map.bin"
     }
   ]
 }

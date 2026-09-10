@@ -220,6 +220,7 @@ gScriptCmdTable::
     .4byte ScrCmd_checkfollower					 @ 0xd8
 	.4byte ScrCmd_dynmultichoice                 @ 0xd9
 	.4byte ScrCmd_dynmultipush                   @ 0xda
+	.4byte ScrCmd_warphole2                      @ 0xdb
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

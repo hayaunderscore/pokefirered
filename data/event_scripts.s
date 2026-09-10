@@ -1431,3 +1431,9 @@ Text_MonCryScript::
 
 	.include "data/maps/CadmiumIsland_AbbyResidence/scripts.inc"
 	.include "data/maps/CadmiumIsland_AbbyResidence/text.inc"
+
+	.include "data/maps/DeepRuins_Room1/scripts.inc"
+	.include "data/maps/DeepRuins_Room1/text.inc"
+
+	.include "data/maps/DeepRuins_Hallway/scripts.inc"
+	.include "data/maps/DeepRuins_Hallway/text.inc"

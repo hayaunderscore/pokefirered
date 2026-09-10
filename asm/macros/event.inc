@@ -458,6 +458,14 @@
 	.byte 0x3c
 	map \map
 	.endm
+	
+	@ Warps the player to another map using a hole animation.
+	@ Warp commands can be given either the id of which warp location to go to on the destination map
+	@ or a pair of x/y coordinates to go to directly on the destination map.
+	.macro warphole2 map:req, a, b, c
+	.byte 0xdb
+	formatwarp \map, \a, \b, \c
+	.endm
 
 	@ Warps the player to the specified map using a teleport effect. Effect is similar to warpspinenter but
 	@ this warp has a fade out first and doesn't maintain the original facing direction.

@@ -1,0 +1,29 @@
+{
+  "id": "MAP_DEEP_RUINS_HALLWAY",
+  "name": "DeepRuins_Hallway",
+  "layout": "LAYOUT_DEEP_RUINS_HALLWAY",
+  "music": "MUS_TURN_BACK_NOW",
+  "region_map_section": "MAPSEC_DEEP_RUINS",
+  "requires_flash": true,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 5,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_DEEP_RUINS_HALLWAY",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

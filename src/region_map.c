@@ -588,6 +588,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_SCUFIB_CHAMBER,
         MAPSEC_RIXY_CHAMBER,
         MAPSEC_VIAPOIS_CHAMBER,
+        MAPSEC_DEEP_RUINS,
         MAPSEC_NONE
     }
 };
@@ -1013,6 +1014,13 @@ void InitRegionMapWithExitCB(u8 type, MainCallback cb)
     }
 }
 
+static bool32 KantoExtraMaps(void) 
+{
+	if (gMapHeader.regionMapSectionId == MAPSEC_DEEP_RUINS)
+		return FALSE;
+	return gMapHeader.regionMapSectionId > MAPSEC_SPECIAL_AREA;
+}
+
 static void InitRegionMapType(void)
 {
     u8 i;
@@ -1040,7 +1048,7 @@ static void InitRegionMapType(void)
     j = REGIONMAP_KANTO;
     // Some maps have ids that are located beyond SEVII_MAPSEC_START,
     // but are actually in kanto
-    if (gMapHeader.regionMapSectionId > MAPSEC_SPECIAL_AREA)
+    if (KantoExtraMaps())
     	region = REGIONMAP_KANTO;
     else if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
@@ -3289,6 +3297,7 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     case MAPSEC_TANOBY_CHAMBERS:
     case MAPSEC_VIAPOIS_CHAMBER:
     case MAPSEC_WEEPTH_CHAMBER:
+    case MAPSEC_DEEP_RUINS:
         sMapCursor->x = 9;
         sMapCursor->y = 12;
         break;

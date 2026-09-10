@@ -2390,3 +2390,17 @@ bool8 ScrCmd_checkfollower(struct ScriptContext *ctx)
     CheckPlayerHasFollower();
     return FALSE;
 }
+
+bool8 ScrCmd_warphole2(struct ScriptContext * ctx)
+{
+    u8 mapGroup = ScriptReadByte(ctx);
+    u8 mapNum = ScriptReadByte(ctx);
+    u8 warpId = ScriptReadByte(ctx);
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+
+    SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    DoFallWarp();
+    ResetInitialPlayerAvatarState();
+    return TRUE;
+}

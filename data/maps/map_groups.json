@@ -188,7 +188,9 @@
     "SixIsland_AlteringCave",
     "SunkenAnne_2F_Corridor",
     "SunkenAnne_1F_Corridor",
-    "SunkenAnne_Kitchen"
+    "SunkenAnne_Kitchen",
+    "DeepRuins_Room1",
+    "DeepRuins_Hallway"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
