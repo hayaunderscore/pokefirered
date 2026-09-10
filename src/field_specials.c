@@ -49,12 +49,12 @@ static EWRAM_DATA u8 sElevatorCurrentFloorWindowId = 0;
 static EWRAM_DATA u16 sElevatorScroll = 0;
 static EWRAM_DATA u16 sElevatorCursorPos = 0;
 static EWRAM_DATA struct ListMenuItem * sListMenuItems = NULL;
-static EWRAM_DATA u16 sListMenuLastScrollPosition = 0;
 static EWRAM_DATA u8 sPCBoxToSendMon = 0;
 static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 
 COMMON_DATA struct ListMenuTemplate sFieldSpecialsListMenuTemplate = {0};
 COMMON_DATA u16 sFieldSpecialsListMenuScrollBuffer = 0;
+EWRAM_DATA u16 gScrollableMultichoice_ScrollOffset = 0;
 
 static void Task_AnimatePcTurnOn(u8 taskId);
 static void PcTurnOnUpdateMetatileId(bool16 flag);
@@ -1354,9 +1354,9 @@ static void Task_CreateScriptListMenu(u8 taskId)
     u8 windowId;
     LockPlayerFieldControls();
     if (gSpecialVar_0x8004 == LISTMENU_SILPHCO_FLOORS)
-        sListMenuLastScrollPosition = sElevatorScroll;
+        gScrollableMultichoice_ScrollOffset = sElevatorScroll;
     else
-        sListMenuLastScrollPosition = 0;
+        gScrollableMultichoice_ScrollOffset = 0;
     sListMenuItems = AllocZeroed(task->data[1] * sizeof(struct ListMenuItem));
     CreateScriptListMenu();
     mwidth = 0;
@@ -1416,7 +1416,7 @@ static void ScriptListMenuMoveCursorFunction(s32 nothing, bool8 is, struct ListM
     {
         task = &gTasks[taskId];
         ListMenuGetScrollAndRow(task->data[14], &sFieldSpecialsListMenuScrollBuffer, NULL);
-        sListMenuLastScrollPosition = sFieldSpecialsListMenuScrollBuffer;
+        gScrollableMultichoice_ScrollOffset = sFieldSpecialsListMenuScrollBuffer;
     }
 }
 
@@ -1515,7 +1515,7 @@ static void Task_CreateMenuRemoveScrollIndicatorArrowPair(u8 taskId)
         template.secondY = 8 * task->data[5] + 10;
         template.fullyUpThreshold = 0;
         template.fullyDownThreshold = task->data[1] - task->data[0];
-        task->data[12] = AddScrollIndicatorArrowPair(&template, &sListMenuLastScrollPosition);
+        task->data[12] = AddScrollIndicatorArrowPair(&template, &gScrollableMultichoice_ScrollOffset);
     }
 }
 
