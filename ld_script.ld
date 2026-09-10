@@ -313,6 +313,7 @@ SECTIONS {
         src/berry_fix_program.o(.text);
         src/debug.o(.text);
         src/follow_me.o(.text);
+        src/sliding_puzzles.o(.text);
     } > ROM =0
 
     script_data :
@@ -610,6 +611,7 @@ SECTIONS {
         src/move_descriptions.o(.rodata);
         src/debug.o(.rodata);
         src/follow_me.o(.rodata);
+        src/sliding_puzzles.o(.rodata);
 
         /* These should not be moved to C files */
         src/mystery_event_msg.o(.rodata);

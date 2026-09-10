@@ -448,4 +448,6 @@ gSpecials::
 	def_special CreateEnemyEventMon
 	def_special StartNewTrainerFlyBattle
 	def_special ScriptGetPartyMonSpecies
+	def_special CreateEventLegalEnemyMon
+	def_special DoSlidingPuzzle
 gSpecialsEnd::
