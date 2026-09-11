@@ -1167,6 +1167,10 @@
     {
       "id": "MAPSEC_DEEP_RUINS",
       "name": "DEEP RUINS"
+    },
+    {
+      "id": "MAPSEC_WAITING_ROOM",
+      "name": "WAITING ROOM"
     }
   ]
 }

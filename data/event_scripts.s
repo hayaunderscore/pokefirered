@@ -1440,3 +1440,6 @@ Text_MonCryScript::
 
 	.include "data/maps/DeepRuins_Hell/scripts.inc"
 	.include "data/maps/DeepRuins_Hell/text.inc"
+
+	.include "data/maps/WaitingRoom/scripts.inc"
+	.include "data/maps/WaitingRoom/text.inc"

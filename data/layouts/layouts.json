@@ -4668,6 +4668,18 @@
       "secondary_tileset": "gTileset_TanobyRuins",
       "border_filepath": "data/layouts/DeepRuins_Hell/border.bin",
       "blockdata_filepath": "data/layouts/DeepRuins_Hell/map.bin"
+    },
+    {
+      "id": "LAYOUT_WAITING_ROOM",
+      "name": "WaitingRoom_Layout",
+      "width": 42,
+      "height": 12,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerTower",
+      "border_filepath": "data/layouts/WaitingRoom/border.bin",
+      "blockdata_filepath": "data/layouts/WaitingRoom/map.bin"
     }
   ]
 }

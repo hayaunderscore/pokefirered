@@ -254,7 +254,8 @@
     "OneIsland_KindleRoad_EmberSpa",
     "BirthIsland_Harbor",
     "NavelRock_Harbor",
-    "SunkenAnne_2F_HealSpot"
+    "SunkenAnne_2F_HealSpot",
+    "WaitingRoom"
   ],
   "gMapGroup_TownsAndRoutes": [
     "PalletTown",

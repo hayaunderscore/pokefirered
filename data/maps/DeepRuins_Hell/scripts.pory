@@ -1,1 +1,6 @@
 mapscripts DeepRuins_Hell_MapScripts {}
+
+script DeepRuins_Hell_EventScript_EasterEgg {
+	warp(MAP_WAITING_ROOM, 0)
+	end
+}
