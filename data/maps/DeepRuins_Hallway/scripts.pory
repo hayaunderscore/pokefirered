@@ -1,1 +1,69 @@
-mapscripts DeepRuins_Hallway_MapScripts {}
+mapscripts DeepRuins_Hallway_MapScripts {
+	MAP_SCRIPT_ON_LOAD: DeepRuins_Hallway_OnLoad
+}
+
+script DeepRuins_Hallway_OnLoad {
+	if (flag(FLAG_TANOBY_PUZZLE_AERODACTYL)) {
+		setmetatile(5, 0, 0x2E0, TRUE)
+		setmetatile(5, 1, 0x2E1, FALSE)
+	}
+}
+
+script DeepRuins_Hallway_EventScript_Puzzle {
+	lock
+	msgbox("THE LOCK OF THIS HELL SHALL
+			BE PLUNGED DEEP INTO THE ABYSS")
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	setvar(VAR_0x8004, PUZZLE_AERODACTYL)
+	if (flag(FLAG_TANOBY_PUZZLE_AERODACTYL)) {
+		setvar(VAR_0x8005, TRUE)
+	} else {
+		setvar(VAR_0x8005, FALSE)
+	}
+	special(DoSlidingPuzzle)
+	waitstate
+	if (var(VAR_RESULT) && !flag(FLAG_TANOBY_PUZZLE_AERODACTYL)) {
+		setflag(FLAG_TANOBY_PUZZLE_AERODACTYL)
+		goto(DeepRuins_Hallway_EventScript_PuzzleCompleted)
+	}
+	release
+	end
+}
+
+script DeepRuins_Hallway_EventScript_PuzzleCompleted {
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 2)
+	setvar(VAR_0x8006, 10)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(60)
+	playse(SE_DEOXYS_MOVE)
+	setmetatile(5, 0, 0x2E0, TRUE)
+	setmetatile(5, 1, 0x2E1, FALSE)
+	special(DrawWholeMapView)
+	delay(30)
+	applymovement(LOCALID_DEEP_2F_MOLLY, moves(
+		walk_up * 2
+		walk_left
+		walk_in_place_up
+	))
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_DEEP_2F_MOLLY, moves(
+		emote_exclamation_mark
+		delay_16 * 4
+		face_down
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("MOLLY: The new passage appears to
+			be from where we fell.")
+	applymovement(LOCALID_DEEP_2F_MOLLY, moves(
+		walk_fast_up * 6
+	))
+	waitmovement(0)
+	removeobject(LOCALID_DEEP_2F_MOLLY)
+	release
+	end
+}

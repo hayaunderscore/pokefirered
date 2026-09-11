@@ -4656,6 +4656,18 @@
       "secondary_tileset": "gTileset_TanobyRuins",
       "border_filepath": "data/layouts/DeepRuins_Hallway/border.bin",
       "blockdata_filepath": "data/layouts/DeepRuins_Hallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEEP_RUINS_HELL",
+      "name": "DeepRuins_Hell_Layout",
+      "width": 21,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TanobyRuins",
+      "border_filepath": "data/layouts/DeepRuins_Hell/border.bin",
+      "blockdata_filepath": "data/layouts/DeepRuins_Hell/map.bin"
     }
   ]
 }

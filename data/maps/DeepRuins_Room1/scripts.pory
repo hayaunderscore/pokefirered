@@ -81,7 +81,8 @@ script DeepRuins_Room1_EventScript_PuzzleCompleted {
 	closemessage
 	delay(20)
 	applymovement(LOCALID_PLAYER, Movement_SetInvisible)
-	applymovement(LOCALID_DEEP_1F_MOLLY, Movement_SetInvisible)
+	removeobject(LOCALID_DEEP_1F_MOLLY)
+	# applymovement(LOCALID_DEEP_1F_MOLLY, Movement_SetInvisible)
 	waitmovement(0)
 	playse(SE_FALL)
 	delay(60)

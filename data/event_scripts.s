@@ -1437,3 +1437,6 @@ Text_MonCryScript::
 
 	.include "data/maps/DeepRuins_Hallway/scripts.inc"
 	.include "data/maps/DeepRuins_Hallway/text.inc"
+
+	.include "data/maps/DeepRuins_Hell/scripts.inc"
+	.include "data/maps/DeepRuins_Hell/text.inc"

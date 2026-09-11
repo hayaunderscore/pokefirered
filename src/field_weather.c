@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "blend_palette.h"
 #include "field_effect.h"
+#include "field_camera.h"
 #include "field_weather.h"
 #include "field_weather_util.h"
 #include "field_weather_effects.h"
@@ -212,6 +213,7 @@ static void Task_WeatherInit(u8 taskId)
     if (gWeatherPtr->readyForInit)
     {
         sWeatherFuncs[gWeatherPtr->currWeather].initAll();
+        UpdateCameraPanning();
         gTasks[taskId].func = Task_WeatherMain;
     }
 }

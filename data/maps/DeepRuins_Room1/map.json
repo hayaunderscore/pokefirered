@@ -28,7 +28,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DeepRuins_Room1_EventScript_Molly",
-      "flag": "0"
+      "flag": "FLAG_HIDE_MOLLY_IN_DEEP_RUINS_1F"
     }
   ],
   "warp_events": [
