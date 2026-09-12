@@ -3689,6 +3689,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(SE_PARTY_JOIN) \
     X(MUS_TOHJO_FALLS_DEPTHS) \
     X(MUS_TURN_BACK_NOW) \
+    X(MUS_OLIVINE_LIGHTHOUSE) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

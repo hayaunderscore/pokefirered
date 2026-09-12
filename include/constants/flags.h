@@ -193,8 +193,8 @@
 #define FLAG_HIDE_MOLLY_IN_MONEAN_CHAMBER                  0x0AF
 #define FLAG_HIDE_MOLLY_IN_DEEP_RUINS_1F                   0x0B0
 #define FLAG_HIDE_MOLLY_IN_DEEP_RUINS_HALLWAY              0x0B1
-#define FLAG_0x0B2               0x0B2
-#define FLAG_0x0B3               0x0B3
+#define FLAG_HIDE_MOLLY_IN_DEEP_RUINS_HELL                 0x0B2
+#define FLAG_HIDE_MOLLY_IN_DEEP_RUINS_FINAL_HALLWAY        0x0B3
 #define FLAG_0x0B4               0x0B4
 #define FLAG_0x0B5               0x0B5
 #define FLAG_0x0B6               0x0B6
@@ -1225,7 +1225,7 @@
 #define FLAG_TANOBY_PUZZLE_KABUTO       0x4A7 // Unused Flag
 #define FLAG_TANOBY_PUZZLE_OMANYTE      0x4A8 // Unused Flag
 #define FLAG_TANOBY_PUZZLE_AERODACTYL   0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA               0x4AA // Unused Flag
+#define FLAG_TANOBY_PUZZLE_HO_OH        0x4AA // Unused Flag
 #define FLAG_UNUSED_0x4AB               0x4AB // Unused Flag
 #define FLAG_UNUSED_0x4AC               0x4AC // Unused Flag
 #define FLAG_UNUSED_0x4AD               0x4AD // Unused Flag

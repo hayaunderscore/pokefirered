@@ -830,6 +830,7 @@ MUS_1121                  = 60 01
 SE_PARTY_JOIN             = 61 01
 MUS_TOHJO_FALLS_DEPTHS    = 62 01
 MUS_TURN_BACK_NOW         = 63 01
+MUS_OLIVINE_LIGHTHOUSE    = 64 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

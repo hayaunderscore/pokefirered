@@ -362,10 +362,11 @@
 #define SE_PARTY_JOIN               353
 #define MUS_TOHJO_FALLS_DEPTHS      354
 #define MUS_TURN_BACK_NOW           355
+#define MUS_OLIVINE_LIGHTHOUSE      356
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_TURN_BACK_NOW
+#define END_MUS                     MUS_OLIVINE_LIGHTHOUSE
 
 #endif  // GUARD_CONSTANTS_SONGS_H

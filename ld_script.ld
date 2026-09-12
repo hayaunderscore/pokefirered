@@ -979,6 +979,7 @@ SECTIONS {
         sound/songs/midi/se_party_join.o(.rodata);
         sound/songs/midi/mus_tohjo_falls_depths.o(.rodata);
         sound/songs/midi/mus_turn_back_now.o(.rodata);
+        sound/songs/midi/mus_olivine_lighthouse.o(.rodata);
     } > ROM =0
 
     lib_rodata :

@@ -355,6 +355,7 @@ gSongTable::
 	song se_party_join, 1, 1
 	song mus_tohjo_falls_depths, 0, 0
 	song mus_turn_back_now, 0, 0
+	song mus_olivine_lighthouse, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

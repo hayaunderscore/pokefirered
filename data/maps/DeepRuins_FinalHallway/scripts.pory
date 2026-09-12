@@ -1,1 +1,51 @@
 mapscripts DeepRuins_FinalHallway_MapScripts {}
+
+script DeepRuins_FinalHallway_EventScript_Grave {
+	lock
+	msgbox("R.I.P. \.")
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("MOLLY: \.
+
+			Is this some sort of sick form
+			of foreshadowing?
+
+			Is something gonna happen?")
+	applymovement(LOCALID_DEEP_4F_MOLLY, moves(
+		walk_in_place_fast_left
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	waitmovement(0)
+	msgbox("{PLAYER}\.
+
+			I'm afraid this exploration is
+			going to end badly.
+
+			I'm quite sorry I roped you into
+			this\. Really, I do!
+
+			And\.{PAUSE 30} it seems there's only one
+			way out of here.")
+	applymovement(LOCALID_DEEP_4F_MOLLY, moves(
+		walk_in_place_fast_up
+	))
+	waitmovement(0)
+	msgbox("I'm not sure where this leads\.
+			but it's our best chance.")
+	closemessage
+	applymovement(LOCALID_DEEP_4F_MOLLY, moves(
+		jump_2_up
+	))
+	waitmovement(0)
+	playse(SE_LEDGE)
+	removeobject(LOCALID_DEEP_4F_MOLLY)
+	playse(SE_FALL)
+	waitse
+	setmetatile(4, 12, 0x2E8, TRUE)
+	setmetatile(5, 12, 0x2E9, TRUE)
+	setmetatile(6, 12, 0x2E8, TRUE)
+	special(DrawWholeMapView)
+	release
+	end
+}

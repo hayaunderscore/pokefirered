@@ -1,6 +1,59 @@
-mapscripts DeepRuins_Hell_MapScripts {}
+mapscripts DeepRuins_Hell_MapScripts {
+	MAP_SCRIPT_ON_LOAD: DeepRuins_Hell_OnLoad
+}
 
 script DeepRuins_Hell_EventScript_EasterEgg {
 	warp(MAP_WAITING_ROOM, 0)
+	end
+}
+
+script DeepRuins_Hell_OnLoad {
+	if (flag(FLAG_TANOBY_PUZZLE_HO_OH)) {
+		setmetatile(10, 1, 0x2E0, TRUE)
+		setmetatile(10, 2, 0x2E1, FALSE)
+	}
+}
+
+script DeepRuins_Hell_EventScript_Puzzle {
+	lock
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	setvar(VAR_0x8004, PUZZLE_HO_OH)
+	if (flag(FLAG_TANOBY_PUZZLE_HO_OH)) {
+		setvar(VAR_0x8005, TRUE)
+	} else {
+		setvar(VAR_0x8005, FALSE)
+	}
+	special(DoSlidingPuzzle)
+	waitstate
+	if (var(VAR_RESULT) && !flag(FLAG_TANOBY_PUZZLE_HO_OH)) {
+		setflag(FLAG_TANOBY_PUZZLE_HO_OH)
+		goto(DeepRuins_Hell_EventScript_PuzzleCompleted)
+	}
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_PuzzleCompleted {
+	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8005, 2)
+	setvar(VAR_0x8006, 10)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(60)
+	playse(SE_DEOXYS_MOVE)
+	setmetatile(10, 1, 0x2E0, TRUE)
+	setmetatile(10, 2, 0x2E1, FALSE)
+	special(DrawWholeMapView)
+	delay(30)
+	applymovement(LOCALID_DEEP_3F_MOLLY, moves(
+		walk_down
+		walk_left * 2
+		walk_up * 2
+	))
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(LOCALID_DEEP_3F_MOLLY)
+	release
 	end
 }
