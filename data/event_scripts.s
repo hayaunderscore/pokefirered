@@ -1446,3 +1446,6 @@ Text_MonCryScript::
 
 	.include "data/maps/DeepRuins_FinalHallway/scripts.inc"
 	.include "data/maps/DeepRuins_FinalHallway/text.inc"
+
+	.include "data/maps/MtSilver_1F/scripts.inc"
+	.include "data/maps/MtSilver_1F/text.inc"

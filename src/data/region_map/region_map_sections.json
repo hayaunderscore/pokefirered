@@ -1171,6 +1171,10 @@
     {
       "id": "MAPSEC_WAITING_ROOM",
       "name": "WAITING ROOM"
+    },
+    {
+      "id": "MAPSEC_MT_SILVER",
+      "name": "MT. SILVER"
     }
   ]
 }

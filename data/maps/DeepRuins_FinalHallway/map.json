@@ -40,7 +40,35 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 4,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DeepRuins_FinalHallway_EventScript_Warp_MtSilver"
+    },
+    {
+      "type": "trigger",
+      "x": 5,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DeepRuins_FinalHallway_EventScript_Warp_MtSilver"
+    },
+    {
+      "type": "trigger",
+      "x": 6,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "DeepRuins_FinalHallway_EventScript_Warp_MtSilver"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",

@@ -19,26 +19,26 @@ script DeepRuins_FinalHallway_EventScript_Grave {
 	waitmovement(0)
 	msgbox("{PLAYER}\.
 
-			I'm afraid this exploration is
-			going to end badly.
+			I'm afraid this exploration is going
+			to end really badly.
 
-			I'm quite sorry I roped you into
-			this\. Really, I do!
+			I'm quite sorry I roped you into this\.
+			Really, I do!
 
-			And\.{PAUSE 30} it seems there's only one
-			way out of here.")
+			And\.{PAUSE 30} it seems there's only one way
+			out of this mess.")
 	applymovement(LOCALID_DEEP_4F_MOLLY, moves(
 		walk_in_place_fast_up
 	))
 	waitmovement(0)
 	msgbox("I'm not sure where this leads\.
-			but it's our best chance.")
+			But it's our best chance.")
 	closemessage
+	playse(SE_LEDGE)
 	applymovement(LOCALID_DEEP_4F_MOLLY, moves(
 		jump_2_up
 	))
 	waitmovement(0)
-	playse(SE_LEDGE)
 	removeobject(LOCALID_DEEP_4F_MOLLY)
 	playse(SE_FALL)
 	waitse
@@ -47,5 +47,15 @@ script DeepRuins_FinalHallway_EventScript_Grave {
 	setmetatile(6, 12, 0x2E8, TRUE)
 	special(DrawWholeMapView)
 	release
+	end
+}
+
+script DeepRuins_FinalHallway_EventScript_Warp_MtSilver {
+	applymovement(LOCALID_PLAYER, moves(
+		set_invisible
+	))
+	playse(SE_FALL)
+	waitse
+	warphole2(MAP_MT_SILVER_1F, 0)
 	end
 }

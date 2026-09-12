@@ -44,7 +44,8 @@
     "gMapGroup_IndoorSixIslandRoute",
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_IndoorPokemonTech",
-    "gMapGroup_IndoorCadmium"
+    "gMapGroup_IndoorCadmium",
+    "gMapGroup_MtSilver"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -586,5 +587,8 @@
     "CadmiumIsland_PokemonCenter_2F",
     "CadmiumIsland_LeafFanclub",
     "CadmiumIsland_AbbyResidence"
+  ],
+  "gMapGroup_MtSilver": [
+    "MtSilver_1F"
   ]
 }

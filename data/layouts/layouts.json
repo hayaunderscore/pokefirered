@@ -4692,6 +4692,18 @@
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/DeepRuins_FinalHallway/border.bin",
       "blockdata_filepath": "data/layouts/DeepRuins_FinalHallway/map.bin"
+    },
+    {
+      "id": "LAYOUT_MT_SILVER_1F",
+      "name": "MtSilver_1F_Layout",
+      "width": 22,
+      "height": 38,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NavelRock",
+      "border_filepath": "data/layouts/MtSilver_1F/border.bin",
+      "blockdata_filepath": "data/layouts/MtSilver_1F/map.bin"
     }
   ]
 }
