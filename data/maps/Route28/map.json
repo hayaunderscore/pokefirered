@@ -1,0 +1,49 @@
+{
+  "id": "MAP_ROUTE28",
+  "name": "Route28",
+  "layout": "LAYOUT_ROUTE28",
+  "music": "MUS_ROUTE26",
+  "region_map_section": "MAPSEC_ROUTE_28",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_ROUTE22",
+      "offset": 7,
+      "direction": "right"
+    }
+  ],
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 69,
+      "y": 15,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "elevation": 0,
+      "dest_map": "MAP_MT_SILVER_1F",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 22,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_ROUTE28_POKEMON_CENTER_1F",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

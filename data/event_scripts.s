@@ -1455,3 +1455,12 @@ Text_MonCryScript::
 
 	.include "data/maps/MtSilver_Peak/scripts.inc"
 	.include "data/maps/MtSilver_Peak/text.inc"
+
+	.include "data/maps/Route28/scripts.inc"
+	.include "data/maps/Route28/text.inc"
+
+	.include "data/maps/Route28_PokemonCenter_1F/scripts.inc"
+	.include "data/maps/Route28_PokemonCenter_1F/text.inc"
+
+	.include "data/maps/Route28_PokemonCenter_2F/scripts.inc"
+	.include "data/maps/Route28_PokemonCenter_2F/text.inc"

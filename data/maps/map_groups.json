@@ -45,7 +45,8 @@
     "gMapGroup_IndoorSevenIslandRoute",
     "gMapGroup_IndoorPokemonTech",
     "gMapGroup_IndoorCadmium",
-    "gMapGroup_MtSilver"
+    "gMapGroup_MtSilver",
+    "gMapGroup_IndoorRoute28"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -327,7 +328,8 @@
     "SevenIsland_SevaultCanyon",
     "SevenIsland_TanobyRuins",
     "PokemonTech_Outside",
-    "Route"
+    "Route",
+    "Route28"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -592,5 +594,9 @@
     "MtSilver_1F",
     "MtSilver_2F",
     "MtSilver_Peak"
+  ],
+  "gMapGroup_IndoorRoute28": [
+    "Route28_PokemonCenter_1F",
+    "Route28_PokemonCenter_2F"
   ]
 }

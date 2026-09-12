@@ -109,7 +109,7 @@ struct RegionMap
     u16 dungeonWinTop;    // Never read
     u16 dungeonWinRight;  // Never read
     u16 dungeonWinBottom; // Never read
-    u8 filler[6]; 
+    u8 filler[6];
     TaskFunc mainTask;
     MainCallback savedCallback;
 }; // size = 0x47C0
@@ -463,7 +463,7 @@ static const struct BgTemplate sRegionMapBgTemplates[] = {
 };
 
 static const struct WindowTemplate sRegionMapWindowTemplates[] = {
-    [WIN_MAP_NAME] = 
+    [WIN_MAP_NAME] =
     {
         .bg = 3,
         .tilemapLeft = 3,
@@ -472,7 +472,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x001
-    }, 
+    },
     [WIN_DUNGEON_NAME] =
     {
         .bg = 3,
@@ -482,7 +482,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x01f
-    }, 
+    },
     [WIN_MAP_PREVIEW] =
     {
         .bg = 3,
@@ -502,7 +502,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
         .height = 2,
         .paletteNum = 12,
         .baseBlock = 0x150
-    }, 
+    },
     [WIN_TOPBAR_RIGHT] =
     {
         .bg = 3,
@@ -540,7 +540,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_THREE_ISLE_PATH,
         MAPSEC_EMBER_SPA,
         MAPSEC_NONE
-    }, 
+    },
     [REGIONMAP_SEVII45 - 1] =
     {
         MAPSEC_FOUR_ISLAND,
@@ -558,8 +558,8 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_ROCKET_WAREHOUSE,
         MAPSEC_LOST_CAVE,
         MAPSEC_NONE
-    }, 
-    [REGIONMAP_SEVII67 - 1] = 
+    },
+    [REGIONMAP_SEVII67 - 1] =
     {
         MAPSEC_SEVEN_ISLAND,
         MAPSEC_SIX_ISLAND,
@@ -594,26 +594,26 @@ static const u8 sSeviiMapsecs[3][30] = {
 };
 
 ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPERM_COUNT] = {
-    [REGIONMAP_TYPE_NORMAL] = 
+    [REGIONMAP_TYPE_NORMAL] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = TRUE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = TRUE,
+        [MAPPERM_HAS_OPEN_ANIM]        = TRUE,
         [MAPPERM_HAS_FLY_DESTINATIONS] = FALSE
     },
-    [REGIONMAP_TYPE_WALL] = 
+    [REGIONMAP_TYPE_WALL] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE,
+        [MAPPERM_HAS_OPEN_ANIM]        = FALSE,
         [MAPPERM_HAS_FLY_DESTINATIONS] = FALSE
     },
-    [REGIONMAP_TYPE_FLY] = 
+    [REGIONMAP_TYPE_FLY] =
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
-        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
-        [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
-        [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE,
+        [MAPPERM_HAS_MAP_PREVIEW]      = FALSE,
+        [MAPPERM_HAS_OPEN_ANIM]        = FALSE,
+        [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE
     }
 };
 
@@ -741,9 +741,9 @@ static const union AnimCmd *const sAnims_MapEdge[] = {
 };
 
 static const struct GpuWindowParams sMapWindowDim = {
-    .left = 24, 
-    .top = 16, 
-    .right = 216, 
+    .left = 24,
+    .top = 16,
+    .right = 216,
     .bottom = 160
 };
 
@@ -948,6 +948,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE               - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_NEPTUNE_CAVERN      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_CADMIUM_ISLAND      - KANTO_MAPSEC_START] = {MAP(MAP_CADMIUM_ISLAND),                        HEAL_LOCATION_CADMIUM_ISLAND},
+    [MAPSEC_ROUTE_28_POKECENTER - KANTO_MAPSEC_START] = {MAP(MAP_ROUTE28),                               HEAL_LOCATION_ROUTE28},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1018,7 +1019,7 @@ void InitRegionMapWithExitCB(u8 type, MainCallback cb)
     }
 }
 
-static bool32 KantoExtraMaps(void) 
+static bool32 KantoExtraMaps(void)
 {
 	if (gMapHeader.regionMapSectionId == MAPSEC_DEEP_RUINS)
 		return FALSE;
@@ -1194,7 +1195,7 @@ static void PlaySEForSelectedMapsec(void)
 {
     if (SelectedMapsecSEEnabled())
     {
-        if ((GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_NONE) 
+        if ((GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_NONE)
          || (GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_NONE))
             PlaySE(SE_DEX_SCROLL);
         if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
@@ -1549,7 +1550,7 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
     if (whichMap == REGIONMAP_KANTO && FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
     	FillBgTilemapBufferRect(0, 0x001, 15, 12, 1, 1, 1);
-    if (whichMap == REGIONMAP_KANTO && FlagGet(FLAG_WORLD_MAP_MT_SILVER))
+    if (whichMap == REGIONMAP_KANTO && (FlagGet(FLAG_WORLD_MAP_MT_SILVER) || FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
     {
     	FillBgTilemapBufferRect_Palette0(0, 0x10B, 5, 12, 1, 1);
      	FillBgTilemapBufferRect(0, 0x001, 4, 12, 1, 1, 1);
@@ -2824,14 +2825,14 @@ static u8 HandleRegionMapInput(void)
     if (JOY_NEW(A_BUTTON))
     {
         input = MAP_INPUT_A_BUTTON;
-        if (sMapCursor->x == CANCEL_BUTTON_X 
+        if (sMapCursor->x == CANCEL_BUTTON_X
          && sMapCursor->y == CANCEL_BUTTON_Y)
         {
             PlaySE(SE_M_HYPER_BEAM2);
             input = MAP_INPUT_CANCEL;
         }
-        if (sMapCursor->x == SWITCH_BUTTON_X 
-         && sMapCursor->y == SWITCH_BUTTON_Y 
+        if (sMapCursor->x == SWITCH_BUTTON_X
+         && sMapCursor->y == SWITCH_BUTTON_Y
          && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
         {
             PlaySE(SE_M_HYPER_BEAM2);
@@ -2965,6 +2966,8 @@ static u16 GetMapsecUnderCursor(void)
         mapsec = MAPSEC_NONE;
     if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
     	mapsec = MAPSEC_NONE;
+    if ((mapsec == MAPSEC_ROUTE_28 || mapsec == MAPSEC_ROUTE_28_POKECENTER) && (!FlagGet(FLAG_WORLD_MAP_MT_SILVER) && !FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
+    	mapsec = MAPSEC_NONE;
     if (mapsec == MAPSEC_CADMIUM_ISLAND && !FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
     	mapsec = MAPSEC_NONE;
     return mapsec;
@@ -2982,7 +2985,7 @@ static u16 GetDungeonMapsecUnderCursor(void)
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, sMapCursor->y, sMapCursor->x);
     if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
         mapsec = MAPSEC_NONE;
-    if (mapsec == MAPSEC_MT_SILVER && !FlagGet(FLAG_WORLD_MAP_MT_SILVER))
+    if (mapsec == MAPSEC_MT_SILVER && (!FlagGet(FLAG_WORLD_MAP_MT_SILVER) && !FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
     	mapsec = MAPSEC_NONE;
     if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
     	mapsec = MAPSEC_NONE;
@@ -3037,6 +3040,8 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_CADMIUM_ISLAND:
     	return FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_ROUTE_28_POKECENTER:
+     	return FlagGet(FLAG_WORLD_MAP_ROUTE_28_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:
@@ -3657,6 +3662,8 @@ static void CreateDungeonIcons(void)
                 	if (!FlagGet(FLAG_DID_SUNKEN_ANNE)) continue;
                  	if (!FlagGet(FLAG_INTERACTED_WITH_SAILOR)) continue;
                 }
+                if (mapsec == MAPSEC_MT_SILVER && (!FlagGet(FLAG_WORLD_MAP_MT_SILVER) && !FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
+                	continue;
                 CreateDungeonIconSprite(i, numIcons, x, y, numIcons + 35, 10);
                 if (GetDungeonMapsecType(mapsec) != 2)
                 {

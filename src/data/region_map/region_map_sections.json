@@ -1175,6 +1175,22 @@
     {
       "id": "MAPSEC_MT_SILVER",
       "name": "MT. SILVER"
+    },
+    {
+      "id": "MAPSEC_ROUTE_28",
+      "name": "ROUTE 28",
+      "x": 0,
+      "y": 8,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "id": "MAPSEC_ROUTE_28_POKECENTER",
+      "name": "ROUTE 28",
+      "x": 0,
+      "y": 8,
+      "width": 1,
+      "height": 1
     }
   ]
 }

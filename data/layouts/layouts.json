@@ -2440,7 +2440,7 @@
     {
       "id": "LAYOUT_ROUTE22_NORTH_ENTRANCE",
       "name": "Route22_NorthEntrance_Layout",
-      "width": 15,
+      "width": 26,
       "height": 12,
       "border_width": 2,
       "border_height": 2,
@@ -4728,6 +4728,42 @@
       "secondary_tileset": "gTileset_NavelRock",
       "border_filepath": "data/layouts/MtSilver_Peak/border.bin",
       "blockdata_filepath": "data/layouts/MtSilver_Peak/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28",
+      "name": "Route28_Layout",
+      "width": 80,
+      "height": 32,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeruleanCity",
+      "border_filepath": "data/layouts/Route28/border.bin",
+      "blockdata_filepath": "data/layouts/Route28/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28_POKEMON_CENTER_1F",
+      "name": "Route28_PokemonCenter_1F_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Route28_PokemonCenter_1F/border.bin",
+      "blockdata_filepath": "data/layouts/Route28_PokemonCenter_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE28_POKEMON_CENTER_2F",
+      "name": "Route28_PokemonCenter_2F_Layout",
+      "width": 15,
+      "height": 10,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Route28_PokemonCenter_2F/border.bin",
+      "blockdata_filepath": "data/layouts/Route28_PokemonCenter_2F/map.bin"
     }
   ]
 }

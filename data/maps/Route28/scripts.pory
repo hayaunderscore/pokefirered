@@ -1,0 +1,8 @@
+mapscripts Route28_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route28_OnTransition
+}
+
+script Route28_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_ROUTE_28)
+	end
+}

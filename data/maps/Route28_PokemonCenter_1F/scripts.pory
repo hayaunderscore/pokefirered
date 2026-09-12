@@ -1,0 +1,17 @@
+mapscripts Route28_PokemonCenter_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route28_PokemonCenter_1F_OnTransition
+}
+
+script Route28_PokemonCenter_1F_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_ROUTE_28_POKEMON_CENTER_1F)
+	setrespawn(HEAL_LOCATION_ROUTE28)
+	end
+}
+
+script Route28_PokemonCenter_1F_EventScript_Nurse {
+	lock
+	faceplayer
+	call(EventScript_PkmnCenterNurse)
+	release
+	end
+}

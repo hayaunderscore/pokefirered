@@ -181,7 +181,15 @@
       "map": "MAP_CADMIUM_ISLAND",
       "x": 35,
       "y": 26,
-      "respawn_map": "MAP_CADMIUM_ISLAND",
+      "respawn_map": "MAP_CADMIUM_ISLAND_POKEMON_CENTER_1F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE28",
+      "map": "MAP_ROUTE28",
+      "x": 22,
+      "y": 14,
+      "respawn_map": "MAP_ROUTE28_POKEMON_CENTER_1F",
       "respawn_npc": "1"
     }
   ]
