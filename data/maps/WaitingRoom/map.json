@@ -31,7 +31,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_RS_BRENDAN",
       "x": 8,
       "y": 8,
       "elevation": 0,
@@ -45,7 +45,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_DAWN",
       "x": 10,
       "y": 8,
       "elevation": 0,
@@ -87,7 +87,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 16,
       "y": 8,
       "elevation": 0,
@@ -101,21 +101,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
-      "x": 18,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
-    },
-    {
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 18,
       "y": 8,
       "elevation": 0,
@@ -143,7 +129,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_KRIS",
       "x": 22,
       "y": 8,
       "elevation": 0,
@@ -185,7 +171,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_HEX_MANIAC",
       "x": 28,
       "y": 8,
       "elevation": 0,
@@ -199,7 +185,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_SERENA",
       "x": 30,
       "y": 8,
       "elevation": 0,
@@ -227,7 +213,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 34,
       "y": 8,
       "elevation": 0,
@@ -241,7 +227,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 36,
       "y": 8,
       "elevation": 0,
@@ -255,7 +241,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 38,
       "y": 8,
       "elevation": 0,
@@ -269,7 +255,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_GOLD",
       "x": 4,
       "y": 8,
       "elevation": 0,
@@ -283,7 +269,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_RS_MAY",
       "x": 2,
       "y": 8,
       "elevation": 0,
@@ -311,7 +297,7 @@
     },
     {
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_RED_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_ROXANNE",
       "x": 40,
       "y": 8,
       "elevation": 0,

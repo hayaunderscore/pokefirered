@@ -155,6 +155,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Joe;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giselle;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RSReporter;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RSCameraman;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Dawn;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gold;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kris;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HexManiac;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Serena;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -315,4 +320,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GISELLE]                  = &gObjectEventGraphicsInfo_Giselle,
     [OBJ_EVENT_GFX_RS_REPORTER]              = &gObjectEventGraphicsInfo_RSReporter,
     [OBJ_EVENT_GFX_RS_CAMERAMAN]             = &gObjectEventGraphicsInfo_RSCameraman,
+    [OBJ_EVENT_GFX_DAWN]                     = &gObjectEventGraphicsInfo_Dawn,
+    [OBJ_EVENT_GFX_GOLD]                     = &gObjectEventGraphicsInfo_Gold,
+    [OBJ_EVENT_GFX_KRIS]                     = &gObjectEventGraphicsInfo_Kris,
+    [OBJ_EVENT_GFX_HEX_MANIAC]               = &gObjectEventGraphicsInfo_HexManiac,
+    [OBJ_EVENT_GFX_SERENA]                   = &gObjectEventGraphicsInfo_Serena,
 };

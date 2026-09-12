@@ -4680,6 +4680,18 @@
       "secondary_tileset": "gTileset_TrainerTower",
       "border_filepath": "data/layouts/WaitingRoom/border.bin",
       "blockdata_filepath": "data/layouts/WaitingRoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEEP_RUINS_FINAL_HALLWAY",
+      "name": "DeepRuins_FinalHallway_Layout",
+      "width": 11,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/DeepRuins_FinalHallway/border.bin",
+      "blockdata_filepath": "data/layouts/DeepRuins_FinalHallway/map.bin"
     }
   ]
 }

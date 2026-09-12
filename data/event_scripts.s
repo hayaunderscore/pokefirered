@@ -1443,3 +1443,6 @@ Text_MonCryScript::
 
 	.include "data/maps/WaitingRoom/scripts.inc"
 	.include "data/maps/WaitingRoom/text.inc"
+
+	.include "data/maps/DeepRuins_FinalHallway/scripts.inc"
+	.include "data/maps/DeepRuins_FinalHallway/text.inc"

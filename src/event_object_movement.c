@@ -458,6 +458,11 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_JOE                         0x111C
 #define OBJ_EVENT_PAL_TAG_GISELLE                     0x111D
 #define OBJ_EVENT_PAL_TAG_RS_NPC_4                    0x111E
+#define OBJ_EVENT_PAL_TAG_DAWN                        0x111F
+#define OBJ_EVENT_PAL_TAG_GOLD                        0x1120
+#define OBJ_EVENT_PAL_TAG_KRIS                        0x1121
+#define OBJ_EVENT_PAL_TAG_HEX_MANIAC                  0x1122
+#define OBJ_EVENT_PAL_TAG_SERENA                      0x1123
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -490,6 +495,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_Joe,                     OBJ_EVENT_PAL_TAG_JOE},
 	{gObjectEventPal_Giselle,                 OBJ_EVENT_PAL_TAG_GISELLE},
 	{gObjectEventPal_RSNPC4,                  OBJ_EVENT_PAL_TAG_RS_NPC_4},
+	{gObjectEventPal_Dawn,                    OBJ_EVENT_PAL_TAG_DAWN},
+	{gObjectEventPal_Gold,                    OBJ_EVENT_PAL_TAG_GOLD},
+	{gObjectEventPal_Kris,                    OBJ_EVENT_PAL_TAG_KRIS},
+	{gObjectEventPal_HexManiac,               OBJ_EVENT_PAL_TAG_HEX_MANIAC},
+	{gObjectEventPal_Serena,                  OBJ_EVENT_PAL_TAG_SERENA},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
