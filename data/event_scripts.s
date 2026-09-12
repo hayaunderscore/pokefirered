@@ -1449,3 +1449,9 @@ Text_MonCryScript::
 
 	.include "data/maps/MtSilver_1F/scripts.inc"
 	.include "data/maps/MtSilver_1F/text.inc"
+
+	.include "data/maps/MtSilver_2F/scripts.inc"
+	.include "data/maps/MtSilver_2F/text.inc"
+
+	.include "data/maps/MtSilver_Peak/scripts.inc"
+	.include "data/maps/MtSilver_Peak/text.inc"

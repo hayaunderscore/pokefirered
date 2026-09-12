@@ -719,6 +719,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_NEPTUNE_CAVERN,
         .name = sMapsecName_NEPTUNE_CAVERN,
         .desc = gText_RegionMap_AreaDesc_NeptuneCavern
+    }, {
+        .id = MAPSEC_MT_SILVER,
+        .name = sMapsecName_MT__SILVER,
+        .desc = gText_RegionMap_AreaDesc_MtSilver
     }
 };
 
@@ -1545,6 +1549,11 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
         FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
     if (whichMap == REGIONMAP_KANTO && FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
     	FillBgTilemapBufferRect(0, 0x001, 15, 12, 1, 1, 1);
+    if (whichMap == REGIONMAP_KANTO && FlagGet(FLAG_WORLD_MAP_MT_SILVER))
+    {
+    	FillBgTilemapBufferRect_Palette0(0, 0x10B, 5, 12, 1, 1);
+     	FillBgTilemapBufferRect(0, 0x001, 4, 12, 1, 1, 1);
+    }
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -2973,6 +2982,8 @@ static u16 GetDungeonMapsecUnderCursor(void)
     mapsec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, sMapCursor->y, sMapCursor->x);
     if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
         mapsec = MAPSEC_NONE;
+    if (mapsec == MAPSEC_MT_SILVER && !FlagGet(FLAG_WORLD_MAP_MT_SILVER))
+    	mapsec = MAPSEC_NONE;
     if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
     	mapsec = MAPSEC_NONE;
     return mapsec;
@@ -3105,6 +3116,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BIRTH_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_MT_SILVER:
+    	return FlagGet(FLAG_WORLD_MAP_MT_SILVER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3313,6 +3326,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
 	   	sMapCursor->x = 11;
 	    sMapCursor->y = 9;
 	    break;
+	case MAPSEC_MT_SILVER:
+		sMapCursor->x = 0;
+	 	sMapCursor->y = 8;
+		break;
     case MAPSEC_ROUTE_2:
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN))
         {

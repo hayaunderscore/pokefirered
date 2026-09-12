@@ -1,7 +1,7 @@
 {
-  "id": "MAP_MT_SILVER_1F",
-  "name": "MtSilver_1F",
-  "layout": "LAYOUT_MT_SILVER_1F",
+  "id": "MAP_MT_SILVER_PEAK",
+  "name": "MtSilver_Peak",
+  "layout": "LAYOUT_MT_SILVER_PEAK",
   "music": "MUS_OLIVINE_LIGHTHOUSE",
   "region_map_section": "MAPSEC_MT_SILVER",
   "requires_flash": false,
@@ -17,18 +17,11 @@
   "object_events": [],
   "warp_events": [
     {
-      "x": 10,
-      "y": 35,
-      "elevation": 0,
-      "dest_map": "MAP_MT_SILVER_1F",
-      "dest_warp_id": "0"
-    },
-    {
-      "x": 16,
-      "y": 3,
+      "x": 11,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_MT_SILVER_2F",
-      "dest_warp_id": "0"
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

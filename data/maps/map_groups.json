@@ -589,6 +589,8 @@
     "CadmiumIsland_AbbyResidence"
   ],
   "gMapGroup_MtSilver": [
-    "MtSilver_1F"
+    "MtSilver_1F",
+    "MtSilver_2F",
+    "MtSilver_Peak"
   ]
 }
