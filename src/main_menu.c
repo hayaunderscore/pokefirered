@@ -1,5 +1,6 @@
 #include "global.h"
 #include "gflib.h"
+#include "region_map.h"
 #include "scanline_effect.h"
 #include "task.h"
 #include "save.h"
@@ -12,6 +13,7 @@
 #include "quest_log.h"
 #include "mystery_gift_menu.h"
 #include "strings.h"
+#include "text.h"
 #include "title_screen.h"
 #include "pokedex.h"
 #include "text_window.h"
@@ -40,6 +42,7 @@ enum MainMenuWindow
 #define tMenuType  data[0]
 #define tCursorPos data[1]
 
+#define tMapNameLen      data[7]
 #define tUnused8         data[8]
 #define tMGErrorMsgState data[9]
 #define tMGErrorType     data[10]
@@ -60,7 +63,7 @@ static void Task_ReturnToTileScreen(u8 taskId);
 static void MoveWindowByMenuTypeAndCursorPos(u8 menuType, u8 cursorPos);
 static bool8 HandleMenuInput(u8 taskId);
 static void PrintMessageOnWindow4(const u8 *str);
-static void PrintContinueStats(void);
+static void PrintContinueStats(u8 taskId);
 static void PrintPlayerName(void);
 static void PrintPlayTime(void);
 static void PrintDexCount(void);
@@ -177,6 +180,7 @@ static void CB2_InitMainMenu_2(void)
 static bool32 MainMenuGpuInit(u8 a0)
 {
     u8 taskId;
+    const struct MapHeader* mapHeader;
 
     SetVBlankCallback(NULL);
     SetGpuReg(REG_OFFSET_DISPCNT, 0);
@@ -221,6 +225,10 @@ static bool32 MainMenuGpuInit(u8 a0)
     taskId = CreateTask(Task_SetWin0BldRegsAndCheckSaveFile, 0);
     gTasks[taskId].tCursorPos = 0;
     gTasks[taskId].tUnused8 = a0;
+    
+    mapHeader = Overworld_GetMapHeaderByGroupAndId(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+    GetMapNameGeneric(gStringVar4, mapHeader->regionMapSectionId);
+    gTasks[taskId].tMapNameLen = GetStringWidth(FONT_NORMAL, gStringVar4, 0);
     return FALSE;
 }
 
@@ -398,7 +406,7 @@ static void Task_PrintMainMenuText(u8 taskId)
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_CONTINUE, FONT_NORMAL, 2, 2, sTextColor1, -1, gText_Continue);
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_NEWGAME, FONT_NORMAL, 2, 2, sTextColor1, -1, gText_NewGame);
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_OPTION, FONT_NORMAL, 2, 2, sTextColor1, -1, gText_Option);
-        PrintContinueStats();
+        PrintContinueStats(taskId);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_CONTINUE]);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_NEWGAME]);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_OPTION]);
@@ -419,7 +427,7 @@ static void Task_PrintMainMenuText(u8 taskId)
         gTasks[taskId].tMGErrorType = 1;
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_OPTION, FONT_NORMAL, 2, 2, sTextColor1, -1, gText_Option);
         AddTextPrinterParameterized3(MAIN_MENU_WINDOW_MYSTERYGIFT, FONT_NORMAL, 2, 2, sTextColor1, -1, gText_MysteryGift);
-        PrintContinueStats();
+        PrintContinueStats(taskId);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_CONTINUE]);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_NEWGAME]);
         MainMenu_DrawWindow(&sWindowTemplate[MAIN_MENU_WINDOW_OPTION]);
@@ -680,8 +688,15 @@ static void PrintMessageOnWindow4(const u8 *str)
     SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(115, 157));
 }
 
-static void PrintContinueStats(void)
+static void PrintContinueStats(u8 taskId)
 {
+	// Print map name
+	AddTextPrinterParameterized3(
+		MAIN_MENU_WINDOW_CONTINUE,
+		FONT_NORMAL,
+		(sWindowTemplate[MAIN_MENU_WINDOW_CONTINUE].width * 8 - 2) - gTasks[taskId].tMapNameLen, 
+		2, sTextColor1, -1, gStringVar4);
+
     PrintPlayerName();
     PrintDexCount();
     PrintPlayTime();
