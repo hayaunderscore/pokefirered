@@ -284,6 +284,8 @@ static bool8 MovementAction_JumpSpecialWithEffectLeft_Step0(struct ObjectEvent *
 static bool8 MovementAction_JumpSpecialWithEffectLeft_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_JumpSpecialWithEffectRight_Step0(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_JumpSpecialWithEffectRight_Step1(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_JumpInPlaceKeepDirection_Step0(struct ObjectEvent *, struct Sprite *);
+static bool8 MovementAction_JumpInPlaceKeepDirection_Step1(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_WaitSpriteAnim(struct ObjectEvent *, struct Sprite *);
 static bool8 MovementAction_Finish(struct ObjectEvent *, struct Sprite *);
 
@@ -457,6 +459,7 @@ static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectDown[])(struct Ob
 static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectUp[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectLeft[])(struct ObjectEvent *, struct Sprite *);
 static bool8 (*const sMovementActionFuncs_JumpSpecialWithEffectRight[])(struct ObjectEvent *, struct Sprite *);
+static bool8 (*const sMovementActionFuncs_JumpInPlaceKeepDirection[])(struct ObjectEvent *, struct Sprite *);
 
 static u8 GetMoveDirectionFastAnimNum(u8 direction);
 static u8 GetMoveDirectionFasterAnimNum(u8 direction);
@@ -633,6 +636,7 @@ static bool8 (*const *const sMovementActionFuncs[])(struct ObjectEvent *, struct
     [MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_UP]        = sMovementActionFuncs_JumpSpecialWithEffectUp,
     [MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_LEFT]      = sMovementActionFuncs_JumpSpecialWithEffectLeft,
     [MOVEMENT_ACTION_JUMP_SPECIAL_WITH_EFFECT_RIGHT]     = sMovementActionFuncs_JumpSpecialWithEffectRight,
+    [MOVEMENT_ACTION_JUMP_IN_PLACE_KEEP_DIRECTION]       = sMovementActionFuncs_JumpInPlaceKeepDirection,
 };
 
 static bool8 (*const sMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *) = {
@@ -1663,4 +1667,10 @@ static bool8 (*const sMovementActionFuncs_FlyDown[])(struct ObjectEvent *, struc
     MovementAction_FlyDown_Step0,
     MovementAction_FlyDown_Step1,
     MovementAction_FlyUp_Step2,
+};
+
+static bool8 (*const sMovementActionFuncs_JumpInPlaceKeepDirection[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_JumpInPlaceKeepDirection_Step0,
+    MovementAction_JumpInPlaceKeepDirection_Step1,
+    MovementAction_PauseSpriteAnim,
 };

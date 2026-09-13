@@ -7666,6 +7666,24 @@ static bool8 MovementAction_ShakeHeadOrWalkInPlace_Step1(struct ObjectEvent *obj
     return sprite->animEnded;
 }
 
+static bool8 MovementAction_JumpInPlaceKeepDirection_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    InitJumpRegular(objectEvent, sprite, objectEvent->facingDirection, JUMP_DISTANCE_IN_PLACE, JUMP_TYPE_NORMAL);
+    return MovementAction_JumpInPlaceKeepDirection_Step1(objectEvent, sprite);
+}
+
+static bool8 MovementAction_JumpInPlaceKeepDirection_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+	// Annoyingly, DoJumpInPlace inverts the facing direction????
+    if (DoJumpAnim(objectEvent, sprite))
+    {
+        objectEvent->hasShadow = FALSE;
+        sprite->data[2] = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
 u8 MovementAction_Finish(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     return TRUE;

@@ -10,14 +10,33 @@ script CadmiumIsland_LeafFanclub_OnTransition {
 script CadmiumIsland_LeafFanclub_EventScript_Claire {
 	lock
 	faceplayer
-	msgbox("CLAIRE: Hi!
-			Welcome to the {PLAYER} FAN CLUB!
+	if (flag(FLAG_HIDE_BILL_NPCS_IN_CADMIUM))
+	{
+		msgbox("CLAIRE: Hi!
+				Welcome to the {PLAYER} FAN CLUB!
 
-			My name is CLAIRE.
-			I'm the no.1 {PLAYER} archaeologist.
+				My name is CLAIRE.
+				I'm the no.1 {PLAYER} archaeologist.
 
-			Our president, VICKI, isn't around
-			right now.")
+				Our president, VICKI, isn't around
+				right now.")
+	}
+	else {
+		msgbox("CLAIRE: Hi!
+				Welcome to the {PLAYER} FAN CLUB!
+
+				My name is CLAIRE.
+				I'm the no.1 {PLAYER} archaeologist.
+
+				I mostly research info about
+				anomalies.
+
+				You, {PLAYER}, and THE HAND are one
+				of them.
+
+				I would share more, if it wasn't
+				in spoiler territory!")
+	}
 	release
 	end
 }
@@ -39,6 +58,52 @@ script CadmiumIsland_LeafFanclub_EventScript_Ellen {
 
 			So I can't reveal anything else.
 			Sorry!")
+	release
+	end
+}
+
+script CadmiumIsland_LeafFanclub_EventScript_Vicki {
+	lock
+	faceplayer
+	if (var(VAR_MAP_SCENE_CADMIUM_ISLAND_FANCLUB) == 0) {
+		applymovement(LOCALID_FANCLUB_VICKI, moves(
+			jump_in_place_keep_direction * 2
+			delay_16 * 2
+		))
+		waitmovement(0)
+		msgbox("VICKI: Woah, hello!!
+
+				I'm VICKI!
+				Part of this here FAN CLUB.
+
+				And all about you, no less!
+
+				It's an honor to have you stop by
+				and for us to meet face to face!
+
+				I've always admired you, {PLAYER}.
+				Like a whole lot!
+
+				And I'm glad to be a part of this
+				CLUB with other people like me!
+
+				You're always welcome here {PLAYER},
+				And I'll be cheering you on!
+
+				The whole world deserves your name!")
+		setvar(VAR_MAP_SCENE_CADMIUM_ISLAND_FANCLUB, 1)
+	} else {
+		msgbox("VICKI: By the way\.
+
+				That grandkid of OAK's\.{PAUSE 30}
+				{RIVAL},{PAUSE 30} right?
+
+				He's your rival isn't he?
+				I like him a lot too!
+
+				Maybe I should open a FAN CLUB
+				for him\.")
+	}
 	release
 	end
 }

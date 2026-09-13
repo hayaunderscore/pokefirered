@@ -6,3 +6,13 @@ script Route28_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_ROUTE_28)
 	end
 }
+
+script Route28_EventScript_MtSilverSign {
+	lock
+	msgbox("MT. SILVER AHEAD
+
+			CAUTION! VERY COLD!
+			Make sure to bring a jacket!")
+	release
+	end
+}
