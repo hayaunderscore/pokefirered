@@ -150,6 +150,30 @@ s32 StringCompare(const u8 *str1, const u8 *str2)
     return *str1 - *str2;
 }
 
+s32 StringCaseCompare(const u8 *str1, const u8 *str2)
+{
+	u8 c1, c2;
+	
+    while (*str1 && *str2)
+    {
+    	c1 = *str1;
+     	c2 = *str2;
+      
+      	if (c1 >= 'A' && c1 <= 'Z') c1 += 32;
+       	if (c2 >= 'A' && c2 <= 'Z') c2 += 32;
+        
+        if (c1 != c2)
+        	return c1 - c2;
+      
+        if (*str1 == EOS)
+            return 0;
+        str1++;
+        str2++;
+    }
+
+    return *str1 - *str2;
+}
+
 s32 StringCompareN(const u8 *str1, const u8 *str2, u32 n)
 {
     while (*str1 == *str2)

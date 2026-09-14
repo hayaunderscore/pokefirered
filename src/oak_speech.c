@@ -661,7 +661,7 @@ static const u8 *const sRivalNameChoices[] =
 static const u8 sOakSpeech_Text_RedNameReaction[] = _("… … …$");
 static const u8 sOakSpeech_Text_BlueNameReaction[] = _("Hey!\nYou can't use my name!$");
 static const u8 sOakSpeech_Text_GreenNameReaction[] = _("In a different time…\n{PLAYER} would be your true name.$");
-static const u8 sOakSpeech_Text_VickiNameReaction[] = _("You can't name yourself after\nyour biggest fan! /silly$");
+static const u8 sOakSpeech_Text_VickiNameReaction[] = _("You can't name yourself after your\nbiggest fan! /silly$");
 static const u8 sOakSpeech_Text_AbbyNameReaction[] = _("{COLOR RED}TRYING TO CAUSE A UNIVERSE\nEND, PERHAPS?$");
 static const u8 sOakSpeech_Text_KyleNameReaction[] = _("But…\nI guess Ill allow it…$");
 static const u8 sOakSpeech_Text_KrisNameReaction[] = _("{PLAYER}…\nCrystalpilled, much?$");
@@ -1502,7 +1502,7 @@ static void Task_OakSpeech_ConfirmName(u8 taskId)
             {
             	for (i = 0; i < ARRAY_COUNT(sNameChoiceEasterEggs); i++)
              	{
-              		if (StringCompare(gSaveBlock2Ptr->playerName, sNameChoiceEasterEggs[i].name) == 0)
+              		if (StringCaseCompare(gSaveBlock2Ptr->playerName, sNameChoiceEasterEggs[i].name) == 0)
                 	{
                  		StringExpandPlaceholders(gStringVar4, sNameChoiceEasterEggs[i].reaction);
                    		if (!sNameChoiceEasterEggs[i].usable)
