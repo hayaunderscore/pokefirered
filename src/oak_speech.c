@@ -658,6 +658,38 @@ static const u8 *const sRivalNameChoices[] =
 #endif
 };
 
+static const u8 sOakSpeech_Text_RedNameReaction[] = _("… … …$");
+static const u8 sOakSpeech_Text_BlueNameReaction[] = _("Hey!\nYou can't use my name!$");
+static const u8 sOakSpeech_Text_GreenNameReaction[] = _("In a different time…\n{PLAYER} would be your true name.$");
+static const u8 sOakSpeech_Text_VickiNameReaction[] = _("Uhhhh…\nThats's my name… /silly$");
+static const u8 sOakSpeech_Text_AbbyNameReaction[] = _("{COLOR RED}TRYING TO CAUSE A UNIVERSE\nEND, PERHAPS?$");
+static const u8 sOakSpeech_Text_KyleNameReaction[] = _("But…\nI guess Ill allow it…$");
+static const u8 sOakSpeech_Text_KrisNameReaction[] = _("{PLAYER}…\nCrystalpilled, much?$");
+static const u8 sOakSpeech_Text_CaraNameReaction[] = _("Teehee!\nYou can't use that name!$");
+static const u8 sOakSpeech_Text_GiselleNameReaction[] = _("Ah ah!\nThat's MY perfect name.$");
+static const u8 sOakSpeech_Text_EllenNameReaction[] = _("A perfect name…\n…for a cunning witch like you.$");
+static const u8 sOakSpeech_Text_GoldNameReaction[] = _("Begging for MT. SILVER much?$");
+
+static const struct {
+	u8 name[PLAYER_NAME_LENGTH + 1];
+	const u8 *reaction;
+	bool32 usable;
+} sNameChoiceEasterEggs[] = 
+{
+	{_("LEAF"), gOakSpeech_Text_TheTrueName, TRUE},
+	{_("RED"), sOakSpeech_Text_RedNameReaction, TRUE},
+	{_("BLUE"), sOakSpeech_Text_BlueNameReaction, FALSE},
+	{_("GREEN"), sOakSpeech_Text_GreenNameReaction, TRUE},
+	{_("VICKI"), sOakSpeech_Text_VickiNameReaction, FALSE},
+	{_("ABBY"), sOakSpeech_Text_AbbyNameReaction, FALSE},
+	{_("KYLE"), sOakSpeech_Text_KyleNameReaction, TRUE},
+	{_("KRIS"), sOakSpeech_Text_KrisNameReaction, TRUE},
+	{_("CARA"), sOakSpeech_Text_CaraNameReaction, FALSE},
+	{_("GISELLE"), sOakSpeech_Text_GiselleNameReaction, FALSE},
+	{_("ELLEN"), sOakSpeech_Text_EllenNameReaction, TRUE},
+	{_("GOLD"), sOakSpeech_Text_GoldNameReaction, TRUE},
+};
+
 enum
 {
     MALE_PLAYER_PIC,
@@ -1453,19 +1485,34 @@ static void Task_OakSpeech_DoNamingScreen(u8 taskId)
     }
 }
 
+#define tUnusableName data[10]
+
 static void Task_OakSpeech_ConfirmName(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
+    u32 i;
+    bool32 foundEasterEgg = FALSE;
+    
     if (!gPaletteFade.active)
     {
         if (tNameNotConfirmed == TRUE)
         {
+        	tUnusableName = FALSE;
             if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
             {
-             	if (StringCompare(gSaveBlock2Ptr->playerName, gNameChoice_Leaf) == 0)
-              		StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_TheTrueName);
-             	else
-               		StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_SoYourNameIsPlayer);
+            	for (i = 0; i < ARRAY_COUNT(sNameChoiceEasterEggs); i++)
+             	{
+              		if (StringCompare(gSaveBlock2Ptr->playerName, sNameChoiceEasterEggs[i].name) == 0)
+                	{
+                 		StringExpandPlaceholders(gStringVar4, sNameChoiceEasterEggs[i].reaction);
+                   		if (!sNameChoiceEasterEggs[i].usable)
+                   			tUnusableName = TRUE;
+                 		foundEasterEgg = TRUE;
+                   		break;
+                 	}
+              	}
+             	if (!foundEasterEgg)
+              		StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_SoYourNameIsPlayer);
             }
             else
                 StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_ConfirmRivalName);
@@ -1481,7 +1528,10 @@ static void Task_OakSpeech_ConfirmName(u8 taskId)
             }
             else
             {
-                CreateYesNoMenu(&sIntro_WindowTemplates[WIN_INTRO_YESNO], FONT_NORMAL, 0, 2, GetStdWindowBaseTileNum(), 14, 0);
+                if (tUnusableName)
+                	CreateNoNoMenu(&sIntro_WindowTemplates[WIN_INTRO_YESNO], FONT_NORMAL, 0, 2, GetStdWindowBaseTileNum(), 14, 0);
+                else
+                	CreateYesNoMenu(&sIntro_WindowTemplates[WIN_INTRO_YESNO], FONT_NORMAL, 0, 2, GetStdWindowBaseTileNum(), 14, 0);
                 gTasks[taskId].func = Task_OakSpeech_HandleConfirmNameInput;
             }
         }
@@ -1494,21 +1544,24 @@ static void Task_OakSpeech_HandleConfirmNameInput(u8 taskId)
     switch (input)
     {
     case 0: // YES
-        PlaySE(SE_SELECT);
-        gTasks[taskId].tTimer = 40;
-        if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
+    	if (!gTasks[taskId].tUnusableName) // Name can't be used, we go back to naming screen...
         {
-            ClearDialogWindowAndFrame(WIN_INTRO_TEXTBOX, TRUE);
-            CreateFadeInTask(taskId, 2);
-            gTasks[taskId].func = Task_OakSpeech_FadeOutPlayerPic;
+	       	PlaySE(SE_SELECT);
+	        gTasks[taskId].tTimer = 40;
+	        if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
+	        {
+	            ClearDialogWindowAndFrame(WIN_INTRO_TEXTBOX, TRUE);
+	            CreateFadeInTask(taskId, 2);
+	            gTasks[taskId].func = Task_OakSpeech_FadeOutPlayerPic;
+	        }
+	        else
+	        {
+	            StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_RememberRivalsName);
+	            OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
+	            gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
+	        }
+	        break;
         }
-        else
-        {
-            StringExpandPlaceholders(gStringVar4, gOakSpeech_Text_RememberRivalsName);
-            OakSpeechPrintMessage(gStringVar4, sOakSpeechResources->textSpeed);
-            gTasks[taskId].func = Task_OakSpeech_FadeOutRivalPic;
-        }
-        break;
     case 1: // NO
     case MENU_B_PRESSED:
         PlaySE(SE_SELECT);

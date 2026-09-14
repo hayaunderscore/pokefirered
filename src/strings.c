@@ -154,6 +154,7 @@ const u8 gText_IDNumber2[] = _("{ID}{NO}");
 const u8 gText_PokeSum_PP[] = _("{PP}");
 const u8 gText_SelectorArrow2[] = _("▶");
 const u8 gText_YesNo[] = _("YES\nNO");
+const u8 gText_NoNo[] = _("NO\nNO");
 const u8 gText_GoBackToThePreviousMenu[] = _("Go back to the\nprevious menu.");
 const u8 gText_WhatWouldYouLikeToDo[] = _("What would you like to do?");
 const u8 gText_MenuPokedex[] = _("POKéDEX");

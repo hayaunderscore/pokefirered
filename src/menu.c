@@ -550,6 +550,29 @@ void CreateYesNoMenu(const struct WindowTemplate *window, u8 fontId, u8 left, u8
     Menu_InitCursor(sYesNoWindowId, fontId, left, top, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_HEIGHT) + textSubPrinter.lineSpacing, 2, initialCursorPos);
 }
 
+void CreateNoNoMenu(const struct WindowTemplate *window, u8 fontId, u8 left, u8 top, u16 baseTileNum, u8 paletteNum, u8 initialCursorPos)
+{
+    struct TextPrinterTemplate textSubPrinter;
+
+    sYesNoWindowId = AddWindow(window);
+    DrawStdFrameWithCustomTileAndPalette(sYesNoWindowId, 1, baseTileNum, paletteNum);
+    textSubPrinter.currentChar = gText_NoNo;
+    textSubPrinter.windowId = sYesNoWindowId;
+    textSubPrinter.fontId = fontId;
+    textSubPrinter.x = GetMenuCursorDimensionByFont(fontId, 0) + left;
+    textSubPrinter.y = top;
+    textSubPrinter.currentX = textSubPrinter.x;
+    textSubPrinter.currentY = textSubPrinter.y;
+    textSubPrinter.fgColor = GetFontAttribute(fontId, FONTATTR_COLOR_FOREGROUND);
+    textSubPrinter.bgColor = GetFontAttribute(fontId, FONTATTR_COLOR_BACKGROUND);
+    textSubPrinter.shadowColor = GetFontAttribute(fontId, FONTATTR_COLOR_SHADOW);
+    textSubPrinter.unk = GetFontAttribute(fontId, FONTATTR_UNKNOWN);
+    textSubPrinter.letterSpacing = GetFontAttribute(fontId, FONTATTR_LETTER_SPACING);
+    textSubPrinter.lineSpacing = GetFontAttribute(fontId, FONTATTR_LINE_SPACING);
+    AddTextPrinter(&textSubPrinter, 0xFF, NULL);
+    Menu_InitCursor(sYesNoWindowId, fontId, left, top, GetFontAttribute(fontId, FONTATTR_MAX_LETTER_HEIGHT) + textSubPrinter.lineSpacing, 2, initialCursorPos);
+}
+
 // not used
 static void CreateYesNoMenu2(const struct WindowTemplate *window, u8 fontId, u16 baseTileNum, u8 initialCursorPos)
 {
