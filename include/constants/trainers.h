@@ -169,6 +169,7 @@
 #define TRAINER_PIC_QUEEN_ABBY            148
 #define TRAINER_PIC_GISELLE               149
 #define TRAINER_PIC_CARA                  150
+#define TRAINER_PIC_GHOST                 151
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0
@@ -293,6 +294,7 @@
 #define TRAINER_CLASS_ABYSS_QUEEN         107
 #define TRAINER_CLASS_RIVAL_GENERIC       108
 #define TRAINER_CLASS_CARA                109
+#define TRAINER_CLASS_GHOST               110
 
 #define FACILITY_CLASS_AQUA_LEADER_ARCHIE     0
 #define FACILITY_CLASS_AQUA_GRUNT_M           1
@@ -447,6 +449,7 @@
 #define FACILITY_CLASS_ABYSS_QUEEN            150
 #define FACILITY_CLASS_RIVAL_GENERIC          151
 #define FACILITY_CLASS_CARA                   152
+#define FACILITY_CLASS_GHOST                  153
 
 #define F_TRAINER_MALE 0
 #define F_TRAINER_FEMALE (1 << 7)

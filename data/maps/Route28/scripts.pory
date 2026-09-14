@@ -16,3 +16,10 @@ script Route28_EventScript_MtSilverSign {
 	release
 	end
 }
+
+script Route28_EventScript_EgosaSign {
+	lock
+	msgbox("EGOSA's HOUSE")
+	release
+	end
+}

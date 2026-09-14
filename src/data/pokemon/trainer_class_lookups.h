@@ -157,7 +157,8 @@ const u8 gFacilityClassToPicIndex[] =
     [FACILITY_CLASS_CHAMPION_RIVAL_2]       = TRAINER_PIC_CHAMPION_RIVAL,
     [FACILITY_CLASS_ABYSS_QUEEN]            = TRAINER_PIC_QUEEN_ABBY,
     [FACILITY_CLASS_RIVAL_GENERIC]          = TRAINER_PIC_RIVAL_LATE,
-    [FACILITY_CLASS_CARA]                   = TRAINER_CLASS_CARA,
+    [FACILITY_CLASS_CARA]                   = TRAINER_PIC_CARA,
+    [FACILITY_CLASS_GHOST]                  = TRAINER_PIC_GHOST,
 };
 
 const u8 gFacilityClassToTrainerClass[] =
@@ -315,4 +316,5 @@ const u8 gFacilityClassToTrainerClass[] =
     [FACILITY_CLASS_ABYSS_QUEEN]            = TRAINER_CLASS_ABYSS_QUEEN,
     [FACILITY_CLASS_RIVAL_GENERIC]          = TRAINER_CLASS_RIVAL_GENERIC,
     [FACILITY_CLASS_CARA]                   = TRAINER_CLASS_CARA,
+    [FACILITY_CLASS_GHOST]                  = TRAINER_CLASS_GHOST,
 };

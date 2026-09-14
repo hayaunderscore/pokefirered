@@ -365,10 +365,11 @@
 #define MUS_OLIVINE_LIGHTHOUSE      356
 #define MUS_INDIGO_PLATEAU_LEAGUE   357
 #define MUS_ROUTE26                 358
+#define MUS_VS_ZINNIA               359
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_ROUTE26
+#define END_MUS                     MUS_VS_ZINNIA
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -1,3 +1,4 @@
+#include "event_scripts.h"
 #include "global.h"
 #include "gflib.h"
 #include "battle.h"
@@ -70,6 +71,7 @@ static void UseFameCheckerFromBag(void);
 static void Task_UseFameCheckerFromField(u8 taskId);
 static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
+static void ItemUseOnFieldCB_SilphScope(u8 taskId);
 
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
@@ -914,6 +916,27 @@ void FieldUseFunc_OakStopsYou(u8 taskId)
     }
     else
         PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+}
+
+void FieldUseFunc_SilphScope(u8 taskId)
+{
+	// Special event specifically in this map
+	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE28_HOUSE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE28_HOUSE)) 
+	{
+		sItemUseOnFieldCB = ItemUseOnFieldCB_SilphScope;
+		SetUpItemUseOnFieldCallback(taskId);
+	} else {
+		// Otherwise...
+		PrintNotTheTimeToUseThat(taskId, gTasks[taskId].data[3]);
+	}
+}
+
+static void ItemUseOnFieldCB_SilphScope(u8 taskId) 
+{
+	ClearPlayerHeldMovementAndUnfreezeObjectEvents();
+    UnlockPlayerFieldControls();
+	ScriptContext_SetupScript(EventScript_SilphScopeEncounter);
+	DestroyTask(taskId);
 }
 
 void ItemUse_SetQuestLogEvent(u8 eventId, struct Pokemon *pokemon, u16 itemId, u16 param)

@@ -1194,6 +1194,7 @@ extern const u8 EventScript_PC[];
 
 extern const u8 EventScript_TriggerTrainerFly[];
 extern const u8 EventScript_Help[];
+extern const u8 EventScript_SilphScopeEncounter[];
 
 extern const u8 EventScript_RepelWoreOff[];
 

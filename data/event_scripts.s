@@ -1464,3 +1464,6 @@ Text_MonCryScript::
 
 	.include "data/maps/Route28_PokemonCenter_2F/scripts.inc"
 	.include "data/maps/Route28_PokemonCenter_2F/text.inc"
+
+	.include "data/maps/Route28_House/scripts.inc"
+	.include "data/maps/Route28_House/text.inc"

@@ -8316,7 +8316,7 @@ voicegroup196::
 	voice_noise_alt 60, 0, 0, 0, 1, 0, 0
 	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
-	voice_square_1_alt 60, 0, 0, 0, 0, 1, 4, 0
+	voice_square_1_alt 60, 0, 2, 0, 0, 1, 6, 0
 	voice_directsound 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
 	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127 @ Train SFX in Helicopter slot
 	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 0, 255, 127 @ Applause

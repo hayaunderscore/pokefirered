@@ -5871,6 +5871,8 @@ static u16 GetBattleBGM(void)
         	return MUS_VS_DEAD_REGI;
         case TRAINER_CLASS_INTERVIEWER:
          	return MUS_RS_VS_TRAINER;
+        // case TRAINER_CLASS_GHOST:
+        // 	return MUS_VS_ZINNIA;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:

@@ -1,0 +1,89 @@
+mapscripts Route28_House_MapScripts {}
+
+script Route28_House_EventScript_HauntedGirl {
+	lock
+	faceplayer
+	if (defeated(TRAINER_GHOST_RIA)) {
+		msgbox("Did you do it?
+				Is it gone?
+
+				\. \.
+				\. \.
+
+				WHAT?! What do you mean you took
+				their side?!
+
+				Aaaaah!
+				I'm sorry!")
+		release
+		end
+	}
+	msgbox("KYAA!!
+			There's a ghost in my house!
+
+			Please!
+			Help me get rid of it!")
+	release
+	end
+}
+
+script EventScript_SilphScopeEncounter {
+	msgbox("{PLAYER} used the SILPH SCOPE!
+
+			\. \.
+			\. \.")
+	if (defeated(TRAINER_GHOST_RIA)) {
+		msgbox("Nothing happened!")
+		closemessage
+		end
+	}
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Begone\.
+			Idiots\.")
+	trainerbattle_no_intro(TRAINER_GHOST_RIA, "Oooooh nooooo\.")
+	goto(Route28_House_EventScript_PostEncounter)
+	end
+}
+
+script Route28_House_EventScript_PostEncounter {
+	lock
+	msgbox("Oh noooo\.
+			Are you gonna exorcise me now?
+
+			Atleast think about the reason why
+			I'm haunting her\.
+
+			She was horrible\.
+			She's why I'm dead\.
+
+			Well, she didn't murder me\.
+			\.but she drove me to\.
+
+			I'm haunting her for shits and
+			giggles\. Heehee.")
+	release
+	end
+}
+
+script Route28_House_EventScript_ChatLog {
+	lock
+	msgbox("Peeking through this person's
+			computer\.
+
+			Aha! A chat log!
+			Let's see what it says\.
+
+			{COLOR BLUE}SelphyAtRG{COLOR DARK_GRAY}: yo you good
+			{COLOR RED}AskMeAnything{COLOR DARK_GRAY}: absolutely NOT
+			{COLOR RED}AskMeAnything{COLOR DARK_GRAY}: i am being HAUNTED
+			{COLOR BLUE}SelphyAtRG{COLOR DARK_GRAY}: girl HAUNTERs can't just
+			kill you
+			{COLOR RED}AskMeAnything{COLOR DARK_GRAY}: nonono this is
+			{COLOR RED}AskMeAnything{COLOR DARK_GRAY}: a GHOST PERSON
+			{COLOR BLUE}SelphyAtRG{COLOR DARK_GRAY}: oh
+			{COLOR BLUE}SelphyAtRG{COLOR DARK_GRAY}: well i cant help
+			{COLOR BLUE}SelphyAtRG{COLOR DARK_GRAY}: sorry
+			{COLOR RED}AskMeAnything{COLOR DARK_GRAY}: Aaaadhnfjksg")
+	release
+	end
+}

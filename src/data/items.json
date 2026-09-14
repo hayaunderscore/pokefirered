@@ -5813,8 +5813,8 @@
       "importance": 1,
       "registrability": 0,
       "pocket": "POCKET_KEY_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_FIELD",
+      "fieldUseFunc": "FieldUseFunc_SilphScope",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

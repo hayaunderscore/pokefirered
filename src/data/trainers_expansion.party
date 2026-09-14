@@ -397,3 +397,32 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Brick Break
 - Ancient Power
 - Flamethrower
+
+=== TRAINER_GHOST_RIA ===
+Name: RIA
+Class: Ghost
+Pic: Ghost
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Gengar
+Ability: Levitate
+Level: 50
+EVs: 140 Atk
+Adamant Nature
+- Destiny Bond
+- Body Slam
+- Perish Song
+- Psychic
+
+Claydol
+Ability: Levitate
+Level: 50
+EVs: 136 SpA
+Modest Nature
+- Ancient Power
+- Ice Beam
+- Psychic
+- Protect
