@@ -2212,6 +2212,11 @@ static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u
 {
     u16 dexNum = SpeciesToNationalPokedexNum(species);
     DexScreen_AddTextPrinterParameterized(windowId, fontId, gText_PokedexNo, x, y, 0);
+    if (dexNum >= NATIONAL_DEX_RAINER)
+    {
+    	DexScreen_AddTextPrinterParameterized(windowId, fontId, gText_ThreeQuestionMarks, x + 9, y, 0);
+     	return;
+    }
     DexScreen_PrintNum3LeadingZeroes(windowId, fontId, dexNum, x + 9, y, 0);
 }
 
