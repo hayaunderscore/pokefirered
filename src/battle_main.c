@@ -1712,9 +1712,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
                 
                 if (partyData[i].nickname != NULL)
-                	SetMonData(&party[i], MON_DATA_NICKNAME, &partyData[i].nickname);
+                	SetMonData(&party[i], MON_DATA_NICKNAME, partyData[i].nickname);
 
                 SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
+                CalculateMonStats(&party[i]);
             	break;
             }
             }
