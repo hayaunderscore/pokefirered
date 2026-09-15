@@ -159,8 +159,8 @@ s32 StringCaseCompare(const u8 *str1, const u8 *str2)
     	c1 = *str1;
      	c2 = *str2;
       
-      	if (c1 >= 'A' && c1 <= 'Z') c1 += 32;
-       	if (c2 >= 'A' && c2 <= 'Z') c2 += 32;
+      	if (c1 >= CHAR_A && c1 <= CHAR_Z) c1 += (CHAR_a - CHAR_A);
+       	if (c2 >= CHAR_A && c2 <= CHAR_Z) c2 += (CHAR_a - CHAR_A);
         
         if (c1 != c2)
         	return c1 - c2;
