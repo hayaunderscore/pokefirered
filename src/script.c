@@ -629,11 +629,19 @@ void GetMapNum(void)
 	gSpecialVar_0x8004 = MAP_GROUP(gSaveBlock1Ptr->location.mapGroup);
 }
 
-void GetGabbyAndTyLocalIds(void) {
+void GetGabbyAndTyLocalIds(void)
+{
 	// TODO
 	if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE16) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE16))
 	{
 		gSpecialVar_0x8004 = LOCALID_ROUTE16_GABBY;
 		gSpecialVar_0x8005 = LOCALID_ROUTE16_TY;
 	}
+}
+
+void ObjectEventSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup, u8 graphicsId);
+
+void Script_SetObjectEventGraphicId(void)
+{
+	ObjectEventSetGraphicsIdByLocalIdAndMap(gSpecialVar_0x8004, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8005);
 }

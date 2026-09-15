@@ -1380,7 +1380,7 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 1,
     },
-    [SPECIES_OLD_UNOWN_Z] =
+    [SPECIES_UNOWN_KING] =
     {
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 1,

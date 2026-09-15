@@ -813,6 +813,14 @@ static const u16 sDexCategory_RarePkmn_Page8[] = {
     SPECIES_MEW,
 };
 
+static const u16 sDexCategory_RarePkmn_Page9[] = {
+    SPECIES_RAINER,
+};
+
+static const u16 sDexCategory_RarePkmn_Page10[] = {
+    SPECIES_UNOWN_KING,
+};
+
 #define DEX_CATEGORY(name){sDexCategory_##name, NELEMS(sDexCategory_##name)}
 
 static const struct PokedexCategoryPage sDexCategory_GrasslandPkmn[] = {
@@ -983,6 +991,8 @@ static const struct PokedexCategoryPage sDexCategory_RarePkmn[] = {
     DEX_CATEGORY(RarePkmn_Page6),
     DEX_CATEGORY(RarePkmn_Page7),
     DEX_CATEGORY(RarePkmn_Page8),
+    DEX_CATEGORY(RarePkmn_Page9),
+    DEX_CATEGORY(RarePkmn_Page10),
 };
 
 struct {

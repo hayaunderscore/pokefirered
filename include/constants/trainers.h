@@ -170,6 +170,7 @@
 #define TRAINER_PIC_GISELLE               149
 #define TRAINER_PIC_CARA                  150
 #define TRAINER_PIC_GHOST                 151
+#define TRAINER_PIC_BRET                  152
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0

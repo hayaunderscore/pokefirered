@@ -152,6 +152,7 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1},
     {.size = 8, .y_offset = 1},
     {.size = 8, .y_offset = 1},
+    {.size = 8, .y_offset = 1},
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -308,6 +309,7 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(GISELLE, gTrainerFrontPic_Giselle, 0x800),
     TRAINER_SPRITE(CARA, gTrainerFrontPic_Cara, 0x800),
     TRAINER_SPRITE(GHOST, gTrainerFrontPic_Ghost, 0x800),
+    TRAINER_SPRITE(BRET, gTrainerFrontPic_Bret, 0x800),
 };
 
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
@@ -464,4 +466,5 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(GISELLE, gTrainerPalette_Giselle),
     TRAINER_PAL(CARA, gTrainerPalette_Cara),
     TRAINER_PAL(GHOST, gTrainerPalette_Ghost),
+    TRAINER_PAL(BRET, gTrainerPalette_Bret),
 };

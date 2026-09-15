@@ -6107,7 +6107,7 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_Y] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_Z] = TMHM_LEARNSET(0),
+    [SPECIES_UNOWN_KING] = TMHM_LEARNSET(0),
 
     [SPECIES_TREECKO]     = TMHM_LEARNSET(TMHM(TM01_FOCUS_PUNCH)
                                         | TMHM(TM06_TOXIC)

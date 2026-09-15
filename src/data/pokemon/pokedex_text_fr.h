@@ -2723,3 +2723,8 @@ const u8 gRainerPokedexText[] = _(
 	"This POKéMON is simultaneously mortal\n"
 	"and divine, yet none at once. In a\n"
 	"normal world, it should not exist.");
+
+const u8 gUnownKingPokedexText[] = _(
+	"This POKéMON sleeps for thousands of\n"
+	"years to regain power. Legends say\n"
+	"that it once ruled everything.");

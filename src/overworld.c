@@ -1002,6 +1002,8 @@ void Overworld_SetWarpDestinationFromWarp(struct WarpData * warp)
 
 static u16 GetLocationMusic(struct WarpData * warp)
 {
+	if (warp->mapGroup == MAP_GROUP(MAP_MT_SILVER_PEAK) && warp->mapNum == MAP_NUM(MAP_MT_SILVER_PEAK) && VarGet(VAR_MAP_SCENE_MT_SILVER) == 1)
+		return MUS_INDIGO_PLATEAU_LEAGUE;
     return Overworld_GetMapHeaderByGroupAndId(warp->mapGroup, warp->mapNum)->music;
 }
 

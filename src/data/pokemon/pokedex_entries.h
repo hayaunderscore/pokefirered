@@ -5043,4 +5043,17 @@ const struct PokedexEntry gPokedexEntries[] =
 	    .trainerScale = 329,
 	    .trainerOffset = 3,
     },
+    
+    [NATIONAL_DEX_UNOWN_KING] =
+    {
+	    .categoryName = _("????"),
+	    .height = 110,
+	    .weight = 6660,
+	    .description = gUnownKingPokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 256,
+	    .pokemonOffset = 1,
+	    .trainerScale = 329,
+	    .trainerOffset = 3,
+    },
 };

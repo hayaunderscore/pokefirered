@@ -426,3 +426,42 @@ Modest Nature
 - Ice Beam
 - Psychic
 - Protect
+
+=== TRAINER_AN_ATTACK_THA_BRET ===
+Name: BRET
+Class: Cara
+Pic: Bret
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Aerodactyl
+Ability: Rock Head
+EVs: 252 Atk / 4 SpA / 252 Spe
+Level: 50
+Hasty Nature
+- Flamethrower
+- Sky Attack
+- Steel Wing
+- Sunny Day
+
+Skarmory
+Ability: Keen Eye
+EVs: 252 Atk / 4 SpD / 252 Spe
+Level: 50
+Adamant Nature
+- Steel Wing
+- Substitute
+- Drill Peck
+- Agility
+
+Unown_King
+Ability: Sturdy
+EVs: 252 Atk / 4 SpA / 252 Spe
+Level: 50
+Hasty Nature
+- Ancient Power
+- Ice Beam
+- Hypnosis
+- Psychic

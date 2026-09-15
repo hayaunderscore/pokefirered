@@ -1,1 +1,194 @@
-mapscripts MtSilver_Peak_MapScripts {}
+const MAPSCRIPT_CUTSCENE = 0
+const MAPSCRIPT_CAN_DO_BATTLE = 1
+const MAPSCRIPT_BATTLE_OVER = 2
+
+mapscripts MtSilver_Peak_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: MtSilver_Peak_OnTransition
+}
+
+script MtSilver_Peak_OnTransition {
+	if (flag(FLAG_TANOBY_PUZZLE_HO_OH) && var(VAR_MAP_SCENE_MT_SILVER) < value(MAPSCRIPT_BATTLE_OVER))
+	{
+		if (var(VAR_MAP_SCENE_MT_SILVER) == value(MAPSCRIPT_CAN_DO_BATTLE)) {
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRET)
+			setobjectxyperm(LOCALID_MT_SILVER_PEAK_MOLLY, 12, 9)
+			setobjectmovementtype(LOCALID_MT_SILVER_PEAK_MOLLY, MOVEMENT_TYPE_FACE_LEFT)
+		} else {
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_LITTLE_GIRL)
+		}
+	}
+	else
+	{
+		setflag(FLAG_HIDE_MOLLY_IN_MT_SILVER_PEAK)
+		setflag(FLAG_HIDE_BRET_IN_MT_SILVER_PEAK)
+	}
+}
+
+script MtSilver_Peak_EventScript_FunnyLittleCutscene {
+	fadenewbgm(MUS_DUMMY)
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("MOLLY: Young lady, you are not
+			supposed to be here!
+
+			Didn't anyone in your family tell
+			you to not step foot in here?")
+	msgbox("Shut up hag!
+
+			You don't know anything about
+			what I've been through!
+
+			All my life, I have been ignored
+			by the people around me\.
+
+			And with your efforts\.
+
+			I can finally make my wish come
+			true at last!")
+	msgbox("MOLLY: !!
+			You've been tailing us?!
+
+			This power described in the texts\.
+			I've seen it before!")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	msgbox("MOLLY: {PLAYER}!
+			You're here!")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_MT_SILVER_PEAK_BRET, moves(
+		face_down
+		emote_question_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	msgbox("And who is this now?")
+	closemessage
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves(
+		face_left
+		lock_facing_direction
+		walk_right
+		unlock_facing_direction
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_up * 2
+	))
+	waitmovement(0)
+	msgbox("Another kid like me\.
+			What was your name?
+
+			\. \.
+			\. \.
+
+			{PLAYER}\.{PAUSE 30}
+			Hmm\.
+
+			You're that kid that brat CARA
+			talked about\.
+
+			Haha!
+
+			You were exactly like how she
+			described!
+
+			Someone like you is only fodder
+			for the king\.")
+	applymovement(LOCALID_MT_SILVER_PEAK_BRET, moves(
+		walk_in_place_fast_up
+	))
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves(
+		walk_in_place_fast_up
+	))
+	waitmovement(0)
+	msgbox("UNOWN!
+			Lend me your power!")
+	// This is said by someone who will get
+	// bodied by the UNOWN KING in a few minutes.
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	playse(SE_M_WATERFALL)
+	waitse
+	delay(30)
+	applymovement(LOCALID_MT_SILVER_PEAK_BRET, moves(
+		face_left
+		delay_8 * 4
+		face_up
+		delay_8 * 3
+		face_right
+		delay_16
+		face_down
+		delay_8
+	))
+	playse(SE_M_PETAL_DANCE)
+	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRET) // Oh hi Clair
+	// I should make this a macro...
+	setvar(VAR_0x8004, LOCALID_MT_SILVER_PEAK_BRET)
+	setvar(VAR_0x8005, OBJ_EVENT_GFX_BRET)
+	callnative(Script_SetObjectEventGraphicId)
+	fadescreenspeed(FADE_FROM_WHITE, 2)
+	waitse
+	waitmovement(0)
+	playbgm(MUS_INDIGO_PLATEAU_LEAGUE, FALSE)
+	setvar(VAR_MAP_SCENE_MT_SILVER, 1)
+	msgbox("You\.
+
+			You want to challenge me\.{PAUSE 30}
+			Right?")
+	closemessage
+	delay(16)
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves(
+		walk_in_place_fast_left
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	waitmovement(0)
+	setobjectxyperm(LOCALID_MT_SILVER_PEAK_MOLLY, 12, 9)
+	setobjectmovementtype(LOCALID_MT_SILVER_PEAK_MOLLY, MOVEMENT_TYPE_FACE_LEFT)
+	release
+	goto(MtSilver_Peak_EventScript_Molly)
+	end
+}
+
+script MtSilver_Peak_EventScript_Molly {
+	lock
+	msgbox("MOLLY: {PLAYER}\.
+			Make sure you're ready for this\.
+
+			Honestly,{PAUSE 30} with how unreliable she
+			acts and looks\.
+
+			There's a good chance she's the
+			one getting out of this with\.
+
+			\.less than ideal circumstances.")
+	release
+	end
+}
+
+script MtSilver_Peak_EventScript_Bret {
+	lock
+	msgbox("Are you ready?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox("Oooookay then\.")
+		release
+		end
+	}
+	msgbox("I'm not holding back!")
+	trainerbattle_no_intro(TRAINER_AN_ATTACK_THA_BRET, "No!
+	
+	I had so much!
+	
+	Why is everything being taken
+	away from me again?!")
+	release
+	end
+}

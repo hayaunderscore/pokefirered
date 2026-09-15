@@ -377,7 +377,7 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(OLD_UNOWN_W),
     SPECIES_TO_HOENN(OLD_UNOWN_X),
     SPECIES_TO_HOENN(OLD_UNOWN_Y),
-    SPECIES_TO_HOENN(OLD_UNOWN_Z),
+    SPECIES_TO_HOENN(UNOWN_KING),
     SPECIES_TO_HOENN(TREECKO),
     SPECIES_TO_HOENN(GROVYLE),
     SPECIES_TO_HOENN(SCEPTILE),
@@ -793,7 +793,7 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(OLD_UNOWN_W),
     SPECIES_TO_NATIONAL(OLD_UNOWN_X),
     SPECIES_TO_NATIONAL(OLD_UNOWN_Y),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_Z),
+    SPECIES_TO_NATIONAL(UNOWN_KING),
     SPECIES_TO_NATIONAL(TREECKO),
     SPECIES_TO_NATIONAL(GROVYLE),
     SPECIES_TO_NATIONAL(SCEPTILE),
@@ -1344,7 +1344,7 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(OLD_UNOWN_W),
     HOENN_TO_NATIONAL(OLD_UNOWN_X),
     HOENN_TO_NATIONAL(OLD_UNOWN_Y),
-    HOENN_TO_NATIONAL(OLD_UNOWN_Z),
+    HOENN_TO_NATIONAL(UNOWN_KING),
 };
 
 static const struct SpindaSpot sSpindaSpotGraphics[] =
@@ -5238,11 +5238,14 @@ u16 SpeciesToCryId(u16 species)
     
     if (species == SPECIES_RAINER - 1) // Rainer's cry is at the end of the list...
     	return sHoennSpeciesIdToCryId[SPECIES_CHIMECHO - 277] + 1;
+    
+    if (species == SPECIES_UNOWN_KING - 1)
+    	return sHoennSpeciesIdToCryId[SPECIES_CHIMECHO - 277] + 2;
 
-    if (species <= SPECIES_OLD_UNOWN_Z - 1)
+    if (species <= SPECIES_UNOWN_KING - 2)
         return SPECIES_UNOWN - 1;
 
-    return sHoennSpeciesIdToCryId[species - ((SPECIES_OLD_UNOWN_Z + 1) - 1)];
+    return sHoennSpeciesIdToCryId[species - ((SPECIES_UNOWN_KING + 1) - 1)];
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3
@@ -5868,11 +5871,11 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_ELITE_FOUR:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CARA:
+        	if (gTrainerBattleOpponent_A == TRAINER_AN_ATTACK_THA_BRET)
+         		return MUS_VS_ZINNIA;
         	return MUS_VS_DEAD_REGI;
         case TRAINER_CLASS_INTERVIEWER:
          	return MUS_RS_VS_TRAINER;
-        // case TRAINER_CLASS_GHOST:
-        // 	return MUS_VS_ZINNIA;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:
