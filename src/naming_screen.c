@@ -9,6 +9,7 @@
 #include "field_player_avatar.h"
 #include "field_specials.h"
 #include "graphics.h"
+#include "main.h"
 #include "menu.h"
 #include "overworld.h"
 #include "naming_screen.h"
@@ -1838,6 +1839,18 @@ static bool8 AddTextCharacter(void)
     DrawTextEntry();
     CopyBgTilemapBufferToVram(3);
     PlaySE(SE_SELECT);
+    
+    // Force reset if naming YOURSELF ABYSS
+    if (sNamingScreen->templateNum == NAMING_SCREEN_PLAYER) 
+    {
+    	if (sNamingScreen->textBuffer[0] == CHAR_A &&
+     		sNamingScreen->textBuffer[1] == CHAR_B &&
+       		sNamingScreen->textBuffer[2] == CHAR_Y &&
+         	sNamingScreen->textBuffer[3] == CHAR_S &&
+          	sNamingScreen->textBuffer[4] == CHAR_S
+     	)
+   			DoSoftReset();
+    }
 
     if (GetPreviousTextCaretPosition() != sNamingScreen->template->maxChars - 1)
         return FALSE;
