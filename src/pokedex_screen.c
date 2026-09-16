@@ -1374,6 +1374,7 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
     u16 ret = NATIONAL_DEX_NONE;
     s32 i;
     s32 seen_or_kanto_count = 0;
+    s32 numerical_kanto_count = IsNationalPokedexEnabled() ? KANTO_DEX_COUNT : NATIONAL_DEX_COUNT;
     bool8 caught;
     bool8 seen;
 
@@ -1381,7 +1382,7 @@ static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
     {
     default:
     case DEX_ORDER_NUMERICAL_KANTO:
-        for (i = 0; i < NATIONAL_DEX_COUNT; i++)
+        for (i = 0; i < numerical_kanto_count; i++)
         {
             ndex_num = i + 1;
             seen = DexScreen_GetSetPokedexFlag(ndex_num, FLAG_GET_SEEN, FALSE);
