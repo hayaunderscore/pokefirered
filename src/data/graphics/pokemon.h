@@ -2721,6 +2721,13 @@ const u32 gMonShinyPalette_Chimecho[] = INCGFX_U32("graphics/pokemon/chimecho/sh
 const u8 gMonIcon_Chimecho[] = INCGFX_U8("graphics/pokemon/chimecho/icon.png", ".4bpp");
 const u8 gMonFootprint_Chimecho[] = INCGFX_U8("graphics/pokemon/chimecho/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_UnownKing[] = INCGFX_U32("graphics/pokemon/unown_king/front.png", ".4bpp.lz");
+const u32 gMonPalette_UnownKing[] = INCGFX_U32("graphics/pokemon/unown_king/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_UnownKing[] = INCGFX_U32("graphics/pokemon/unown_king/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_UnownKing[] = INCGFX_U32("graphics/pokemon/unown_king/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_UnownKing[] = INCGFX_U8("graphics/pokemon/unown_king/icon.png", ".4bpp");
+const u8 gMonFootprint_UnownKing[] = INCGFX_U8("graphics/pokemon/unown_king/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Rainer[] = INCGFX_U32("graphics/pokemon/rainer/front.png", ".4bpp.lz");
 const u32 gMonPalette_Rainer[] = INCGFX_U32("graphics/pokemon/rainer/normal.pal", ".gbapal.lz");
 const u32 gMonBackPic_Rainer[] = INCGFX_U32("graphics/pokemon/rainer/back.png", ".4bpp.lz");

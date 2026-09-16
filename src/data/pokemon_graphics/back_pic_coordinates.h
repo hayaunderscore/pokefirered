@@ -1383,7 +1383,7 @@ const struct MonCoords gMonBackPicCoords[] =
     [SPECIES_UNOWN_KING] =
     {
         .size = MON_COORDS_SIZE(64, 64),
-        .y_offset = 1,
+        .y_offset = 3,
     },
     [SPECIES_TREECKO] =
     {
