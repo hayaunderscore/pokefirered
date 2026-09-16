@@ -473,6 +473,9 @@ u8 BattleSetup_GetTerrainId(void)
         return BATTLE_TERRAIN_LONG_GRASS;
     if (MetatileBehavior_IsSandOrShallowFlowingWater(tileBehavior))
         return BATTLE_TERRAIN_SAND;
+    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+	    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CARA)
+	    	return BATTLE_TERRAIN_CAVE;
     switch (gMapHeader.mapType)
     {
     case MAP_TYPE_TOWN:
