@@ -38,6 +38,7 @@
 #include "constants/songs.h"
 #include "constants/field_weather.h"
 #include "sloopsvc.h"
+#include "decompress.h"
 
 enum StartMenuOption
 {
@@ -180,6 +181,83 @@ static const struct WindowTemplate sSaveStatsWindowTemplate = {
 static ALIGNED(2) const u8 sTextColor_StatName[] = { 1, 2, 3 };
 static ALIGNED(2) const u8 sTextColor_StatValue[] = { 1, 4, 5 };
 static ALIGNED(2) const u8 sTextColor_LocationHeader[] = { 1, 6, 7 };
+
+#define TAG_THROBBER 0x1000
+
+static const u16 sThrobber_Pal[] = INCGFX_U16("graphics/text_window/throbber.pal", ".gbapal");
+static const u32 sThrobber_Gfx[] = INCGFX_U32("graphics/text_window/throbber.png", ".4bpp.lz");
+static u8 spriteId;
+
+static const struct OamData sOam_Throbber =
+{
+    .y = DISPLAY_HEIGHT,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = FALSE,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(32x64),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(32x64),
+    .tileNum = 0,
+    .priority = 0,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const union AnimCmd sAnim_Throbber[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(32, 4),
+    ANIMCMD_FRAME(64, 4),
+    ANIMCMD_FRAME(96, 4),
+    ANIMCMD_FRAME(128, 4),
+    ANIMCMD_FRAME(160, 4),
+    ANIMCMD_FRAME(192, 4),
+    ANIMCMD_FRAME(224, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd * const sAnims_Throbber[] = { sAnim_Throbber, };
+
+static const struct CompressedSpriteSheet sSpriteSheet_Throbber[] =
+{
+    {
+        .data = sThrobber_Gfx,
+        .size = 0x3200,
+        .tag = TAG_THROBBER
+    },
+    {}
+};
+
+static const struct SpritePalette sSpritePalettes_Throbber[] =
+{
+    {
+        .data = sThrobber_Pal,
+        .tag = TAG_THROBBER
+    },
+    {},
+};
+
+static const struct SpriteTemplate sSpriteTemplate_Throbber =
+{
+    .tileTag = TAG_THROBBER,
+    .paletteTag = TAG_THROBBER,
+    .oam = &sOam_Throbber,
+    .anims = sAnims_Throbber,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+
+void ShowThrobber(void)
+{
+    LoadCompressedSpriteSheet(&sSpriteSheet_Throbber[0]);
+    LoadSpritePalettes(sSpritePalettes_Throbber);
+
+    // 217 and 123 are the x and y coordinates (in pixels)
+    spriteId = CreateSprite(&sSpriteTemplate_Throbber, 219, 125, 2);
+};
 
 // Unused
 static void SetHasPokedexAndPokemon(void)
@@ -810,6 +888,7 @@ static u8 SaveDialogCB_AskOverwriteOrReplacePreviousFileHandleInput(void)
 static u8 SaveDialogCB_PrintSavingDontTurnOffPower(void)
 {
     SaveQuestLogData();
+    ShowThrobber();
     PrintSaveTextWithFollowupFunc(gText_SavingDontTurnOffThePower, SaveDialogCB_DoSave);
     return SAVECB_RETURN_CONTINUE;
 }
@@ -832,6 +911,7 @@ static u8 SaveDialogCB_DoSave(void)
 
 static u8 SaveDialogCB_PrintSaveResult(void)
 {
+	DestroySprite(&gSprites[spriteId]);
     if (gSaveAttemptStatus == SAVE_STATUS_OK)
         PrintSaveTextWithFollowupFunc(gText_PlayerSavedTheGame, SaveDialogCB_WaitPrintSuccessAndPlaySE);
     else
