@@ -200,7 +200,8 @@ static u16 GetCurrentMapWildMonHeaderId(void)
             if (!UnlockedTanobyOrAreNotInTanoby())
                 break;
             if (UnlockedTanobyOrAreNotInTanoby()
-            	&& (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER)
+            	&& (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER) &&
+             		gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER)
              		&& FlagGet(FLAG_DID_SUNKEN_ANNE)
               		&& (!(FlagGet(FLAG_TANOBY_PUZZLE_KABUTO)))))
             	break;
