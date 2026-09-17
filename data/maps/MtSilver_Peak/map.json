@@ -66,5 +66,14 @@
       "script": "MtSilver_Peak_EventScript_FunnyLittleCutscene"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 11,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "MtSilver_Peak_EventScript_UnownKingWait"
+    }
+  ]
 }

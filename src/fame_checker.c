@@ -388,7 +388,7 @@ static const u8 sFameCheckerArrayNpcGraphicsIds[] = {
     OBJ_EVENT_GFX_OLD_MAN_1,
     OBJ_EVENT_GFX_BLACK_BELT,
     OBJ_EVENT_GFX_BILL,
-    OBJ_EVENT_GFX_WOMAN_1,
+    OBJ_EVENT_GFX_WORKER_F,
     OBJ_EVENT_GFX_WOMAN_2,
 };
 

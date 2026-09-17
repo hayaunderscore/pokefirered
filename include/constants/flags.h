@@ -1251,7 +1251,7 @@
 #define FLAG_ESSENCE_OLD_MAN          0x4BD
 #define FLAG_ESSENCE_IKE              0x4BE
 #define FLAG_ESSENCE_BILL             0x4BF
-#define FLAG_0x4C0               0x4C0
+#define FLAG_ESSENCE_UNOWN            0x4C0
 #define FLAG_0x4C1               0x4C1
 #define FLAG_0x4C2               0x4C2
 #define FLAG_0x4C3               0x4C3

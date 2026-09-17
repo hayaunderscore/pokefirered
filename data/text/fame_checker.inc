@@ -644,10 +644,15 @@ gFameCheckerFlavorText_Abby3::
 	.string "whatever that was.$"
 
 gFameCheckerFlavorText_Abby4::
-	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
-	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}I SUGGEST YOU STOP BY AT VIRIDIAN\n"
-	.string "CITY.\p"
-	.string "YOU KNOW WHO I'M TALKING ABOUT.$"
+	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIFTH\p"
+	.string "{FONT_FEMALE}{COLOR DARK_GRAY}{SHADOW LIGHT_GRAY}That voice from earlier…\n"
+	.string "I heard it.\p"
+	.string "And it feels… familiar.\n"
+	.string "I've heard about it before.\p"
+	.string "In…{PAUSE 30}\n"
+	.string "DR. FUJI's research notes.\p"
+	.string "If it has the power to quell this\n"
+	.string "THING you fought, then…$"
 
 gFameCheckerFlavorText_Abby5::
 	.string "{COLOR BLUE}{SHADOW LIGHT_BLUE}THE FIRST\p"
@@ -1152,7 +1157,7 @@ gFameCheckerFlavorTextOriginLocation_Abby3::
 	.string "ROUTE 25$"
 
 gFameCheckerFlavorTextOriginLocation_Abby4::
-	.string "TANOBY CHAMBERS$"
+	.string "MT. SILVER$"
 
 gFameCheckerFlavorTextOriginLocation_Abby5::
 	.string "CINNABAR LAB$"

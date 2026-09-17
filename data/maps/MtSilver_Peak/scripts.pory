@@ -184,11 +184,191 @@ script MtSilver_Peak_EventScript_Bret {
 	}
 	msgbox("I'm not holding back!")
 	trainerbattle_no_intro(TRAINER_AN_ATTACK_THA_BRET, "No!
-	
+
 	I had so much!
-	
+
 	Why is everything being taken
 	away from me again?!")
+	playbgm(MUS_DUMMY, FALSE)
+	msgbox("BRET: No\.
+			No!
+
+			It can't be!
+
+			Even with all of this\.
+			\.I still can't beat a kid\.
+
+			A KID LIKE YOU\.?")
+	closemessage
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_WATERFALL)
+	setvar(VAR_0x8004, LOCALID_MT_SILVER_PEAK_BRET)
+	setvar(VAR_0x8005, OBJ_EVENT_GFX_LITTLE_GIRL)
+	callnative(Script_SetObjectEventGraphicId)
+	waitse
+	fadescreen(FADE_FROM_WHITE)
+	playse(SE_PIN)
+	applymovement(LOCALID_MT_SILVER_PEAK_BRET, moves(
+		face_up
+		emote_exclamation_mark
+		delay_16
+		face_right
+		delay_16
+		face_left
+		delay_16 * 2
+		face_down
+	))
+	waitmovement(0)
+	setweather(WEATHER_SHADE)
+	doweather
+	fadescreen(FADE_TO_BLACK)
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("WAIT!
+			Come back to me!
+
+			Please!
+			Please let me have another chance!
+
+			I'll do anything!
+			Everything!
+
+			Even my own existence!
+			I'll do anything!")
+	closemessage
+	fadescreen(FADE_TO_BLACK)
+	fadescreen(FADE_FROM_BLACK)
+	delay(30)
+	setvar(VAR_0x8004, 3)  // Vertical pan
+	setvar(VAR_0x8005, 0)  // Horizontal pan
+	setvar(VAR_0x8006, 8)  // Num shakes
+	setvar(VAR_0x8007, 2)  // Shake delay
+	special(ShakeScreen)
+	playmoncry(SPECIES_UNOWN_KING, CRY_MODE_NORMAL)
+	waitmoncry
+	delay(30)
+	bufferspeciesname(STR_VAR_1, SPECIES_UNOWN_KING)
+	buffermovename(STR_VAR_2, MOVE_RAPTURE)
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("{STR_VAR_1} used {STR_VAR_2}!
+
+			While this is happening, your
+			FAME CHECKER is reacting to it!")
+	fadescreen(FADE_TO_WHITE)
+	playse(SE_M_EARTHQUAKE)
+	waitse
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	delay(60)
+	msgbox("NAY.
+
+			Do you think you have power?
+
+			A foolish attempt at showing it.
+			Are you not humble?
+
+			Trying to disrupt the activities
+			of the HAND is ridiculous.
+
+			But\.
+			You've made a worthy sacrifice.
+
+			Your essence will be enough for now.
+			Your existence will be dealt after.
+
+			Leave at once\.")
+	setflag(FLAG_ESSENCE_UNOWN)
+	famechecker(FAMECHECKER_ABBY, 4)
+	closemessage
+	setobjectxy(LOCALID_MT_SILVER_PEAK_MOLLY, 10, 9)
+	setobjectxy(LOCALID_MT_SILVER_PEAK_BRET, 10, 10)
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves( face_right ))
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+		walk_down
+	))
+	applymovement(LOCALID_MT_SILVER_PEAK_BRET, moves( face_up ))
+	delay(60)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("{PLAYER}.
+
+			{PLAYER}.
+
+			MOLLY: {PLAYER}!")
+	closemessage
+	fadescreen(FADE_FROM_WHITE)
+	delay(100)
+	applymovement(LOCALID_PLAYER, moves(
+		face_left
+	))
+	msgbox("MOLLY: Oh ARCEUS\.
+			You're finally awake!
+
+			I was hoping you were still alive\.
+
+			BRET\. That was her name\.
+			\.is still unconcious.")
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves( walk_in_place_fast_down ))
+	msgbox("\.
+
+			I'm not sure how to feel\.
+			What even am I supposed to do?
+
+			This girl\. has been suffering for
+			ARCEUS knows how long.
+
+			I can only feel pity.
+
+			But still\.")
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves( walk_in_place_fast_right ))
+	msgbox("That voice from earlier\.
+			I heard it.
+
+			And it feels\. familiar.
+			I've heard about it before.
+
+			In\.{PAUSE 30}
+			DR. FUJI's research notes.
+
+			If it has the power to quell this
+			THING you fought, then\.
+
+			\.
+
+			I've learned a lot today.
+
+			I think\.
+			I'll leave.")
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves( walk_in_place_fast_down ))
+	msgbox("I need to get this child to a
+			safer place.
+
+			If her parents cannot be found,
+			well\.
+
+			Look's like I have no other choice
+			but to adopt her, or something.")
+	applymovement(LOCALID_MT_SILVER_PEAK_MOLLY, moves( walk_in_place_fast_right ))
+	msgbox("Gee\. I've already seen this whole
+			debacle with UNOWN once.
+
+			I was hoping to never see something
+			like that again\.
+
+			See you on the flipside!")
+	closemessage
+	playse(SE_EXIT)
+	setvar(VAR_MAP_SCENE_MT_SILVER, 2)
+	fadescreen(FADE_TO_BLACK)
+	removeobject(LOCALID_MT_SILVER_PEAK_MOLLY)
+	removeobject(LOCALID_MT_SILVER_PEAK_BRET)
+	fadescreen(FADE_FROM_BLACK)
+	release
+	end
+}
+
+script MtSilver_Peak_EventScript_UnownKingWait {
+	lock
+	msgbox("Perhaps it would be best to wait
+			for the funeral.")
 	release
 	end
 }
