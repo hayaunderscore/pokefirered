@@ -358,6 +358,7 @@ const u8 gMoveDescription_PsychoBoost[] = _("An intense attack\nthat also sharpl
 const u8 gMoveDescription_Abyss[] = _("A yawning, dark,\ninfinite chasm.\nThe foe will faint\nif it hits.");
 const u8 gMoveDescription_Rapture[] = _("An attack that\ninitiates a RAPTURE\nonto the foe.");
 const u8 gMoveDescription_Strike[] = _("An attack that\nSTRIKEs the foe\ndown to LAND.");
+const u8 gMoveDescription_QuiverDance[] = _("The user performs\na dance to raise\nSP. ATK, SP. DEF and\nSPEED stats.");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -717,4 +718,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_ABYSS         - 1] = gMoveDescription_Abyss,
     [MOVE_RAPTURE       - 1] = gMoveDescription_Rapture,
     [MOVE_STRIKE        - 1] = gMoveDescription_Strike,
+    [MOVE_QUIVER_DANCE  - 1] = gMoveDescription_QuiverDance,
 };

@@ -2719,3 +2719,13 @@ const u8 gUnownKingPokedexText[] = _(
 	"This POKéMON sleeps for thousands of\n"
 	"years to regain power. Legends say\n"
 	"that it has once ruled everything.");
+
+const u8 gPetililPokedexText[] = _(
+	"The leaves on its head grow right back\n"
+	"even if they fall out. These bitter\n"
+	"leaves refresh those who eat them.");
+
+const u8 gLilligantPokedexText[] = _(
+	"The fragrance of the garland on its\n"
+	"head has a relaxing effect, but\n"
+	"taking care of it is very difficult.");

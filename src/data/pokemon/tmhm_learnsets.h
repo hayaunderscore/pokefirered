@@ -6103,11 +6103,47 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_W] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_X] = TMHM_LEARNSET(0),
+    [SPECIES_PETILIL]     = TMHM_LEARNSET(TMHM(TM06_TOXIC)
+                                        | TMHM(TM09_BULLET_SEED)
+                                        | TMHM(TM10_HIDDEN_POWER)
+                                        | TMHM(TM11_SUNNY_DAY)
+                                        | TMHM(TM15_HYPER_BEAM)
+                                        | TMHM(TM16_LIGHT_SCREEN)
+                                        | TMHM(TM17_PROTECT)
+                                        | TMHM(TM19_GIGA_DRAIN)
+                                        | TMHM(TM20_SAFEGUARD)
+                                        | TMHM(TM21_FRUSTRATION)
+                                        | TMHM(TM22_SOLAR_BEAM)
+                                        | TMHM(TM27_RETURN)
+                                        | TMHM(TM32_DOUBLE_TEAM)
+                                        | TMHM(TM42_FACADE)
+                                        | TMHM(TM43_SECRET_POWER)
+                                        | TMHM(TM44_REST)
+                                        | TMHM(TM45_ATTRACT)
+                                        | TMHM(HM01_CUT)
+                                        | TMHM(HM05_FLASH)),
 
-    [SPECIES_OLD_UNOWN_Y] = TMHM_LEARNSET(0),
+    [SPECIES_LILLIGANT]   = TMHM_LEARNSET(TMHM(TM06_TOXIC)
+                                        | TMHM(TM09_BULLET_SEED)
+                                        | TMHM(TM10_HIDDEN_POWER)
+                                        | TMHM(TM11_SUNNY_DAY)
+                                        | TMHM(TM15_HYPER_BEAM)
+                                        | TMHM(TM16_LIGHT_SCREEN)
+                                        | TMHM(TM17_PROTECT)
+                                        | TMHM(TM19_GIGA_DRAIN)
+                                        | TMHM(TM20_SAFEGUARD)
+                                        | TMHM(TM21_FRUSTRATION)
+                                        | TMHM(TM22_SOLAR_BEAM)
+                                        | TMHM(TM27_RETURN)
+                                        | TMHM(TM32_DOUBLE_TEAM)
+                                        | TMHM(TM42_FACADE)
+                                        | TMHM(TM43_SECRET_POWER)
+                                        | TMHM(TM44_REST)
+                                        | TMHM(TM45_ATTRACT)
+                                        | TMHM(HM01_CUT)
+                                        | TMHM(HM05_FLASH)),
 
-    [SPECIES_UNOWN_KING] = TMHM_LEARNSET(0),
+    [SPECIES_UNOWN_KING]  = TMHM_LEARNSET(0),
 
     [SPECIES_TREECKO]     = TMHM_LEARNSET(TMHM(TM01_FOCUS_PUNCH)
                                         | TMHM(TM06_TOXIC)

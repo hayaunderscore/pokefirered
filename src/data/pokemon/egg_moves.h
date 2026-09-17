@@ -901,6 +901,15 @@ const u16 gEggMoves[] = {
               MOVE_DRAGON_DANCE,
               MOVE_CURSE),
 
+    egg_moves(PETILIL,
+              MOVE_CHARM,
+              MOVE_ENDURE,
+              MOVE_INGRAIN,
+              MOVE_GRASS_WHISTLE,
+              MOVE_SWEET_SCENT,
+              MOVE_BIDE,
+              MOVE_ENCORE),
+
     egg_moves(TREECKO,
               MOVE_CRUNCH,
               MOVE_MUD_SPORT,

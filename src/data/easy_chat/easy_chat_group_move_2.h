@@ -134,6 +134,7 @@ static const u16 sEasyChatGroup_Move2[] = {
     MOVE_PRESENT,
     MOVE_PROTECT,
     MOVE_QUICK_ATTACK,
+    MOVE_QUIVER_DANCE,
     MOVE_RAZOR_LEAF,
     MOVE_RECYCLE,
     MOVE_REFLECT,

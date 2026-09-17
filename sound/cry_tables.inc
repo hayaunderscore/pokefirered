@@ -389,6 +389,8 @@ gCryTable::
 	cry Cry_Deoxys
 	cry Cry_Chimecho
 	cry Cry_Rainer
+	cry Cry_Petilil
+	cry Cry_Lilligant
 	cry Cry_Unown_King
 
 	.align 2
@@ -782,4 +784,6 @@ gCryTable_Reverse::
 	cry_reverse Cry_Deoxys
 	cry_reverse Cry_Chimecho
 	cry_reverse Cry_Rainer
+	cry_reverse Cry_Petilil
+	cry_reverse Cry_Lilligant
 	cry_reverse Cry_Unown_King

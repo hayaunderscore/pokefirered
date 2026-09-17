@@ -1828,6 +1828,15 @@ static const u16 sTutorLearnsets[] =
                      | TUTOR(MOVE_METRONOME)
                      | TUTOR(MOVE_DREAM_EATER)
                      | TUTOR(MOVE_SUBSTITUTE),
+    
+    [SPECIES_PETILIL] = TUTOR(MOVE_MIMIC)
+                      | TUTOR(MOVE_DREAM_EATER)
+                      | TUTOR(MOVE_SUBSTITUTE),
+    
+    [SPECIES_LILLIGANT] = TUTOR(MOVE_SWORDS_DANCE)
+                        | TUTOR(MOVE_MIMIC)
+                        | TUTOR(MOVE_DREAM_EATER)
+                        | TUTOR(MOVE_SUBSTITUTE),
 
     [SPECIES_TREECKO] = TUTOR(MOVE_MEGA_PUNCH)
                       | TUTOR(MOVE_SWORDS_DANCE)

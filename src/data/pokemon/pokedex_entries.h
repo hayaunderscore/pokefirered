@@ -5043,7 +5043,33 @@ const struct PokedexEntry gPokedexEntries[] =
 	    .trainerScale = 329,
 	    .trainerOffset = 3,
     },
-    
+
+    [NATIONAL_DEX_PETILIL] =
+    {
+	    .categoryName = _("BULB"),
+	    .height = 5,
+	    .weight = 66,
+	    .description = gPetililPokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 432,
+	    .pokemonOffset = 13,
+	    .trainerScale = 256,
+	    .trainerOffset = 0,
+    },
+
+    [NATIONAL_DEX_LILLIGANT] =
+    {
+	    .categoryName = _("FLOWERING"),
+	    .height = 11,
+	    .weight = 163,
+	    .description = gLilligantPokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 320,
+	    .pokemonOffset = 7,
+	    .trainerScale = 256,
+	    .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_UNOWN_KING] =
     {
 	    .categoryName = _("????"),

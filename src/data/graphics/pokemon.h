@@ -2735,6 +2735,20 @@ const u32 gMonShinyPalette_Rainer[] = INCGFX_U32("graphics/pokemon/rainer/shiny.
 const u8 gMonIcon_Rainer[] = INCGFX_U8("graphics/pokemon/rainer/icon.png", ".4bpp");
 const u8 gMonFootprint_Rainer[] = INCGFX_U8("graphics/pokemon/rainer/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/front.png", ".4bpp.lz");
+const u32 gMonPalette_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Petilil[] = INCGFX_U8("graphics/pokemon/petilil/icon.png", ".4bpp");
+const u8 gMonFootprint_Petilil[] = INCGFX_U8("graphics/pokemon/petilil/footprint.png", ".1bpp");
+
+const u32 gMonFrontPic_Lilligant[] = INCGFX_U32("graphics/pokemon/lilligant/front.png", ".4bpp.lz");
+const u32 gMonPalette_Lilligant[] = INCGFX_U32("graphics/pokemon/lilligant/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Lilligant[] = INCGFX_U32("graphics/pokemon/lilligant/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Lilligant[] = INCGFX_U32("graphics/pokemon/lilligant/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Lilligant[] = INCGFX_U8("graphics/pokemon/lilligant/icon.png", ".4bpp");
+const u8 gMonFootprint_Lilligant[] = INCGFX_U8("graphics/pokemon/lilligant/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/front.png", ".4bpp.lz");
 const u32 gMonPalette_Egg[] = INCGFX_U32("graphics/pokemon/egg/normal.pal", ".gbapal.lz");
 

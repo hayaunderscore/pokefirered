@@ -375,8 +375,8 @@ static const u16 sSpeciesToHoennPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_HOENN(OLD_UNOWN_U),
     SPECIES_TO_HOENN(OLD_UNOWN_V),
     SPECIES_TO_HOENN(OLD_UNOWN_W),
-    SPECIES_TO_HOENN(OLD_UNOWN_X),
-    SPECIES_TO_HOENN(OLD_UNOWN_Y),
+    SPECIES_TO_HOENN(PETILIL),
+    SPECIES_TO_HOENN(LILLIGANT),
     SPECIES_TO_HOENN(UNOWN_KING),
     SPECIES_TO_HOENN(TREECKO),
     SPECIES_TO_HOENN(GROVYLE),
@@ -791,8 +791,8 @@ static const u16 sSpeciesToNationalPokedexNum[NUM_SPECIES - 1] =
     SPECIES_TO_NATIONAL(OLD_UNOWN_U),
     SPECIES_TO_NATIONAL(OLD_UNOWN_V),
     SPECIES_TO_NATIONAL(OLD_UNOWN_W),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_X),
-    SPECIES_TO_NATIONAL(OLD_UNOWN_Y),
+    SPECIES_TO_NATIONAL(PETILIL),
+    SPECIES_TO_NATIONAL(LILLIGANT),
     SPECIES_TO_NATIONAL(UNOWN_KING),
     SPECIES_TO_NATIONAL(TREECKO),
     SPECIES_TO_NATIONAL(GROVYLE),
@@ -1342,8 +1342,8 @@ static const u16 sHoennToNationalOrder[NUM_SPECIES - 1] =
     HOENN_TO_NATIONAL(OLD_UNOWN_U),
     HOENN_TO_NATIONAL(OLD_UNOWN_V),
     HOENN_TO_NATIONAL(OLD_UNOWN_W),
-    HOENN_TO_NATIONAL(OLD_UNOWN_X),
-    HOENN_TO_NATIONAL(OLD_UNOWN_Y),
+    HOENN_TO_NATIONAL(PETILIL),
+    HOENN_TO_NATIONAL(LILLIGANT),
     HOENN_TO_NATIONAL(UNOWN_KING),
 };
 
@@ -5125,7 +5125,7 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, u8 type, u16 evolutionItem)
                     targetSpecies = gEvolutionTable[species][i].targetSpecies;
                     
                     // Prevent cross-generational evolutions like Scizor and Steelix until the National Pokedex is obtained
-                    if (IsNationalPokedexEnabled() || targetSpecies <= KANTO_SPECIES_END)
+                    // if (IsNationalPokedexEnabled() || targetSpecies <= KANTO_SPECIES_END)
                     {
                         heldItem = ITEM_NONE;
                         SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
@@ -5236,14 +5236,8 @@ u16 SpeciesToCryId(u16 species)
     if (species < SPECIES_RAINER - 1)
         return species;
     
-    if (species == SPECIES_RAINER - 1) // Rainer's cry is at the end of the list...
-    	return sHoennSpeciesIdToCryId[SPECIES_CHIMECHO - 277] + 1;
-    
-    if (species == SPECIES_UNOWN_KING - 1)
-    	return sHoennSpeciesIdToCryId[SPECIES_CHIMECHO - 277] + 2;
-
-    if (species <= SPECIES_UNOWN_KING - 2)
-        return SPECIES_UNOWN - 1;
+    if (species >= SPECIES_RAINER - 1 && species <= SPECIES_UNOWN_KING - 1)
+    	return sCadmiumSpeciesIdToCryId[species - ((SPECIES_CELEBI + 1) - 1)];
 
     return sHoennSpeciesIdToCryId[species - ((SPECIES_UNOWN_KING + 1) - 1)];
 }

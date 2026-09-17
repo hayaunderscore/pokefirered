@@ -1875,6 +1875,14 @@ Cry_Rainer::
 	.incbin "sound/direct_sound_samples/cries/rainer.bin"
 
 	.align 2
+Cry_Petilil::
+	.incbin "sound/direct_sound_samples/cries/petilil.bin"
+
+	.align 2
+Cry_Lilligant::
+	.incbin "sound/direct_sound_samples/cries/lilligant.bin"
+
+	.align 2
 Cry_Unown_King::
 	.incbin "sound/direct_sound_samples/cries/unown_king.bin"
 

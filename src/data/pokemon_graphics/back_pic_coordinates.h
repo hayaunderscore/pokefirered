@@ -1370,15 +1370,15 @@ const struct MonCoords gMonBackPicCoords[] =
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 1,
     },
-    [SPECIES_OLD_UNOWN_X] =
+    [SPECIES_PETILIL] =
     {
-        .size = MON_COORDS_SIZE(64, 64),
-        .y_offset = 1,
+        .size = MON_COORDS_SIZE(40, 56),
+        .y_offset = 9,
     },
-    [SPECIES_OLD_UNOWN_Y] =
+    [SPECIES_LILLIGANT] =
     {
-        .size = MON_COORDS_SIZE(64, 64),
-        .y_offset = 1,
+        .size = MON_COORDS_SIZE(64, 56),
+        .y_offset = 8,
     },
     [SPECIES_UNOWN_KING] =
     {

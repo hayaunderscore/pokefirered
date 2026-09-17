@@ -360,8 +360,10 @@
 #define MOVE_ABYSS 355
 #define MOVE_RAPTURE 356
 #define MOVE_STRIKE 357
+// Quiver Dance specifically because its Lilligant's entire MO, you know.
+#define MOVE_QUIVER_DANCE 358
 
-#define MOVES_COUNT 358
+#define MOVES_COUNT 359
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF
