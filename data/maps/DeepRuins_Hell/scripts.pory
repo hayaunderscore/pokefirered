@@ -14,6 +14,60 @@ script DeepRuins_Hell_OnLoad {
 	}
 }
 
+script DeepRuins_Hell_EventScript_Statue1 {
+	lock
+	msgbox("RINGING AROUND THE ROSIE")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Statue2 {
+	lock
+	msgbox("THE LIGHT CONSUMES DARKNESS")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Statue3 {
+	lock
+	msgbox("THE FALLEN KING
+			WILL RISE UPON ITS RELEASE")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Statue4 {
+	lock
+	msgbox("IT PREYS UPON
+			THEIR IMAGINATION")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Statue5 {
+	lock
+	msgbox("THE EVENTS THAT TRANSPIRED
+			WILL HAPPEN AGAIN")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Statue6 {
+	lock
+	msgbox("UNLESS IT IS CAPTURED")
+	release
+	end
+}
+
+script DeepRuins_Hell_EventScript_Molly {
+	lock
+	msgbox("MOLLY: \.
+	
+			I have a bad feeling about this.")
+	release
+	end
+}
+
 script DeepRuins_Hell_EventScript_Puzzle {
 	lock
 	fadescreen(FADE_TO_BLACK)
