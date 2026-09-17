@@ -434,11 +434,10 @@ Pic: Bret
 Gender: Female
 Music: Female
 Double Battle: No
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Above Opponent Level
 
 Aerodactyl
 Ability: Rock Head
-EVs: 252 Atk / 4 SpA / 252 Spe
 Level: 50
 Hasty Nature
 - Flamethrower
@@ -448,7 +447,6 @@ Hasty Nature
 
 Skarmory
 Ability: Keen Eye
-EVs: 252 Atk / 4 SpD / 252 Spe
 Level: 50
 Adamant Nature
 - Steel Wing
@@ -458,10 +456,9 @@ Adamant Nature
 
 Unown_King
 Ability: Sturdy
-EVs: 252 Atk / 4 SpA / 252 Spe
 Level: 50
 Hasty Nature
-- Ancient Power
+- Recover
 - Ice Beam
 - Shadow Ball
 - Swords Dance
