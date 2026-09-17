@@ -8,6 +8,7 @@ script PokemonTech_Inside_1F_EventScript_OnTransition {
 	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
 		clearflag(FLAG_HIDE_POKETECH_BULLY)
 	}
+	setrespawn(HEAL_LOCATION_POKEMON_TECH_OUTSIDE)
 }
 
 script PokemonTech_Inside_1F_EventScript_Nurse {

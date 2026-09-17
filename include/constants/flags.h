@@ -1466,7 +1466,7 @@
 #define FLAG_WORLD_MAP_MT_SILVER                                    (SYS_FLAGS + 0xC5)
 #define FLAG_WORLD_MAP_ROUTE_28                                     (SYS_FLAGS + 0xC6)
 #define FLAG_WORLD_MAP_ROUTE_28_POKEMON_CENTER_1F                   (SYS_FLAGS + 0xC7)
-#define FLAG_0x8C8                                                  (SYS_FLAGS + 0xC8)
+#define FLAG_WORLD_MAP_POKEMON_TECH                                 (SYS_FLAGS + 0xC8)
 #define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
 #define FLAG_0x8CA                                                  (SYS_FLAGS + 0xCA)
 #define FLAG_0x8CB                                                  (SYS_FLAGS + 0xCB)

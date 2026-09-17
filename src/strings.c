@@ -805,6 +805,7 @@ const u8 gText_RegionMap_AreaDesc_PatternBush[] = _("A lush and bush-like area. 
 const u8 gText_RegionMap_AreaDesc_DottedHole[] = _("A mysterious, just-discovered\nruin from an ancient time.\nIt got its name from the six dots\non its door.");
 const u8 gText_RegionMap_AreaDesc_NeptuneCavern[] = _("THE PLACE THAT NEVER WAS\nAND POSSIBLY NEVER WILL BE");
 const u8 gText_RegionMap_AreaDesc_MtSilver[] = _("A hallowed mountain that rises\nbetween JOHTO and KANTO.\nRumors circulate about missing\ncases here, presumably due\nto how cold it is.");
+const u8 gText_RegionMap_AreaDesc_PokemonTech[] = _("An elite school about POKéMON.\nGraduating students are\nsupposedly qualified for\nthe POKéMON league.");
 const u8 gText_PokeSum_MetInATrade[] = _("{DYNAMIC 0x00} nature.\nMet in a trade.");
 const u8 gText_PokeSum_MetInATrade_BoldGentleGrammar[] = _("{DYNAMIC 0x00} nature.\nMet in a trade.");
 const u8 gText_PokeSum_FatefulEncounterMet[] = _("{DYNAMIC 0x00} nature.\nMet in a fateful encounter when\nat {LV_2} {DYNAMIC 0x01}.");

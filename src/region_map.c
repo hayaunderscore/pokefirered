@@ -723,7 +723,11 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_MT_SILVER,
         .name = sMapsecName_MT__SILVER,
         .desc = gText_RegionMap_AreaDesc_MtSilver
-    }
+    }, {
+        .id = MAPSEC_POKEMON_TECH,
+        .name = sMapsecName_POK__MON_TECH,
+        .desc = gText_RegionMap_AreaDesc_PokemonTech
+    },
 };
 
 static const struct OamData sOamData_MapEdge = {
@@ -943,7 +947,7 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_VIAPOIS_CHAMBER     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_EMBER_SPA           - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
-    [MAPSEC_POKEMON_TECH        - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
+    [MAPSEC_POKEMON_TECH        - KANTO_MAPSEC_START] = {MAP(MAP_POKEMON_TECH_OUTSIDE),                  HEAL_LOCATION_POKEMON_TECH_OUTSIDE},
     [MAPSEC_SUNKEN_S_S_ANNE     - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_ROUTE               - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
     [MAPSEC_NEPTUNE_CAVERN      - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_NONE},
@@ -1981,6 +1985,8 @@ static void InitDungeonMapPreview(u8 unused, u8 taskId, TaskFunc taskFunc)
     sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(mapsec);
     if (sDungeonMapPreview->mapPreviewInfo == NULL)
         sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_ROCK_TUNNEL);
+    if (mapsec == MAPSEC_POKEMON_TECH)
+    	sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_SILPH_CO);
     sDungeonMapPreview->mainState = 0;
     sDungeonMapPreview->loadState = 0;
     sDungeonMapPreview->savedTask = taskFunc;
@@ -3123,6 +3129,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_MT_SILVER:
     	return FlagGet(FLAG_WORLD_MAP_MT_SILVER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_POKEMON_TECH:
+    	return (FlagGet(FLAG_WORLD_MAP_POKEMON_TECH) || FlagGet(FLAG_DID_SUNKEN_ANNE)) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3334,6 +3342,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
 	case MAPSEC_MT_SILVER:
 		sMapCursor->x = 0;
 	 	sMapCursor->y = 8;
+		break;
+	case MAPSEC_POKEMON_TECH:
+		sMapCursor->x = 18;
+		sMapCursor->y = 11;
 		break;
     case MAPSEC_ROUTE_2:
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN))
@@ -3657,6 +3669,8 @@ static void CreateDungeonIcons(void)
                     continue;
                 if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
                     continue;
+                if (mapsec == MAPSEC_POKEMON_TECH && (!FlagGet(FLAG_WORLD_MAP_POKEMON_TECH) && !FlagGet(FLAG_DID_SUNKEN_ANNE)))
+                	continue;
                 if (mapsec == MAPSEC_NEPTUNE_CAVERN)
                 {
                 	if (!FlagGet(FLAG_DID_SUNKEN_ANNE)) continue;

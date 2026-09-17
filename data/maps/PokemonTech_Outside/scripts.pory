@@ -12,6 +12,7 @@ script PokemonTech_Outside_EventScript_OnTransition {
 	if (flag(FLAG_SCHOOL_OF_HARD_KNOCKS)) {
 		clearflag(FLAG_HIDE_POKETECH_BULLY)
 	}
+	setworldmapflag(FLAG_WORLD_MAP_POKEMON_TECH)
 }
 
 script PokemonTech_Outside_EventScript_Woop {
