@@ -53,71 +53,6 @@ OneIsland_PokemonCenter_1F_OnFrame::
 	map_script_2 VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 0, OneIsland_PokemonCenter_1F_EventScript_MeetCelioScene
 	.2byte 0
 
-OneIsland_PokemonCenter_1F_EventScript_MeetCelioScene::
-	lockall
-	textcolor NPC_TEXT_COLOR_MALE
-	applymovement LOCALID_PLAYER, OneIsland_PokemonCenter_1F_Movement_PlayerWalkToCelio
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, OneIsland_PokemonCenter_1F_Movement_BillWalkToCelio
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_BillHeyThereCelio
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	playse SE_PIN
-	applymovement LOCALID_CELIO, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	applymovement LOCALID_CELIO, Common_Movement_Delay48
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioCantBelieveYouCameOut
-	msgbox OneIsland_PokemonCenter_1F_Text_BillHowsYourResearchComing
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_ThisIsMyBuddyCelio
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
-	waitmovement 0
-	call_if_set FLAG_SYS_GAME_CLEAR, OneIsland_PokemonCenter_1F_EventScript_IntroducePlayerChamp
-	call_if_unset FLAG_SYS_GAME_CLEAR, OneIsland_PokemonCenter_1F_EventScript_IntroducePlayerNotChamp
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioThatsReallyImpressive
-	msgbox OneIsland_PokemonCenter_1F_Text_BillBringMeUpToSpeed
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioPCsCantLinkWithYours
-	closemessage
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_BillLetMeHelpYou
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CanYouDeliverThisMeteoritePlayer
-	msgreceiveditem OneIsland_PokemonCenter_1F_Text_AcceptedMeteoriteFromBill, ITEM_METEORITE, 1, MUS_OBTAIN_KEY_ITEM
-	additem ITEM_METEORITE
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown
-	waitmovement 0
-	msgbox OneIsland_PokemonCenter_1F_Text_CelioPleaseTakeThis
-	giveitem_msg OneIsland_PokemonCenter_1F_Text_ObtainedTriPass, ITEM_TRI_PASS, 1, MUS_OBTAIN_KEY_ITEM
-	msgbox OneIsland_PokemonCenter_1F_Text_PassLetsYouTravelBetweenIslands
-	call_if_ge VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMapPage
-	call_if_lt VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMap
-	setflag FLAG_SYS_SEVII_MAP_123
-	msgbox OneIsland_PokemonCenter_1F_Text_BillCatchYouLater
-	closemessage
-	applymovement LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	applymovement LOCALID_CELIO, Common_Movement_WalkInPlaceFasterUp
-	waitmovement 0
-	setflag FLAG_SYS_PC_STORAGE_DISABLED
-	setvar VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1
-	releaseall
-	end
-
 OneIsland_PokemonCenter_1F_EventScript_IntroducePlayerChamp::
 	msgbox OneIsland_PokemonCenter_1F_Text_PlayerIsReigningPokemonChamp
 	return
@@ -562,3 +497,111 @@ OneIsland_PokemonCenter_1F_Movement_BillExit::
 	walk_down
 	step_end
 `
+
+script OneIsland_PokemonCenter_1F_EventScript_MeetCelioScene {
+	lockall
+	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement(LOCALID_PLAYER, OneIsland_PokemonCenter_1F_Movement_PlayerWalkToCelio)
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, OneIsland_PokemonCenter_1F_Movement_BillWalkToCelio)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_BillHeyThereCelio)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_CELIO, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement(0)
+	applymovement(LOCALID_CELIO, Common_Movement_Delay48)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_CelioCantBelieveYouCameOut)
+	msgbox(OneIsland_PokemonCenter_1F_Text_BillHowsYourResearchComing)
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_ThisIsMyBuddyCelio)
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight)
+	waitmovement(0)
+	call_if_set(FLAG_SYS_GAME_CLEAR, OneIsland_PokemonCenter_1F_EventScript_IntroducePlayerChamp)
+	call_if_unset(FLAG_SYS_GAME_CLEAR, OneIsland_PokemonCenter_1F_EventScript_IntroducePlayerNotChamp)
+	applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_CelioThatsReallyImpressive)
+	msgbox(OneIsland_PokemonCenter_1F_Text_BillBringMeUpToSpeed)
+	applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_CelioPCsCantLinkWithYours)
+	closemessage
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_BillLetMeHelpYou)
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_CanYouDeliverThisMeteoritePlayer)
+	msgreceiveditem(OneIsland_PokemonCenter_1F_Text_AcceptedMeteoriteFromBill, ITEM_METEORITE, 1, MUS_OBTAIN_KEY_ITEM)
+	additem(ITEM_METEORITE)
+	applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown)
+	waitmovement(0)
+	msgbox(OneIsland_PokemonCenter_1F_Text_CelioPleaseTakeThis)
+	if (!flag(FLAG_ESSENCE_BILL)) {
+		giveitem_msg(OneIsland_PokemonCenter_1F_Text_ObtainedTriPass, ITEM_TRI_PASS, 1, MUS_OBTAIN_KEY_ITEM)
+		msgbox(OneIsland_PokemonCenter_1F_Text_PassLetsYouTravelBetweenIslands)
+	} else {
+		msgbox("CELIO: \.
+				Wait a minute.")
+		applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterRight)
+		applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterLeft)
+		waitmovement(0)
+		msgbox("CELIO: BILL\.
+				When did you give a RAINBOW PASS?")
+		if (flag(FLAG_ESSENCE_UNOWN)) {
+			msgbox("BILL: Haha! Well\.
+					I had her do an errand for me\.
+
+					I did tell you I had something to
+					do in SEVEN ISLAND\.
+
+					Though law enforcement pressed me
+					about what happened in the S.S. ANNE\.
+
+					MOLLY already told me she's done
+					with her expedition there.")
+		} else {
+			msgbox("BILL: Haha! Well\.
+					I had her do an errand for me\.
+
+					I did tell you I had something to
+					do in SEVEN ISLAND\.
+
+					Though law enforcement pressed me
+					about what happened in the S.S. ANNE\.
+
+					I'll let {PLAYER} do it after this.")
+		}
+		msgbox("CELIO: I see.
+
+				I don't think you need the TRI-PASS
+				then, {PLAYER}.")
+		applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterDown)
+		waitmovement(0)
+		applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterDown)
+		waitmovement(0)
+	}
+	call_if_ge(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMapPage)
+	call_if_lt(VAR_MAP_SCENE_PALLET_TOWN_RIVALS_HOUSE, 2, OneIsland_PokemonCenter_1F_EventScript_ReceiveTownMap)
+	setflag(FLAG_SYS_SEVII_MAP_123)
+	msgbox(OneIsland_PokemonCenter_1F_Text_BillCatchYouLater)
+	closemessage
+	applymovement(LOCALID_ONE_ISLAND_POKEMON_CENTER_BILL, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	applymovement(LOCALID_CELIO, Common_Movement_WalkInPlaceFasterUp)
+	waitmovement(0)
+	setflag(FLAG_SYS_PC_STORAGE_DISABLED)
+	setvar(VAR_MAP_SCENE_ONE_ISLAND_POKEMON_CENTER_1F, 1)
+	releaseall
+	end
+}

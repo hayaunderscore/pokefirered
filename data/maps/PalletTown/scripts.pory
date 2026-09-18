@@ -452,6 +452,16 @@ PalletTown_EventScript_SignLadyStartShowSign::
 
 script PalletTown_EventScript_NewRockByTheWater {
 	msgbox("There is a new rock by the water.")
+	if (flag(FLAG_ESSENCE_UNOWN)) {
+		msgbox("\. \.
+				\. \.
+
+				No,{PAUSE 30} it is not yet time.{PAUSE 30}
+				Please wait.
+
+				You're probably ITCHING to get
+				that rock,{PAUSE 30} aren't you?")
+	}
 	release
 	end
 }
