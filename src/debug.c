@@ -3693,6 +3693,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_INDIGO_PLATEAU_LEAGUE) \
     X(MUS_ROUTE26) \
     X(MUS_VS_ZINNIA) \
+    X(MUS_HERE_WE_ARE) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

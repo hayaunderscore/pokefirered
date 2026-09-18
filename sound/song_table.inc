@@ -359,6 +359,7 @@ gSongTable::
 	song mus_indigo_plateau_league, 0, 0
 	song mus_route26, 0, 0
 	song mus_vs_zinnia, 0, 0
+	song mus_here_we_are, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

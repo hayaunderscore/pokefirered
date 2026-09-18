@@ -1191,6 +1191,10 @@
       "y": 8,
       "width": 1,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_OLD_LAB",
+      "name": "OLD LAB"
     }
   ]
 }

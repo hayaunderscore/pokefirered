@@ -983,6 +983,7 @@ SECTIONS {
         sound/songs/midi/mus_indigo_plateau_league.o(.rodata);
         sound/songs/midi/mus_route26.o(.rodata);
         sound/songs/midi/mus_vs_zinnia.o(.rodata);
+        sound/songs/midi/mus_here_we_are.o(.rodata);
     } > ROM =0
 
     lib_rodata :
