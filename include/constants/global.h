@@ -32,7 +32,8 @@
 
 #define SAVE_VERSION_0 0
 #define SAVE_VERSION_1 1
-#define SAVE_VERSION (SAVE_VERSION_1)
+#define SAVE_VERSION_2 2
+#define SAVE_VERSION (SAVE_VERSION_2)
 
 // capacities of various saveblock objects
 #define DAYCARE_MON_COUNT   2

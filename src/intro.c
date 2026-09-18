@@ -1006,13 +1006,14 @@ void CB2_InitCopyrightScreenAfterBootup(void)
         ResetMenuAndMonGlobals();
         Save_ResetSaveCounters();
         LoadGameSave(SAVE_NORMAL);
-        if (gSaveFileStatus == SAVE_STATUS_OUTDATED) {
-			if (UpdateSaveFile())
+        if (gSaveFileStatus == SAVE_STATUS_OUTDATED) 
+        {
+			if (UpdateSaveFile() == TRUE)
        			gSaveFileStatus = SAVE_STATUS_UPDATED;
 			else
           	{
            		gSaveBlock2Ptr->_saveSentinel = 0xFF;
-             gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
+             	gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
            	}
         }
         if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)

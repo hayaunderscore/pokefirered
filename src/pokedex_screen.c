@@ -2272,6 +2272,15 @@ s8 DexScreen_GetSetPokedexFlag(u16 nationalDexNo, u8 caseId, bool8 indexIsSpecie
     case FLAG_SET_CAUGHT:
         gSaveBlock2Ptr->pokedex.owned[index] |= mask;
         break;
+    case FLAG_TOGGLE_SEEN:
+	   	gSaveBlock2Ptr->pokedex.seen[index] ^= mask;
+	    // Anticheat
+	    gSaveBlock1Ptr->seen1[index] ^= mask;
+	    gSaveBlock1Ptr->seen2[index] ^= mask;
+	    break;
+	case FLAG_TOGGLE_CAUGHT:
+        gSaveBlock2Ptr->pokedex.owned[index] ^= mask;
+        break;
     }
     return retVal;
 }

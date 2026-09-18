@@ -446,7 +446,7 @@ static u8 TryLoadSaveSlot(u16 sectorId, const struct SaveSectorLocation *locatio
         CopySaveSlotData(FULL_SAVE_SLOT, locations);
     }
 
-    if (status == SAVE_STATUS_OK || status == SAVE_STATUS_INVALID) {
+    if (status == SAVE_STATUS_OK) {
 	    if (gSaveBlock2Ptr->_saveSentinel != 0xFF)
 	    	status = SAVE_STATUS_OUTDATED;
 	    else if (gSaveBlock2Ptr->saveVersion != SAVE_VERSION)
@@ -983,6 +983,7 @@ void Task_LinkFullSave(u8 taskId)
 }
 
 #include "data/old_saves/save.v0.h"
+#include "data/old_saves/save.v1.h"
 
 u16 DetermineSaveVersion()
 {
@@ -1036,8 +1037,13 @@ bool8 UpdateSaveFile(void)
         case 0: // Upgrading from vanilla to version 1
             result = UpdateSave_v0_v1(gRamSaveSectorLocations);
             break;
+        case 1: // Upgrading from v1 to v2 - National Dex adjustment
+        	result = UpdateSave_v1_v2(gRamSaveSectorLocations);
+         	// DebugPrintf("HELLO?!");
+         	break;
         default: // Unsupported version to upgrade
             result = FALSE;
+            // DebugPrintf("somehow,,,,, not right");
             break;
     }
 

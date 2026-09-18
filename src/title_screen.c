@@ -733,6 +733,16 @@ static void SetTitleScreenScene_Cry(s16 *data)
             ResetMenuAndMonGlobals();
             Save_ResetSaveCounters();
             LoadGameSave(SAVE_NORMAL);
+            if (gSaveFileStatus == SAVE_STATUS_OUTDATED) 
+            {
+				if (UpdateSaveFile() == TRUE)
+	           		gSaveFileStatus = SAVE_STATUS_UPDATED;
+				else
+              	{
+               		gSaveBlock2Ptr->_saveSentinel = 0xFF;
+                 	gSaveBlock2Ptr->saveVersion = SAVE_VERSION;
+               	}
+            }
             if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_INVALID)
                 Sav2_ClearSetDefault();
             SetPokemonCryStereo(gSaveBlock2Ptr->optionsSound);
