@@ -464,6 +464,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_HEX_MANIAC                  0x1122
 #define OBJ_EVENT_PAL_TAG_SERENA                      0x1123
 #define OBJ_EVENT_PAL_TAG_BRET                        0x1124
+#define OBJ_EVENT_PAL_TAG_NPC                         0x1125
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -502,6 +503,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_HexManiac,               OBJ_EVENT_PAL_TAG_HEX_MANIAC},
 	{gObjectEventPal_Serena,                  OBJ_EVENT_PAL_TAG_SERENA},
 	{gObjectEventPal_Bret, 					  OBJ_EVENT_PAL_TAG_BRET},
+	{gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_NPC},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -1991,6 +1993,7 @@ u8 LoadObjectEventPalette(u16 paletteTag)
 
     palIndex = TryLoadObjectPalette(&sObjectEventSpritePalettes[i]);
     ApplyGlobalFieldPaletteTint(palIndex);
+    UpdateSpritePaletteWithWeather(palIndex);
     return palIndex;
 }
 

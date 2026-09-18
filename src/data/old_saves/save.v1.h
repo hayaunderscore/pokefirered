@@ -36,6 +36,8 @@ bool8 UpdateSave_v1_v2(const struct SaveSectorLocation *locations)
     CHANGE_NAT_DEX_ID(UNOWN_KING)
     CHANGE_NAT_DEX_ID(PETILIL)
     CHANGE_NAT_DEX_ID(LILLIGANT)
+    
+    gSaveBlock2Ptr->saveVersion = 2;
 
     return 1;
 }
