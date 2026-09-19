@@ -197,7 +197,7 @@
 #define FLAG_HIDE_MOLLY_IN_DEEP_RUINS_FINAL_HALLWAY        0x0B3
 #define FLAG_HIDE_MOLLY_IN_MT_SILVER_PEAK                  0x0B4
 #define FLAG_HIDE_BRET_IN_MT_SILVER_PEAK                   0x0B5
-#define FLAG_0x0B6               0x0B6
+#define FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM         0x0B6
 #define FLAG_0x0B7               0x0B7
 #define FLAG_0x0B8               0x0B8
 #define FLAG_0x0B9               0x0B9

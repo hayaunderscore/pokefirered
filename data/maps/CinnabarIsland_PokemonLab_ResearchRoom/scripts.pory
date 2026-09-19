@@ -1,7 +1,4 @@
 raw `
-CinnabarIsland_PokemonLab_ResearchRoom_MapScripts::
-	.byte 0
-
 CinnabarIsland_PokemonLab_ResearchRoom_EventScript_MetronomeTutor::
 	goto EventScript_MetronomeTutor
 	end
@@ -18,3 +15,14 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 	msgbox CinnabarIsland_PokemonLab_ResearchRoom_Text_AnAmberPipe, MSGBOX_SIGN
 	end
 `
+
+mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: CinnabarIsland_PokemonLab_ResearchRoom_OnTransition
+}
+
+script CinnabarIsland_PokemonLab_ResearchRoom_OnTransition {
+	clearflag(FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM)
+	if (flag(FLAG_ESSENCE_UNOWN)) {
+		setflag(FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM)
+	}
+}
