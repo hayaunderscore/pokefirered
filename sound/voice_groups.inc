@@ -8320,7 +8320,7 @@ voicegroup196::
 	voice_directsound 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
 	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127 @ Train SFX in Helicopter slot
 	voice_directsound 60, 0, DirectSoundWaveData_wave_72, 255, 0, 255, 127 @ Applause
-	voice_keysplit_all voicegroup195
+	voice_directsound 60, 0, DirectSoundWaveData_2009_sy_loop, 255, 0, 255, 0
 
 	.align 2
 voicegroup197::

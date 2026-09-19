@@ -1,0 +1,29 @@
+{
+  "id": "MAP_OLD_LAB_ENTRANCE",
+  "name": "OldLab_Entrance",
+  "layout": "LAYOUT_OLD_LAB_ENTRANCE",
+  "music": "MUS_HERE_WE_ARE",
+  "region_map_section": "MAPSEC_OLD_LAB",
+  "requires_flash": false,
+  "weather": "WEATHER_SHADE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 2,
+      "y": 28,
+      "elevation": 0,
+      "dest_map": "MAP_CINNABAR_ISLAND_POKEMON_LAB_RESEARCH_ROOM",
+      "dest_warp_id": "1"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

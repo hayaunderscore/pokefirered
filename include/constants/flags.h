@@ -198,7 +198,7 @@
 #define FLAG_HIDE_MOLLY_IN_MT_SILVER_PEAK                  0x0B4
 #define FLAG_HIDE_BRET_IN_MT_SILVER_PEAK                   0x0B5
 #define FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM         0x0B6
-#define FLAG_0x0B7               0x0B7
+#define FLAG_HIDE_AMBER_IN_LAB_RESEARCH_ROOM               0x0B7
 #define FLAG_0x0B8               0x0B8
 #define FLAG_0x0B9               0x0B9
 #define FLAG_0x0BA               0x0BA
@@ -610,7 +610,7 @@
 #define FLAG_BOUGHT_MAGIKARP                             0x249
 #define FLAG_DID_ZYNX_TRADE                              0x24A
 #define FLAG_DID_MS_NIDO_TRADE                           0x24B
-#define FLAG_0x24C                                       0x24C
+#define FLAG_OPENED_RESEARCH_OLD_LAB                     0x24C
 #define FLAG_DID_CH_DING_TRADE                           0x24D
 #define FLAG_GOT_TM38_FROM_BLAINE                        0x24E
 #define FLAG_OAK_SKIP_22_RIVAL_CHECK                     0x24F
@@ -1467,7 +1467,7 @@
 #define FLAG_WORLD_MAP_ROUTE_28                                     (SYS_FLAGS + 0xC6)
 #define FLAG_WORLD_MAP_ROUTE_28_POKEMON_CENTER_1F                   (SYS_FLAGS + 0xC7)
 #define FLAG_WORLD_MAP_POKEMON_TECH                                 (SYS_FLAGS + 0xC8)
-#define FLAG_0x8C9                                                  (SYS_FLAGS + 0xC9)
+#define FLAG_WORLD_MAP_OLD_LAB_ENTRANCE                             (SYS_FLAGS + 0xC9)
 #define FLAG_0x8CA                                                  (SYS_FLAGS + 0xCA)
 #define FLAG_0x8CB                                                  (SYS_FLAGS + 0xCB)
 #define FLAG_0x8CC                                                  (SYS_FLAGS + 0xCC)

@@ -4776,6 +4776,18 @@
       "secondary_tileset": "gTileset_Condominiums",
       "border_filepath": "data/layouts/Route28_House/border.bin",
       "blockdata_filepath": "data/layouts/Route28_House/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_ENTRANCE",
+      "name": "OldLab_Entrance_Layout",
+      "width": 40,
+      "height": 30,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/OldLab_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/OldLab_Entrance/map.bin"
     }
   ]
 }

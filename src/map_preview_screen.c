@@ -314,6 +314,14 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sMtMoonMapPreviewTilemap,
         .palptr = sMtMoonMapPreviewPalette
     },
+    [MPS_OLD_LAB] = {
+        .mapsec = MAPSEC_OLD_LAB,
+        .type = MPS_TYPE_CAVE,
+        .flagId = FLAG_WORLD_MAP_OLD_LAB_ENTRANCE,
+        .tilesptr = sRocketHideoutMapPreviewTiles,
+        .tilemapptr = sRocketHideoutMapPreviewTilemap,
+        .palptr = sRocketHideoutMapPreviewPalette
+    },
 };
 
 static const struct WindowTemplate sMapNameWindow = {

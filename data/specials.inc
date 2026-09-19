@@ -15,7 +15,7 @@ gSpecials::
 	def_special CleanupLinkRoomState
 	def_special ExitLinkRoom
 	def_special NullFieldSpecial  @ Secret Base specials
-	def_special NullFieldSpecial
+	def_special Script_GetObjectFacingDirection
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial

@@ -1467,3 +1467,6 @@ Text_MonCryScript::
 
 	.include "data/maps/Route28_House/scripts.inc"
 	.include "data/maps/Route28_House/text.inc"
+
+	.include "data/maps/OldLab_Entrance/scripts.inc"
+	.include "data/maps/OldLab_Entrance/text.inc"

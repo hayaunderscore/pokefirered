@@ -1,0 +1,7 @@
+mapscripts OldLab_Entrance_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: OldLab_Entrance_OnTransition
+}
+
+script OldLab_Entrance_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_OLD_LAB_ENTRANCE)
+}

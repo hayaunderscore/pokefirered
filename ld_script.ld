@@ -984,6 +984,7 @@ SECTIONS {
         sound/songs/midi/mus_route26.o(.rodata);
         sound/songs/midi/mus_vs_zinnia.o(.rodata);
         sound/songs/midi/mus_here_we_are.o(.rodata);
+        sound/songs/midi/mus_hardening_drops_test.o(.rodata);
     } > ROM =0
 
     lib_rodata :

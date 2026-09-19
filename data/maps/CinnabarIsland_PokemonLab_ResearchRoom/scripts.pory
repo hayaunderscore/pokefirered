@@ -8,6 +8,7 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Scientist::
 	end
 
 CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Computer::
+	goto_if_set FLAG_HIDE_AMBER_IN_LAB_RESEARCH_ROOM, CinnabarIsland_PokemonLab_ResearchRoom_ComputerSwitch
 	msgbox CinnabarIsland_PokemonLab_ResearchRoom_Text_LegendaryBirdEmail, MSGBOX_SIGN
 	end
 
@@ -18,6 +19,7 @@ CinnabarIsland_PokemonLab_ResearchRoom_EventScript_AmberPipe::
 
 mapscripts CinnabarIsland_PokemonLab_ResearchRoom_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: CinnabarIsland_PokemonLab_ResearchRoom_OnTransition
+	MAP_SCRIPT_ON_LOAD: CinnabarIsland_PokemonLab_ResearchRoom_OnLoad
 }
 
 script CinnabarIsland_PokemonLab_ResearchRoom_OnTransition {
@@ -25,4 +27,147 @@ script CinnabarIsland_PokemonLab_ResearchRoom_OnTransition {
 	if (flag(FLAG_ESSENCE_UNOWN)) {
 		setflag(FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM)
 	}
+}
+
+script CinnabarIsland_PokemonLab_ResearchRoom_OnLoad {
+	if (!flag(FLAG_OPENED_RESEARCH_OLD_LAB)) {
+		setmetatile(12, 5, 0x081, FALSE)
+		setmetatile(13, 5, 0x081, FALSE)
+		setmetatile(14, 5, 0x081, FALSE)
+		setmetatile(13, 6, 0x2FB, TRUE)
+		setmetatile(14, 6, 0x2FC, TRUE)
+	}
+}
+
+script CinnabarIsland_PokemonLab_ResearchRoom_ComputerSwitch {
+	lock
+	msgbox("There's an email message.
+
+			\. \. \.
+
+			Congratulations, DR. FUJI.
+
+			It would seem your efforts for
+			trying to figure out the wonders\.
+			\.have finally paid off.
+
+			She has gathered 4 of them.
+			You are, of course one of them.
+
+			Are you ready to finally solve the
+			last mystery you'll see?
+
+			Or, perhaps\.
+			You're still figuring yourself out?
+
+			Wondering if any of this\.
+			\.was even necessary.
+
+			\. \. \.
+
+			I look forward to our meeting.
+
+			From: ??????????")
+	if (var(VAR_MAP_SCENE_POKEMON_RESEARCH_LAB) > value(0)) {
+		release
+		end
+	}
+	msgbox("There's a switch next to the
+			keyboard\. Press it?", MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		msgbox("Haha, who wouldn't?")
+		playse(SE_CLICK)
+		setmetatile(12, 5, 0x334, FALSE)
+		setmetatile(13, 5, 0x330, FALSE)
+		setmetatile(14, 5, 0x331, FALSE)
+		setmetatile(13, 6, 0x332, TRUE)
+		setmetatile(14, 6, 0x333, TRUE)
+		setvar(VAR_MAP_SCENE_POKEMON_RESEARCH_LAB, 1)
+		setflag(FLAG_OPENED_RESEARCH_OLD_LAB)
+		special(DrawWholeMapView)
+	}
+	release
+	end
+}
+
+script CinnabarIsland_PokemonLab_ResearchRoom_AmberAfterUnownQuest {
+	lock
+	faceplayer
+	msgbox("DR. FUJI: Hello.
+			I'm DR. FUJI.
+
+			Hmm?
+			What is it?")
+	closemessage
+	delay(30)
+	fadenewbgm(MUS_DUMMY)
+	setweather(WEATHER_SHADE)
+	doweather
+	delay(60)
+	msgbox("\. \. \. \.
+			\. \. \. \.
+
+			No\.
+			Nonononononononono.
+
+			I- Uh, could you excuse me?
+			I need to do something!")
+	closemessage
+	getobjectfacingdirection(LOCALID_RR_AMBER, VAR_TEMP_1)
+	switch (var(VAR_TEMP_1)) {
+		case DIR_WEST:
+			applymovement(LOCALID_RR_AMBER, moves(
+				walk_right
+				walk_down
+			))
+			waitmovement(0)
+		case DIR_SOUTH:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_right
+			))
+			applymovement(LOCALID_RR_AMBER, moves(
+				walk_right
+				walk_down
+			))
+			waitmovement(0)
+		case DIR_EAST:
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_down
+			))
+			applymovement(LOCALID_RR_AMBER, moves(
+				walk_down
+				walk_right
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_in_place_fast_right
+			))
+	}
+	applymovement(LOCALID_RR_AMBER, moves(
+		walk_right * 5
+		walk_down * 2
+		walk_right * 3
+	))
+	waitmovement(0)
+	removeobject(LOCALID_RR_AMBER)
+	playse(SE_EXIT)
+	release
+	end
+}
+
+script CinnabarIsland_PokemonLab_ResearchRoom_Amber {
+	if (flag(FLAG_ESSENCE_UNOWN)) {
+		goto(CinnabarIsland_PokemonLab_ResearchRoom_AmberAfterUnownQuest)
+	}
+	lock
+	faceplayer
+	msgbox("DR. FUJI: Hello.
+			I'm DR. FUJI.
+
+			Hmm? You know MR. FUJI?
+			He's my father.
+
+			I'm leading the LAB in his stead.")
+	release
+	end
 }

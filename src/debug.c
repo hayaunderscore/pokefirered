@@ -3694,6 +3694,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_ROUTE26) \
     X(MUS_VS_ZINNIA) \
     X(MUS_HERE_WE_ARE) \
+    X(MUS_HARDENING_DROPS_TEST) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

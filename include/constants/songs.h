@@ -367,10 +367,11 @@
 #define MUS_ROUTE26                 358
 #define MUS_VS_ZINNIA               359
 #define MUS_HERE_WE_ARE             360
+#define MUS_HARDENING_DROPS_TEST    361
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_HERE_WE_ARE
+#define END_MUS                     MUS_HARDENING_DROPS_TEST
 
 #endif  // GUARD_CONSTANTS_SONGS_H

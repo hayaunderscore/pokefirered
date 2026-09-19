@@ -42,6 +42,21 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CinnabarIsland_PokemonLab_ResearchRoom_EventScript_Scientist",
       "flag": "FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM"
+    },
+    {
+      "local_id": "LOCALID_RR_AMBER",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_AMBER",
+      "x": 4,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CinnabarIsland_PokemonLab_ResearchRoom_Amber",
+      "flag": "FLAG_HIDE_AMBER_IN_LAB_RESEARCH_ROOM"
     }
   ],
   "warp_events": [
@@ -51,6 +66,13 @@
       "elevation": 3,
       "dest_map": "MAP_CINNABAR_ISLAND_POKEMON_LAB_ENTRANCE",
       "dest_warp_id": "4"
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_LAB_ENTRANCE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

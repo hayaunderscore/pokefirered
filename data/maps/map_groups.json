@@ -46,7 +46,8 @@
     "gMapGroup_IndoorPokemonTech",
     "gMapGroup_IndoorCadmium",
     "gMapGroup_MtSilver",
-    "gMapGroup_IndoorRoute28"
+    "gMapGroup_IndoorRoute28",
+    "gMapGroup_OldLab"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -599,5 +600,8 @@
     "Route28_PokemonCenter_1F",
     "Route28_PokemonCenter_2F",
     "Route28_House"
+  ],
+  "gMapGroup_OldLab": [
+    "OldLab_Entrance"
   ]
 }

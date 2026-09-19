@@ -458,7 +458,7 @@
 	.byte 0x3c
 	map \map
 	.endm
-	
+
 	@ Warps the player to another map using a hole animation.
 	@ Warp commands can be given either the id of which warp location to go to on the destination map
 	@ or a pair of x/y coordinates to go to directly on the destination map.
@@ -1932,18 +1932,24 @@
     .byte \localId
     .2byte \flags
     .endm
-    
+
     @ remove the following NPC (assumes there will only ever be one)
     .macro destroyfollower
     .byte 0xd6
     .endm
-    
+
     @ makes the player and follower face one another
     .macro facefollower
     .byte 0xd7
     .endm
-    
+
     @ checks if you have a follower. returns the result to VAR_RESULT
     .macro checkfollower
     .byte 0xd8
+    .endm
+
+    @ Gets the facing direction of a given event object and stores it in the variable \dest.
+    .macro getobjectfacingdirection evObjId:req, dest:req
+    setvar VAR_TEMP_1, \evObjId
+    specialvar \dest, Script_GetObjectFacingDirection
     .endm

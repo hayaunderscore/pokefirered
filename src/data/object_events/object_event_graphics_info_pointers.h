@@ -161,6 +161,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kris;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_HexManiac;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Serena;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bret;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amber;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -327,4 +328,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_HEX_MANIAC]               = &gObjectEventGraphicsInfo_HexManiac,
     [OBJ_EVENT_GFX_SERENA]                   = &gObjectEventGraphicsInfo_Serena,
     [OBJ_EVENT_GFX_BRET]                     = &gObjectEventGraphicsInfo_Bret,
+    [OBJ_EVENT_GFX_AMBER]                    = &gObjectEventGraphicsInfo_Amber,
 };
