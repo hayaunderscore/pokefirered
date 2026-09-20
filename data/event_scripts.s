@@ -1470,3 +1470,12 @@ Text_MonCryScript::
 
 	.include "data/maps/OldLab_Entrance/scripts.inc"
 	.include "data/maps/OldLab_Entrance/text.inc"
+
+	.include "data/maps/OldLab_B1F/scripts.inc"
+	.include "data/maps/OldLab_B1F/text.inc"
+
+	.include "data/maps/OldLab_Basement/scripts.inc"
+	.include "data/maps/OldLab_Basement/text.inc"
+
+	.include "data/maps/OldLab_B2F/scripts.inc"
+	.include "data/maps/OldLab_B2F/text.inc"

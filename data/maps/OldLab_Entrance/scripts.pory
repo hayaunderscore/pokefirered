@@ -4,4 +4,148 @@ mapscripts OldLab_Entrance_MapScripts {
 
 script OldLab_Entrance_OnTransition {
 	setworldmapflag(FLAG_WORLD_MAP_OLD_LAB_ENTRANCE)
+	setflag(FLAG_TEMP_1)
+	setflag(FLAG_TEMP_2)
+	setflag(FLAG_TEMP_3)
+	setflag(FLAG_TEMP_4)
+	setflag(FLAG_TEMP_5)
+}
+
+script OldLab_Entrance_EventScript_LockedElevator {
+	msgbox("The elevator door is locked!
+			Where is the key\.", MSGBOX_SIGN)
+	end
+}
+
+script OldLab_Entrance_EventScriptLog9 {
+	signmsg
+	msgbox("LOG 9
+
+			I've decided to hide my research
+			here, deep within the LAB.
+
+			This way, no one else suffers
+			with the effects(?).
+
+			There has to be something more to
+			this. I can't give up now.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_Entrance_EventScriptLog10 {
+	signmsg
+	msgbox("LOG 10
+
+			Y'know ever since that attack\.
+			I never bothered to look at my leg.
+
+			Turns out there's\.
+			\.something in there.
+
+			I'm not sure what it is.
+			Needs testing.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_Entrance_EventScriptLog11 {
+	signmsg
+	msgbox("LOG 11
+
+			I have concluded that this
+			substance is anomalous.
+
+			It's sticky, yet quite\.
+			mushy? If that's the word\.
+
+			It's colored in an odd shade of
+			white, black, purple and orange.
+
+			It's pretty blocky too\.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_Entrance_EventScriptLog12 {
+	signmsg
+	msgbox("LOG 12
+
+			No.
+			I won't taste it.
+			In case anyone stupid asks.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_Entrance_EventScriptLog13 {
+	signmsg
+	msgbox("LOG 13
+
+			I really need to figure out a
+			way to see the effects of this in
+			more detail.
+
+			Doing testing on myself\. isn't
+			really safe.
+
+			I don't really want to die early!
+			That would be horrible.
+
+			\.
+
+			Unless\.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_Entrance_TriggerTextAppear {
+	addobject(VAR_0x8001)
+	playse(SE_PC_LOGIN)
+	applymovement(VAR_0x8001, moves(
+		set_visible
+		delay_1 * 3
+		set_invisible
+		delay_1 * 3
+		set_visible
+		delay_2
+		set_invisible
+		delay_1
+		set_visible
+	))
+}
+
+script OldLab_Entrance_TriggerTextAppear1 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_1)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_0, 1)
+	clearflag(FLAG_TEMP_1)
+}
+
+script OldLab_Entrance_TriggerTextAppear2 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_2)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_1, 1)
+	clearflag(FLAG_TEMP_2)
+}
+
+script OldLab_Entrance_TriggerTextAppear3 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_3)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_2, 1)
+	clearflag(FLAG_TEMP_3)
+}
+
+script OldLab_Entrance_TriggerTextAppear4 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_4)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_3, 1)
+	clearflag(FLAG_TEMP_4)
+}
+
+script OldLab_Entrance_TriggerTextAppear5 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_5)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_4, 1)
+	clearflag(FLAG_TEMP_5)
 }

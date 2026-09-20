@@ -602,6 +602,9 @@
     "Route28_House"
   ],
   "gMapGroup_OldLab": [
-    "OldLab_Entrance"
+    "OldLab_Entrance",
+    "OldLab_B1F",
+    "OldLab_B2F",
+    "OldLab_Basement"
   ]
 }

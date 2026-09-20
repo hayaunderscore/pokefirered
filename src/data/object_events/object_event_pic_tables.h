@@ -1855,3 +1855,7 @@ static const struct SpriteFrameImage sPicTable_Amber[] = {
     overworld_frame(gObjectEventPic_Amber, 2, 4, 7),
     overworld_frame(gObjectEventPic_Amber, 2, 4, 8),
 };
+
+static const struct SpriteFrameImage sPicTable_OldLabText[] = {
+    overworld_frame(gObjectEventPic_OldLabText, 2, 4, 0),
+};

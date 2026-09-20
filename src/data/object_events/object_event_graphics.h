@@ -200,6 +200,7 @@ const u16 gObjectEventPic_HexManiac[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPic_Serena[] = INCGFX_U16("graphics/object_events/pics/people/serena.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPic_Bret[] = INCGFX_U16("graphics/object_events/pics/people/bret.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPic_Amber[] = INCGFX_U16("graphics/object_events/pics/people/amber.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPic_OldLabText[] = INCGFX_U16("graphics/object_events/pics/misc/old_lab_text.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPal_Dawn[] = INCGFX_U16("graphics/object_events/palettes/dawn_pt.pal", ".gbapal");
 const u16 gObjectEventPal_Gold[] = INCGFX_U16("graphics/object_events/palettes/gold.pal", ".gbapal");
 const u16 gObjectEventPal_Kris[] = INCGFX_U16("graphics/object_events/palettes/kris.pal", ".gbapal");

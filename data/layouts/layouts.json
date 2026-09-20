@@ -4788,6 +4788,42 @@
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/OldLab_Entrance/border.bin",
       "blockdata_filepath": "data/layouts/OldLab_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_B1F",
+      "name": "OldLab_B1F_Layout",
+      "width": 30,
+      "height": 20,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/OldLab_B1F/border.bin",
+      "blockdata_filepath": "data/layouts/OldLab_B1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_BASEMENT",
+      "name": "OldLab_Basement_Layout",
+      "width": 21,
+      "height": 50,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PowerPlant",
+      "border_filepath": "data/layouts/OldLab_Basement/border.bin",
+      "blockdata_filepath": "data/layouts/OldLab_Basement/map.bin"
+    },
+    {
+      "id": "LAYOUT_OLD_LAB_B2F",
+      "name": "OldLab_B2F_Layout",
+      "width": 36,
+      "height": 30,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_SilphCo",
+      "border_filepath": "data/layouts/OldLab_B2F/border.bin",
+      "blockdata_filepath": "data/layouts/OldLab_B2F/map.bin"
     }
   ]
 }

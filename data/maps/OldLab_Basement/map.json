@@ -1,0 +1,29 @@
+{
+  "id": "MAP_OLD_LAB_BASEMENT",
+  "name": "OldLab_Basement",
+  "layout": "LAYOUT_OLD_LAB_BASEMENT",
+  "music": "MUS_DUMMY",
+  "region_map_section": "MAPSEC_OLD_LAB",
+  "requires_flash": false,
+  "weather": "WEATHER_UNDERWATER_BUBBLES",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": true,
+  "allow_running": false,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 45,
+      "elevation": 0,
+      "dest_map": "MAP_OLD_LAB_B2F",
+      "dest_warp_id": "5"
+    }
+  ],
+  "coord_events": [],
+  "bg_events": []
+}

@@ -167,8 +167,9 @@
 #define OBJ_EVENT_GFX_SERENA 161
 #define OBJ_EVENT_GFX_BRET 162
 #define OBJ_EVENT_GFX_AMBER 163
+#define OBJ_EVENT_GFX_OLD_LAB_TEXT 164
 
-#define NUM_OBJ_EVENT_GFX     164
+#define NUM_OBJ_EVENT_GFX     165
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
