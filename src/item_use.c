@@ -73,6 +73,8 @@ static void Task_BattleUse_StatBooster_DelayAndPrint(u8 taskId);
 static void Task_BattleUse_StatBooster_WaitButton_ReturnToBattle(u8 taskId);
 static void ItemUseOnFieldCB_SilphScope(u8 taskId);
 
+void CycleThroughRepels(void);
+
 // unknown unused data.
 // It's curiously about the size of an array of values indexed by species (including padding),
 // but the arrangement of values is not sensible (e.g., not giving all "old unown" the same value).
@@ -569,9 +571,25 @@ static void Task_UseRepel(u8 taskId)
     {
         ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, NULL, gSpecialVar_ItemId, 0xFFFF);
         VarSet(VAR_REPEL_STEP_COUNT, ItemId_GetHoldEffectParam(gSpecialVar_ItemId));
+        VarSet(VAR_REPEL_LAST_USED, gSpecialVar_ItemId);
         RemoveUsedItem();
         DisplayItemMessageInBag(taskId, FONT_NORMAL, gStringVar4, Task_ReturnToBagFromContextMenu);
     }
+}
+
+void CycleThroughRepels(void)
+{
+	u32 cycle[] = {ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL, ITEM_NONE};
+	u32 i = 0;
+	
+	while (gSpecialVar_Result == FALSE)
+	{
+		gSpecialVar_Result = CheckBagHasItem(cycle[i], 1);
+		if (gSpecialVar_Result == TRUE)
+			VarSet(VAR_REPEL_LAST_USED, cycle[i]);
+		i++;
+		if (cycle[i] == ITEM_NONE) break;
+	}
 }
 
 static void RemoveUsedItem(void)

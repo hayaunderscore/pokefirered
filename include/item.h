@@ -70,6 +70,7 @@ u8 ItemId_GetBattleUsage(u16 itemId);
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
 u16 ItemId_GetPrice(u16 itemId);
+void ItemId_GetHoldEffectParam_Script();
 void ClearBag(void);
 void ClearPCItemSlots(void);
 void TrySetObtainedItemQuestLogEvent(u16 itemId);
