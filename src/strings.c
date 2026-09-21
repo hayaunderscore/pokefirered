@@ -874,6 +874,7 @@ const u8 gText_BattleStyle[] = _("BATTLE STYLE");
 const u8 gText_Sound[] = _("SOUND");
 const u8 gText_ButtonMode[] = _("BUTTON MODE");
 const u8 gText_Frame[] = _("FRAME");
+const u8 gText_LevelCaps[] = _("LEVEL CAPS");
 const u8 gText_OptionMenuCancel[] = _("CANCEL");
 const u8 gText_TextSpeedSlow[] = _("SLOW");
 const u8 gText_TextSpeedMid[] = _("MID");

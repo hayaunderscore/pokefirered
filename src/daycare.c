@@ -508,16 +508,51 @@ static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
 {
     u16 species;
     u32 experience;
+    u32 level, i, cap, lastTrackedLevel, levelDiff, newSteps;
     struct Pokemon pokemon;
 
     DayCare_GetBoxMonNickname(&daycareMon->mon, gStringVar1);
     species = GetBoxMonData(&daycareMon->mon, MON_DATA_SPECIES);
     BoxMonToMon(&daycareMon->mon, &pokemon);
+    
+    lastTrackedLevel = 0;
 
     if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL)
     {
         experience = GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps;
         SetMonData(&pokemon, MON_DATA_EXP, &experience);
+        level = GetLevelFromBoxMonExp(&daycareMon->mon);
+
+        if (gSaveBlock2Ptr->optionsLevelCaps > OPTIONS_LEVEL_CAP_MODE_NONE)
+        {
+        	for (i = 0; i < gNumLevelCaps; i++)
+         	{
+    			if (i <= 2)
+            		cap = gLevelCaps[i].level / 2;
+    			else
+             		cap = gLevelCaps[i].level;
+       			lastTrackedLevel = max(cap, lastTrackedLevel);
+        		if (gLevelCaps[i].cond > 0)
+	         	{
+	          		if (!gLevelCaps[i].opposite)
+		       			if (!FlagGet(gLevelCaps[i].cond))
+		          			continue;
+		     		if (gLevelCaps[i].opposite)
+		    			if (FlagGet(gLevelCaps[i].cond))
+		       				continue;
+	          	}
+	            if (!FlagGet(gLevelCaps[i].flag) && level >= gLevelCaps[i].level && gLevelCaps[i].level >= lastTrackedLevel)
+	            {
+					levelDiff = level - cap;
+
+            		newSteps = daycareMon->steps / (levelDiff + 1);
+              		experience = GetBoxMonData(&daycareMon->mon, MON_DATA_EXP) + newSteps;
+
+                	SetMonData(&pokemon, MON_DATA_EXP, &experience);
+                 	break;
+	            }
+          	}
+        }
         ApplyDaycareExperience(&pokemon);
     }
 
@@ -550,9 +585,44 @@ u16 TakePokemonFromDaycare(void)
 static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
 {
     struct BoxPokemon tempMon = *mon;
+    u32 level, i, cap, lastTrackedLevel, levelDiff, newSteps;
 
     u32 experience = GetBoxMonData(mon, MON_DATA_EXP) + steps;
     SetBoxMonData(&tempMon, MON_DATA_EXP,  &experience);
+    level = GetLevelFromBoxMonExp(mon);
+    
+    lastTrackedLevel = 0;
+
+    if (gSaveBlock2Ptr->optionsLevelCaps > OPTIONS_LEVEL_CAP_MODE_NONE)
+    {
+    	for (i = 0; i < gNumLevelCaps; i++)
+     	{
+			if (i <= 2)
+        		cap = gLevelCaps[i].level / 2;
+			else
+         		cap = gLevelCaps[i].level;
+   			lastTrackedLevel = max(cap, lastTrackedLevel);
+    		if (gLevelCaps[i].cond > 0)
+	        {
+	         	if (!gLevelCaps[i].opposite)
+	       			if (!FlagGet(gLevelCaps[i].cond))
+	          			continue;
+	     		if (gLevelCaps[i].opposite)
+	    			if (FlagGet(gLevelCaps[i].cond))
+	       				continue;
+	        }
+	        if (!FlagGet(gLevelCaps[i].flag) && level >= gLevelCaps[i].level && gLevelCaps[i].level >= lastTrackedLevel)
+	        {
+				levelDiff = level - cap;
+
+	        	newSteps = steps / (levelDiff + 1);
+	          	experience = GetBoxMonData(mon, MON_DATA_EXP) + newSteps;
+	
+	            SetBoxMonData(&tempMon, MON_DATA_EXP, &experience);
+	            break;
+	        }
+      	}
+    }
     return GetLevelFromBoxMonExp(&tempMon);
 }
 

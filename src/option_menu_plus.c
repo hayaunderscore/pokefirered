@@ -42,6 +42,7 @@ enum
     MENUITEM_MAIN_SOUND,
     MENUITEM_MAIN_BUTTONMODE,
     MENUITEM_MAIN_QUESTLOG,
+    MENUITEM_MAIN_LEVEL_CAPS,
     MENUITEM_MAIN_FRAMETYPE,
     MENUITEM_MAIN_CANCEL,
     MENUITEM_MAIN_COUNT,
@@ -171,6 +172,7 @@ static void DrawChoices_BattleStyle(int selection, int y);
 static void DrawChoices_Sound(int selection, int y);
 static void DrawChoices_ButtonMode(int selection, int y);
 static void DrawChoices_QuestLog(int selection, int y);
+static void DrawChoices_LevelCaps(int selection, int y);
 static void DrawChoices_FrameType(int selection, int y);
 static void DrawChoices_MatchCall(int selection, int y);
 static void DrawBgWindowFrames(void);
@@ -210,6 +212,7 @@ struct // MENU_MAIN
     [MENUITEM_MAIN_SOUND]        = {DrawChoices_Sound,       ProcessInput_Options_Two},
     [MENUITEM_MAIN_BUTTONMODE]   = {DrawChoices_ButtonMode,  ProcessInput_Options_Two},
     [MENUITEM_MAIN_QUESTLOG]     = {DrawChoices_QuestLog,    ProcessInput_Options_Two},
+    [MENUITEM_MAIN_LEVEL_CAPS]   = {DrawChoices_LevelCaps,   ProcessInput_Options_Three},
     [MENUITEM_MAIN_FRAMETYPE]    = {DrawChoices_FrameType,   ProcessInput_FrameType},
     [MENUITEM_MAIN_CANCEL]       = {NULL, NULL},
 };
@@ -224,6 +227,7 @@ static const u8 *const sOptionMenuItemsNamesMain[MENUITEM_MAIN_COUNT] =
     [MENUITEM_MAIN_SOUND]       = gText_Sound,
     [MENUITEM_MAIN_BUTTONMODE]  = gText_ButtonMode,
     [MENUITEM_MAIN_QUESTLOG]    = sText_QuestLog,
+    [MENUITEM_MAIN_LEVEL_CAPS]  = gText_LevelCaps,
     [MENUITEM_MAIN_FRAMETYPE]   = gText_Frame,
     [MENUITEM_MAIN_CANCEL]      = gText_OptionMenuCancel,
 };
@@ -254,6 +258,9 @@ static const u8 sText_Desc_ButtonMode_LA[]      = _("The L button acts as anothe
 static const u8 sText_Desc_QuestLog_On[]        = _("A recap of your actions you last\nmade upon continuing is displayed.");
 static const u8 sText_Desc_QuestLog_Off[]       = _("A recap of your actions you last\nmade upon continuing is skipped.");
 static const u8 sText_Desc_FrameType[]          = _("Choose the frame surrounding the\nwindows.");
+static const u8 sText_Desc_LevelCaps_None[]     = _("No level caps.\nThis is the default.");
+static const u8 sText_Desc_LevelCaps_Soft[]     = _("Experience gain slows down upon\nhitting the level cap.");
+static const u8 sText_Desc_LevelCaps_Hard[]     = _("No experience is gained upon\nhitting the level cap.");
 static const u8 *const sOptionMenuItemDescriptionsMain[MENUITEM_MAIN_COUNT][3] =
 {
     [MENUITEM_MAIN_TEXTSPEED]   = {sText_Desc_TextSpeed,            sText_Empty,                sText_Empty},
@@ -262,6 +269,7 @@ static const u8 *const sOptionMenuItemDescriptionsMain[MENUITEM_MAIN_COUNT][3] =
     [MENUITEM_MAIN_SOUND]       = {sText_Desc_SoundMono,            sText_Desc_SoundStereo,     sText_Empty},
     [MENUITEM_MAIN_BUTTONMODE]  = {sText_Desc_ButtonMode_LR,        sText_Desc_ButtonMode_LA,   sText_Empty},
     [MENUITEM_MAIN_QUESTLOG]    = {sText_Desc_QuestLog_On,          sText_Desc_QuestLog_Off,    sText_Empty},
+    [MENUITEM_MAIN_LEVEL_CAPS]  = {sText_Desc_LevelCaps_None,       sText_Desc_LevelCaps_Soft,  sText_Desc_LevelCaps_Hard},
     [MENUITEM_MAIN_FRAMETYPE]   = {sText_Desc_FrameType,            sText_Empty,                sText_Empty},
     [MENUITEM_MAIN_CANCEL]      = {sText_Desc_Save,                 sText_Empty,                sText_Empty},
 };
@@ -276,6 +284,7 @@ static const u8 *const sOptionMenuItemDescriptionsDisabledMain[MENUITEM_MAIN_COU
     [MENUITEM_MAIN_SOUND]       = sText_Empty,
     [MENUITEM_MAIN_BUTTONMODE]  = sText_Empty,
     [MENUITEM_MAIN_QUESTLOG]    = sText_Empty,
+    [MENUITEM_MAIN_LEVEL_CAPS]  = sText_Empty,
     [MENUITEM_MAIN_FRAMETYPE]   = sText_Empty,
     [MENUITEM_MAIN_CANCEL]      = sText_Empty,
 };
@@ -447,6 +456,7 @@ void CB2_SetOptionsPlusMenuOptions(void)
     sOptions->sel[MENUITEM_MAIN_SOUND]       = gSaveBlock2Ptr->optionsSound;
     sOptions->sel[MENUITEM_MAIN_BUTTONMODE]  = gSaveBlock2Ptr->optionsButtonMode;
     sOptions->sel[MENUITEM_MAIN_QUESTLOG]    = min(1, max(0, gSaveBlock2Ptr->optionsQuestLog));
+    sOptions->sel[MENUITEM_MAIN_LEVEL_CAPS]  = gSaveBlock2Ptr->optionsLevelCaps;
     sOptions->sel[MENUITEM_MAIN_FRAMETYPE]   = gSaveBlock2Ptr->optionsWindowFrameType;
 
     gMain.state = 0;
@@ -684,6 +694,7 @@ static void Task_OptionMenuSave(u8 taskId)
     gSaveBlock2Ptr->optionsButtonMode       = sOptions->sel[MENUITEM_MAIN_BUTTONMODE];
     gSaveBlock2Ptr->optionsQuestLog         = sOptions->sel[MENUITEM_MAIN_QUESTLOG];
     gSaveBlock2Ptr->optionsWindowFrameType  = sOptions->sel[MENUITEM_MAIN_FRAMETYPE];
+    gSaveBlock2Ptr->optionsLevelCaps        = sOptions->sel[MENUITEM_MAIN_LEVEL_CAPS];
 
     BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
     gTasks[taskId].func = Task_OptionMenuFadeOut;
@@ -1003,6 +1014,16 @@ static void DrawChoices_MatchCall(int selection, int y)
 
     DrawOptionMenuChoice(gText_BattleSceneOn, 104, y, styles[0], active);
     DrawOptionMenuChoice(gText_BattleSceneOff, GetStringRightAlignXOffset(1, gText_BattleSceneOff, 198), y, styles[1], active);
+}
+
+static const u8 sLevelCap_None[] = _("NONE");
+static const u8 sLevelCap_Soft[] = _("SOFT");
+static const u8 sLevelCap_Hard[] = _("HARD");
+static const u8 *const sLevelCapStrings[] = {sLevelCap_None, sLevelCap_Soft, sLevelCap_Hard};
+static void DrawChoices_LevelCaps(int selection, int y)
+{
+    bool8 active = CheckConditions(MENUITEM_MAIN_LEVEL_CAPS);
+    DrawChoices_Options_Three(sLevelCapStrings, selection, y, active);
 }
 
 

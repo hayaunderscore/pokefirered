@@ -379,6 +379,7 @@ struct SaveBlock2
               u16 regionMapZoom:1; // whether the map is zoomed in
     /*0x018*/ struct Pokedex pokedex;
     /*0x090*/ u8 optionsQuestLog:1;
+    		  u8 optionsLevelCaps:2; // OPTIONS_LEVEL_CAP_MODE_[SOFT/HARD/NONE]
     /*0x091*/ u8 filler_90[0x7];
     /*0x098*/ struct Time localTimeOffset;
     /*0x0A0*/ struct Time lastBerryTreeUpdate;

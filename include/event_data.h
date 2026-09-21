@@ -57,4 +57,16 @@ void ClearTempFieldEventData(void);
 u16 VarGetIfExist(u16 id);
 u8 FlagToggle(u16 id);
 
+// LEVEL CAP RELATED STUFF //
+struct LevelCap
+{
+	u16 flag;		// Main flag to check if we should apply this level cap
+	u16 cond;		// If this should be checked
+	u8 level;		// Main level cap
+	bool8 opposite;	// If the flag check should be the other way around
+};
+
+extern const struct LevelCap gLevelCaps[];
+extern const u32 gNumLevelCaps;
+
 #endif // GUARD_EVENT_DATA_H

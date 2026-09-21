@@ -39,6 +39,78 @@
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 
+const struct LevelCap gLevelCaps[] =
+{
+	{ // BROCK
+		.flag = FLAG_BADGE01_GET,
+		.cond = 0,
+		.level = 14,
+		.opposite = FALSE,
+	},
+	{ // MISTY
+		.flag = FLAG_BADGE02_GET,
+		.cond = 0,
+		.level = 21,
+		.opposite = FALSE,
+	},
+	{ // LT. SURGE
+		.flag = FLAG_BADGE03_GET,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 24,
+		.opposite = TRUE, // This checks if we HAVEN'T insitigated the route
+	},
+	{ // ERIKA
+		.flag = FLAG_BADGE04_GET,
+		.cond = 0,
+		.level = 29,
+		.opposite = FALSE,
+	},
+	{ // KOGA
+		.flag = FLAG_BADGE05_GET,
+		.cond = 0,
+		.level = 43,
+		.opposite = FALSE,
+	},
+	{ // SABRINA (NORMAL)
+		.flag = FLAG_BADGE06_GET,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 43,
+		.opposite = TRUE, // This checks if we HAVEN'T insitigated the route
+	},
+	{ // SEVAULT CANYON TRAINERS
+		.flag = FLAG_ESSENCE_UNOWN,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 55, // Yes the level cap is that LARGE, its fucking SEVEN ISLAND.
+		.opposite = FALSE,
+	},
+	{ // BLAINE
+		.flag = FLAG_BADGE07_GET, // This is after, as BLAINE can be beaten before or after doing the whole quest..
+		.cond = 0,
+		.level = 47,
+		.opposite = FALSE,
+	},
+	{ // SABRINA (ABYSS)
+		.flag = FLAG_BADGE06_GET,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 56,
+		.opposite = FALSE,
+	},
+	{ // GIOVANNI (ABYSS)
+		.flag = FLAG_BADGE08_GET,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 58,
+		.opposite = FALSE,
+	},
+	{ // GIOVANNI (NORMAL)
+		.flag = FLAG_BADGE08_GET,
+		.cond = FLAG_ABYSS_ROUTE,
+		.level = 50,
+		.opposite = TRUE,
+	},
+};
+
+const u32 gNumLevelCaps = ARRAY_COUNT(gLevelCaps);
+
 #define DEFENDER_IS_PROTECTED ((gProtectStructs[gBattlerTarget].protected) && (gBattleMoves[gCurrentMove].flags & FLAG_PROTECT_AFFECTED))
 
 #define LEVEL_UP_BANNER_START 416
@@ -308,6 +380,18 @@ static void Cmd_subattackerhpbydmg(void);
 static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
+
+// Applicable when SOFT caps are enabled
+const f32 sLevelCapReduction[7] = { .5, .33, .25, .20, .15, .10, .05 };
+const f32 sRelativePartyScaling[27] =
+{
+    3.00, 2.75, 2.50, 2.33, 2.25,
+    2.00, 1.80, 1.70, 1.60, 1.50,
+    1.40, 1.30, 1.20, 1.10, 1.00,
+    0.90, 0.80, 0.75, 0.66, 0.50,
+    0.40, 0.33, 0.25, 0.20, 0.15,
+    0.10, 0.05,
+};
 
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
@@ -3110,6 +3194,94 @@ static void Cmd_jumpiftype(void)
         gBattlescriptCurrInstr += 7;
 }
 
+u8 GetTeamLevel(void)
+{
+    u8 i;
+    u16 partyLevel = 0;
+    u16 threshold = 0;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+            partyLevel += gPlayerParty[i].level;
+        else
+            break;
+    }
+    partyLevel /= i;
+
+    threshold = partyLevel * .8;
+    partyLevel = 0;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE)
+        {
+            if (gPlayerParty[i].level >= threshold)
+                partyLevel += gPlayerParty[i].level;
+        }
+        else
+            break;
+    }
+    partyLevel /= i;
+
+    return partyLevel;
+}
+
+f32 GetPkmnExpMultiplier(u8 level)
+{
+    u32 i;
+    f32 lvlCapMultiplier = 1.0;
+    u32 levelDiff;
+    u32 lastTrackedLevel = 0;
+    s32 avgDiff;
+
+    // No level cap, just proceed with everything...
+    if (gSaveBlock2Ptr->optionsLevelCaps == OPTIONS_LEVEL_CAP_MODE_NONE)
+    	return lvlCapMultiplier;
+
+    // multiply the usual exp yield by the soft cap multiplier
+    for (i = 0; i < ARRAY_COUNT(gLevelCaps); i++)
+    {
+    	lastTrackedLevel = max(gLevelCaps[i].level, lastTrackedLevel);
+    	if (gLevelCaps[i].cond > 0)
+    	{
+     		if (!gLevelCaps[i].opposite)
+       			if (!FlagGet(gLevelCaps[i].cond))
+          			continue;
+     		if (gLevelCaps[i].opposite)
+    			if (FlagGet(gLevelCaps[i].cond))
+       				continue;
+     	}
+        if (!FlagGet(gLevelCaps[i].flag) && gLevelCaps[i].level >= lastTrackedLevel && level >= gLevelCaps[i].level)
+        {
+			if (gSaveBlock2Ptr->optionsLevelCaps == OPTIONS_LEVEL_CAP_MODE_SOFT)
+            {
+	           	levelDiff = level - gLevelCaps[i].level;
+	            if (levelDiff > 6)
+	                levelDiff = 6;
+	            lvlCapMultiplier = sLevelCapReduction[levelDiff];
+            }
+			else
+          	{
+         		return 0;
+           	}
+            break;
+        }
+    }
+
+    // multiply the usual exp yield by the party level multiplier
+    avgDiff = level - GetTeamLevel();
+
+    if (avgDiff >= 12)
+        avgDiff = 12;
+    else if (avgDiff <= -14)
+        avgDiff = -14;
+
+    avgDiff += 14;
+
+    return gSaveBlock2Ptr->optionsLevelCaps == OPTIONS_LEVEL_CAP_MODE_SOFT ? lvlCapMultiplier * sRelativePartyScaling[avgDiff] : lvlCapMultiplier;
+}
+
 static void Cmd_getexp(void)
 {
     u16 item;
@@ -3118,6 +3290,7 @@ static void Cmd_getexp(void)
     s32 sentIn;
     s32 viaExpShare = 0;
     u16 *exp = &gBattleStruct->expValue;
+    f32 expMultiplier;
 
     gBattlerFainted = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
     sentIn = gSentPokesToOpponent[(gBattlerFainted & 2) >> 1];
@@ -3222,13 +3395,16 @@ static void Cmd_getexp(void)
 
                 if (GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_HP))
                 {
+                	expMultiplier = GetPkmnExpMultiplier(gPlayerParty[gBattleStruct->expGetterMonId].level);
+                 	if (expMultiplier <= 0.01) expMultiplier = 0;
+
                     if (gBattleStruct->sentInPokes & 1)
-                        gBattleMoveDamage = *exp;
+                        gBattleMoveDamage = *exp * expMultiplier;
                     else
                         gBattleMoveDamage = 0;
 
                     if (holdEffect == HOLD_EFFECT_EXP_SHARE)
-                        gBattleMoveDamage += gExpShareExp;
+                        gBattleMoveDamage += gExpShareExp * expMultiplier;
                     if (holdEffect == HOLD_EFFECT_LUCKY_EGG)
                         gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
                     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
@@ -3260,6 +3436,14 @@ static void Cmd_getexp(void)
                     else
                     {
                         gBattleStruct->expGetterBattlerId = 0;
+                    }
+                    
+                    if (expMultiplier <= 0.01)
+                    {
+                    	gBattleStruct->sentInPokes >>= 1;
+                    	gBattleScripting.getexpState = 6; // goto last case
+                     	MonGainEVs(&gPlayerParty[gBattleStruct->expGetterMonId], gBattleMons[gBattlerFainted].species);
+                     	break;
                     }
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, gBattleStruct->expGetterMonId);
