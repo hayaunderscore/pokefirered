@@ -110,4 +110,5 @@ const u8 gTrainerClassNames[][26] = {
     [TRAINER_CLASS_RIVAL_GENERIC]       = _("RIVAL"),
     [TRAINER_CLASS_CARA]                = _("{JPN}{FONT_SMALL}An attack tha?{FONT_NORMAL}{ENG}"),
     [TRAINER_CLASS_GHOST]               = _("GHOST"),
+    [TRAINER_CLASS_POKEPASTA]           = _("POKéPASTA"),
 };

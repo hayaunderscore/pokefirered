@@ -1,10 +1,20 @@
 mapscripts CadmiumIsland_LeafFanclub_MapScripts {
 	MAP_SCRIPT_ON_TRANSITION: CadmiumIsland_LeafFanclub_OnTransition
+	MAP_SCRIPT_ON_LOAD: CadmiumIsland_LeafFanclub_OnLoad
 }
 
 script CadmiumIsland_LeafFanclub_OnTransition {
 	call(CadmiumIsland_Common_HideNPCS)
 	end
+}
+
+script CadmiumIsland_LeafFanclub_OnLoad {
+	if (flag(FLAG_ESSENCE_UNOWN)) {
+		setmetatile(11, 1, 0x32E, FALSE)
+		setmetatile(11, 2, 0x292, FALSE)
+		setmetatile(13, 1, 0x332, TRUE)
+		setmetatile(13, 2, 0x335, FALSE)
+	}
 }
 
 script CadmiumIsland_LeafFanclub_EventScript_Claire {
@@ -93,16 +103,26 @@ script CadmiumIsland_LeafFanclub_EventScript_Vicki {
 				The whole world deserves your name!")
 		setvar(VAR_MAP_SCENE_CADMIUM_ISLAND_FANCLUB, 1)
 	} else {
-		msgbox("VICKI: By the way\.
+		if (flag(FLAG_ESSENCE_UNOWN)) {
+			msgbox("VICKI: Hey {PLAYER}!
 
-				That grandkid of OAK's\.{PAUSE 30}
-				{RIVAL},{PAUSE 30} right?
+					We've finished setting up the new
+					WAITING ROOM!
 
-				He's your rival isn't he?
-				I like him a lot too!
+					There's even people in there
+					already!")
+		} else {
+			msgbox("VICKI: By the way\.
 
-				Maybe I should open a FAN CLUB
-				for him\.")
+					That grandkid of OAK's\.{PAUSE 30}
+					{RIVAL},{PAUSE 30} right?
+
+					He's your rival isn't he?
+					I like him a lot too!
+
+					Maybe I should open a FAN CLUB
+					for him\.")
+		}
 	}
 	release
 	end

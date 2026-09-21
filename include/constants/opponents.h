@@ -5,13 +5,13 @@
 // Dummy trainers for all the RS trainer classes
 // Some of these are reused for FRLGV.IPS (like come on, its 80+ slots)
 #define TRAINER_GABBY_AND_TY_1                     1
-#define TRAINER_AQUA_GRUNT_M                       2
-#define TRAINER_AQUA_GRUNT_F                       3
-#define TRAINER_RS_AROMA_LADY                      4
-#define TRAINER_RS_RUIN_MANIAC                     5
-#define TRAINER_INTERVIEWER                        6
-#define TRAINER_RS_TUBER_F                         7
-#define TRAINER_RS_TUBER_M                         8
+#define TRAINER_POKEPASTA_GLITCHY                  2
+#define TRAINER_POKEPASTA_BLAKE                    3
+#define TRAINER_POKEPASTA_DAWN                     4
+#define TRAINER_POKEPASTA_MONOCHROME               5
+#define TRAINER_POKEPASTA_STEVEN                   6
+#define TRAINER_POKEPASTA_CHIMERA_DUO              7
+#define TRAINER_POKEPASTA_BLUE_TEARS               8
 #define TRAINER_RS_COOLTRAINER_M                   9
 #define TRAINER_RS_COOLTRAINER_F                  10
 #define TRAINER_HEX_MANIAC                        11

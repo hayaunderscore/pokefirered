@@ -457,6 +457,18 @@ const u32 gTrainerPalette_Ghost[] = INCGFX_U32("graphics/trainers/palettes/ghost
 const u32 gTrainerFrontPic_Bret[] = INCGFX_U32("graphics/trainers/front_pics/bret_front_pic.png", ".4bpp.lz");
 const u32 gTrainerPalette_Bret[] = INCGFX_U32("graphics/trainers/palettes/bret.pal", ".gbapal.lz");
 
+const u32 gTrainerFrontPic_Gold[] = INCGFX_U32("graphics/trainers/front_pics/gold_front_pic.png", ".4bpp.lz");
+const u32 gTrainerPalette_Gold[] = INCGFX_U32("graphics/trainers/palettes/gold.pal", ".gbapal.lz");
+
+const u32 gTrainerFrontPic_Monochrome[] = INCGFX_U32("graphics/trainers/front_pics/monochrome_front_pic.png", ".4bpp.lz");
+const u32 gTrainerPalette_Monochrome[] = INCGFX_U32("graphics/trainers/palettes/monochrome.pal", ".gbapal.lz");
+
+const u32 gTrainerFrontPic_Dawn[] = INCGFX_U32("graphics/trainers/front_pics/dawn_front_pic.png", ".4bpp.lz");
+const u32 gTrainerPalette_Dawn[] = INCGFX_U32("graphics/trainers/palettes/dawn.pal", ".gbapal.lz");
+
+const u32 gTrainerFrontPic_HelenaAndSerena[] = INCGFX_U32("graphics/trainers/front_pics/helena_and_serena_front_pic.png", ".4bpp.lz");
+const u32 gTrainerPalette_HelenaAndSerena[] = INCGFX_U32("graphics/trainers/palettes/helena_and_serena.pal", ".gbapal.lz");
+
 const u8 gTrainerBackPic_Red[] = INCGFX_U8("graphics/trainers/back_pics/red_back_pic.png", ".4bpp");
 const u8 gTrainerBackPic_Leaf[] = INCGFX_U8("graphics/trainers/back_pics/leaf_back_pic.png", ".4bpp");
 const u8 gTrainerBackPic_Pokedude[] = INCGFX_U8("graphics/trainers/back_pics/pokedude_back_pic.png", ".4bpp");

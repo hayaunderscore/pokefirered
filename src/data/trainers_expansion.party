@@ -462,3 +462,179 @@ Hasty Nature
 - Ice Beam
 - Shadow Ball
 - Swords Dance
+
+=== TRAINER_POKEPASTA_GLITCHY ===
+Name: GLITCHY RED
+Class: Pokepasta
+Pic: Red
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Mew
+Level: 50
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Pound
+- Hyper Beam
+- Psychic
+- Transform
+
+Raticate
+Level: 16
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+
+=== TRAINER_POKEPASTA_BLAKE ===
+Name: BLAKE
+Class: Pokepasta
+Pic: Gold
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Typhlosion
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+Feraligatr
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+Meganium
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+Pidgeot
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+Tyranitar
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+Lugia
+Level: 50
+IVs: 10 HP / 10 Atk / 10 Def / 10 SpA / 10 SpD / 10 Spe
+
+=== TRAINER_POKEPASTA_DAWN ===
+Name: DAWN
+Class: Pkmn Trainer Unused
+Pic: Dawn
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Wartortle
+Level: 6
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+- Hyper Beam
+- Hyper Beam
+- Hyper Beam
+- Hyper Beam
+
+=== TRAINER_POKEPASTA_MONOCHROME ===
+Name: MONOCHROME
+Class: Pokepasta
+Pic: Monochrome
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint
+
+HURRY (Cyndaquil)
+Level: 5
+- Flash
+- Flash
+- Flash
+- Flash
+
+Unown_D
+Level: 5
+- Hidden Power
+- Hidden Power
+- Hidden Power
+- Hidden Power
+
+Unown_E
+Level: 5
+- Hidden Power
+- Hidden Power
+- Hidden Power
+- Hidden Power
+
+Unown
+Level: 5
+- Hidden Power
+- Hidden Power
+- Hidden Power
+- Hidden Power
+
+Unown_D
+Level: 5
+- Hidden Power
+- Hidden Power
+- Hidden Power
+- Hidden Power
+
+Unown_King
+Ability: Sturdy
+Level: 50
+Hasty Nature
+- Recover
+- Ice Beam
+- Shadow Ball
+- Swords Dance
+
+=== TRAINER_POKEPASTA_STEVEN ===
+Name: STEVEN
+Class: Pokepasta
+Pic: Red
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Charizard
+Level: 55
+- Flamethrower
+- Dragon Dance
+- Return
+- Sunny Day
+
+=== TRAINER_POKEPASTA_CHIMERA_DUO ===
+Name: CHIMERA DUO
+Class: Pokepasta
+Pic: Helena And Serena
+Gender: Female
+Music: Female
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Gengar
+Level: 55
+- Destiny Bond
+- Hypnosis
+- Psychic
+- Taunt
+
+Moltres
+Level: 55
+- Agility
+- Heat Wave
+- Overheat
+- Double Edge
+
+=== TRAINER_POKEPASTA_BLUE_TEARS ===
+Name: BLUE
+Class: Rival Late
+Pic: Rival Late
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Check Bad Move / Try To Faint / Check Viability
+
+Raticate
+Level: 16
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe

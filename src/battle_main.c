@@ -562,6 +562,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RIVAL_GENERIC, 12},
     {TRAINER_CLASS_CARA, 0},
     {TRAINER_CLASS_GHOST, 0},
+    {TRAINER_CLASS_POKEPASTA, 0},
     { 0xFF, 5},
 };
 
@@ -1564,6 +1565,8 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
     u32 reallevel = 0;
 	u32 fixedLVL = 0;
 	
+	const u32 one = 1;
+	
 	for (i = 0; i < PARTY_SIZE; i++) {
 		if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_NONE)
 			break;
@@ -1713,6 +1716,10 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 
                 if (partyData[i].nickname != NULL)
                 	SetMonData(&party[i], MON_DATA_NICKNAME, partyData[i].nickname);
+                
+                // Force set raticate to 1 hp lmao
+                if (i == 1 && trainerNum == TRAINER_POKEPASTA_GLITCHY)
+                	SetMonData(&party[i], MON_DATA_HP, &one);
 
                 SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
                 CalculateMonStats(&party[i]);

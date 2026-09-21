@@ -80,6 +80,13 @@
       "elevation": 0,
       "dest_map": "MAP_CADMIUM_ISLAND",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 11,
+      "y": 1,
+      "elevation": 0,
+      "dest_map": "MAP_WAITING_ROOM_BRIDGE",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

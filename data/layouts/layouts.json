@@ -4824,6 +4824,18 @@
       "secondary_tileset": "gTileset_SilphCo",
       "border_filepath": "data/layouts/OldLab_B2F/border.bin",
       "blockdata_filepath": "data/layouts/OldLab_B2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_WAITING_ROOM_BRIDGE",
+      "name": "WaitingRoom_Bridge_Layout",
+      "width": 11,
+      "height": 40,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_TrainerTower",
+      "border_filepath": "data/layouts/WaitingRoom_Bridge/border.bin",
+      "blockdata_filepath": "data/layouts/WaitingRoom_Bridge/map.bin"
     }
   ]
 }

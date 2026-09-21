@@ -65,7 +65,8 @@
     "Route_TOp",
     "CadmiumIsland",
     "DeepRuins_Hell",
-    "DeepRuins_FinalHallway"
+    "DeepRuins_FinalHallway",
+    "WaitingRoom_Bridge"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

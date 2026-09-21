@@ -22,4 +22,7 @@ Sporadic updates, though I do hope to finish it maybe...
 - [Allistair's FRLG Style overworld tilesets](https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/tree/main/Tilesets/Other%20Tilesets/Ewraz%20Collected%20Tilesets)
 - [aveontrainer](https://www.deviantart.com/aveontrainer) (school tilesets)
 - [Kalarie](https://github.com/TeamAquasHideout/Team-Aquas-Asset-Repo/tree/main/Trainer%20Front%20Sprites/Kalarie) (trainer sprites)
+- hyo (trainer sprites)
+- muzyun (trainer sprites)
+- Kasen (trainer sprites)
 - Nullrot (trainer sprites)

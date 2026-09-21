@@ -1,0 +1,141 @@
+mapscripts WaitingRoom_Bridge_MapScripts {}
+
+script WaitingRoom_Bridge_EventScript_Glitchy {
+	trainerbattle_single(TRAINER_POKEPASTA_GLITCHY,
+			"Welcome to the WAITING ROOM!
+
+			Here, we wait for the next chance
+			to get a hit tweet on TWITTER!
+
+			Think you got what it takes?", "My writing is bad?!")
+	msgbox("I should take writing lessons\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_Blake {
+	trainerbattle_single(TRAINER_POKEPASTA_BLAKE,
+			"It's\.
+			So cold\.
+
+			Can someone turn off the damn
+			air conditioner\.?", "Thanks for heating me up\.")
+	msgbox("I have a bad case of cold.
+
+			As in, I'm always cold.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_Dawn {
+	trainerbattle_single(TRAINER_POKEPASTA_DAWN,
+			"I sure do hope I don't see a
+			BRONZOR ever again.", "Oh come on!")
+	msgbox("Hey\.
+			Have you heard of POK\eMON CONTESTS?
+
+			I participate in those!
+			You should too!", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_JohnMonochrome {
+	trainerbattle_single(TRAINER_POKEPASTA_MONOCHROME,
+			"I'M\.
+			DEAD\.", "NOOOO\.")
+	msgbox("I'VE\.
+			DIED\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_Steven {
+	trainerbattle_single(TRAINER_POKEPASTA_STEVEN,
+			"Hey!
+			Have you seen a MISSINGNO.?
+
+			No?
+			Well battle me anyway!", "Darn it!")
+	msgbox("Have you ever been in a situation
+			where you can't do anything?", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_HelenaInteract {
+	lock
+	faceplayer
+	if (var(VAR_MAP_SCENE_WAITING_ROOM) == 0) {
+		msgbox("HELENA: Heeheehee!
+				You shouldn't interact with me!
+
+				Step in front of us!")
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+	} else {
+		msgbox("Kehehehe\.
+
+				The next opponent is the most
+				powerful of us all!")
+	}
+	release
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_SerenaInteract {
+	lock
+	faceplayer
+	if (var(VAR_MAP_SCENE_WAITING_ROOM) == 0) {
+		msgbox("SERENA: Hello?
+				Could you not directly interact?
+
+				Just walk in front of us!")
+		applymovement(VAR_LAST_TALKED, moves(
+			face_original_direction
+		))
+		waitmovement(0)
+	} else {
+		msgbox("I don't like the BUG type.")
+	}
+	release
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_HelenaAndSerena {
+	lock
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	applymovement(LOCALID_WR_HELENA, moves(
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("HELENA: You\.
+			You are the one\.")
+	closemessage
+	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	applymovement(LOCALID_WR_SERENA, moves(
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("SERENA: Hey hey hey!
+			You up for a spar?")
+	trainerbattle_no_intro(TRAINER_POKEPASTA_CHIMERA_DUO, "Oof!")
+	setvar(VAR_MAP_SCENE_WAITING_ROOM, 1)
+	release
+	end
+}
+
+script WaitingRoom_Bridge_EventScript_BlueTears {
+	trainerbattle_single(TRAINER_POKEPASTA_BLUE_TEARS,
+			"RED\.
+
+			Where is he?!", "I should've just used the
+							KNIFE on you!")
+	msgbox("Damn it\.
+			My KNIFE\.
+
+			It's gone!
+			Where is it?!", MSGBOX_AUTOCLOSE)
+	end
+}

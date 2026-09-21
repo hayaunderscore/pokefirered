@@ -153,6 +153,10 @@ const struct MonCoords gTrainerFrontPicCoords[] =
     {.size = 8, .y_offset = 1},
     {.size = 8, .y_offset = 1},
     {.size = 8, .y_offset = 1},
+    {.size = 8, .y_offset = 1},
+    {.size = 8, .y_offset = 1},
+    {.size = 8, .y_offset = 1},
+    {.size = 8, .y_offset = 1},
 };
 
 const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
@@ -310,6 +314,10 @@ const struct CompressedSpriteSheet gTrainerFrontPicTable[] =
     TRAINER_SPRITE(CARA, gTrainerFrontPic_Cara, 0x800),
     TRAINER_SPRITE(GHOST, gTrainerFrontPic_Ghost, 0x800),
     TRAINER_SPRITE(BRET, gTrainerFrontPic_Bret, 0x800),
+    TRAINER_SPRITE(GOLD, gTrainerFrontPic_Gold, 0x800),
+    TRAINER_SPRITE(MONOCHROME, gTrainerFrontPic_Monochrome, 0x800),
+    TRAINER_SPRITE(DAWN, gTrainerFrontPic_Dawn, 0x800),
+    TRAINER_SPRITE(HELENA_AND_SERENA, gTrainerFrontPic_HelenaAndSerena, 0x800),
 };
 
 const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
@@ -467,4 +475,8 @@ const struct CompressedSpritePalette gTrainerFrontPicPaletteTable[] =
     TRAINER_PAL(CARA, gTrainerPalette_Cara),
     TRAINER_PAL(GHOST, gTrainerPalette_Ghost),
     TRAINER_PAL(BRET, gTrainerPalette_Bret),
+    TRAINER_PAL(GOLD, gTrainerPalette_Gold),
+    TRAINER_PAL(MONOCHROME, gTrainerPalette_Monochrome),
+    TRAINER_PAL(DAWN, gTrainerPalette_Dawn),
+    TRAINER_PAL(HELENA_AND_SERENA, gTrainerPalette_HelenaAndSerena),
 };
