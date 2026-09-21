@@ -361,6 +361,7 @@ gSongTable::
 	song mus_vs_zinnia, 0, 0
 	song mus_here_we_are, 0, 0
 	song mus_hardening_drops_test, 0, 0
+	song mus_vs_frontier_brain, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

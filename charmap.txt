@@ -836,6 +836,7 @@ MUS_ROUTE26               = 66 01
 MUS_VS_ZINNIA             = 67 01
 MUS_HERE_WE_ARE           = 68 01
 MUS_HARDENING_DROPS_TEST  = 69 01
+MUS_VS_FRONTIER_BRAIN     = 6A 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01
