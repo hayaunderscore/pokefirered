@@ -5886,6 +5886,7 @@ static u16 GetBattleBGM(void)
             return MUS_VS_CHAMPION;
         case TRAINER_CLASS_LEADER:
         case TRAINER_CLASS_ELITE_FOUR:
+        case TRAINER_CLASS_PKMN_TRAINER_UNUSED:
             return MUS_VS_GYM_LEADER;
         case TRAINER_CLASS_CARA:
         	if (gTrainerBattleOpponent_A == TRAINER_AN_ATTACK_THA_BRET)
@@ -5893,6 +5894,10 @@ static u16 GetBattleBGM(void)
         	return MUS_VS_DEAD_REGI;
         case TRAINER_CLASS_INTERVIEWER:
          	return MUS_RS_VS_TRAINER;
+        case TRAINER_CLASS_POKEPASTA:
+        	if (gTrainerBattleOpponent_A == TRAINER_POKEPASTA_CHIMERA_DUO)
+         		return MUS_VS_FRONTIER_BRAIN;
+         	return MUS_RS_VS_GYM_LEADER;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:

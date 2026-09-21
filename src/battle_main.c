@@ -562,7 +562,7 @@ const struct TrainerMoney gTrainerMoneyTable[] =
     {TRAINER_CLASS_RIVAL_GENERIC, 12},
     {TRAINER_CLASS_CARA, 0},
     {TRAINER_CLASS_GHOST, 0},
-    {TRAINER_CLASS_POKEPASTA, 0},
+    {TRAINER_CLASS_POKEPASTA, 12},
     { 0xFF, 5},
 };
 
