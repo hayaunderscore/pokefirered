@@ -1,1 +1,29 @@
-mapscripts OldLab_B1F_MapScripts {}
+mapscripts OldLab_B1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: OldLab_B1F_OnTransition
+}
+
+script OldLab_B1F_OnTransition {
+	setflag(FLAG_TEMP_1)
+}
+
+script OldLab_B1F_EventScriptLog14 {
+	signmsg
+	msgbox("LOG 14
+
+			More self-testing\.
+
+			I feel a bit light-headed\.
+			\.but I'm fine.
+
+			This probably has something to do
+			with that substance.", MSGBOX_SIGN)
+	normalmsg
+	end
+}
+
+script OldLab_B1F_TriggerTextAppear1 {
+	setvar(VAR_0x8001, LOCALID_LAB_TEXT_6)
+	call(OldLab_Entrance_TriggerTextAppear)
+	setvar(VAR_TEMP_0, 1)
+	clearflag(FLAG_TEMP_1)
+}

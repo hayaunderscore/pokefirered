@@ -14,7 +14,23 @@
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_INDOOR_1",
   "connections": null,
-  "object_events": [],
+  "object_events": [
+    {
+      "local_id": "LOCALID_LAB_TEXT_6",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_OLD_LAB_TEXT",
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "OldLab_B1F_EventScriptLog14",
+      "flag": "FLAG_TEMP_1"
+    }
+  ],
   "warp_events": [
     {
       "x": 25,
@@ -45,7 +61,26 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "OldLab_B1F_TriggerTextAppear1"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "OldLab_B1F_TriggerTextAppear1"
+    }
+  ],
   "bg_events": [
     {
       "type": "sign",
