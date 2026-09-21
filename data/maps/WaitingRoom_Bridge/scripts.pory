@@ -139,3 +139,18 @@ script WaitingRoom_Bridge_EventScript_BlueTears {
 			Where is it?!", MSGBOX_AUTOCLOSE)
 	end
 }
+
+script WaitingRoom_Bridge_EventScript_Abby {
+	lock
+	faceplayer
+	msgbox("WOAH\. GREAT JOB.
+			YOU REALLY BEAT ALL OF THEM.
+
+			WHAT? EXPECTING A REWARD?
+			I UHH\.
+
+			I HAVE NOTHING TO GIVE RIGHT NOW.
+			SORRY!")
+	release
+	end
+}
