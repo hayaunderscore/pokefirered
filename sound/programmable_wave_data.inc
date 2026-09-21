@@ -30,3 +30,9 @@ ProgrammableWaveData_10::
 
 ProgrammableWaveData_11::
 	.incbin "sound/programmable_wave_samples/11.pcm"
+
+ProgrammableWaveData_15::
+	.incbin "sound/programmable_wave_samples/15.pcm"
+
+ProgrammableWaveData_21::
+	.incbin "sound/programmable_wave_samples/21.pcm"
