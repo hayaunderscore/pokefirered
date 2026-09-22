@@ -986,6 +986,8 @@ SECTIONS {
         sound/songs/midi/mus_here_we_are.o(.rodata);
         sound/songs/midi/mus_hardening_drops_test.o(.rodata);
         sound/songs/midi/mus_vs_frontier_brain.o(.rodata);
+        sound/songs/midi/mus_encounter_suspicious.o(.rodata);
+        sound/songs/midi/mus_battle_revolution.o(.rodata);
     } > ROM =0
 
     lib_rodata :

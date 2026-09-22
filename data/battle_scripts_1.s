@@ -3563,6 +3563,15 @@ BattleScript_MoveUsedIsTaunted::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
+BattleScript_SelectingNotAllowedMoveCheese::
+	printselectionstring STRINGID_PKMNCANTUSEMOVECHEESE
+	endselectionscript
+
+BattleScript_MoveUsedIsCheese::
+	printstring STRINGID_PKMNCANTUSEMOVECHEESE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_WishComesTrue::
 	trywish 1, BattleScript_WishButFullHp
 	playanimation BS_TARGET, B_ANIM_WISH_HEAL

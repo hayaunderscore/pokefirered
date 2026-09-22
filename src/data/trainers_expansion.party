@@ -468,7 +468,7 @@ Name: GLITCHY RED
 Class: Pokepasta
 Pic: Red
 Gender: Male
-Music: Male
+Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -489,7 +489,7 @@ Name: BLAKE
 Class: Pokepasta
 Pic: Gold
 Gender: Male
-Music: Male
+Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
@@ -539,7 +539,7 @@ Name: MONOCHROME
 Class: Pokepasta
 Pic: Monochrome
 Gender: Male
-Music: Male
+Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint
 
@@ -592,11 +592,11 @@ Name: STEVEN
 Class: Pokepasta
 Pic: Red
 Gender: Male
-Music: Male
+Music: Suspicious
 Double Battle: No
 AI: Check Bad Move / Try To Faint / Check Viability
 
-Charizard
+MIKI (Charizard) (F)
 Level: 55
 - Flamethrower
 - Dragon Dance
@@ -608,7 +608,7 @@ Name: CHIMERA DUO
 Class: Pokepasta
 Pic: Helena And Serena
 Gender: Female
-Music: Female
+Music: Suspicious
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability
 

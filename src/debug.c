@@ -3696,6 +3696,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_HERE_WE_ARE) \
     X(MUS_HARDENING_DROPS_TEST) \
     X(MUS_VS_FRONTIER_BRAIN) \
+    X(MUS_ENCOUNTER_SUSPICIOUS) \
+    X(MUS_BATTLE_REVOLUTION) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

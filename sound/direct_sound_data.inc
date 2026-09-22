@@ -1941,3 +1941,7 @@ DirectSoundWaveData_sd90_enhanced_delay_shaku::
 	.align 2
 DirectSoundWaveData_2009_sy_loop::
 	.incbin "sound/direct_sound_samples/2009_sy_loop.bin"
+
+	.align 2
+DirectSoundWaveData_orchestral_hits::
+	.incbin "sound/direct_sound_samples/orchestral_hits.bin"

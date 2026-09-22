@@ -83,6 +83,8 @@ extern const u8 BattleScript_MoveUsedIsTormented[];
 extern const u8 BattleScript_SelectingTormentedMoveInPalace[];
 extern const u8 BattleScript_SelectingNotAllowedMoveTaunt[];
 extern const u8 BattleScript_MoveUsedIsTaunted[];
+extern const u8 BattleScript_SelectingNotAllowedMoveCheese[];
+extern const u8 BattleScript_MoveUsedIsCheese[];
 extern const u8 BattleScript_SelectingNotAllowedMoveTauntInPalace[];
 extern const u8 BattleScript_WishComesTrue[];
 extern const u8 BattleScript_IngrainTurnHeal[];

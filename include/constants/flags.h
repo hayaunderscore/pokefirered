@@ -1009,7 +1009,7 @@
 #define FLAG_0x3D4               0x3D4
 #define FLAG_0x3D5               0x3D5
 #define FLAG_0x3D6               0x3D6
-#define FLAG_0x3D7               0x3D7
+#define FLAG_ENTERED_WAITINGROOM 0x3D7
 #define FLAG_MYSTERY_GIFT_DONE   0x3D8
 #define FLAG_MYSTERY_GIFT_1      0x3D9
 #define FLAG_MYSTERY_GIFT_2      0x3DA

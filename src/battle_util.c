@@ -328,6 +328,13 @@ u8 TrySetCantSelectMoveBattleScript(void)
         limitations++;
     }
 
+    if (VarGet(VAR_MAP_SCENE_WAITING_ROOM_RECEPTION) && move >= MOVE_ABYSS && move <= MOVE_STRIKE)
+    {
+        gCurrentMove = move;
+        gSelectionBattleScripts[gActiveBattler] = BattleScript_SelectingNotAllowedMoveCheese;
+        limitations++;
+    }
+
     if (GetImprisonedMovesCount(gActiveBattler, move))
     {
         gCurrentMove = move;

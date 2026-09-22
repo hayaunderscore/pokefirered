@@ -1,5 +1,103 @@
 mapscripts WaitingRoom_Bridge_MapScripts {}
 
+script WaitingRoom_Bridge_EventScript_Receptionist {
+	lock
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	waitmovement(0)
+	if (var(VAR_MAP_SCENE_WAITING_ROOM_RECEPTION)) {
+		message("Would you like to heal or do you
+				want to forfeit the challenge?")
+		waitmessage
+		dynmultichoice(19, 6, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, "HEAL", "FORFEIT", "CANCEL")
+		switch (var(VAR_RESULT)) {
+			case 0:
+				closemessage
+				fadescreen(FADE_TO_BLACK)
+				special(HealPlayerParty)
+				playfanfare(MUS_HEAL)
+				waitfanfare
+				fadescreen(FADE_FROM_BLACK)
+				applymovement(LOCALID_PLAYER, moves(
+					walk_up
+				))
+				waitmovement(0)
+			case 1:
+				msgbox("We hope to see you again!")
+				closemessage
+				applymovement(LOCALID_PLAYER, moves(
+					walk_down
+				))
+				waitmovement(0)
+				setvar(VAR_MAP_SCENE_WAITING_ROOM_RECEPTION, 0)
+			case 2:
+				closemessage
+				applymovement(LOCALID_PLAYER, moves(
+					walk_up
+				))
+				waitmovement(0)
+
+			case SCR_MENU_CANCEL:
+				closemessage
+				applymovement(LOCALID_PLAYER, moves(
+					walk_up
+				))
+				waitmovement(0)
+		}
+		release
+		end
+	}
+	if (!flag(FLAG_ENTERED_WAITINGROOM)) {
+		msgbox("Welcome to the WAITING ROOM!
+
+				It is your first time here, is it?
+				Let me explain the mechanics.
+
+				Periodically, the TRAINERS here
+				change depending on what you're
+				currently supposed to do.
+
+				The TRAINERS here vary in skill
+				level\. It's pretty lax!
+
+				Think of this as a NUGGET BRIDGE
+				type row of TRAINERS.
+
+				Of course, this room isn't canon
+				to the story. Why would it?
+
+				Do you want to sign up for the
+				current challenge?", MSGBOX_YESNO)
+	} else {
+		msgbox("Welcome to the WAITING ROOM!
+
+				Do you want to sign up for the
+				current challenge?", MSGBOX_YESNO)
+	}
+	setflag(FLAG_ENTERED_WAITINGROOM)
+	if (var(VAR_RESULT)) {
+		msgbox("Great!
+				Head on through please.")
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_up
+		))
+		waitmovement(0)
+		setvar(VAR_MAP_SCENE_WAITING_ROOM_RECEPTION, 1)
+	} else {
+		msgbox("We hope to see you again!")
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
 script WaitingRoom_Bridge_EventScript_Glitchy {
 	trainerbattle_single(TRAINER_POKEPASTA_GLITCHY,
 			"Welcome to the WAITING ROOM!
@@ -28,9 +126,12 @@ script WaitingRoom_Bridge_EventScript_Blake {
 script WaitingRoom_Bridge_EventScript_Dawn {
 	trainerbattle_single(TRAINER_POKEPASTA_DAWN,
 			"I sure do hope I don't see a
-			BRONZOR ever again.", "Oh come on!")
-	msgbox("Hey\.
-			Have you heard of POK\eMON CONTESTS?
+			BRONZOR ever again.
+
+			Glad I have this POK\eMON that I
+			got from PROF. OAK!", "Oh come on!")
+	msgbox("Hey\. Have you heard of POK\eMON
+			CONTESTS?
 
 			I participate in those!
 			You should too!", MSGBOX_AUTOCLOSE)
@@ -101,6 +202,34 @@ script WaitingRoom_Bridge_EventScript_SerenaInteract {
 
 script WaitingRoom_Bridge_EventScript_HelenaAndSerena {
 	lock
+	special(HasEnoughMonsForDoubleBattle)
+	if (var(VAR_RESULT) != value(PLAYER_HAS_TWO_USABLE_MONS)) {
+		playse(SE_PIN)
+		applymovement(LOCALID_WR_SERENA, moves(
+			emote_exclamation_mark
+			delay_16 * 4
+		))
+		waitmovement(0)
+		applymovement(LOCALID_PLAYER, moves(
+			face_right
+		))
+		textcolor(NPC_TEXT_COLOR_FEMALE)
+		msgbox("SERENA: Hello!
+				You need 2 POK\eMON to battle us!
+
+				Hmm? You're asking to just battle us
+				one-on-one?
+
+				The developer is lazy, silly!
+				No way around that!")
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+		release
+		end
+	}
 	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
 	applymovement(LOCALID_WR_HELENA, moves(
 		emote_exclamation_mark

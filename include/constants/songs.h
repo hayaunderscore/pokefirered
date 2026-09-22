@@ -369,10 +369,12 @@
 #define MUS_HERE_WE_ARE             360
 #define MUS_HARDENING_DROPS_TEST    361
 #define MUS_VS_FRONTIER_BRAIN       362
+#define MUS_ENCOUNTER_SUSPICIOUS    363
+#define MUS_BATTLE_REVOLUTION       364
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_VS_FRONTIER_BRAIN
+#define END_MUS                     MUS_BATTLE_REVOLUTION
 
 #endif  // GUARD_CONSTANTS_SONGS_H

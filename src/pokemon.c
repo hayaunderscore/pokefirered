@@ -5895,9 +5895,7 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_INTERVIEWER:
          	return MUS_RS_VS_TRAINER;
         case TRAINER_CLASS_POKEPASTA:
-        	if (gTrainerBattleOpponent_A == TRAINER_POKEPASTA_CHIMERA_DUO)
-         		return MUS_VS_FRONTIER_BRAIN;
-         	return MUS_RS_VS_GYM_LEADER;
+         	return MUS_BATTLE_REVOLUTION;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:
