@@ -1195,6 +1195,10 @@
     {
       "id": "MAPSEC_OLD_LAB",
       "name": "OLD LABORATORY"
+    },
+    {
+      "id": "MAPSEC_SECRET_GARDEN",
+      "name": "SECRET GARDEN"
     }
   ]
 }

@@ -711,3 +711,6 @@ const u32 gItemIconPalette_PowderJar[] = INCGFX_U32("graphics/items/icon_palette
 const u32 gItemIconPalette_Ruby[] = INCGFX_U32("graphics/items/icon_palettes/ruby.pal", ".gbapal.lz");
 const u32 gItemIcon_Gem[] = INCGFX_U32("graphics/items/icons/gem.png", ".4bpp.lz");
 const u32 gItemIconPalette_Sapphire[] = INCGFX_U32("graphics/items/icon_palettes/sapphire.pal", ".gbapal.lz");
+
+const u32 gItemIcon_Pokepods[] = INCGFX_U32("graphics/items/icons/pokepods.png", ".4bpp.lz");
+const u32 gItemIconPalette_Pokepods[] = INCGFX_U32("graphics/items/icon_palettes/pokepods.pal", ".gbapal.lz");

@@ -795,7 +795,7 @@
 
 // Unused?
 #define FLAG_ITEM_SUNKEN_ANNE_HYPER_POTION               0x300
-#define FLAG_0x301               0x301
+#define FLAG_RECEIVED_POKEPODS                           0x301
 #define FLAG_0x302               0x302
 #define FLAG_0x303               0x303
 #define FLAG_0x304               0x304

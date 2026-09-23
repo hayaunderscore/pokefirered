@@ -1482,3 +1482,9 @@ Text_MonCryScript::
 
 	.include "data/maps/WaitingRoom_Bridge/scripts.inc"
 	.include "data/maps/WaitingRoom_Bridge/text.inc"
+
+	.include "data/maps/OldLab_Laboratory/scripts.inc"
+	.include "data/maps/OldLab_Laboratory/text.inc"
+
+	.include "data/maps/SecretGarden/scripts.inc"
+	.include "data/maps/SecretGarden/text.inc"

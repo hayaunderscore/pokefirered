@@ -331,7 +331,8 @@
     "SevenIsland_TanobyRuins",
     "PokemonTech_Outside",
     "Route",
-    "Route28"
+    "Route28",
+    "SecretGarden"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
@@ -606,6 +607,7 @@
     "OldLab_Entrance",
     "OldLab_B1F",
     "OldLab_B2F",
-    "OldLab_Basement"
+    "OldLab_Basement",
+    "OldLab_Laboratory"
   ]
 }

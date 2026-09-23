@@ -153,9 +153,9 @@ script WaitingRoom_Bridge_EventScript_Steven {
 			Have you seen a MISSINGNO.?
 
 			No?
-			Well battle me anyway!", "Darn it!")
-	msgbox("Have you ever been in a situation
-			where you can't do anything?", MSGBOX_AUTOCLOSE)
+			Well battle me anyway!", "NOOOOO!\nMy MIKI!\nI was under a NUZLOCKE!")
+	msgbox("...
+			Why am I not whiting out?", MSGBOX_AUTOCLOSE)
 	end
 }
 
@@ -230,7 +230,7 @@ script WaitingRoom_Bridge_EventScript_HelenaAndSerena {
 		release
 		end
 	}
-	playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+	playbgm(MUS_ENCOUNTER_SUSPICIOUS, FALSE)
 	applymovement(LOCALID_WR_HELENA, moves(
 		emote_exclamation_mark
 		delay_16 * 4
@@ -258,7 +258,6 @@ script WaitingRoom_Bridge_EventScript_HelenaAndSerena {
 script WaitingRoom_Bridge_EventScript_BlueTears {
 	trainerbattle_single(TRAINER_POKEPASTA_BLUE_TEARS,
 			"RED\.
-
 			Where is he?!", "I should've just used the
 							KNIFE on you!")
 	msgbox("Damn it\.
@@ -272,14 +271,28 @@ script WaitingRoom_Bridge_EventScript_BlueTears {
 script WaitingRoom_Bridge_EventScript_Abby {
 	lock
 	faceplayer
+	if (flag(FLAG_RECEIVED_POKEPODS)) {
+		msgbox("YOU ALREADY GOT YOUR DAMN
+				PODS, BUD.")
+		release
+		end
+	}
 	msgbox("WOAH\. GREAT JOB.
 			YOU REALLY BEAT ALL OF THEM.
 
-			WHAT? EXPECTING A REWARD?
-			I UHH\.
+			DON'T ASK WHY {COLOR BLUE}I'M{COLOR RED} HERE.
+			ANYWAYS...
 
-			I HAVE NOTHING TO GIVE RIGHT NOW.
-			SORRY!")
+			HERE'S YOUR PRIZE!")
+	giveitem_msg("{PLAYER} received the POK\e PODS!", ITEM_POKEPODS, 1, MUS_OBTAIN_KEY_ITEM)
+	msgbox("THE POK\e PODS ALLOW YOU TO LISTEN
+			TO COOL TUNES IN THE OVERWORLD!
+
+			\.SURELY THIS IS A GOOD PRIZE\.
+			\.RIGHT?")
+	setvar(VAR_TEMP_0, 1)
+	setvar(VAR_MAP_SCENE_WAITING_ROOM_RECEPTION, 0)
+	setflag(FLAG_RECEIVED_POKEPODS)
 	release
 	end
 }

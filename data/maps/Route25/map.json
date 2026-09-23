@@ -20,8 +20,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_ROUTE25_GARDEN",
-      "offset": 48,
+      "map": "MAP_SECRET_GARDEN",
+      "offset": 36,
       "direction": "up"
     }
   ],

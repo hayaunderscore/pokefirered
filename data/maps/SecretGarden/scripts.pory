@@ -1,0 +1,103 @@
+mapscripts SecretGarden_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: SecretGarden_EventScript_OnTransition
+}
+
+script SecretGarden_EventScript_OnTransition {
+	// The route starts here.
+	// Yes, you don't need a Blastoise, nor need the lucky egg.
+	setflag(FLAG_ABYSS_ROUTE)
+	// Secondary flag to delay the SS Anne
+	if (!defeated(TRAINER_LASS_GISELLE)) {
+		setflag(FLAG_SS_ANNE_DELAYED)
+	}
+}
+
+script SecretGarden_EventScript_Man {
+	lock
+	faceplayer
+	msgbox("It's weird how I've only noticed
+			this place now, but it's nice.
+
+			There's some wild POK\eMON here that
+			aren't tracked by your POK\eDEX.")
+	release
+	end
+}
+
+script SecretGarden_EventScript_CrushGirl {
+	lock
+	faceplayer
+	msgbox("Besides BILL's POK\eMANIAC antics,
+			he always mentions his garden!
+
+			Does he just love it so much, or
+			is there something else?")
+	release
+	end
+}
+
+script SecretGarden_EventScript_HmmIsThatRight {
+	lock
+	msgbox("Hmm\.
+			Is that right\.")
+	playse(SE_PIN)
+	faceplayer
+	applymovement(VAR_LAST_TALKED, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	msgbox("Oh!
+			Look, look!")
+	closemessage
+	getobjectfacingdirection(LOCALID_PLAYER, VAR_0x8005)
+	switch (var(VAR_0x8005)) {
+		case DIR_WEST:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_right
+			))
+		case DIR_NORTH:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_right
+			))
+		case DIR_SOUTH:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_right
+			))
+		case DIR_EAST:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				face_left
+			))
+	}
+	waitmovement(0)
+	release
+	end
+}
+
+script SecretGarden_EventScript_Sign {
+	msgbox("BILL'S GARDEN
+
+			Please mind the flowers.
+			I worked hard on them.
+
+			I should really rename the area
+			label. It isn't SECRET anymore\.", MSGBOX_SIGN)
+	closemessage
+	end
+}
+
+script SecretGarden_EventScript_Jess {
+	trainerbattle_single(TRAINER_LASS_JESS, "Hey!
+											You looked at me, didn't you?", "Bullocks!")
+	msgbox("I keep finding nothing but wild
+			MARILL and PHANPY.
+
+			Well\. I did find something quite\.{PAUSE 30}
+			goopy\.{PAUSE 30} though.", MSGBOX_AUTOCLOSE)
+	closemessage
+	end
+}

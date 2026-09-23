@@ -767,12 +767,13 @@
 #define TRAINER_RIVAL_GISELLE_CONDO              760
 #define TRAINER_GHOST_RIA                        761
 #define TRAINER_AN_ATTACK_THA_BRET               762
+#define TRAINER_LASS_JESS                        763
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is 
 //       only space for 25 additional trainers before trainer flag space overflows.
 //       MAX_TRAINERS_COUNT can be increased but will take up additional saveblock space
 
-#define NUM_TRAINERS                             763
+#define NUM_TRAINERS                             764
 #define MAX_TRAINERS_COUNT                       768
 
 #endif  // GUARD_CONSTANTS_OPPONENTS_H
