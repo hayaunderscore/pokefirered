@@ -364,6 +364,7 @@ gSongTable::
 	song mus_vs_frontier_brain, 0, 0
 	song mus_encounter_suspicious, 0, 0
 	song mus_battle_revolution, 0, 0
+	song mus_evolution_special, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

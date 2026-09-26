@@ -1202,7 +1202,11 @@
     },
     {
       "id": "MAPSEC_ROUTE_49",
-      "name": "ROUTE 49"
+      "name": "ROUTE 49",
+      "x": 11,
+      "y": 7,
+      "width": 3,
+      "height": 1
     }
   ]
 }

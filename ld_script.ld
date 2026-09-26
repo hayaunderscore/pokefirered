@@ -988,6 +988,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_frontier_brain.o(.rodata);
         sound/songs/midi/mus_encounter_suspicious.o(.rodata);
         sound/songs/midi/mus_battle_revolution.o(.rodata);
+        sound/songs/midi/mus_evolution_special.o(.rodata);
     } > ROM =0
 
     lib_rodata :

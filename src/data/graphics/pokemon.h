@@ -2735,6 +2735,20 @@ const u32 gMonShinyPalette_Rainer[] = INCGFX_U32("graphics/pokemon/rainer/shiny.
 const u8 gMonIcon_Rainer[] = INCGFX_U8("graphics/pokemon/rainer/icon.png", ".4bpp");
 const u8 gMonFootprint_Rainer[] = INCGFX_U8("graphics/pokemon/rainer/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Sapusaur[] = INCGFX_U32("graphics/pokemon/sapusaur/front.png", ".4bpp.lz");
+const u32 gMonPalette_Sapusaur[] = INCGFX_U32("graphics/pokemon/sapusaur/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Sapusaur[] = INCGFX_U32("graphics/pokemon/sapusaur/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Sapusaur[] = INCGFX_U32("graphics/pokemon/sapusaur/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Sapusaur[] = INCGFX_U8("graphics/pokemon/sapusaur/icon.png", ".4bpp");
+const u8 gMonFootprint_Sapusaur[] = INCGFX_U8("graphics/pokemon/sapusaur/footprint.png", ".1bpp");
+
+const u32 gMonFrontPic_Charcolt[] = INCGFX_U32("graphics/pokemon/charcolt/front.png", ".4bpp.lz");
+const u32 gMonPalette_Charcolt[] = INCGFX_U32("graphics/pokemon/charcolt/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Charcolt[] = INCGFX_U32("graphics/pokemon/charcolt/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Charcolt[] = INCGFX_U32("graphics/pokemon/charcolt/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Charcolt[] = INCGFX_U8("graphics/pokemon/charcolt/icon.png", ".4bpp");
+const u8 gMonFootprint_Charcolt[] = INCGFX_U8("graphics/pokemon/charcolt/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/front.png", ".4bpp.lz");
 const u32 gMonPalette_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/normal.pal", ".gbapal.lz");
 const u32 gMonBackPic_Petilil[] = INCGFX_U32("graphics/pokemon/petilil/back.png", ".4bpp.lz");

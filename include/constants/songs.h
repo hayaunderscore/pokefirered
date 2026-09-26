@@ -371,10 +371,11 @@
 #define MUS_VS_FRONTIER_BRAIN       362
 #define MUS_ENCOUNTER_SUSPICIOUS    363
 #define MUS_BATTLE_REVOLUTION       364
+#define MUS_EVOLUTION_SPECIAL       365
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_BATTLE_REVOLUTION
+#define END_MUS                     MUS_EVOLUTION_SPECIAL
 
 #endif  // GUARD_CONSTANTS_SONGS_H

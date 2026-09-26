@@ -819,7 +819,9 @@ static const u16 sDexCategory_RarePkmn_Page8[] = {
 };
 
 static const u16 sDexCategory_RarePkmn_Page9[] = {
+	SPECIES_SAPUSAUR,
     SPECIES_RAINER,
+    SPECIES_CHARCOLT,
 };
 
 static const u16 sDexCategory_RarePkmn_Page10[] = {

@@ -28,6 +28,7 @@
 #include "constants/items.h"
 #include "constants/item_effects.h"
 #include "constants/hoenn_cries.h"
+#include "constants/cadmium_cries.h"
 #include "constants/pokemon.h"
 #include "constants/abilities.h"
 #include "constants/moves.h"

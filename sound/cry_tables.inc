@@ -389,6 +389,8 @@ gCryTable::
 	cry Cry_Deoxys
 	cry Cry_Chimecho
 	cry Cry_Rainer
+	cry Cry_Sapusaur
+	cry Cry_Charcolt
 	cry Cry_Petilil
 	cry Cry_Lilligant
 	cry Cry_Unown_King
@@ -784,6 +786,8 @@ gCryTable_Reverse::
 	cry_reverse Cry_Deoxys
 	cry_reverse Cry_Chimecho
 	cry_reverse Cry_Rainer
+	cry_reverse Cry_Sapusaur
+	cry_reverse Cry_Charcolt
 	cry_reverse Cry_Petilil
 	cry_reverse Cry_Lilligant
 	cry_reverse Cry_Unown_King

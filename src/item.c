@@ -635,6 +635,8 @@ u8 ItemId_GetHoldEffectParam(u16 itemId)
 
 const u8 * ItemId_GetDescription(u16 itemId)
 {
+	if (itemId == ITEM_MIST_STONE)
+		return (const u8 *)0xAB155;
     return gItems[SanitizeItemId(itemId)].description;
 }
 

@@ -1585,17 +1585,17 @@
       "secondaryId": 0
     },
     {
-      "english": "????????",
-      "itemId": "ITEM_NONE",
+      "english": "MIST STONE",
+      "itemId": "ITEM_MIST_STONE",
       "price": 0,
       "holdEffect": "HOLD_EFFECT_NONE",
       "holdEffectParam": 0,
-      "description_english": "?????",
+      "description_english": "YOU SHOULDN'T SEE THIS DESCRIPTION",
       "importance": 0,
       "registrability": 0,
       "pocket": "POCKET_ITEMS",
-      "type": "ITEM_TYPE_BAG_MENU",
-      "fieldUseFunc": "FieldUseFunc_OakStopsYou",
+      "type": "ITEM_TYPE_PARTY_MENU",
+      "fieldUseFunc": "FieldUseFunc_EvoItem",
       "battleUsage": 0,
       "battleUseFunc": "NULL",
       "secondaryId": 0

@@ -629,6 +629,12 @@ enum {
 // Task data from CycleEvolutionMonSprite
 #define tEvoStopped data[8]
 
+static bool32 IsMistStoneEvolution(u8 taskId) 
+{
+	// This will be expanded upon later.
+	return gTasks[taskId].tPostEvoSpecies == SPECIES_RAINER;
+}
+
 static void Task_EvolutionScene(u8 taskId)
 {
     u32 var;
@@ -696,7 +702,7 @@ static void Task_EvolutionScene(u8 taskId)
         if (!IsSEPlaying())
         {
             // Start music, fade background to black
-            PlayNewMapMusic(MUS_EVOLUTION);
+            PlayNewMapMusic(IsMistStoneEvolution(taskId) ? MUS_EVOLUTION_SPECIAL : MUS_EVOLUTION);
             gTasks[taskId].tState++;
             BeginNormalPaletteFade(0x1C, 4, 0, 0x10, RGB_BLACK);
         }

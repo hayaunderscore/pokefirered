@@ -5044,6 +5044,32 @@ const struct PokedexEntry gPokedexEntries[] =
 	    .trainerOffset = 3,
     },
 
+    [NATIONAL_DEX_SAPUSAUR] =
+    {
+        .categoryName = _("GOD"),
+        .height = 20,
+        .weight = 1000,
+        .description = gSapusaurPokedexText,
+        .unusedDescription = gVenusaurPokedexTextUnused,
+        .pokemonScale = 256,
+        .pokemonOffset = 1,
+        .trainerScale = 375,
+        .trainerOffset = 6,
+    },
+
+    [NATIONAL_DEX_CHARCOLT] =
+    {
+        .categoryName = _("GOD"),
+        .height = 17,
+        .weight = 905,
+        .description = gCharcoltPokedexText,
+        .unusedDescription = gCharizardPokedexTextUnused,
+        .pokemonScale = 271,
+        .pokemonOffset = 0,
+        .trainerScale = 317,
+        .trainerOffset = 3,
+    },
+
     [NATIONAL_DEX_PETILIL] =
     {
 	    .categoryName = _("BULB"),

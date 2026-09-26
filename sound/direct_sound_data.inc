@@ -1875,6 +1875,14 @@ Cry_Rainer::
 	.incbin "sound/direct_sound_samples/cries/rainer.bin"
 
 	.align 2
+Cry_Sapusaur::
+	.incbin "sound/direct_sound_samples/cries/sapusaur.bin"
+
+	.align 2
+Cry_Charcolt::
+	.incbin "sound/direct_sound_samples/cries/charcolt.bin"
+
+	.align 2
 Cry_Petilil::
 	.incbin "sound/direct_sound_samples/cries/petilil.bin"
 

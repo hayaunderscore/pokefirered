@@ -2724,6 +2724,16 @@ const u8 gRainerPokedexText[] = _(
 	"and divine, yet none at once. In a\n"
 	"normal world, it should not exist.");
 
+const u8 gSapusaurPokedexText[] = _(
+	"This POKéMON is very docile and\n"
+	"typically don't fight. Because of this,\n"
+	"it is popular with retired trainers.");
+
+const u8 gCharcoltPokedexText[] = _(
+	"A very aggressive POKéMON that you do\n"
+	"not want to see in the wild. Its white\n"
+	"tail burns things quite easily.");
+
 const u8 gUnownKingPokedexText[] = _(
 	"This POKéMON sleeps for thousands of\n"
 	"years to regain power. Legends say\n"
