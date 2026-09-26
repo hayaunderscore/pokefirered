@@ -1488,3 +1488,6 @@ Text_MonCryScript::
 
 	.include "data/maps/SecretGarden/scripts.inc"
 	.include "data/maps/SecretGarden/text.inc"
+
+	.include "data/maps/Route49/scripts.inc"
+	.include "data/maps/Route49/text.inc"

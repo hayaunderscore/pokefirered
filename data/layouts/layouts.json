@@ -797,7 +797,7 @@
       "id": "LAYOUT_CELADON_CITY",
       "name": "CeladonCity_Layout",
       "width": 60,
-      "height": 40,
+      "height": 43,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4860,6 +4860,18 @@
       "secondary_tileset": "gTileset_CeruleanCity",
       "border_filepath": "data/layouts/SecretGarden/border.bin",
       "blockdata_filepath": "data/layouts/SecretGarden/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE49",
+      "name": "Route49_Layout",
+      "width": 64,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PokemonTechBuilding",
+      "border_filepath": "data/layouts/Route49/border.bin",
+      "blockdata_filepath": "data/layouts/Route49/map.bin"
     }
   ]
 }

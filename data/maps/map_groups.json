@@ -332,7 +332,8 @@
     "PokemonTech_Outside",
     "Route",
     "Route28",
-    "SecretGarden"
+    "SecretGarden",
+    "Route49"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",

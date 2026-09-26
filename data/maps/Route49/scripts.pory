@@ -1,0 +1,135 @@
+mapscripts Route49_MapScripts {}
+
+script Route49_EventScript_PokemonTechSign {
+	msgbox("Learn about POK\eMON!
+			POK\eMON TECHNICAL INSTITUTE", MSGBOX_SIGN)
+}
+
+script Route49_EventScript_PokemonTech_GuardScript {
+	if (var(VAR_MAP_SCENE_POKETECH_GUARD) == 1) {
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Hi, how's it going?")
+		return
+	}
+	if (!flag(FLAG_DELIVERING_SS_ANNE_LETTER)) {
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("I'm on guard duty.
+				Are you a student?
+
+				\.No?
+
+				I'm sorry, but unless you're a
+				relative, I can't allow you to go
+				any further.")
+		applymovement(LOCALID_POKETECH_GUARD, Common_Movement_FaceOriginalDirection)
+		return
+	}
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("I'm on guard duty.
+			Are you a student?
+
+			\.You have a letter to send to
+			someone here?
+
+			Sure, you can go on through.")
+	applymovement(LOCALID_POKETECH_GUARD, Common_Movement_FaceOriginalDirection)
+	setvar(VAR_MAP_SCENE_POKETECH_GUARD, 1)
+	return
+}
+
+script Route49_EventScript_PokemonTech_Guard {
+	lock
+	faceplayer
+	call(Route49_EventScript_PokemonTech_GuardScript)
+	release
+	end
+}
+
+script Route49_EventScript_PokemonTech_GuardTrigger {
+	lock
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	applymovement(LOCALID_POKETECH_GUARD, moves(
+		walk_in_place_fast_left
+	))
+	waitmovement(0)
+	call(Route49_EventScript_PokemonTech_GuardScript)
+	closemessage
+	if (!flag(FLAG_DELIVERING_SS_ANNE_LETTER)) {
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+	}
+	release
+	end
+}
+
+script Route49_EventScript_Youngster {
+	msgbox("I don't like going to school!
+			It's so boring!
+
+			Then again I'm probably pretty
+			stupid for school anyways\.", MSGBOX_NPC)
+	closemessage
+	end
+}
+
+script Route49_EventScript_BugCatcher {
+	lock
+	faceplayer
+	msgbox("Psst!
+			Do you know what I'm doing?", MSGBOX_YESNO)
+	if (var(VAR_RESULT)) {
+		msgbox("Trying to find a NINCADA in this
+				grass is tough!")
+	} else {
+		msgbox("I'm looking for a NINCADA.
+				They're SUPER rare!")
+	}
+	release
+	end
+}
+
+script Route49_EventScript_Lass {
+	msgbox("This school is quite elitist.
+
+			They say you DON'T need to do the
+			league challenge.
+
+			You could just graduate and be
+			immediately qualified.
+
+			Doesn't that defeat the purpose of
+			a POK\eMON journey?", MSGBOX_NPC)
+	closemessage
+	end
+}
+
+script Route49_EventScript_CrushGirl {
+	msgbox("There's a fisherman over there.
+			I wonder if I can swim to him\.", MSGBOX_NPC)
+	closemessage
+	end
+}
+
+script Route49_EventScript_Fisher {
+	msgbox("Heya!
+			No, I'm not stuck here.
+
+			I just like feeling the breeze
+			of the ocean.", MSGBOX_NPC)
+	closemessage
+	end
+}
+
+script Route49_EventScript_GBAKid {
+	msgbox("I am skipping class to find a shiny,
+		 	perfect triple IVs ABRA.
+
+			No, not in real life.
+			In the game I'm playing.", MSGBOX_NPC)
+	closemessage
+	end
+}

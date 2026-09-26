@@ -1199,6 +1199,10 @@
     {
       "id": "MAPSEC_SECRET_GARDEN",
       "name": "SECRET GARDEN"
+    },
+    {
+      "id": "MAPSEC_ROUTE_49",
+      "name": "ROUTE 49"
     }
   ]
 }

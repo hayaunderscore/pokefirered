@@ -25,7 +25,7 @@
       "direction": "down"
     },
     {
-      "map": "MAP_POKEMON_TECH_OUTSIDE",
+      "map": "MAP_ROUTE49",
       "offset": -11,
       "direction": "left"
     }
@@ -114,21 +114,6 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Route6_EventScript_Jeff",
       "flag": "0"
-    },
-    {
-      "local_id": "LOCALID_POKETECH_GUARD",
-      "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 0,
-      "y": 8,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_NONE",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route6_EventScript_PokemonTech_Guard",
-      "flag": "0"
     }
   ],
   "warp_events": [
@@ -154,35 +139,7 @@
       "dest_warp_id": "2"
     }
   ],
-  "coord_events": [
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 9,
-      "elevation": 0,
-      "var": "VAR_MAP_SCENE_POKETECH_GUARD",
-      "var_value": "0",
-      "script": "Route6_EventScript_PokemonTech_GuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 10,
-      "elevation": 0,
-      "var": "VAR_MAP_SCENE_POKETECH_GUARD",
-      "var_value": "0",
-      "script": "Route6_EventScript_PokemonTech_GuardTrigger"
-    },
-    {
-      "type": "trigger",
-      "x": 0,
-      "y": 11,
-      "elevation": 0,
-      "var": "VAR_MAP_SCENE_POKETECH_GUARD",
-      "var_value": "0",
-      "script": "Route6_EventScript_PokemonTech_GuardTrigger"
-    }
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",
