@@ -1037,3 +1037,11 @@ bool8 MetatileBehavior_IsTrainerTowerMonitor(u8 metatileBehavior)
     else
         return FALSE;
 }
+
+bool8 MetatileBehavior_IsNotOak(u8 metatileBehavior)
+{
+    if (metatileBehavior == MB_THATS_NOT_OAK)
+        return TRUE;
+    else
+        return FALSE;
+}

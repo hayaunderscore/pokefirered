@@ -120,3 +120,8 @@ Text_Burglary::
 Text_PlayerFacingTVScreen::
 	.string "There's a POKéMON on TV!\n"
 	.string "It looks like it's having fun.$"
+
+Text_ThatsNotOak::
+	.string "That's not OAK, silly!\p"
+	.string "Wait no, that joke doesn't really\n"
+	.string "fit here…$"

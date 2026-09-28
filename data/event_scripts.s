@@ -1491,3 +1491,15 @@ Text_MonCryScript::
 
 	.include "data/maps/Route49/scripts.inc"
 	.include "data/maps/Route49/text.inc"
+
+	.include "data/maps/PokemonTechNew_Lobby/scripts.inc"
+	.include "data/maps/PokemonTechNew_Lobby/text.inc"
+
+	.include "data/maps/PokemonTechNew_2F/scripts.inc"
+	.include "data/maps/PokemonTechNew_2F/text.inc"
+
+	.include "data/maps/PokemonTech_Basement/scripts.inc"
+	.include "data/maps/PokemonTech_Basement/text.inc"
+
+	.include "data/maps/PokemonTechNew_Classroom1_1/scripts.inc"
+	.include "data/maps/PokemonTechNew_Classroom1_1/text.inc"

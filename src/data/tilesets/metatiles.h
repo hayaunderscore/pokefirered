@@ -219,3 +219,9 @@ const u32 gMetatileAttributes_PorytilesManaged_PokemonTechClassroom[] = INCBIN_U
 
 const u16 gMetatiles_PorytilesManaged_ContestHall[] = INCBIN_U16("data/tilesets/secondary/contest_hall/porytiles_bin/metatiles.bin");
 const u32 gMetatileAttributes_PorytilesManaged_ContestHall[] = INCBIN_U32("data/tilesets/secondary/contest_hall/porytiles_bin/metatile_attributes.bin");
+
+const u16 gMetatiles_PorytilesManaged_PokemonTechNew[] = INCBIN_U16("data/tilesets/secondary/pokemon_tech_new/porytiles_bin/metatiles.bin");
+const u32 gMetatileAttributes_PorytilesManaged_PokemonTechNew[] = INCBIN_U32("data/tilesets/secondary/pokemon_tech_new/porytiles_bin/metatile_attributes.bin");
+
+const u16 gMetatiles_PorytilesManaged_PokemonTechNewClassroom[] = INCBIN_U16("data/tilesets/secondary/pokemon_tech_new_classroom/porytiles_bin/metatiles.bin");
+const u32 gMetatileAttributes_PorytilesManaged_PokemonTechNewClassroom[] = INCBIN_U32("data/tilesets/secondary/pokemon_tech_new_classroom/porytiles_bin/metatile_attributes.bin");

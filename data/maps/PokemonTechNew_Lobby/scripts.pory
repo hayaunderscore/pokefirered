@@ -1,0 +1,102 @@
+mapscripts PokemonTechNew_Lobby_MapScripts {}
+
+script PokemonTechNew_Lobby_EventScript_Nurse {
+	lock
+	faceplayer
+	goto_if_questlog(EventScript_ReleaseEnd)
+	message("Hello and welcome to the POK\eMON
+			TECHNICAL INSTITUTE!
+			Would you like me to heal your
+			POK\eMON back to perfect health?")
+	waitmessage
+	multichoice(19, 8, MULTICHOICE_YES_NO, FALSE)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			call(EventScript_PkmnCenterNurse_HealPkmn)
+		case 1:
+			call(EventScript_PkmnCenterNurse_Goodbye)
+		case SCR_MENU_CANCEL:
+			call(EventScript_PkmnCenterNurse_Goodbye)
+	}
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_Youngster {
+	lock
+	msgbox("I just lost a battle at the
+			bottom floor area\.
+
+			But I can't give up now!
+			Not like this!", MSGBOX_NPC)
+	release
+	end
+}
+
+text PokemonTechNew_Lobby_Text_Pidgey {
+	"Pidge!"
+}
+
+script PokemonTechNew_Lobby_EventScript_Pidgey {
+	moncryscript(SPECIES_PIDGEY, PokemonTechNew_Lobby_Text_Pidgey)
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_Woman {
+	lock
+	msgbox("I don't think the people here
+			take too kindly to travellers\.
+
+			One time, a purple haired kid
+			called me a TORCHIC for suggesting
+			to take care of his POK\eMON more.", MSGBOX_NPC)
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_Man {
+	lock
+	msgbox("Oh man\.
+			This is complicated\.
+
+			Enrolling my kid here is gonna be
+			a nightmare\.")
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_Picnicker {
+	lock
+	msgbox("This school takes battling
+			VERY seriously.
+
+			Granted, with all the machinery
+			and simulators, that makes sense.", MSGBOX_NPC)
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_RunningInTheHallsSign {
+	msgbox("NOTICE!
+
+			If you're running in the halls,{PAUSE 30}
+			PLEASE{PAUSE 30} wear RUNNING SHOES!
+
+			We've gotten atleast 14 different
+			reports of students who didn't!
+
+			Running without RUNNING SHOES is
+			a crime, people!", MSGBOX_SIGN)
+	release
+	end
+}
+
+script PokemonTechNew_Lobby_EventScript_PlaygroundSign {
+	msgbox("PLAYGROUND
+
+			NOTICE: Do not throw sand over the
+			mountain that connects to CELADON.", MSGBOX_SIGN)
+	release
+	end
+}

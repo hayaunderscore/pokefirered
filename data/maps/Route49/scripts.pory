@@ -1,4 +1,15 @@
-mapscripts Route49_MapScripts {}
+mapscripts Route49_MapScripts {
+	MAP_SCRIPT_ON_LOAD: Route49_OnLoad
+}
+
+script Route49_OnLoad {
+	if (flag(FLAG_WORLD_MAP_CADMIUM_ISLAND)) {
+		setmetatile(19, 42, 0x12B, FALSE)
+		setmetatile(20, 42, 0x12B, FALSE)
+		setmetatile(19, 41, 0x12B, FALSE)
+		setmetatile(20, 41, 0x12B, FALSE)
+	}
+}
 
 script Route49_EventScript_PokemonTechSign {
 	msgbox("Learn about POK\eMON!

@@ -111,3 +111,7 @@ EventScript_Indigo_UltimateGoal::
 EventScript_Indigo_HighestAuthority::
 	msgbox Text_Indigo_HighestAuthority, MSGBOX_SIGN
 	end
+
+EventScript_ThatsNotOak::
+	msgbox Text_ThatsNotOak, MSGBOX_SIGN
+	end

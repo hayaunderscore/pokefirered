@@ -638,6 +638,8 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
         MsgSetSignpost();
         return EventScript_PokecenterSign;
     }
+    if (MetatileBehavior_IsNotOak(metatileBehavior) == TRUE)
+    	return EventScript_ThatsNotOak;
     return NULL;
 }
 

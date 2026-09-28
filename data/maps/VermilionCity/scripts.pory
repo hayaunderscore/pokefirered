@@ -403,15 +403,37 @@ script VermilionCity_EventScript_CheckTicket {
 
 				Could you do me a favor and send
 				this LETTER to someone for me?")
-		giveitem(ITEM_LETTER, 1)
+		playfanfare(MUS_OBTAIN_BERRY)
+		textcolor(NPC_TEXT_COLOR_DEFAULT)
+		message("{PLAYER} got the LETTER
+				from the SAILOR.")
+		waitmessage
+		waitfanfare
+		additem(ITEM_LETTER, 1)
+		putitemaway(ITEM_LETTER, 1)
+		//giveitem(ITEM_LETTER, 1)
 		setflag(FLAG_DELIVERING_SS_ANNE_LETTER)
 		fadenewbgm(MUS_VERMILLION)
 		setweather(WEATHER_NONE)
 		doweather
-		msgbox("JOE's in POK\eMON TECH, just west
-				of ROUTE 6.
+		textcolor(NPC_TEXT_COLOR_MALE)
+		msgbox("Y'know that one route that goes
+				to the ocean, ROUTE 49?
 
-				I honestly have no idea what his
+				There's a school there named
+				POK\eMON TECHNICAL INSTITUTE.
+
+				I need this LETTER I gave you to
+				be delivered to JOE, who's a student
+				in that school.
+
+				Usually the guard doesn't let any
+				other people inside but\.
+
+				Just tell them that you have some
+				business via this sailor here.
+
+				I honestly have no idea what JOE's
 				parents were thinking, signing him
 				up for that place\.")
 		releaseall

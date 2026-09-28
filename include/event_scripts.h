@@ -1254,6 +1254,7 @@ extern const u8 EventScript_Questionnaire[];
 extern const u8 CableClub_EventScript_ShowBattleRecords[];
 extern const u8 EventScript_Indigo_UltimateGoal[];
 extern const u8 EventScript_Indigo_HighestAuthority[];
+extern const u8 EventScript_ThatsNotOak[];
 extern const u8 EventScript_PokemartSign[];
 extern const u8 EventScript_PokecenterSign[];
 extern const u8 EventScript_CurrentTooFast[];

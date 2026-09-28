@@ -812,3 +812,25 @@ const struct Tileset gTileset_ContestHall =
     .metatileAttributes = gMetatileAttributes_PorytilesManaged_ContestHall,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_PokemonTechNew =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_PokemonTechNew,
+    .palettes = gTilesetPalettes_PorytilesManaged_PokemonTechNew,
+    .metatiles = gMetatiles_PorytilesManaged_PokemonTechNew,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechNew,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_PokemonTechNewClassroom =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_PorytilesManaged_PokemonTechNewClassroom,
+    .palettes = gTilesetPalettes_PorytilesManaged_PokemonTechNewClassroom,
+    .metatiles = gMetatiles_PorytilesManaged_PokemonTechNewClassroom,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_PokemonTechNewClassroom,
+    .callback = NULL,
+};

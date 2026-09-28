@@ -4872,6 +4872,54 @@
       "secondary_tileset": "gTileset_PokemonTechBuilding",
       "border_filepath": "data/layouts/Route49/border.bin",
       "blockdata_filepath": "data/layouts/Route49/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_NEW_LOBBY",
+      "name": "PokemonTechNew_Lobby_Layout",
+      "width": 25,
+      "height": 20,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTechNew",
+      "border_filepath": "data/layouts/PokemonTechNew_Lobby/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTechNew_Lobby/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_NEW_2F",
+      "name": "PokemonTechNew_2F_Layout",
+      "width": 25,
+      "height": 20,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTechNew",
+      "border_filepath": "data/layouts/PokemonTechNew_2F/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTechNew_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_BASEMENT",
+      "name": "PokemonTech_Basement_Layout",
+      "width": 25,
+      "height": 14,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTechNew",
+      "border_filepath": "data/layouts/PokemonTech_Basement/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTech_Basement/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_NEW_CLASSROOM1_1",
+      "name": "PokemonTechNew_Classroom1_1_Layout",
+      "width": 15,
+      "height": 13,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTechNewClassroom",
+      "border_filepath": "data/layouts/PokemonTechNew_Classroom1_1/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTechNew_Classroom1_1/map.bin"
     }
   ]
 }

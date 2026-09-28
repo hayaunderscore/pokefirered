@@ -23,6 +23,11 @@
       "map": "MAP_CELADON_CITY",
       "offset": -28,
       "direction": "up"
+    },
+    {
+      "map": "MAP_CADMIUM_ISLAND",
+      "offset": -5,
+      "direction": "down"
     }
   ],
   "object_events": [
@@ -139,14 +144,14 @@
       "x": 22,
       "y": 14,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_TECH_INSIDE_1F",
+      "dest_map": "MAP_POKEMON_TECH_NEW_LOBBY",
       "dest_warp_id": "0"
     },
     {
       "x": 17,
       "y": 8,
       "elevation": 0,
-      "dest_map": "MAP_POKEMON_TECH_INSIDE_1F",
+      "dest_map": "MAP_POKEMON_TECH_NEW_LOBBY",
       "dest_warp_id": "1"
     }
   ],
