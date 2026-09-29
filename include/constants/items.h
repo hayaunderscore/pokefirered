@@ -62,7 +62,7 @@
 #define ITEM_GREEN_SHARD 51
 #define ITEM_DREAM_MAP 52
 #define ITEM_POKEPODS 53
-#define ITEM_036 54
+#define ITEM_CANDY_JAR 54
 #define ITEM_037 55
 #define ITEM_038 56
 #define ITEM_039 57

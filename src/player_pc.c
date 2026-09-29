@@ -153,6 +153,7 @@ void BedroomPC(void)
     u8 taskId;
 
     gPlayerPcMenuManager.notInRoom = FALSE;
+    gPlayerPcMenuManager.initializedPC = TRUE;
     sItemOrder = sItemOrder_BedroomPC;
     sTopMenuItemCount = 3;
     taskId = CreateTask(TaskDummy, 0);
@@ -164,6 +165,7 @@ void PlayerPC(void)
     u8 taskId;
 
     gPlayerPcMenuManager.notInRoom = TRUE;
+    gPlayerPcMenuManager.initializedPC = TRUE;
     sItemOrder = sItemOrder_PlayerPC;
     sTopMenuItemCount = 3;
     taskId = CreateTask(TaskDummy, 0);
@@ -253,6 +255,7 @@ static void Task_PlayerPcTurnOff(u8 taskId)
         ScriptContext_SetupScript(EventScript_PalletTown_PlayersHouse_2F_ShutDownPC);
     else
         ScriptContext_Enable();
+    gPlayerPcMenuManager.initializedPC = FALSE;
     DestroyTask(taskId);
 }
 

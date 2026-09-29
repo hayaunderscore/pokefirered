@@ -58,7 +58,7 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     // ????????
     [ITEM_DREAM_MAP]      = {gItemIcon_ReturnToFieldArrow, gItemIconPalette_ReturnToFieldArrow},
     [ITEM_POKEPODS]       = {gItemIcon_Pokepods, gItemIconPalette_Pokepods},
-    [ITEM_036]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_CANDY_JAR]      = {gItemIcon_CandyJar, gItemIconPalette_CandyJar},
     [ITEM_037]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_038]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_039]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

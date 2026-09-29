@@ -1503,3 +1503,6 @@ Text_MonCryScript::
 
 	.include "data/maps/PokemonTechNew_Classroom1_1/scripts.inc"
 	.include "data/maps/PokemonTechNew_Classroom1_1/text.inc"
+
+	.include "data/maps/PokemonTechNew_Classroom1_2/scripts.inc"
+	.include "data/maps/PokemonTechNew_Classroom1_2/text.inc"

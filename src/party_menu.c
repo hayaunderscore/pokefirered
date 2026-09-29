@@ -5052,6 +5052,33 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc func)
     }
 }
 
+void ItemUseCB_CandyJar(u8 taskId, TaskFunc func)
+{
+    struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
+    u16 item = gSpecialVar_ItemId;
+    struct PartyMenuInternal *ptr = sPartyMenuInternal;
+    s16 *arrayPtr = ptr->data;
+    u8 level;
+    bool8 noEffect;
+
+    if (GetMonData(mon, MON_DATA_LEVEL) != MAX_LEVEL)
+        noEffect = PokemonItemUseNoEffect(mon, item, gPartyMenu.slotId, 0);
+    else
+        noEffect = TRUE;
+    PlaySE(SE_SELECT);
+    if (noEffect)
+    {
+        gPartyMenuUseExitCallback = FALSE;
+        DisplayPartyMenuMessage(gText_WontHaveEffect, TRUE);
+        ScheduleBgCopyTilemapToVram(2);
+        gTasks[taskId].func = func;
+    }
+    else
+    {
+    	ItemUseCB_RareCandyStep(taskId, func);
+    }
+}
+
 static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -5066,7 +5093,8 @@ static void ItemUseCB_RareCandyStep(u8 taskId, TaskFunc func)
     ItemUse_SetQuestLogEvent(QL_EVENT_USED_ITEM, mon, gSpecialVar_ItemId, 0xFFFF);
     PlayFanfareByFanfareNum(FANFARE_LEVEL_UP);
     UpdateMonDisplayInfoAfterRareCandy(gPartyMenu.slotId, mon);
-    RemoveBagItem(gSpecialVar_ItemId, 1);
+    if (gSpecialVar_ItemId != ITEM_CANDY_JAR)
+    	RemoveBagItem(gSpecialVar_ItemId, 1);
     GetMonNickname(mon, gStringVar1);
     level = GetMonData(mon, MON_DATA_LEVEL);
     ConvertIntToDecimalStringN(gStringVar2, level, STR_CONV_MODE_LEFT_ALIGN, 3);
@@ -5175,6 +5203,12 @@ static void Task_TryLearningNextMove(u8 taskId)
     }
 }
 
+static void CB2_ReturnToPartyMenuUsingRareCandy(void)
+{
+    gItemUseCB = ItemUseCB_RareCandy;
+    SetMainCallback2(CB2_ShowPartyMenuForItemUse);
+}
+
 static void PartyMenuTryEvolution(u8 taskId)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
@@ -5183,12 +5217,21 @@ static void PartyMenuTryEvolution(u8 taskId)
     if (targetSpecies != SPECIES_NONE)
     {
         FreePartyPointers();
-        gCB2_AfterEvolution = gPartyMenu.exitCallback;
+        if ((gSpecialVar_ItemId == ITEM_RARE_CANDY || gSpecialVar_ItemId == ITEM_CANDY_JAR)
+        	&& gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+        	gCB2_AfterEvolution = CB2_ReturnToPartyMenuUsingRareCandy;
+        else
+        	gCB2_AfterEvolution = gPartyMenu.exitCallback;
         BeginEvolutionScene(mon, targetSpecies, TRUE, gPartyMenu.slotId);
         DestroyTask(taskId);
     }
     else
-        gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+   	{
+   		if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+           	gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    	else
+    		gTasks[taskId].func = Task_ClosePartyMenuAfterText;
+    }
 }
 
 static void DisplayMonNeedsToReplaceMove(u8 taskId)

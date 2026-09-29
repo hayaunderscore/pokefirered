@@ -26,7 +26,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Teacher",
       "flag": "0"
     },
     {
@@ -40,7 +40,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Picnicker1",
       "flag": "0"
     },
     {
@@ -54,7 +54,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Picnicker2",
       "flag": "0"
     },
     {
@@ -68,7 +68,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Camper",
       "flag": "0"
     },
     {
@@ -82,7 +82,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Lass",
       "flag": "0"
     },
     {
@@ -96,13 +96,14 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_LittleBoy",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_POKETECH_CLASSROOM_JOE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_JOE",
-      "x": 6,
+      "x": 5,
       "y": 10,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
@@ -110,8 +111,8 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
-      "flag": "0"
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Joe",
+      "flag": "FLAG_HIDE_JOE_IN_POKEMON_TECH_CLASSROOM_1_1"
     },
     {
       "type": "object",
@@ -124,7 +125,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "PokemonTechNew_Classroom1_1_EventScript_Youngster",
       "flag": "0"
     }
   ],

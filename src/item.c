@@ -5,6 +5,7 @@
 #include "item.h"
 #include "item_use.h"
 #include "load_save.h"
+#include "player_pc.h"
 #include "quest_log.h"
 #include "strings.h"
 #include "constants/hold_effects.h"
@@ -633,10 +634,16 @@ u8 ItemId_GetHoldEffectParam(u16 itemId)
     return gItems[SanitizeItemId(itemId)].holdEffectParam;
 }
 
+static const u8 sRareCandyOnPC[] = _(
+	"Ooh! Free candy!"
+);
+
 const u8 * ItemId_GetDescription(u16 itemId)
 {
 	if (itemId == ITEM_MIST_STONE)
 		return (const u8 *)0xAB155;
+	if (itemId == ITEM_RARE_CANDY && gPlayerPcMenuManager.initializedPC && gPlayerPcMenuManager.notInRoom == FALSE && VarGet(VAR_MAP_SCENE_PALLET_TOWN_OAK) == 0)
+		return sRareCandyOnPC;
     return gItems[SanitizeItemId(itemId)].description;
 }
 

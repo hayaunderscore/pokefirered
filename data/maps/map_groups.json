@@ -67,9 +67,7 @@
     "CadmiumIsland",
     "DeepRuins_Hell",
     "DeepRuins_FinalHallway",
-    "WaitingRoom_Bridge",
-    "PokemonTech_Basement",
-    "PokemonTechNew_Classroom1_1"
+    "WaitingRoom_Bridge"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -616,6 +614,9 @@
   ],
   "gMapGroup_PokemonTech": [
     "PokemonTechNew_Lobby",
-    "PokemonTechNew_2F"
+    "PokemonTechNew_2F",
+    "PokemonTech_Basement",
+    "PokemonTechNew_Classroom1_1",
+    "PokemonTechNew_Classroom1_2"
   ]
 }

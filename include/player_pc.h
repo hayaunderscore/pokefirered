@@ -12,7 +12,8 @@ struct PlayerPCItemPageStruct
     u16 cursorPos;
     u8 pageItems;
     u8 count;
-    u8 filler_6[3];
+    bool8 initializedPC;
+    u8 filler_6[2];
     bool8 notInRoom;
     u8 scrollIndicatorId;
     u8 filler_B[5];

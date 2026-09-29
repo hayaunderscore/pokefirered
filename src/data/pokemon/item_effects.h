@@ -339,6 +339,14 @@ static const u8 sItemEffect_SitrusBerry[7] = {
     [6] = 30, // Amount of HP to recover
 };
 
+static const u8 sItemEffect_CandyJar[10] = {
+    [3] = ITEM3_LEVEL_UP,
+    [4] = ITEM4_REVIVE | ITEM4_HEAL_HP,
+    [5] = ITEM5_FRIENDSHIP_ALL,
+    [6] = ITEM6_HEAL_HP_LVL_UP,
+    VITAMIN_FRIENDSHIP_CHANGE(7),
+};
+
 const u8 *const gItemEffectTable[] =
 {
     [ITEM_POTION - ITEM_POTION]        = sItemEffect_Potion,
@@ -405,5 +413,6 @@ const u8 *const gItemEffectTable[] =
     [ITEM_PERSIM_BERRY - ITEM_POTION]  = sItemEffect_PersimBerry,
     [ITEM_LUM_BERRY - ITEM_POTION]     = sItemEffect_LumBerry,
     [ITEM_SITRUS_BERRY - ITEM_POTION]  = sItemEffect_SitrusBerry,
+    [ITEM_CANDY_JAR - ITEM_POTION]     = sItemEffect_CandyJar,
     [LAST_BERRY_INDEX - ITEM_POTION]   = NULL,
 };

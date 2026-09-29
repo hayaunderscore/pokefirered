@@ -1,1 +1,173 @@
 mapscripts PokemonTechNew_Classroom1_1_MapScripts {}
+
+script PokemonTechNew_Classroom1_1_EventScript_Teacher {
+	lock
+	msgbox("Ok class!
+			Listen up!
+
+			POISON is NOT weak to BUG!
+			We've established that previously!
+
+			It has not been weak to it for
+			6 years at this point!")
+	faceplayer
+	msgbox("Oh!
+			A visitor?
+
+			I'm a teacher here.
+			Not the best job in the world\.
+
+			Sometimes teaching gives me a
+			big headache\.")
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Picnicker1 {
+	msgbox("Sorry if my partner here said
+			something bad.
+
+			She doesn't normally act like this\.
+			Just a bad day I suppose.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Picnicker2 {
+	msgbox("GAH!
+			Leave me alone!
+
+			Augh\.
+			My headache\.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Lass {
+	msgbox("I am studying the act of\.
+			\.looking at people.
+
+			Eeek!
+			Did you just look at me?!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Camper {
+	msgbox("I don't care too much about
+			TYPE coverages.
+
+			After all, it's only one part of
+			how battles work!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Youngster {
+	lock
+	msgbox("Grr!
+			Damn you DOUG!
+
+			You lied to me about them TYPE
+			coverages! Damn you!")
+	release
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_LittleBoy {
+	msgbox("Sometimes, POK\eMON evolve
+			upon trading.
+
+			This would be a great incentive to
+			start interacting with people\.
+			\.if I wasn't an introvert.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_1_EventScript_Joe {
+	lock
+	faceplayer
+	if (!flag(FLAG_SS_ANNE_DELAYED)) {
+		msgbox("JOE: Oh?
+				Who is it?
+
+				Are you looking for advice?
+				If so, I don't have any.")
+		release
+		end
+	}
+	msgbox("JOE: Oh?
+			Who is it?
+
+			Hmm?
+			You have something for me?")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	message("{PLAYER} gave the LETTER
+			to JOE.")
+	waitmessage
+	removeitem(ITEM_LETTER, 1)
+	playfanfare(MUS_OBTAIN_TMHM)
+	waitfanfare
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("JOE: Oh sweet!
+			A LETTER!
+
+			Let's see\. Hmm\.
+			It's from my mom's old buddies\.
+
+			I'll read more about it later.
+			Uh, what's your name?
+
+			\. \. \.
+			\. \. \.
+
+			{PLAYER}? Cool name!
+			My name is JOE.
+
+			Usually I would give advice but\.
+			I'd wait until break time.")
+	closemessage
+	fadeoutbgm(0)
+	playse(SE_DING_DONG)
+	waitse
+	fadeinbgm(0)
+	playse(SE_PIN)
+	applymovement(LOCALID_POKETECH_CLASSROOM_JOE, moves(
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	msgbox("JOE: And there goes the bell!
+			It's break time!
+
+			I'll be over at the bottom floor.
+			I guess see ya..?")
+	closemessage
+	getobjectfacingdirection(LOCALID_POKETECH_CLASSROOM_JOE, VAR_TEMP_1)
+	switch (var(VAR_TEMP_1)) {
+		case DIR_EAST:
+			applymovement(LOCALID_POKETECH_CLASSROOM_JOE, moves(
+				walk_down
+				walk_right
+			))
+			waitmovement(0)
+		case DIR_SOUTH:
+			applymovement(LOCALID_POKETECH_CLASSROOM_JOE, moves(
+				walk_right
+				walk_down
+			))
+			waitmovement(0)
+	}
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	applymovement(LOCALID_POKETECH_CLASSROOM_JOE, moves(
+		walk_right * 6
+		face_down
+	))
+	waitmovement(0)
+	playse(SE_EXIT)
+	removeobject(LOCALID_POKETECH_CLASSROOM_JOE)
+	release
+	end
+}

@@ -199,8 +199,8 @@
 #define FLAG_HIDE_BRET_IN_MT_SILVER_PEAK                   0x0B5
 #define FLAG_HIDE_RESEARCHERS_IN_LAB_RESEARCH_ROOM         0x0B6
 #define FLAG_HIDE_AMBER_IN_LAB_RESEARCH_ROOM               0x0B7
-#define FLAG_0x0B8               0x0B8
-#define FLAG_0x0B9               0x0B9
+#define FLAG_HIDE_JOE_IN_POKEMON_TECH_CLASSROOM_1_1        0x0B8
+#define FLAG_HIDE_CANDY_JAR_GIVER                          0x0B9
 #define FLAG_0x0BA               0x0BA
 #define FLAG_0x0BB               0x0BB
 #define FLAG_0x0BC               0x0BC
@@ -626,7 +626,7 @@
 #define FLAG_GOT_TM06_FROM_KOGA                          0x259
 #define FLAG_DID_SUNKEN_ANNE                             0x25A
 #define FLAG_GOT_TM27                                    0x25B
-#define FLAG_0x25C                                       0x25C
+#define FLAG_GOT_CANDY_JAR                               0x25C
 #define FLAG_0x25D                                       0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
 #define FLAG_0x25F                                       0x25F
@@ -1377,7 +1377,7 @@
 #define FLAG_SYS_INITIALIZED_FOLLOWER                               (SYS_FLAGS + 0x2B) // Just in case...
 #define FLAG_SYS_GAME_CLEAR                                         (SYS_FLAGS + 0x2C)
 #define FLAG_SYS_SET_TRAINER_CARD_PROFILE                           (SYS_FLAGS + 0x2D)
-#define FLAG_0x82E                                                  (SYS_FLAGS + 0x2E)
+#define FLAG_SYS_TOOK_RARE_CANDIES_FROM_PC                          (SYS_FLAGS + 0x2E)
 #define FLAG_SYS_PREVENT_MAP_FADE                                   (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_RESUME                                          (SYS_FLAGS + 0x31)

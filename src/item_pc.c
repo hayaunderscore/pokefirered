@@ -1,3 +1,6 @@
+#include "constants/flags.h"
+#include "constants/vars.h"
+#include "event_data.h"
 #include "global.h"
 #include "gflib.h"
 #include "data.h"
@@ -15,6 +18,7 @@
 #include "new_menu_helpers.h"
 #include "party_menu.h"
 #include "pc_screen_effect.h"
+#include "player_pc.h"
 #include "scanline_effect.h"
 #include "strings.h"
 #include "task.h"
@@ -901,6 +905,11 @@ static void ItemPc_DoWithdraw(u8 taskId)
         windowId = ItemPc_GetOrCreateSubwindow(2);
         AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 0, 2, 0, NULL);
         gTasks[taskId].func = Task_ItemPcWaitButtonAndFinishWithdrawMultiple;
+        if (itemId == ITEM_RARE_CANDY && gPlayerPcMenuManager.notInRoom == FALSE && VarGet(VAR_MAP_SCENE_PALLET_TOWN_OAK) == 0) {
+        	// Confirm we took the damn candies LMAO
+        	FlagSet(FLAG_SYS_TOOK_RARE_CANDIES_FROM_PC);
+         	VarSet(VAR_MAP_SCENE_PALLET_TOWN_FREE_CANDY, 1);
+        }
     }
     else
     {

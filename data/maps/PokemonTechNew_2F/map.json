@@ -29,6 +29,13 @@
       "elevation": 0,
       "dest_map": "MAP_POKEMON_TECH_NEW_CLASSROOM1_1",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 19,
+      "y": 4,
+      "elevation": 0,
+      "dest_map": "MAP_POKEMON_TECH_NEW_CLASSROOM1_2",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

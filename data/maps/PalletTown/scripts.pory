@@ -1,12 +1,7 @@
 raw `
 .equ SIGN_LADY_READY, VAR_TEMP_2
 
-PalletTown_MapScripts::
-	map_script MAP_SCRIPT_ON_TRANSITION, PalletTown_OnTransition
-	map_script MAP_SCRIPT_ON_FRAME_TABLE, PalletTown_OnFrame
-	.byte 0
-
-PalletTown_OnTransition::
+PalletTown_OnTransitionOrig::
 	setworldmapflag FLAG_WORLD_MAP_PALLET_TOWN
 	call_if_set FLAG_PALLET_LADY_NOT_BLOCKING_SIGN, PalletTown_EventScript_TryReadySignLady
 	call_if_eq VAR_MAP_SCENE_PALLET_TOWN_SIGN_LADY, 0, PalletTown_EventScript_SetSignLadyPos
@@ -34,10 +29,6 @@ PalletTown_EventScript_MoveSignLadyToRouteEntrance::
 	setobjectmovementtype LOCALID_PALLET_SIGN_LADY, MOVEMENT_TYPE_FACE_DOWN
 	setvar SIGN_LADY_READY, TRUE
 	return
-
-PalletTown_OnFrame::
-	map_script_2 VAR_MAP_SCENE_PALLET_TOWN_OAK, 2, PalletTown_EventScript_OakRatingScene
-	.2byte 0
 
 @ Oak approaches player after exiting their house post Elite Four to check if they should receieve the National Dex
 PalletTown_EventScript_OakRatingScene::
@@ -462,6 +453,83 @@ script PalletTown_EventScript_NewRockByTheWater {
 				You're probably ITCHING to get
 				that rock,{PAUSE 30} aren't you?")
 	}
+	release
+	end
+}
+
+mapscripts PalletTown_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PalletTown_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_PALLET_TOWN_OAK, 2: PalletTown_EventScript_OakRatingScene
+		VAR_MAP_SCENE_PALLET_TOWN_FREE_CANDY, 1: PalletTown_EventScript_CandyJar
+	]
+}
+
+script PalletTown_OnTransition {
+	call(PalletTown_OnTransitionOrig)
+	setflag(FLAG_HIDE_CANDY_JAR_GIVER)
+	if (flag(FLAG_SYS_TOOK_RARE_CANDIES_FROM_PC) && var(VAR_MAP_SCENE_PALLET_TOWN_OAK) == 0 && !flag(FLAG_GOT_CANDY_JAR)) {
+		clearflag(FLAG_HIDE_CANDY_JAR_GIVER)
+	}
+}
+
+script PalletTown_EventScript_CandyJar {
+	lock
+	playbgm(MUS_FOLLOW_ME, FALSE)
+	playse(SE_PIN)
+	applymovement(LOCALID_THIS_IS_LITERALLY_JUST_ABBY_LMAO, moves(
+		face_left
+		emote_exclamation_mark
+		delay_16 * 4
+	))
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_right
+	))
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("HI {PLAYER}!
+
+			YOU PROBABLY ALREADY KNOW {COLOR BLUE}ME{COLOR RED}.
+			REGARDLESS\.
+
+			COULDN'T WAIT FOR THE CHANCE
+			FOR THEM CANDIES, HUH?
+
+			{COLOR BLUE}I{COLOR RED} ASSUME YOU ARE NOT
+			CHEATING WITH THOSE.
+
+			WELL YOU CAN'T REALLY CHEAT THE OLD
+			FASHIONED WAY\.
+
+			TAKE THIS INSTEAD.")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	playfanfare(MUS_OBTAIN_BERRY)
+	message("{PLAYER} got the CANDY JAR
+			from the random lady(?).")
+	waitmessage
+	waitfanfare
+	additem(ITEM_CANDY_JAR, 1)
+	putitemaway(ITEM_CANDY_JAR, 1)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("THAT JAR RIGHT THERE IS ENDLESS.
+			NOTHING CAN STOP IT.
+
+			YOU CAN SELL YOUR PC CANDIES TO
+			THE POK\e MART OR WHATEVER.
+
+			TA TA!
+			HAVE A GOOD ONE!")
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_down
+	))
+	applymovement(LOCALID_THIS_IS_LITERALLY_JUST_ABBY_LMAO, moves(
+		walk_fast_down * 6
+	))
+	waitmovement(0)
+	setflag(FLAG_GOT_CANDY_JAR)
+	setvar(VAR_MAP_SCENE_PALLET_TOWN_FREE_CANDY, 2)
+	removeobject(LOCALID_THIS_IS_LITERALLY_JUST_ABBY_LMAO)
+	fadedefaultbgm
 	release
 	end
 }
