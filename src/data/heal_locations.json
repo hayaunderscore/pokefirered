@@ -171,7 +171,7 @@
     {
       "id": "HEAL_LOCATION_SUNKEN_ANNE_2F_CORRIDOR",
       "map": "MAP_SUNKEN_ANNE_2F_CORRIDOR",
-      "x": 26,
+      "x": 34,
       "y": 11,
       "respawn_map": "MAP_SUNKEN_ANNE_2F_HEAL_SPOT",
       "respawn_npc": "1"
@@ -190,6 +190,14 @@
       "x": 22,
       "y": 14,
       "respawn_map": "MAP_ROUTE28_POKEMON_CENTER_1F",
+      "respawn_npc": "1"
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE49",
+      "map": "MAP_ROUTE49",
+      "x": 22,
+      "y": 15,
+      "respawn_map": "MAP_POKEMON_TECH_NEW_LOBBY",
       "respawn_npc": "1"
     }
   ]

@@ -5873,6 +5873,13 @@ void ClearBattleMonForms(void)
 
 static u16 GetBattleBGM(void)
 {
+	u16 mus = 0;
+	if (VarGet(VAR_FORCE_BATTLE_MUSIC) > 0)
+	{
+		mus = VarGet(VAR_FORCE_BATTLE_MUSIC);
+		VarSet(VAR_FORCE_BATTLE_MUSIC, 0);
+		return mus;
+	}
     if (gBattleTypeFlags & BATTLE_TYPE_KYOGRE_GROUDON)
         return MUS_VS_WILD;
     if (gBattleTypeFlags & BATTLE_TYPE_REGI)

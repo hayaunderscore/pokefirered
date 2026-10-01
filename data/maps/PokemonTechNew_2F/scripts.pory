@@ -1,1 +1,88 @@
-mapscripts PokemonTechNew_2F_MapScripts {}
+mapscripts PokemonTechNew_2F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTechNew_2F_OnTransition
+}
+
+script PokemonTechNew_2F_OnTransition {
+	setflag(FLAG_HIDE_BREAK_TIME_NPCS_IN_POKEMON_TECH)
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) > value(0)) {
+		clearflag(FLAG_HIDE_BREAK_TIME_NPCS_IN_POKEMON_TECH)
+	}
+}
+
+script PokemonTechNew_2F_EventScript_3FSign {
+	msgbox("NOTICE!
+
+			The 3rd floor is currently being
+			mopped. It's slippery!
+
+			This sign will be here until the
+			janitor finishes.
+			Sorry for the inconvenience!", MSGBOX_SIGN)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Picnicker {
+	msgbox("Shh!
+			We're talking about strategies.
+
+			I'm trying to surprise people down
+			at the bottom floor later!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Camper {
+	msgbox("Shh!
+			We're sharing strategies.
+
+			I'm trying to work with my partner
+			on a double battle later!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Lass {
+	msgbox("Lunch time, schmunch time\.
+			Everyone needs to eat!
+
+			Technically you can eat in class\.
+			\.if you don't get caught!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_BugCatcher {
+	msgbox("Hey wait a minute!
+			I saw you in VIRIDIAN FOREST!
+
+			Or maybe I'm confusing you for
+			someone else\.?", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_LittleGirl {
+	msgbox("Classes here operate on a
+			different way compared to others.
+
+			First half of the day are lectures,
+			followed up by battling all day.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Youngster {
+	msgbox("Sometimes I feel like the
+			simulators are lying to me\.
+			\.or maybe people like to cheese.
+
+			My Lv. 100 DRAGONITE always gets
+			beaten by a Lv. 1 RATTATA!
+			FEAR, indeed\.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Room1_1 {
+	msgbox("ROOM 1-1", MSGBOX_SIGN)
+	end
+}
+
+script PokemonTechNew_2F_EventScript_Room1_2 {
+	msgbox("ROOM 1-2", MSGBOX_SIGN)
+	end
+}

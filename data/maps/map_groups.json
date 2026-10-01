@@ -587,7 +587,8 @@
   ],
   "gMapGroup_IndoorPokemonTech": [
     "PokemonTech_Inside_1F",
-    "PokemonTech_Inside_1_1"
+    "PokemonTech_Inside_1_1",
+    "PokemonTech_Basement_Bathroom"
   ],
   "gMapGroup_IndoorCadmium": [
     "CadmiumIsland_PokemonCenter_1F",

@@ -1,1 +1,794 @@
-mapscripts PokemonTech_Basement_MapScripts {}
+mapscripts PokemonTech_Basement_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTech_Basement_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_MAP_SCENE_POKEMON_TECH, 1: PokemonTech_Basement_JoeSceneLong
+		VAR_MAP_SCENE_POKEMON_TECH, 2: PokemonTech_Basement_JoeSceneShort
+	]
+}
+
+const BATTLE_BROOK = 0
+const BATTLE_PETRA = 1
+const BATTLE_ARAN = 2
+const BATTLE_GISELLE = 3
+const BATTLE_MAX = 4
+
+const VAR_CURRENT_OPPONENT = VAR_TEMP_2 // npc number
+
+script PokemonTech_Basement_EventScript_Joe {
+	msgbox("JOE: Woah!
+			You're stronger than I thought!
+
+			You might even be stronger than
+			GISELLE!
+
+			Not that she's bad or anything\.
+			\.just too eager.
+
+			Oh yeah!
+			Some advice\.
+
+			Here in POK\eMON TECH, we usually
+			specialize in DOUBLES.
+
+			Yes, most battles are in SINGLES\.
+			\.but here, almost always DOUBLES!
+
+			Be ready for people to have
+			POK\eMON that work together!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTech_Basement_OnTransition {
+	clearflag(FLAG_HIDE_BASEMENT_BULLIES_IN_POKEMON_TECH)
+	clearflag(FLAG_HIDE_BASEMENT_JOE)
+	clearflag(FLAG_HIDE_BASEMENT_GISELLE)
+	clearflag(FLAG_HIDE_BASEMENT_NPCS)
+	clearflag(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)
+	// all three of these guys are hidden by default
+	setflag(FLAG_HIDE_BUG_CATCHER_BROOK)
+	setflag(FLAG_HIDE_LASS_PETRA)
+	setflag(FLAG_HIDE_PICNICKER_ARAN)
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) == 0 || var(VAR_MAP_SCENE_POKEMON_TECH) > value(2)) {
+		setflag(FLAG_HIDE_BASEMENT_BULLIES_IN_POKEMON_TECH)
+	}
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) == 0) {
+		setflag(FLAG_HIDE_BASEMENT_JOE)
+		setflag(FLAG_HIDE_BASEMENT_GISELLE)
+		setflag(FLAG_HIDE_BASEMENT_NPCS)
+	}
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) == 3) {
+		setflag(FLAG_HIDE_BASEMENT_GISELLE)
+		setobjectxyperm(LOCALID_POKETECH_BASEMENT_JOE, 1, 9)
+	}
+	// set up positions if we faint in the brad battle
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) == 2) {
+		setobjectxyperm(LOCALID_POKETECH_BASEMENT_GISELLE, 2, 9)
+		setobjectxyperm(LOCALID_POKETECH_BASEMENT_JOE, 1, 9)
+		setobjectmovementtype(LOCALID_POKETECH_BASEMENT_GISELLE, MOVEMENT_TYPE_FACE_DOWN)
+	}
+}
+
+script PokemonTech_Basement_JoeSceneContinued {
+	trainerbattle_no_intro(TRAINER_BIRD_KEEPER_BRAD, "My CLEFAIRY!")
+	applymovement(LOCALID_POKETECH_BULLY3, moves(
+		lock_facing_direction
+		walk_down
+		unlock_facing_direction
+	))
+	waitmovement(0)
+	delay(10)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Wh-!
+			I lost?!")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY1, moves(
+		lock_facing_direction
+		walk_down
+		unlock_facing_direction
+	))
+	applymovement(LOCALID_POKETECH_BULLY2, moves(
+		lock_facing_direction
+		walk_down
+		unlock_facing_direction
+	))
+	waitmovement(0)
+	delay(10)
+	msgbox("Argh!
+			We lost too!")
+	closemessage
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_left
+		walk_down
+	))
+	waitmovement(0)
+	playse(SE_ROTATING_GATE)
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		face_left
+		delay_2
+		face_up
+		delay_2
+		face_right
+		delay_2
+		face_down
+	))
+	waitmovement(0)
+	delay(16)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Now you three!
+
+			You must fulfill your end of the
+			bargain you yourselves have placed!
+
+			This is the experience that only
+			a top student in the beginning class
+			of POK\eMON TECH can achieve!
+
+			It's sad that people aren't blessed
+			with my beauty,{PAUSE 30} talent, {PAUSE 30}and attitude\.
+
+			People call me a star, but\.{PAUSE 30}
+			I'm just GISELLE!
+
+			Now begone!
+			With your disappointing antics.")
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Guys!
+			Let's book it!")
+	closemessage
+	playse(SE_EXIT)
+	fadescreen(FADE_TO_BLACK)
+	fadenewbgm(MUS_UNION_ROOM)
+	removeobject(LOCALID_POKETECH_BULLY1)
+	removeobject(LOCALID_POKETECH_BULLY2)
+	removeobject(LOCALID_POKETECH_BULLY3)
+	fadescreen(FADE_FROM_BLACK)
+	delay(10)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_up
+		walk_right
+	))
+	waitmovement(0)
+	special(RemoveCameraObject)
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		face_right
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		face_right
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_left
+	))
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Well then!
+			We certainly showed them!
+
+			As stated before\.
+			my name is GISELLE!
+
+			And remember it well!
+
+			For I need to see your might for
+			myself later\.
+
+			Once you're ready\.
+
+			Let my colleagues battle you at the
+			ARENA to the right.
+
+			If you manage to get through all
+			of them\.
+			You get to battle me!
+
+			Now ta ta!
+			See ya later!")
+	closemessage
+	playbgm(MUS_RIVAL_EXIT, FALSE)
+	savebgm(MUS_UNION_ROOM)
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		face_down
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_down * 4
+	))
+	waitmovement(0)
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		face_right
+	))
+	applymovement(LOCALID_PLAYER, moves(
+		face_right
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_right * 9
+	))
+	waitmovement(0)
+	removeobject(LOCALID_POKETECH_BASEMENT_GISELLE)
+	fadedefaultbgm
+	setvar(VAR_MAP_SCENE_POKEMON_TECH, 3)
+	return
+}
+
+script PokemonTech_Basement_JoeSceneShort {
+	lock
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down * 6
+		walk_right
+		walk_down
+	))
+	waitmovement(0)
+	playbgm(MUS_ENCOUNTER_GYM_LEADER, FALSE)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Back for more huh?
+
+			You're no match for my FLYING-type
+			POK\eMON!")
+	call(PokemonTech_Basement_JoeSceneContinued)
+	release
+	end
+}
+
+script PokemonTech_Basement_JoeSceneLong {
+	setvar(VAR_MAP_SCENE_POKEMON_TECH, 2)
+	lock
+	fadenewbgm(MUS_SILPH)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("Geez, JOE!
+
+			When are you throwing away that
+			weak WEEPINBELL of yours?")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_PLAYER, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	special(SpawnCameraObject)
+	applymovement(LOCALID_CAMERA, moves(
+		walk_down * 7
+		delay_16
+	))
+	waitmovement(0)
+	msgbox("JOE: Look man!
+			I got this as my first POK\eMON!
+
+			I cherish it a lot!")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY1, moves(
+		walk_in_place_fast_up * 4
+	))
+	waitmovement(0)
+	msgbox("Doesn't matter!
+			It's GRASS!")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY2, moves(
+		walk_in_place_fast_up * 4
+	))
+	waitmovement(0)
+	msgbox("GRASS is pitifully weak!
+			5 weaknesses? Seriously?")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY3, moves(
+		walk_in_place_fast_up * 4
+	))
+	waitmovement(0)
+	msgbox("It's better for you to be
+			wielding something like a BELDUM!
+
+			Heh, if you can catch one!
+			Hahaha!")
+	closemessage
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("And what is all this commotion
+			about, perhaps?")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		face_right
+		emote_exclamation_mark
+	))
+	applymovement(LOCALID_POKETECH_BULLY1, moves(
+		face_right
+		emote_exclamation_mark
+	))
+	applymovement(LOCALID_POKETECH_BULLY2, moves(
+		face_right
+		emote_exclamation_mark
+	))
+	applymovement(LOCALID_POKETECH_BULLY3, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 2
+	))
+	waitmovement(0)
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_left * 8
+	))
+	waitmovement(0)
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		lock_facing_direction
+		walk_left
+		unlock_facing_direction
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_down * 2
+		delay_16 * 2
+	))
+	waitmovement(0)
+	applymovement(LOCALID_POKETECH_BULLY1, moves(
+		face_up
+	))
+	applymovement(LOCALID_POKETECH_BULLY2, moves(
+		face_up
+	))
+	applymovement(LOCALID_POKETECH_BULLY3, moves(
+		face_up
+	))
+	msgbox("Geez, and here I thought I'd
+			knock some sense into y'all!
+
+			You three, type coverages aren't
+			everything!")
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_in_place_fast_left
+	))
+	waitmovement(0)
+	msgbox("And JOE, you should really train
+			that WEEPINBELL more!
+
+			You're not getting anything if
+			you keep ignoring my advice!")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY2, moves(
+		walk_in_place_fast_up * 4
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down * 5
+		walk_right
+		walk_down
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		face_down
+	))
+	msgbox("And why exactly should we listen
+			to you, lassie?
+
+			You probably only have a lowly
+			CLEFAIRY!")
+	closemessage
+	applymovement(LOCALID_POKETECH_BULLY3, moves(
+		walk_in_place_fast_up * 4
+	))
+	waitmovement(0)
+	waitmovement(LOCALID_PLAYER)
+	msgbox("And lookie here!
+			Another TRAINER!
+
+			This gal only has a CLEFAIRY too,
+			doesn't she?")
+	closemessage
+	playse(SE_PIN)
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		face_right
+		emote_exclamation_mark
+		delay_16 * 3
+	))
+	waitmovement(0)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Hmm\.
+			Well\.")
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_in_place_fast_down
+	))
+	waitmovement(0)
+	msgbox("There's three of us,
+			and three of you!
+
+			How about we each do a battle to
+			see who the better trainer is?")
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_JOE, moves(
+		walk_down
+	))
+	applymovement(LOCALID_POKETECH_BASEMENT_GISELLE, moves(
+		walk_down
+	))
+	applymovement(LOCALID_CAMERA, moves(
+		walk_right
+	))
+	waitmovement(0)
+	savebgm(MUS_SILPH)
+	playbgm(MUS_ENCOUNTER_GYM_LEADER, FALSE)
+	textcolor(NPC_TEXT_COLOR_MALE)
+	special(RemoveCameraObject)
+	msgbox("Heh! A trainer like you?
+
+			You're no match for my FLYING-type
+			POK\eMON!")
+	call(PokemonTech_Basement_JoeSceneContinued)
+	release
+	end
+}
+
+script PokemonTech_Basement_EventScript_Simulators {
+	msgbox("It's a BATTLE SIMULATOR!
+			You don't seem to get it\.", MSGBOX_SIGN)
+	end
+}
+
+script PokemonTech_Basement_EventScript_OtherReceptionist {
+	lock
+	faceplayer
+	msgbox("Hm?
+			Oh!
+
+			Please talk to the receptionist at
+			the other side if you're ready.")
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Basement_EventScript_Receptionist {
+	lock
+	faceplayer
+	if (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE) == BATTLE_MAX) {
+		msgbox("Your battle out there was great!
+				Very great!
+
+				Ms. GISELLE has left already\.
+				I wish both of you the best of luck!")
+		release
+		end
+	}
+	msgbox("Hello! Ms. GISELLE has told me
+			about your bout here.
+
+			All the battles are in DOUBLES.
+			You also get healed after each one.
+
+			Take on the challenge now? (You
+			can pick up where you left off.)", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == FALSE) {
+		release
+		end
+	}
+	msgbox("Great!
+			Please take your positions.")
+	closemessage
+	getobjectfacingdirection(LOCALID_PLAYER, VAR_TEMP_1)
+	switch (var(VAR_TEMP_1)) {
+		case DIR_EAST:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_right
+			))
+			waitmovement(0)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_down
+			))
+		case DIR_WEST:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_left
+			))
+			waitmovement(0)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+				face_down
+			))
+		case DIR_SOUTH:
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_right
+			))
+			waitmovement(0)
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
+			applymovement(VAR_LAST_TALKED, moves(
+				walk_left
+				face_down
+			))
+	}
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down * 3
+		face_right
+	))
+	waitmovement(0)
+	applymovement(LOCALID_POKETECH_BASEMENT_OTHER_RECEPTIONIST, moves(
+		walk_right
+		face_left
+	))
+	waitmovement(0)
+	call(PokemonTech_Basement_EventScript_HandleBattle)
+	release
+	end
+}
+
+script PokemonTech_Basement_EventScript_HandleBattleNPCMoveEnter {
+	if (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE) == BATTLE_MAX) {
+		return
+	}
+	addobject(VAR_CURRENT_OPPONENT)
+	if (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE) == BATTLE_GISELLE) {
+		setobjectxy(VAR_CURRENT_OPPONENT, 14, 15)
+		setobjectxyperm(VAR_CURRENT_OPPONENT, 14, 15) // Just to be sure...
+		playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+	} else {
+		playbgm(MUS_ENCOUNTER_GYM_LEADER, FALSE)
+	}
+	applymovement(VAR_CURRENT_OPPONENT, moves(
+		walk_up * 6
+		face_left
+	))
+	waitmovement(0)
+	setvar(VAR_FORCE_BATTLE_MUSIC, MUS_BATTLE_REVOLUTION)
+}
+
+script PokemonTech_Basement_EventScript_HandleBattleNPCMoveLeave {
+	special(HealPlayerParty)
+	applymovement(VAR_CURRENT_OPPONENT, moves(
+		walk_down * 6
+		face_left
+	))
+	waitmovement(0)
+	removeobject(VAR_CURRENT_OPPONENT)
+}
+
+script PokemonTech_Basement_EventScript_HandleBattle {
+	switch (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE)) {
+		case BATTLE_BROOK:
+			setvar(VAR_CURRENT_OPPONENT, LOCALID_BUG_CATCHER_BROOK)
+		case BATTLE_PETRA:
+			setvar(VAR_CURRENT_OPPONENT, LOCALID_LASS_PETRA)
+		case BATTLE_ARAN:
+			setvar(VAR_CURRENT_OPPONENT, LOCALID_PICNICKER_ARAN)
+		case BATTLE_GISELLE:
+			setvar(VAR_CURRENT_OPPONENT, LOCALID_POKETECH_BASEMENT_GISELLE)
+	}
+	call(PokemonTech_Basement_EventScript_HandleBattleNPCMoveEnter)
+	switch (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE)) {
+		case BATTLE_BROOK:
+			textcolor(NPC_TEXT_COLOR_MALE)
+			msgbox("Hey! Let me see your bug types!")
+			trainerbattle_no_intro(TRAINER_BUG_CATCHER_BROOK, "Just my luck!")
+		case BATTLE_PETRA:
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("Tell me.
+					Do I look beautiful?")
+			trainerbattle_no_intro(TRAINER_LASS_PETRA, "Guess I got my answer!")
+		case BATTLE_ARAN:
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("I, ARAN, am the second to last.
+					Are you ready?")
+			trainerbattle_no_intro(TRAINER_PICNICKER_ARAN, "You're more than ready!")
+		case BATTLE_GISELLE:
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("Great job!
+
+					I will say, you've managed to
+					impress me thus far!
+
+					But will your battle style truly
+					shine here?
+
+					Will your 2 measly badges conquer
+					me, GISELLE?
+
+					Let's find out!")
+			trainerbattle_no_intro(TRAINER_LASS_GISELLE, "Wait\.
+														I lost\.?")
+			fadenewbgm(MUS_DUMMY)
+			setweather(WEATHER_SHADE)
+			doweather
+			msgbox("GISELLE: I really lost?
+					I\.
+
+					\. \. \.
+					\. \. \.
+
+					I upheld all my ideals\.
+					All my work\.
+
+					Into this school!
+					What was wrong with it?!
+
+					\. \. \.
+					\. \. \.
+
+					Am I still too unexperienced?{PAUSE_UNTIL_PRESS}
+					Am I still a\.{PAUSE 30} failure\.?", MSGBOX_YESNO)
+			msgbox("Come on GISELLE!
+					Get it together, now!
+
+					I can't break down like this!
+					I need to-
+
+					\. \. \.
+					\. \. \.
+
+					Hmm.")
+			closemessage
+			applymovement(VAR_CURRENT_OPPONENT, moves(
+				walk_left * 2
+			))
+			waitmovement(0)
+			msgbox("{PLAYER}.
+
+					Your actions to take on this route\.{PAUSE 30}
+					are commendable.
+
+					You truly are worthy of what
+					it seeks.
+
+					For that,{PAUSE 30} the best reward I could
+					possibly give you\.{PAUSE 30} is this.")
+			playfanfare(MUS_OBTAIN_BERRY)
+			textcolor(NPC_TEXT_COLOR_NEUTRAL)
+			additem(ITEM_TM55, 1)
+			setvar(VAR_0x8004, ITEM_TM55)
+			special(BufferTMHMMoveName)
+			message("You obtained a TM55.
+					It contains {STR_VAR_1}.")
+			waitmessage
+			waitfanfare
+			putitemaway(ITEM_TM55, 1)
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("I entrust that you do not pull
+					idiocy with that.
+
+					Now that that's settled\.")
+			closemessage
+			fadedefaultbgm
+			setweather(WEATHER_NONE)
+			doweather
+			applymovement(VAR_CURRENT_OPPONENT, moves(
+				lock_facing_direction
+				walk_right * 2
+				unlock_facing_direction
+			))
+			waitmovement(0)
+			delay(16)
+			msgbox("Whuh?
+					Whuh?!
+
+					What happened back there?!
+					Why do you have my TM?
+
+					\. \. \.
+					\. \. \.
+
+					You know what, forget it!
+					I'll leave that to you.
+
+					Sorry for that outburst earlier\.
+					I\.{PAUSE 30} can't get my feelings straight.
+
+					\. \. \.
+					\. \. \.
+
+					Maybe\. it's time to take a step
+					back from this school.
+
+					Maybe it is time for me to go
+					on a journey of my own.
+
+					So you know what?
+					Let's go with that!
+
+					I'll definitely see you later!")
+			closemessage
+			playbgm(MUS_RIVAL_EXIT, FALSE)
+	}
+	call(PokemonTech_Basement_EventScript_HandleBattleNPCMoveLeave)
+	if (var(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE) < value(BATTLE_GISELLE)) {
+		addvar(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE, 1)
+		goto(PokemonTech_Basement_EventScript_HandleBattle)
+	} else {
+		addvar(VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE, 1)
+		fadedefaultbgm
+		clearflag(FLAG_DELIVERING_SS_ANNE_LETTER)
+		clearflag(FLAG_SS_ANNE_DELAYED)
+	}
+	setvar(VAR_FORCE_BATTLE_MUSIC, 0)
+	return
+}
+
+script PokemonTech_Basement_EventScript_CrushGirl {
+	lock
+	if (var(VAR_TEMP_5) == 0) {
+		applymovement(VAR_LAST_TALKED, moves(
+			walk_in_place_fast_right * 3
+			delay_16
+		))
+		waitmovement(0)
+		msgbox("Heh!
+
+				This RATTATA is no match for my
+				MANKEY! Use LOW KICK!")
+	} else {
+		msgbox("WH-
+
+				NO! My MANKEY is DEAD!")
+		setvar(VAR_TEMP_5, 2)
+	}
+	release
+	end
+}
+
+script PokemonTech_Basement_EventScript_Youngster {
+	lock
+	faceplayer
+	if (var(VAR_TEMP_5) < value(2)) {
+		setvar(VAR_TEMP_5, 1)
+		msgbox("She has no idea what's gonna
+				come next.")
+	} else {
+		msgbox("Okay.
+				Now I just feel bad.
+				I just ruined her NUZLOCKE.
+
+				On a NUZLOCKE, when a POK\eMON has
+				fainted, it is considered dead.
+
+				Of course- no real POK\eMON are
+				affected! It's just a game!
+
+				Can't blame her for getting too
+				attached to them, though\.")
+	}
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}
+
+script PokemonTech_Basement_EventScript_Camper {
+	lock
+	faceplayer
+	msgbox("Y'know KAREN?
+			That one trainer from JOHTO?
+
+			That esoteric quote lives on in
+			the bowels of my cranium\.")
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("\qoStrong POK\eMON.
+			Weak POK\eMON.
+
+			That is only the selfish perception
+			of people.
+
+			Truly skilled TRAINERS should try
+			to win with their favorites.\qc")
+	textcolor(NPC_TEXT_COLOR_MALE)
+	msgbox("I think about the time she brought
+			GROUDON in a tournament.
+			And won.
+
+			I cannot say for sure I can ever
+			win with a LEDIAN, though.")
+	release
+	end
+}

@@ -1,4 +1,11 @@
-mapscripts PokemonTechNew_Lobby_MapScripts {}
+mapscripts PokemonTechNew_Lobby_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTechNew_Lobby_OnTransition
+}
+
+script PokemonTechNew_Lobby_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_POKEMON_TECH)
+	setrespawn(HEAL_LOCATION_ROUTE49)
+}
 
 script PokemonTechNew_Lobby_EventScript_Nurse {
 	lock
@@ -6,6 +13,7 @@ script PokemonTechNew_Lobby_EventScript_Nurse {
 	goto_if_questlog(EventScript_ReleaseEnd)
 	message("Hello and welcome to the POK\eMON
 			TECHNICAL INSTITUTE!
+
 			Would you like me to heal your
 			POK\eMON back to perfect health?")
 	waitmessage

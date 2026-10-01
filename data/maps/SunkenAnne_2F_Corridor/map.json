@@ -18,7 +18,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN_1",
-      "x": 1,
+      "x": 9,
       "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -33,7 +33,7 @@
       "local_id": "LOCALID_SUNKEN_ANNE_BLUE",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLUE",
-      "x": 3,
+      "x": 11,
       "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
@@ -47,7 +47,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POLICEMAN",
-      "x": 13,
+      "x": 21,
       "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
@@ -61,7 +61,7 @@
     {
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
-      "x": 17,
+      "x": 25,
       "y": 12,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -75,42 +75,42 @@
   ],
   "warp_events": [
     {
-      "x": 30,
+      "x": 38,
       "y": 9,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_CORRIDOR",
       "dest_warp_id": "0"
     },
     {
-      "x": 22,
+      "x": 30,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_ROOM",
       "dest_warp_id": "0"
     },
     {
-      "x": 6,
+      "x": 14,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_ROOM",
       "dest_warp_id": "1"
     },
     {
-      "x": 18,
+      "x": 26,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_ROOM",
       "dest_warp_id": "2"
     },
     {
-      "x": 26,
+      "x": 34,
       "y": 10,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_2F_HEAL_SPOT",
       "dest_warp_id": "0"
     },
     {
-      "x": 2,
+      "x": 10,
       "y": 2,
       "elevation": 0,
       "dest_map": "MAP_SUNKEN_ANNE_1F_CORRIDOR",
@@ -120,7 +120,7 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 4,
+      "x": 12,
       "y": 7,
       "elevation": 0,
       "var": "VAR_MAP_SCENE_SUNKEN_ANNE",

@@ -296,6 +296,7 @@ static void (*const sMovementTypeCallbacks[MOVEMENT_TYPES_COUNT])(struct Sprite 
     [MOVEMENT_TYPE_RAISE_HAND_AND_JUMP]                   = MovementType_RaiseHandAndJump,
     [MOVEMENT_TYPE_RAISE_HAND_AND_SWIM]                   = MovementType_RaiseHandAndSwim,
     [MOVEMENT_TYPE_WANDER_AROUND_SLOWER]                  = MovementType_WanderAroundSlower,
+    [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_VERTICAL]         = MovementType_CopyPlayer,
 };
 
 static const bool8 gRangedMovementTypes[MOVEMENT_TYPES_COUNT] = {
@@ -341,6 +342,7 @@ static const bool8 gRangedMovementTypes[MOVEMENT_TYPES_COUNT] = {
     [MOVEMENT_TYPE_COPY_PLAYER_COUNTERCLOCKWISE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_COPY_PLAYER_CLOCKWISE_IN_GRASS] = TRUE,
     [MOVEMENT_TYPE_WANDER_AROUND_SLOWER] = TRUE,
+    // [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_VERTICAL] = TRUE,
 };
 
 static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
@@ -425,6 +427,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
     [MOVEMENT_TYPE_RAISE_HAND_AND_JUMP] = DIR_SOUTH,
     [MOVEMENT_TYPE_RAISE_HAND_AND_SWIM] = DIR_SOUTH,
     [MOVEMENT_TYPE_WANDER_AROUND_SLOWER] = DIR_SOUTH,
+    [MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_VERTICAL] = DIR_SOUTHWEST,
 };
 
 #define OBJ_EVENT_PAL_TAG_PLAYER_RED                  0x1100
@@ -1027,14 +1030,16 @@ static const u8 sPlayerDirectionsForCopy[][4] = {
     {2, 1, 4, 3},
     {1, 2, 3, 4},
     {3, 4, 2, 1},
-    {4, 3, 1, 2}
+    {4, 3, 1, 2},
+    {2, 1, 3, 4},
 };
 
 static const u8 sPlayerDirectionToCopyDirection[][4] = {
     {2, 1, 4, 3},
     {1, 2, 3, 4},
     {4, 3, 1, 2},
-    {3, 4, 2, 1}
+    {3, 4, 2, 1},
+    {2, 1, 3, 4},
 };
 
 #include "data/object_events/movement_action_func_tables.h"
@@ -7801,6 +7806,10 @@ static void CalcWhetherObjectIsOffscreen(struct ObjectEvent *objectEvent, struct
     {
         objectEvent->offScreen = TRUE;
     }
+    if (FlagGet(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)) 
+    {
+    	objectEvent->offScreen = FALSE;
+    }
 }
 
 static void UpdateObjEventSpriteVisibility(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -9000,6 +9009,8 @@ void UpdateObjectEventSpriteInvisibility(struct Sprite *sprite, bool8 invisible)
         sprite->invisible = TRUE;
     if ((s16)y >= DISPLAY_HEIGHT + 16 || y2 < -16)
         sprite->invisible = TRUE;
+    if (FlagGet(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT))
+    	sprite->invisible = invisible;
 }
 
 #define sInvisible     data[2]

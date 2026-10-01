@@ -1,0 +1,7 @@
+mapscripts PokemonTech_Basement_Bathroom_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PokemonTech_Basement_Bathroom_OnTransition
+}
+
+script PokemonTech_Basement_Bathroom_OnTransition {
+	setflag(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)
+}

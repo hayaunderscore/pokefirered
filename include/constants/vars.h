@@ -203,8 +203,8 @@
 #define VAR_MAP_SCENE_WAITING_ROOM_RECEPTION                                   0x4095
 #define VAR_MAP_SCENE_WAITING_ROOM_STATE                                       0x4096
 #define VAR_MAP_SCENE_PALLET_TOWN_FREE_CANDY                                   0x4097
-#define VAR_0x4098                 0x4098
-#define VAR_0x4099                 0x4099
+#define VAR_MAP_SCENE_POKEMON_TECH                                             0x4098
+#define VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE                     0x4099
 #define VAR_0x409A                 0x409A
 #define VAR_0x409B                 0x409B
 #define VAR_0x409C                 0x409C
@@ -228,7 +228,7 @@
 #define VAR_TRAINER_FLY_ACTIVE     0x40AF
 #define VAR_TRAINER_FLY_LEVEL      0x40B0
 #define VAR_TRAINER_FLY_VALUE      0x40B1
-#define VAR_0x40B2                 0x40B2
+#define VAR_FORCE_BATTLE_MUSIC     0x40B2
 #define VAR_0x40B3                 0x40B3
 #define VAR_PORTHOLE               0x40B4
 #define VAR_EVENT_PICHU_SLOT       0x40B5

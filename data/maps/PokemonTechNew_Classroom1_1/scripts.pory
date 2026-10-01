@@ -2,6 +2,13 @@ mapscripts PokemonTechNew_Classroom1_1_MapScripts {}
 
 script PokemonTechNew_Classroom1_1_EventScript_Teacher {
 	lock
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) > value(0)) {
+		msgbox("Ok class!
+				It's break time!
+				We'll resume in a few minutes.")
+		release
+		end
+	}
 	msgbox("Ok class!
 			Listen up!
 
@@ -28,6 +35,19 @@ script PokemonTechNew_Classroom1_1_EventScript_Teacher {
 }
 
 script PokemonTechNew_Classroom1_1_EventScript_Picnicker1 {
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) > value(0)) {
+		lock
+		applymovement(VAR_LAST_TALKED, moves(
+			face_right
+		))
+		msgbox("Girlie, it's break time.
+				Wake up!
+
+				I can get you to the nurse if
+				you want to\.")
+		release
+		end
+	}
 	msgbox("Sorry if my partner here said
 			something bad.
 
@@ -37,6 +57,13 @@ script PokemonTechNew_Classroom1_1_EventScript_Picnicker1 {
 }
 
 script PokemonTechNew_Classroom1_1_EventScript_Picnicker2 {
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) > value(0)) {
+		lock
+		msgbox("Mmmmm\.
+				Just let me rest for a bit\.")
+		release
+		end
+	}
 	msgbox("GAH!
 			Leave me alone!
 
@@ -164,10 +191,12 @@ script PokemonTechNew_Classroom1_1_EventScript_Joe {
 	applymovement(LOCALID_POKETECH_CLASSROOM_JOE, moves(
 		walk_right * 6
 		face_down
+		delay_4
 	))
 	waitmovement(0)
 	playse(SE_EXIT)
 	removeobject(LOCALID_POKETECH_CLASSROOM_JOE)
+	setvar(VAR_MAP_SCENE_POKEMON_TECH, 1)
 	release
 	end
 }

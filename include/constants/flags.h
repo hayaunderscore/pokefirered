@@ -548,14 +548,14 @@
 #define FLAG_HIDE_GISELLE_IN_CONDO_ROOF                         0x20E
 #define FLAG_HIDE_POLICEMAN_IN_BILLS_COTTAGE                    0x20F
 #define FLAG_HIDE_BILL_NPCS_IN_CADMIUM                          0x210
-#define FLAG_0x211               0x211
-#define FLAG_0x212               0x212
-#define FLAG_0x213               0x213
-#define FLAG_0x214               0x214
-#define FLAG_0x215               0x215
-#define FLAG_0x216               0x216
-#define FLAG_0x217               0x217
-#define FLAG_0x218               0x218
+#define FLAG_HIDE_BREAK_TIME_NPCS_IN_POKEMON_TECH               0x211
+#define FLAG_HIDE_BASEMENT_BULLIES_IN_POKEMON_TECH              0x212
+#define FLAG_HIDE_BASEMENT_GISELLE                              0x213
+#define FLAG_HIDE_BASEMENT_JOE                                  0x214
+#define FLAG_HIDE_BASEMENT_NPCS                                 0x215
+#define FLAG_HIDE_BUG_CATCHER_BROOK                             0x216
+#define FLAG_HIDE_LASS_PETRA                                    0x217
+#define FLAG_HIDE_PICNICKER_ARAN                                0x218
 #define FLAG_0x219               0x219
 #define FLAG_0x21A               0x21A
 #define FLAG_0x21B               0x21B
@@ -1381,7 +1381,7 @@
 #define FLAG_SYS_PREVENT_MAP_FADE                                   (SYS_FLAGS + 0x2F)
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_RESUME                                          (SYS_FLAGS + 0x31)
-#define FLAG_0x832                                                  (SYS_FLAGS + 0x32)
+#define FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT                        (SYS_FLAGS + 0x32)
 #define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)

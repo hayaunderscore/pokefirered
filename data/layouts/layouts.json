@@ -4432,7 +4432,7 @@
     {
       "id": "LAYOUT_SUNKEN_ANNE_2F_CORRIDOR",
       "name": "SunkenAnne_2F_Corridor_Layout",
-      "width": 34,
+      "width": 42,
       "height": 20,
       "border_width": 2,
       "border_height": 2,
@@ -4468,7 +4468,7 @@
     {
       "id": "LAYOUT_SUNKEN_ANNE_1F_CORRIDOR",
       "name": "SunkenAnne_1F_Corridor_Layout",
-      "width": 31,
+      "width": 38,
       "height": 21,
       "border_width": 2,
       "border_height": 2,
@@ -4901,7 +4901,7 @@
       "id": "LAYOUT_POKEMON_TECH_BASEMENT",
       "name": "PokemonTech_Basement_Layout",
       "width": 25,
-      "height": 14,
+      "height": 16,
       "border_width": 1,
       "border_height": 1,
       "primary_tileset": "gTileset_Building2",
@@ -4932,6 +4932,18 @@
       "secondary_tileset": "gTileset_PokemonTechNewClassroom",
       "border_filepath": "data/layouts/PokemonTechNew_Classroom1_2/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTechNew_Classroom1_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_BASEMENT_BATHROOM",
+      "name": "PokemonTech_Basement_Bathroom_Layout",
+      "width": 15,
+      "height": 15,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonTechNew",
+      "border_filepath": "data/layouts/PokemonTech_Basement_Bathroom/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTech_Basement_Bathroom/map.bin"
     }
   ]
 }

@@ -449,4 +449,6 @@ gSpecials::
 	def_special StartNewTrainerFlyBattle
 	def_special ScriptGetPartyMonSpecies
 	def_special DoSlidingPuzzle
+	def_special TeleportCamera
+	def_special ReturnCameraToPlayer
 gSpecialsEnd::

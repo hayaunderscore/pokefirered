@@ -2587,3 +2587,16 @@ u16 ScriptGetPartyMonSpecies(void)
 {
     return GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES_OR_EGG, NULL);
 }
+
+void TeleportCamera(void)
+{
+    UpdateSavedPos();
+    MoveCameraAndRedrawMap(gSpecialVar_0x8004 - gSaveBlock1Ptr->pos.x,
+                           gSpecialVar_0x8005 - gSaveBlock1Ptr->pos.y);
+}
+
+void ReturnCameraToPlayer(void)
+{
+    MoveCameraAndRedrawMap(gSaveBlock1Ptr->savedPos.x - gSaveBlock1Ptr->pos.x,
+                           gSaveBlock1Ptr->savedPos.y - gSaveBlock1Ptr->pos.y);
+}

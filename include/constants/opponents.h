@@ -12,7 +12,7 @@
 #define TRAINER_POKEPASTA_STEVEN                   6
 #define TRAINER_POKEPASTA_CHIMERA_DUO              7
 #define TRAINER_POKEPASTA_BLUE_TEARS               8
-#define TRAINER_RS_COOLTRAINER_M                   9
+#define TRAINER_BIRD_KEEPER_BRAD                   9
 #define TRAINER_RS_COOLTRAINER_F                  10
 #define TRAINER_HEX_MANIAC                        11
 #define TRAINER_RS_LADY                           12

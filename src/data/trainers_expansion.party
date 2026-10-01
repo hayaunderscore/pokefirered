@@ -119,12 +119,16 @@ Class: Bug Catcher
 Pic: Bug Catcher
 Gender: Male
 Music: Male
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Scyther
-Level: 15
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 21
+IVs: 0 HP / 8 Atk / 0 Def / 8 SpA / 0 SpD / 0 Spe
+
+Yanma
+Level: 22
+IVs: 0 HP / 4 Atk / 0 Def / 8 SpA / 0 SpD / 8 Spe
 
 === TRAINER_LASS_PETRA ===
 Name: PETRA
@@ -132,16 +136,16 @@ Class: Lass
 Pic: Lass
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Eevee
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 22
+IVs: 0 HP / 6 Atk / 6 Def / 0 SpA / 0 SpD / 0 Spe
 
-Doduo
-Level: 16
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Clefable
+Level: 22
+IVs: 0 HP / 8 Atk / 0 Def / 0 SpA / 0 SpD / 8 Spe
 
 === TRAINER_PICNICKER_ARAN ===
 Name: ARAN
@@ -149,16 +153,16 @@ Class: Picnicker
 Pic: Picnicker
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check Bad Move
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
 
-Farfetch'd
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Mankey
+Level: 22
+IVs: 0 HP / 10 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Ponyta
-Level: 17
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 23
+IVs: 0 HP / 0 Atk / 8 Def / 8 SpA / 0 SpD / 0 Spe
 
 === TRAINER_LASS_GISELLE ===
 Name: GISELLE
@@ -166,16 +170,16 @@ Class: Lass
 Pic: Giselle
 Gender: Female
 Music: Female
-Double Battle: No
-AI: Check Bad Move / Check Viability
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability
 
 Nincada
-Level: 18
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 23
+IVs: 0 HP / 4 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
 
 Cubone
-Level: 19
-IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+Level: 23
+IVs: 0 HP / 10 Atk / 4 Def / 0 SpA / 4 SpD / 0 Spe
 
 === TRAINER_RIVAL_SS_ANNE_RATICATE ===
 Name: BLUE
@@ -654,4 +658,21 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 Clefairy
 Level: 13
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BIRD_KEEPER_BRAD ===
+Name: BRAD
+Class: Bird Keeper
+Pic: Bird Keeper
+Gender: Male
+Music: Intense
+Double Battle: Yes
+AI: Check Bad Move
+
+Spearow
+Level: 17
+IVs: 0 HP / 4 Atk / 4 Def / 0 SpA / 0 SpD / 6 Spe
+
+Clefairy
+Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
