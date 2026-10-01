@@ -13,7 +13,7 @@
 #define TRAINER_POKEPASTA_CHIMERA_DUO              7
 #define TRAINER_POKEPASTA_BLUE_TEARS               8
 #define TRAINER_BIRD_KEEPER_BRAD                   9
-#define TRAINER_RS_COOLTRAINER_F                  10
+#define TRAINER_PKMN_TRAINER_GREEN                 10
 #define TRAINER_HEX_MANIAC                        11
 #define TRAINER_RS_LADY                           12
 #define TRAINER_RS_BEAUTY                         13

@@ -1,3 +1,4 @@
+#include "constants/vars.h"
 #include "global.h"
 #include "gflib.h"
 #include "constants/event_objects.h"
@@ -90,7 +91,8 @@ static const u8 sTextColorTable[] =
     [OBJ_EVENT_GFX_RS_CAMERAMAN / 2]            = COLORS(NPC_TEXT_COLOR_MALE, NPC_TEXT_COLOR_FEMALE), // OBJ_EVENT_GFX_DAWN
     [OBJ_EVENT_GFX_GOLD / 2]                    = COLORS(NPC_TEXT_COLOR_MALE, NPC_TEXT_COLOR_FEMALE), // OBJ_EVENT_GFX_KRIS
     [OBJ_EVENT_GFX_HEX_MANIAC / 2]              = COLORS(NPC_TEXT_COLOR_FEMALE, NPC_TEXT_COLOR_FEMALE), // OBJ_EVENT_GFX_SERENA
-    [OBJ_EVENT_GFX_BRET / 2]                    = COLORS(NPC_TEXT_COLOR_FEMALE, NPC_TEXT_COLOR_FEMALE),
+    [OBJ_EVENT_GFX_BRET / 2]                    = COLORS(NPC_TEXT_COLOR_FEMALE, NPC_TEXT_COLOR_FEMALE), // OBJ_EVENT_GFX_AMBER
+    [OBJ_EVENT_GFX_OLD_LAB_TEXT / 2]            = COLORS(NPC_TEXT_COLOR_NEUTRAL, NPC_TEXT_COLOR_FEMALE), // OBJ_EVENT_GFX_GREEN_ALT
 };
 
 void DynamicPlaceholderTextUtil_Reset(void)

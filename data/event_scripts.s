@@ -42,6 +42,7 @@
 #include "constants/sliding_puzzles.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
+	.include "asm/macros/transformation_pack.inc"
 	.set FALSE, 0
 	.set TRUE,  1
 

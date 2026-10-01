@@ -114,6 +114,7 @@ void TryOverrideObjectEventTemplateCoords(u8, u8, u8);
 void UpdateObjectEventCurrentMovement(struct ObjectEvent *, struct Sprite *, bool8(struct ObjectEvent *, struct Sprite *));
 u8 ObjectEventFaceOppositeDirection(struct ObjectEvent *, u8);
 u8 GetOppositeDirection(u8);
+u8 GetNinetyDegreeDirection(u8 direction, bool32 clockwise);
 u8 GetWalkInPlaceFasterMovementAction(u32);
 u8 GetStepInPlaceDelay8AnimId(u32);
 u8 GetWalkInPlaceNormalMovementAction(u32);
@@ -199,6 +200,7 @@ u8 GetMoveDirectionAnimNum(u8 direction);
 u8 LoadObjectEventPalette(u16 paletteTag);
 u8 UpdateSpritePaletteByTemplate(const struct SpriteTemplate *template, struct Sprite *sprite);
 const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
+const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count);
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY);
 
 void MovementType_None(struct Sprite *sprite);
@@ -237,5 +239,7 @@ void ResetObjectEvents(void);
 u16 GetMiniStepCount(u8 speed);
 void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame);
 bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent);
+
+void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 
 #endif // GUARD_EVENT_OBJECT_MOVEMENT_H

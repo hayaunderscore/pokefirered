@@ -469,6 +469,9 @@ const u32 gTrainerPalette_Dawn[] = INCGFX_U32("graphics/trainers/palettes/dawn.p
 const u32 gTrainerFrontPic_HelenaAndSerena[] = INCGFX_U32("graphics/trainers/front_pics/helena_and_serena_front_pic.png", ".4bpp.lz");
 const u32 gTrainerPalette_HelenaAndSerena[] = INCGFX_U32("graphics/trainers/palettes/helena_and_serena.pal", ".gbapal.lz");
 
+const u32 gTrainerFrontPic_Green[] = INCGFX_U32("graphics/trainers/front_pics/green_front_pic.png", ".4bpp.lz");
+const u32 gTrainerPalette_Green[] = INCGFX_U32("graphics/trainers/palettes/green.pal", ".gbapal.lz");
+
 const u8 gTrainerBackPic_Red[] = INCGFX_U8("graphics/trainers/back_pics/red_back_pic.png", ".4bpp");
 const u8 gTrainerBackPic_Leaf[] = INCGFX_U8("graphics/trainers/back_pics/leaf_back_pic.png", ".4bpp");
 const u8 gTrainerBackPic_Pokedude[] = INCGFX_U8("graphics/trainers/back_pics/pokedude_back_pic.png", ".4bpp");

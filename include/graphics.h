@@ -2637,6 +2637,7 @@ extern const u32 gTrainerFrontPic_Gold[];
 extern const u32 gTrainerFrontPic_Monochrome[];
 extern const u32 gTrainerFrontPic_Dawn[];
 extern const u32 gTrainerFrontPic_HelenaAndSerena[];
+extern const u32 gTrainerFrontPic_Green[];
 
 extern const u32 gTrainerPalette_AquaLeaderArchie[];
 extern const u32 gTrainerPalette_AquaGruntM[];
@@ -2799,6 +2800,7 @@ extern const u32 gTrainerPalette_Gold[];
 extern const u32 gTrainerPalette_Monochrome[];
 extern const u32 gTrainerPalette_Dawn[];
 extern const u32 gTrainerPalette_HelenaAndSerena[];
+extern const u32 gTrainerPalette_Green[];
 
 extern const u8 gMenuInfoElements_Gfx[];
 extern const u16 gMenuInfoElements1_Pal[];

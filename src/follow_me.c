@@ -54,7 +54,7 @@ struct FollowerSpriteGraphics
 
 // Function Declarations
 static u8 GetFollowerMapObjId(void);
-static u16 GetFollowerSprite(void);
+// static u16 GetFollowerSprite(void);
 static void TryUpdateFollowerSpriteUnderwater(void);
 static void Task_ReallowPlayerMovement(u8 taskId);
 static u8 DetermineFollowerDirection(struct ObjectEvent* player, struct ObjectEvent* follower);
@@ -169,7 +169,7 @@ static u8 GetFollowerMapObjId(void)
     return gSaveBlock2Ptr->follower.objId;
 }
 
-static u16 GetFollowerSprite(void)
+u16 GetFollowerSprite(void)
 {
     u32 i;
 

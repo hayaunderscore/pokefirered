@@ -922,4 +922,5 @@ const union AnimCmd *const *const gTrainerFrontAnimsPtrTable[] =
     [TRAINER_PIC_MONOCHROME]            = sAnims_Bret,
     [TRAINER_PIC_DAWN]                  = sAnims_Bret,
     [TRAINER_PIC_HELENA_AND_SERENA]     = sAnims_Bret,
+    [TRAINER_PIC_GREEN]                 = sAnims_Leaf,
 };

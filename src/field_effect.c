@@ -1,3 +1,4 @@
+#include "constants/event_objects.h"
 #include "global.h"
 #include "gflib.h"
 #include "decompress.h"
@@ -1107,6 +1108,17 @@ void Task_UseFly(u8 taskId)
         gFieldCallback = FieldCallback_FlyIntoMap;
         DestroyTask(taskId);
     }
+}
+
+static u16 GetOriginalGraphicsId(u8 localId, u32 mapGroup, u32 mapNum)
+{
+    if (localId == LOCALID_PLAYER)
+        return GetPlayerAvatarGraphicsIdByCurrentState();
+    if (localId == OBJ_EVENT_ID_FOLLOWER)
+        return GetFollowerSprite();
+    const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+    const struct ObjectEventTemplate *objTemplate = FindObjectEventTemplateByLocalId(localId, mapHeader->events->objectEvents, mapHeader->events->objectEventCount);
+    return objTemplate->graphicsId;
 }
 
 static void FieldCallback_FlyIntoMap(void)
@@ -4042,3 +4054,143 @@ void FldEff_PhotoFlash(void)
     BeginNormalPaletteFade(PALETTES_ALL, -1, 0x0F, 0x00, RGB_WHITE);
     CreateTask(Task_PhotoFlash, 90);
 }
+
+
+#define tState         data[0]
+#define tObjectEventId data[1]
+#define tGraphicsId    data[2]
+#define tTimer         data[3]
+#define tHFlipped      data[4]
+
+static void Task_MosaicMorphObjectEvent(u8 taskId)
+{
+    struct Sprite *sprite;
+    struct ObjectEvent *objectEvent;
+    u32 stretch;
+    switch (gTasks[taskId].tState)
+    {
+    case 0:
+        sprite = &gSprites[gObjectEvents[gTasks[taskId].tObjectEventId].spriteId];
+        if (sprite->anims[ANIM_STD_FACE_EAST]->frame.hFlip)
+        {
+            //errorf("Can't use mosaic transform from this direction because sprite is h-flipped");
+            u32 matrixNum = AllocOamMatrix();
+            sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+            sprite->oam.matrixNum = matrixNum;
+            gOamMatrices[matrixNum].a = -256;
+            gOamMatrices[matrixNum].b = 0;
+            gOamMatrices[matrixNum].c = 0;
+            gOamMatrices[matrixNum].d = 256;
+        }
+        sprite->oam.mosaic = TRUE;
+        gTasks[taskId].tTimer = 8 * 2 - 1;
+        break;
+    case 1:
+        stretch = 8 - (gTasks[taskId].tTimer / 2 % 8);
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        if (--gTasks[taskId].tTimer > 0)
+            return;
+        break;
+    case 2:
+        objectEvent = &gObjectEvents[gTasks[taskId].tObjectEventId];
+        ObjectEventSetGraphicsId(objectEvent, gTasks[taskId].tGraphicsId);
+        ObjectEventTurn(objectEvent, objectEvent->facingDirection);
+        gTasks[taskId].tTimer = 8 * 2 - 1;
+        break;
+    case 3:
+        stretch = (gTasks[taskId].tTimer / 2 % 8);
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        if (--gTasks[taskId].tTimer > 0)
+            return;
+        break;
+    case 4:
+        sprite = &gSprites[gObjectEvents[gTasks[taskId].tObjectEventId].spriteId];
+        sprite->oam.mosaic = FALSE;
+        if (sprite->oam.affineMode == ST_OAM_AFFINE_NORMAL)
+        {
+            sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+            FreeOamMatrix(sprite->oam.matrixNum);
+        }
+        DestroyTask(taskId);
+    }
+    gTasks[taskId].tState++;
+}
+
+static void Task_SpinMorphObjectEvent(u8 taskId)
+{
+    struct ObjectEvent *objectEvent = &gObjectEvents[gTasks[taskId].tObjectEventId];
+    switch (gTasks[taskId].tState)
+    {
+    case 0:
+        gTasks[taskId].tTimer = 5;
+        break;
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+        if (--gTasks[taskId].tTimer > 0)
+            return;
+        FaceDirection(objectEvent, &gSprites[objectEvent->spriteId], GetNinetyDegreeDirection(objectEvent->facingDirection, TRUE));
+        gTasks[taskId].tTimer = 5;
+        break;
+    case 5:
+        ObjectEventSetGraphicsId(objectEvent, gTasks[taskId].tGraphicsId);
+        ObjectEventTurn(objectEvent, objectEvent->facingDirection);
+        DestroyTask(taskId);
+    }
+    gTasks[taskId].tState++;
+}
+
+static void MorphObject_Internal(u32 objectEventId, u32 graphicsId, enum MorphType type)
+{
+    if (type == INSTANT_MORPH)
+    {
+        ObjectEventSetGraphicsId(&gObjectEvents[objectEventId], graphicsId);
+        ObjectEventTurn(&gObjectEvents[objectEventId], gObjectEvents[objectEventId].movementDirection);
+        return;
+    }
+    u8 taskId = 0;
+    if (type == MOSAIC_MORPH)
+        taskId = CreateTask(Task_MosaicMorphObjectEvent, 0);
+    else if (type == SPIN_MORPH)
+        taskId = CreateTask(Task_SpinMorphObjectEvent, 0);
+
+    gTasks[taskId].tObjectEventId = objectEventId;
+    gTasks[taskId].tGraphicsId = graphicsId;
+}
+
+void Script_MorphObject(struct ScriptContext *ctx)
+{
+    u8 localId = ScriptReadByte(ctx);
+    u16 graphicsId = VarGet(ScriptReadHalfword(ctx));
+    enum MorphType morphType = ScriptReadByte(ctx);
+    u8 objectEventId;
+    if (TryGetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objectEventId))
+        return;
+
+    if (graphicsId == NUM_OBJ_EVENT_GFX)
+        graphicsId = GetOriginalGraphicsId(localId, gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+
+    MorphObject_Internal(objectEventId, graphicsId, morphType);
+}
+
+void Script_MorphObjectAt(struct ScriptContext *ctx)
+{
+    u8 localId = ScriptReadByte(ctx);
+    u16 graphicsId = VarGet(ScriptReadHalfword(ctx));
+    enum MorphType morphType = ScriptReadByte(ctx);
+    u8 mapGroup = ScriptReadByte(ctx);
+    u8 mapNum = ScriptReadByte(ctx);
+    u8 objectEventId;
+    if (TryGetObjectEventIdByLocalIdAndMap(localId, mapNum, mapGroup, &objectEventId))
+        return;
+
+    if (graphicsId == NUM_OBJ_EVENT_GFX)
+        graphicsId = GetOriginalGraphicsId(localId, mapGroup, mapNum);
+
+    MorphObject_Internal(objectEventId, graphicsId, morphType);
+}
+
+#undef tState
+#undef tObjectEventId
+#undef tGraphicsId

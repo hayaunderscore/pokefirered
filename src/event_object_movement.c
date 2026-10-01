@@ -87,7 +87,7 @@ static void ObjectCB_CameraObject(struct Sprite *);
 static void CameraObject_0(struct Sprite *);
 static void CameraObject_1(struct Sprite *);
 static void CameraObject_2(struct Sprite *);
-static const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count);
+// static const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count);
 static void ClearObjectEventMovement(struct ObjectEvent *, struct Sprite *);
 static void ObjectEventSetSingleMovement(struct ObjectEvent *, struct Sprite *, u8);
 static bool8 ShouldInitObjectEventStateFromTemplate(const struct ObjectEventTemplate *, u8, s16, s16);
@@ -469,6 +469,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_BRET                        0x1124
 #define OBJ_EVENT_PAL_TAG_NPC                         0x1125
 #define OBJ_EVENT_PAL_TAG_AMBER                       0x1126
+#define OBJ_EVENT_PAL_TAG_GREEN_ALT                   0x1127
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -509,6 +510,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_Bret, 					  OBJ_EVENT_PAL_TAG_BRET},
 	{gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_NPC},
 	{gObjectEventPal_Amber,                   OBJ_EVENT_PAL_TAG_AMBER},
+	{gObjectEventPal_GreenAlt,                OBJ_EVENT_PAL_TAG_GREEN_ALT},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 
@@ -2398,7 +2400,7 @@ const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 local
     return FindObjectEventTemplateByLocalId(localId, templates, count);
 }
 
-static const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count)
+const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count)
 {
     u8 i;
 
@@ -4996,6 +4998,23 @@ u8 GetOppositeDirection(u8 direction)
     return directions[direction - 1];
 }
 
+static const u8 sRotate90Direction[][2] = {
+	[DIR_NONE]      = { DIR_NONE,       DIR_NONE },
+	[DIR_SOUTH]     = { DIR_EAST,       DIR_WEST },
+	[DIR_NORTH]     = { DIR_WEST,       DIR_EAST },
+	[DIR_WEST]      = { DIR_SOUTH,      DIR_NORTH },
+	[DIR_EAST]      = { DIR_NORTH,      DIR_SOUTH },
+	[DIR_SOUTHWEST] = { DIR_SOUTHEAST,  DIR_NORTHWEST },
+	[DIR_SOUTHEAST] = { DIR_NORTHEAST,  DIR_SOUTHWEST },
+	[DIR_NORTHWEST] = { DIR_SOUTHWEST,  DIR_NORTHEAST },
+	[DIR_NORTHEAST] = { DIR_NORTHWEST,  DIR_SOUTHEAST },
+};
+
+u8 GetNinetyDegreeDirection(u8 direction, bool32 clockwise)
+{
+	return sRotate90Direction[direction][clockwise];
+}
+
 static u32 GetPlayerDirectionForCopy(u8 initDir, u8 moveDir)
 {
     return sPlayerDirectionsForCopy[initDir - 1][moveDir - 1];
@@ -5052,7 +5071,7 @@ static void ObjectEventSetSingleMovement(struct ObjectEvent *objectEvent, struct
         QuestLogRecordNPCStep(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup, movementActionId);
 }
 
-static void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+void FaceDirection(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
 {
     SetObjectEventDirection(objectEvent, direction);
     ShiftStillObjectEventCoords(objectEvent);
@@ -5109,8 +5128,25 @@ void InitMovementNormal(struct ObjectEvent *objectEvent, struct Sprite *sprite, 
     SetStepAnimHandleAlternation(objectEvent, sprite, functions[speed](objectEvent->facingDirection));
 }
 
+static bool32 HasRunningAnimation(u16 graphicsId) 
+{
+	switch (graphicsId)
+	{
+		case OBJ_EVENT_GFX_RED_NORMAL:
+		case OBJ_EVENT_GFX_GREEN_NORMAL:
+			return TRUE;
+		default:
+			return FALSE;
+	}
+}
+
 void StartRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
 {
+	if (!HasRunningAnimation(objectEvent->graphicsId))
+	{
+		InitMovementNormal(objectEvent, sprite, direction, MOVE_SPEED_FAST_1);
+		return;
+	}
     InitNpcForMovement(objectEvent, sprite, direction, MOVE_SPEED_FAST_1);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
 }

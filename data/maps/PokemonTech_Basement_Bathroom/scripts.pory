@@ -4,4 +4,73 @@ mapscripts PokemonTech_Basement_Bathroom_MapScripts {
 
 script PokemonTech_Basement_Bathroom_OnTransition {
 	setflag(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)
+	if (defeated(TRAINER_PKMN_TRAINER_GREEN)) {
+		instantmorph(LOCALID_POKETECH_BATHROOM_REFLECTION, OBJ_EVENT_GFX_GREEN_ALT)
+	}
+}
+
+script PokemonTech_Basement_Bathroom_EventScript_ItsYou {
+	lock
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	if (defeated(TRAINER_PKMN_TRAINER_GREEN)) {
+		msgbox("Things change\.
+				\.but no matter what\.
+				It's still you.")
+		release
+		end
+	}
+	msgbox("It's you!
+
+			Poke your reflection?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == FALSE) {
+		release
+		end
+	}
+	playse(SE_M_LICK)
+	waitse
+	delay(10)
+	mosaicmorph(LOCALID_POKETECH_BATHROOM_REFLECTION, OBJ_EVENT_GFX_GREEN_ALT)
+	waitse
+	delay(10)
+	playbgm(MUS_ENCOUNTER_GYM_LEADER, FALSE)
+	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	msgbox("Wha- hey!
+			Watch where you're pointing that!")
+	setvar(VAR_FORCE_BATTLE_MUSIC, MUS_BATTLE_REVOLUTION)
+	trainerbattle_no_intro(TRAINER_PKMN_TRAINER_GREEN, "Hmm!
+														Losing to myself!
+														That's a new one.")
+	msgbox("GREEN: It's quite amusing talking
+			your own reflection\.
+
+			What's your name, other me?
+
+			\. \. \.
+			\. \. \.
+
+			Wow.
+			How silent of you.
+
+			Are you a silent protagonist of
+			a video game or something?
+
+			Thankfully, I can still see your
+			trainer card\.
+
+			\. \. \.
+			\. \. \.
+
+			{PLAYER}\.?
+			Hmm hmm!
+
+			My name is GREEN.
+			Quite similar, no?
+
+			I do not know the circumstances of
+			how we are both here right now\.
+
+			How about we leave this place
+			without telling anyone?")
+	release
+	end
 }

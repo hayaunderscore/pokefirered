@@ -221,6 +221,8 @@ gScriptCmdTable::
 	.4byte ScrCmd_dynmultichoice                 @ 0xd9
 	.4byte ScrCmd_dynmultipush                   @ 0xda
 	.4byte ScrCmd_warphole2                      @ 0xdb
+	.4byte Script_MorphObject                    @ 0xdc
+	.4byte Script_MorphObjectAt                  @ 0xdd
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

@@ -41,5 +41,38 @@
     }
   ],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 2,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 4,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    }
+  ]
 }

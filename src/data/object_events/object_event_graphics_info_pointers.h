@@ -163,6 +163,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Serena;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Bret;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Amber;
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_OldLabText;
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GreenAlt;
 
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
@@ -331,4 +332,5 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BRET]                     = &gObjectEventGraphicsInfo_Bret,
     [OBJ_EVENT_GFX_AMBER]                    = &gObjectEventGraphicsInfo_Amber,
     [OBJ_EVENT_GFX_OLD_LAB_TEXT]             = &gObjectEventGraphicsInfo_OldLabText,
+    [OBJ_EVENT_GFX_GREEN_ALT]                = &gObjectEventGraphicsInfo_GreenAlt,
 };

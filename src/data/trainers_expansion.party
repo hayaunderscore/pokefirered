@@ -676,3 +676,47 @@ IVs: 0 HP / 4 Atk / 4 Def / 0 SpA / 0 SpD / 6 Spe
 Clefairy
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_PKMN_TRAINER_GREEN ===
+Name: GREEN
+Class: Pkmn Trainer Unused
+Pic: Green
+Gender: Female
+Music: Suspicious
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability/ Above Opponent Level
+
+BLASTY (Blastoise) (M) @ Sitrus Berry
+Ability: Torrent
+EVs: 252 HP / 4 Def / 252 SpD
+Jolly Nature
+IVs: 0 Atk
+- Yawn
+- Haze
+- Hydro Pump
+- Toxic
+
+CLEFY (Clefable) (M) @ Silk Scarf
+Ability: Cute Charm
+EVs: 252 Atk / 4 Def / 252 Spe
+Naughty Nature
+- Soft-Boiled
+- Follow Me
+- Light Screen
+- Metronome
+
+JIGGLY (Wigglytuff) (F) @ White Herb
+Ability: Cute Charm
+EVs: 252 Def / 4 SpD / 252 Spe
+Lax Nature
+- Brick Break
+- Perish Song
+- Substitute
+- Thunder Wave
+
+DITTY (Ditto) @ Metal Powder
+Ability: Limber
+EVs: 252 HP / 252 SpA / 4 SpD
+Rash Nature
+IVs: 30 Atk
+- Transform

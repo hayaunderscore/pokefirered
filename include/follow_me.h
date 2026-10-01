@@ -23,6 +23,7 @@ void PlayerFaceFollowerSprite(void);
 void CheckPlayerHasFollower(void);
 bool8 FollowerComingThroughDoor(void);
 
+u16 GetFollowerSprite(void);
 u8 GetFollowerObjectId(void);
 u8 GetFollowerLocalId(void);
 const u8* GetFollowerScriptPointer(void);
