@@ -120,7 +120,7 @@ Pic: Bug Catcher
 Gender: Male
 Music: Male
 Double Battle: Yes
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 
 Scyther
 Level: 21
@@ -137,7 +137,7 @@ Pic: Lass
 Gender: Female
 Music: Female
 Double Battle: Yes
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 
 Eevee
 Level: 22
@@ -154,7 +154,7 @@ Pic: Picnicker
 Gender: Female
 Music: Female
 Double Battle: Yes
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 
 Mankey
 Level: 22
@@ -171,7 +171,7 @@ Pic: Giselle
 Gender: Female
 Music: Female
 Double Battle: Yes
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 
 Nincada
 Level: 23
@@ -667,7 +667,7 @@ Pic: Bird Keeper
 Gender: Male
 Music: Intense
 Double Battle: Yes
-AI: Check Bad Move
+AI: Check Bad Move / Double Battle
 
 Spearow
 Level: 17
@@ -684,7 +684,7 @@ Pic: Green
 Gender: Female
 Music: Suspicious
 Double Battle: Yes
-AI: Check Bad Move / Try To Faint / Check Viability/ Above Opponent Level
+AI: Check Bad Move / Try To Faint / Double Battle / Check Viability / Above Opponent Level
 
 BLASTY (Blastoise) (M) @ Sitrus Berry
 Ability: Torrent

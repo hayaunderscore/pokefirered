@@ -136,6 +136,11 @@ static void Cmd_end(void);
 static void Cmd_if_level_compare(void);
 static void Cmd_if_target_taunted(void);
 static void Cmd_if_target_not_taunted(void);
+static void Cmd_check_ability(void);
+static void Cmd_is_of_type(void);
+static void Cmd_if_target_is_ally(void);
+static void Cmd_if_flash_fired(void);
+static void Cmd_if_holds_item(void);
 
 static void RecordLastUsedMoveByTarget(void);
 static void BattleAI_DoAIProcessing(void);
@@ -240,6 +245,11 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_level_compare,                 // 0x5B
     Cmd_if_target_taunted,                // 0x5C
     Cmd_if_target_not_taunted,            // 0x5D
+    Cmd_if_target_is_ally,                // 0x5E
+    Cmd_is_of_type,                       // 0x5F
+    Cmd_check_ability,                    // 0x60
+    Cmd_if_flash_fired,                   // 0x61
+    Cmd_if_holds_item,                    // 0x62
 };
 
 static const u16 sDiscouragedPowerfulMoveEffects[] =
@@ -1956,6 +1966,132 @@ static void Cmd_if_target_not_taunted(void)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
     else
         sAIScriptPtr += 5;
+}
+
+static u8 BattleAI_GetWantedBattler(u8 wantedBattler)
+{
+    switch (wantedBattler)
+    {
+    case AI_USER:
+        return gBattlerAttacker;
+    case AI_TARGET:
+    default:
+        return gBattlerTarget;
+    case AI_USER_PARTNER:
+        return BATTLE_PARTNER(gBattlerAttacker);
+    case AI_TARGET_PARTNER:
+        return BATTLE_PARTNER(gBattlerTarget);
+    }
+}
+
+static void Cmd_if_target_is_ally(void)
+{
+    if ((gBattlerAttacker & BIT_SIDE) == (gBattlerTarget & BIT_SIDE))
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
+    else
+        sAIScriptPtr += 5;
+}
+
+static void Cmd_if_flash_fired(void)
+{
+    u8 battler = BattleAI_GetWantedBattler(sAIScriptPtr[1]);
+
+    if (gBattleResources->flags->flags[battler] & RESOURCE_FLAG_FLASH_FIRE)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 2);
+    else
+        sAIScriptPtr += 6;
+}
+
+static void Cmd_is_of_type(void)
+{
+    u8 battler = BattleAI_GetWantedBattler(sAIScriptPtr[1]);
+
+    if (IS_BATTLER_OF_TYPE(battler, sAIScriptPtr[2]))
+        AI_THINKING_STRUCT->funcResult = TRUE;
+    else
+        AI_THINKING_STRUCT->funcResult = FALSE;
+
+    sAIScriptPtr += 3;
+}
+
+static void Cmd_check_ability(void)
+{
+    u32 battler = BattleAI_GetWantedBattler(sAIScriptPtr[1]);
+    u32 ability = sAIScriptPtr[2];
+
+    if (sAIScriptPtr[1] == AI_TARGET || sAIScriptPtr[1] == AI_TARGET_PARTNER)
+    {
+        if (BATTLE_HISTORY->abilities[battler] != ABILITY_NONE)
+        {
+            ability = BATTLE_HISTORY->abilities[battler];
+            AI_THINKING_STRUCT->funcResult = ability;
+        }
+        // Abilities that prevent fleeing.
+        else if (gBattleMons[battler].ability == ABILITY_SHADOW_TAG
+        || gBattleMons[battler].ability == ABILITY_MAGNET_PULL
+        || gBattleMons[battler].ability == ABILITY_ARENA_TRAP)
+        {
+            ability = gBattleMons[battler].ability;
+        }
+        else if (gSpeciesInfo[gBattleMons[battler].species].abilities[0] != ABILITY_NONE)
+        {
+            if (gSpeciesInfo[gBattleMons[battler].species].abilities[1] != ABILITY_NONE)
+            {
+                u8 abilityDummyVariable = ability; // Needed to match.
+                if (gSpeciesInfo[gBattleMons[battler].species].abilities[0] != abilityDummyVariable
+                && gSpeciesInfo[gBattleMons[battler].species].abilities[1] != abilityDummyVariable)
+                {
+                    ability = gSpeciesInfo[gBattleMons[battler].species].abilities[0];
+                }
+                else
+                {
+                    ability = ABILITY_NONE;
+                }
+            }
+            else
+            {
+                ability = gSpeciesInfo[gBattleMons[battler].species].abilities[0];
+            }
+        }
+        else
+        {
+            ability = gSpeciesInfo[gBattleMons[battler].species].abilities[1]; // AI can't actually reach this part since no Pokémon has ability 2 and no ability 1.
+        }
+    }
+    else
+    {
+        // The AI knows its own or partner's ability.
+        ability = gBattleMons[battler].ability;
+    }
+
+    if (ability == 0)
+        AI_THINKING_STRUCT->funcResult = 2; // Unable to answer.
+    else if (ability == sAIScriptPtr[2])
+        AI_THINKING_STRUCT->funcResult = 1; // Pokémon has the ability we wanted to check.
+    else
+        AI_THINKING_STRUCT->funcResult = 0; // Pokémon doesn't have the ability we wanted to check.
+
+    sAIScriptPtr += 3;
+}
+
+static void Cmd_if_holds_item(void)
+{
+    u8 battler = BattleAI_GetWantedBattler(sAIScriptPtr[1]);
+    u16 item;
+    u8 itemLo, itemHi;
+
+    if ((battler & BIT_SIDE) == (gBattlerAttacker & BIT_SIDE))
+        item = gBattleMons[battler].item;
+    else
+        item = BATTLE_HISTORY->itemEffects[battler];
+
+    itemHi = sAIScriptPtr[2];
+    itemLo = sAIScriptPtr[3];
+
+    if (((itemHi << 8) | itemLo) == item)
+        sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 4);
+    else
+        sAIScriptPtr += 8;
 }
 
 static void AIStackPushVar(const u8 *var)
