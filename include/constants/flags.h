@@ -556,7 +556,7 @@
 #define FLAG_HIDE_BUG_CATCHER_BROOK                             0x216
 #define FLAG_HIDE_LASS_PETRA                                    0x217
 #define FLAG_HIDE_PICNICKER_ARAN                                0x218
-#define FLAG_0x219               0x219
+#define FLAG_HIDE_MIRROR_NPC_IN_POKETECH_BASEMENT               0x219
 #define FLAG_0x21A               0x21A
 #define FLAG_0x21B               0x21B
 #define FLAG_0x21C               0x21C

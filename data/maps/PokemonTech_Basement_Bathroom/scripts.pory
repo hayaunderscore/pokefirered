@@ -4,10 +4,56 @@ mapscripts PokemonTech_Basement_Bathroom_MapScripts {
 
 script PokemonTech_Basement_Bathroom_OnTransition {
 	setflag(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)
+	setflag(FLAG_HIDE_MIRROR_NPC_IN_POKETECH_BASEMENT)
 	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_NORMAL)
 	if (defeated(TRAINER_PKMN_TRAINER_GREEN)) {
 		setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_ALT)
 	}
+	if (var(VAR_MAP_SCENE_POKEMON_TECH) == 3) {
+		clearflag(FLAG_HIDE_MIRROR_NPC_IN_POKETECH_BASEMENT)
+	}
+}
+
+script PokemonTech_Basement_Bathroom_EventScript_ReflectionOfYourTrueSelf {
+	lock
+	faceplayer
+	getobjectfacingdirection(LOCALID_PLAYER, VAR_TEMP_1)
+	switch (var(VAR_TEMP_1)) { // This is fucking UGLY
+		case DIR_EAST:
+			applymovement(LOCALID_POKETECH_BATHROOM_REFLECTION2, moves(
+				face_left
+			))
+		case DIR_WEST:
+			applymovement(LOCALID_POKETECH_BATHROOM_REFLECTION2, moves(
+				face_right
+			))
+		case DIR_NORTH:
+			applymovement(LOCALID_POKETECH_BATHROOM_REFLECTION2, moves(
+				face_up
+			))
+	}
+	msgbox("Aaah!
+			You scared me.
+
+			Sorry for that whole commotion\.
+			earlier today.
+
+			\. \. \.
+
+			They say that your reflection shows
+			your true self\.
+
+			But why does mine look like that?")
+	closemessage
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	applymovement(LOCALID_POKETECH_BATHROOM_REFLECTION2, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
 }
 
 script PokemonTech_Basement_Bathroom_EventScript_ItsYou {

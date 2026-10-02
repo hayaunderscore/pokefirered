@@ -38,6 +38,11 @@ script PokemonTech_Basement_EventScript_Joe {
 	end
 }
 
+script PokemonTech_Basement_EventScript_BathroomSign {
+	msgbox("BATHROOM", MSGBOX_SIGN)
+	end
+}
+
 script PokemonTech_Basement_OnTransition {
 	clearflag(FLAG_HIDE_BASEMENT_BULLIES_IN_POKEMON_TECH)
 	clearflag(FLAG_HIDE_BASEMENT_JOE)
