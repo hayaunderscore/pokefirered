@@ -65,6 +65,7 @@ struct PokedexScreenData
     u16 nationalOrderMenuCursorPos;
     u8 numericalOrderWindowId;
     u8 numericalOrderMonPicWindowId;
+    u8 numericalOrderStatWindowId;
     u8 orderedListMenuTaskId;
     u8 dexOrderId;
     struct ListMenuItem * listItems;
@@ -516,6 +517,16 @@ const struct WindowTemplate sWindowTemplate_OrderedListMenu_MonPic = {
     .height = 8,
     .paletteNum = 9,
     .baseBlock = 408
+};
+
+const struct WindowTemplate sWindowTemplate_OrderedListMenu_MonStats = {
+    .bg = 1,
+    .tilemapLeft = 22,
+    .tilemapTop = 2 + 8,
+    .width = 8,
+    .height = 8,
+    .paletteNum = 0,
+    .baseBlock = 472
 };
 
 static const struct ListMenuTemplate sListMenuTemplate_OrderedListMenu = {
@@ -1220,17 +1231,17 @@ static void DexScreen_LoadMonPicInWindow(u8 windowId, u16 species, u16 paletteOf
 static void DexScreen_LoadMonPicWithBordersInOrderedListMenu(u8 bg, u8 windowId, u16 species, u16 paletteOffset)
 {
 	u32 left, top, width, height, divY;
-	
+
 	// For now, we hardcode these LMAO
 	left = 22;
 	top = 2;
 	width = 8 - 2;
 	height = 14;
-	
+
 	divY = (top + 1) + ((height / 2)); // The horizontal divider
-	
+
 	FillWindowPixelBuffer(sPokedexScreenData->numericalOrderMonPicWindowId, PIXEL_FILL(0));
-	
+
 	// Top edge
     FillBgTilemapBufferRect_Palette0(bg, 4, left, top, 1, 1);
     FillBgTilemapBufferRect_Palette0(bg, 5, left + 1, top, width, 1);
@@ -1261,21 +1272,56 @@ static void DexScreen_LoadMonPicWithBordersInOrderedListMenu(u8 bg, u8 windowId,
 	CopyWindowToVram(sPokedexScreenData->numericalOrderMonPicWindowId, COPYWIN_GFX);
 }
 
+// Used for stats
+static const u8 sText_HP[] = _("HP");
+static const u8 sText_Attack[] = _("ATK");
+static const u8 sText_Defense[] = _("DEF");
+static const u8 sText_SpAtk[] = _("SP.A");
+static const u8 sText_SpDef[] = _("SP.D");
+static const u8 sText_Speed[] = _("SPE");
+static const u8 sText_ThreeDashes[] = _("---");
+
+#define ADD_STAT(stat, stat2, y) \
+	DexScreen_AddTextPrinterParameterized(sPokedexScreenData->numericalOrderStatWindowId, FONT_SMALL, sText_ ## stat, 6, 2 + y, 4); \
+	ConvertIntToDecimalStringN(statStr, stat2, STR_CONV_MODE_RIGHT_ALIGN, 3); \
+	DexScreen_AddTextPrinterParameterized(sPokedexScreenData->numericalOrderStatWindowId, FONT_SMALL, species == SPECIES_NONE ? sText_ThreeDashes : statStr, 42, 2 + y, 4)
+
 static void MoveCursorFunc_OrderedListMenu(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
 	u16 species = itemIndex;
     bool8 seen = (itemIndex >> 16) & 1;  // not used but required to match
     bool8 caught = (itemIndex >> 17) & 1;
+    u8 hp = 0, atk = 0, def = 0, spa = 0, spd = 0, spe = 0;
+    u8 statStr[4];
 
     if (!onInit)
         PlaySE(SE_SELECT);
-    
+
     if (!seen)
     	species = SPECIES_NONE; // Show up as ?
+    
+    hp = gSpeciesInfo[species].baseHP;
+    atk = gSpeciesInfo[species].baseAttack;
+    def = gSpeciesInfo[species].baseDefense;
+    spa = gSpeciesInfo[species].baseSpAttack;
+    spd = gSpeciesInfo[species].baseSpDefense;
+    spe = gSpeciesInfo[species].baseSpeed;
 
     FillWindowPixelBuffer(sPokedexScreenData->numericalOrderMonPicWindowId, PIXEL_FILL(0));
 	DexScreen_LoadMonPicWithBordersInOrderedListMenu(3, sPokedexScreenData->numericalOrderMonPicWindowId, species, 9);
+	FillWindowPixelBuffer(sPokedexScreenData->numericalOrderStatWindowId, PIXEL_FILL(0));
+	// Show base stats lmao
+	ADD_STAT(HP, hp, 0);
+	ADD_STAT(Attack, atk, 9);
+	ADD_STAT(Defense, def, 18);
+	ADD_STAT(SpAtk, spa, 27);
+	ADD_STAT(SpDef, spd, 36);
+	ADD_STAT(Speed, spe, 45);
+	PutWindowTilemap(sPokedexScreenData->numericalOrderStatWindowId);
+	CopyWindowToVram(sPokedexScreenData->numericalOrderStatWindowId, COPYWIN_GFX);
 }
+
+#undef ADD_STAT
 
 static void ItemPrintFunc_DexModeSelect(u8 windowId, u32 itemId, u8 y)
 {
@@ -1283,6 +1329,13 @@ static void ItemPrintFunc_DexModeSelect(u8 windowId, u32 itemId, u8 y)
         ListMenuOverrideSetColors(TEXT_COLOR_WHITE, TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY);
     else
         ListMenuOverrideSetColors(TEXT_DYNAMIC_COLOR_1, TEXT_COLOR_TRANSPARENT, TEXT_DYNAMIC_COLOR_2);
+}
+
+static void DexScreen_RemoveNumericalOrderWindows(void)
+{
+	DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderWindowId);
+    DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderMonPicWindowId);
+    DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderStatWindowId);
 }
 
 static void Task_DexScreen_NumericalOrder(u8 taskId)
@@ -1300,8 +1353,7 @@ static void Task_DexScreen_NumericalOrder(u8 taskId)
         HideBg(1);
         // HideBg(2);
         HideBg(3);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderWindowId);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderMonPicWindowId);
+        DexScreen_RemoveNumericalOrderWindows();
         gTasks[taskId].func = Task_PokedexScreen;
         sPokedexScreenData->state = 0;
         break;
@@ -1351,8 +1403,7 @@ static void Task_DexScreen_NumericalOrder(u8 taskId)
         FillBgTilemapBufferRect_Palette0(1, 0x000, 0, 0, 32, 20);
         CopyBgTilemapBufferToVram(1);
         CopyBgTilemapBufferToVram(3);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderWindowId);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderMonPicWindowId);
+        DexScreen_RemoveNumericalOrderWindows();
         gTasks[taskId].func = Task_DexScreen_ShowMonPage;
         sPokedexScreenData->state = 0;
         break;
@@ -1366,6 +1417,7 @@ static void DexScreen_InitGfxForNumericalOrderList(void)
     FillBgTilemapBufferRect(1, 0x000, 0, 0, 32, 32, 17);
     sPokedexScreenData->numericalOrderWindowId = AddWindow(&sWindowTemplate_OrderedListMenu);
     sPokedexScreenData->numericalOrderMonPicWindowId = AddWindow(&sWindowTemplate_OrderedListMenu_MonPic);
+    sPokedexScreenData->numericalOrderStatWindowId = AddWindow(&sWindowTemplate_OrderedListMenu_MonStats);
     // LoadFrameGfxOnBg(2);
     template = sListMenuTemplate_OrderedListMenu;
     template.items = sPokedexScreenData->listItems;
@@ -1376,8 +1428,10 @@ static void DexScreen_InitGfxForNumericalOrderList(void)
     DexScreen_PrintStringWithAlignment(gText_PokemonListNoColor, TEXT_CENTER);
     FillWindowPixelBuffer(1, PIXEL_FILL(15));
     DexScreen_PrintControlInfo(gText_PickOKExit);
+    // FillWindowPixelBuffer(2, PIXEL_FILL(0));
     CopyWindowToVram(0, COPYWIN_GFX);
     CopyWindowToVram(1, COPYWIN_GFX);
+    CopyWindowToVram(2, COPYWIN_GFX);
 }
 
 static void Task_DexScreen_CharacteristicOrder(u8 taskId)
@@ -1395,8 +1449,7 @@ static void Task_DexScreen_CharacteristicOrder(u8 taskId)
         HideBg(1);
         // HideBg(2);
         HideBg(3);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderWindowId);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderMonPicWindowId);
+        DexScreen_RemoveNumericalOrderWindows();
         gTasks[taskId].func = Task_PokedexScreen;
         sPokedexScreenData->state = 0;
         break;
@@ -1445,8 +1498,7 @@ static void Task_DexScreen_CharacteristicOrder(u8 taskId)
         FillBgTilemapBufferRect_Palette0(1, 0x000, 0, 0, 32, 20);
         CopyBgTilemapBufferToVram(1);
         CopyBgTilemapBufferToVram(3);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderWindowId);
-        DexScreen_RemoveWindow(&sPokedexScreenData->numericalOrderMonPicWindowId);
+        DexScreen_RemoveNumericalOrderWindows();
         sPokedexScreenData->parentOfCategoryMenu = 1;
         gTasks[taskId].func = Task_DexScreen_CategorySubmenu;
         sPokedexScreenData->state = 0;
@@ -1461,6 +1513,7 @@ static void DexScreen_CreateCharacteristicListMenu(void)
     FillBgTilemapBufferRect(1, 0x000, 0, 0, 32, 32, 17);
     sPokedexScreenData->numericalOrderWindowId = AddWindow(&sWindowTemplate_OrderedListMenu);
     sPokedexScreenData->numericalOrderMonPicWindowId = AddWindow(&sWindowTemplate_OrderedListMenu_MonPic);
+    sPokedexScreenData->numericalOrderStatWindowId = AddWindow(&sWindowTemplate_OrderedListMenu_MonStats);
     template = sListMenuTemplate_OrderedListMenu;
     template.items = sPokedexScreenData->listItems;
     template.windowId = sPokedexScreenData->numericalOrderWindowId;
@@ -1469,9 +1522,11 @@ static void DexScreen_CreateCharacteristicListMenu(void)
     FillWindowPixelBuffer(0, PIXEL_FILL(15));
     DexScreen_PrintStringWithAlignment(gText_SearchNoColor, TEXT_CENTER);
     FillWindowPixelBuffer(1, PIXEL_FILL(15));
+    // FillWindowPixelBuffer(2, PIXEL_FILL(0));
     DexScreen_PrintControlInfo(gText_PickOKExit);
     CopyWindowToVram(0, COPYWIN_GFX);
     CopyWindowToVram(1, COPYWIN_GFX);
+    CopyWindowToVram(2, COPYWIN_GFX);
 }
 
 static u16 DexScreen_CountMonsInOrderedList(u8 orderIdx)
