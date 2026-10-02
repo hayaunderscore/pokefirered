@@ -18,9 +18,9 @@
     {
       "local_id": "LOCALID_POKETECH_BATHROOM_REFLECTION",
       "type": "object",
-      "graphics_id": "OBJ_EVENT_GFX_GREEN_NORMAL",
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 13,
-      "y": 6,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_COPY_PLAYER_OPPOSITE_VERTICAL",
       "movement_range_x": 15,
@@ -45,7 +45,15 @@
     {
       "type": "sign",
       "x": 2,
-      "y": 8,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 3,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
@@ -53,15 +61,7 @@
     {
       "type": "sign",
       "x": 4,
-      "y": 8,
-      "elevation": 0,
-      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
-    },
-    {
-      "type": "sign",
-      "x": 6,
-      "y": 8,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
@@ -69,7 +69,23 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 8,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 9,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"
+    },
+    {
+      "type": "sign",
+      "x": 10,
+      "y": 7,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PokemonTech_Basement_Bathroom_EventScript_ItsYou"

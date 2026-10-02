@@ -4,8 +4,9 @@ mapscripts PokemonTech_Basement_Bathroom_MapScripts {
 
 script PokemonTech_Basement_Bathroom_OnTransition {
 	setflag(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)
+	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_NORMAL)
 	if (defeated(TRAINER_PKMN_TRAINER_GREEN)) {
-		instantmorph(LOCALID_POKETECH_BATHROOM_REFLECTION, OBJ_EVENT_GFX_GREEN_ALT)
+		setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_GREEN_ALT)
 	}
 }
 
@@ -33,7 +34,7 @@ script PokemonTech_Basement_Bathroom_EventScript_ItsYou {
 	waitse
 	delay(10)
 	playbgm(MUS_ENCOUNTER_GYM_LEADER, FALSE)
-	textcolor(NPC_TEXT_COLOR_DEFAULT)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
 	msgbox("Wha- hey!
 			Watch where you're pointing that!")
 	setvar(VAR_FORCE_BATTLE_MUSIC, MUS_BATTLE_REVOLUTION)
