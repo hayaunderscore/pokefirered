@@ -1248,6 +1248,10 @@
 	.macro finishturn
 	.byte 0xf7
 	.endm
+	
+	.macro settrickroom
+	.byte 0xf8
+	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

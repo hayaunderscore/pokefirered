@@ -419,7 +419,7 @@ bool8 AreAllMovesUnusable(void)
         gSelectionBattleScripts[gActiveBattler] = BattleScript_NoMovesLeft;
         if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
             gBattleBufferB[gActiveBattler][3] = GetBattlerAtPosition((BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler))) | (Random() & 2));
-        else 
+        else
             gBattleBufferB[gActiveBattler][3] = GetBattlerAtPosition(BATTLE_OPPOSITE(GetBattlerPosition(gActiveBattler)));
     }
     else
@@ -467,6 +467,7 @@ enum
     ENDTURN_SANDSTORM,
     ENDTURN_SUN,
     ENDTURN_HAIL,
+    ENDTURN_TRICK_ROOM,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -504,7 +505,7 @@ u8 DoFieldEndTurnEffects(void)
             }
             {
                 u8 *var = &gBattleStruct->turnCountersTracker;
-                
+
                 ++*var;
                 gBattleStruct->turnSideTracker = 0;
             }
@@ -711,6 +712,23 @@ u8 DoFieldEndTurnEffects(void)
 
                 gBattleScripting.animArg1 = B_ANIM_HAIL_CONTINUES;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_HAIL;
+                BattleScriptExecute(gBattlescriptCurrInstr);
+                effect++;
+            }
+            gBattleStruct->turnCountersTracker++;
+            break;
+        case ENDTURN_TRICK_ROOM:
+            if (gBattleWeather & B_WEATHER_TRICK_ROOM)
+            {
+                if (--gWishFutureKnock.weatherDuration == 0)
+                {
+                    gBattleWeather &= ~B_WEATHER_TRICK_ROOM;
+                    gBattlescriptCurrInstr = BattleScript_TrickRoomEnds;
+                }
+                else
+                {
+                    gBattlescriptCurrInstr = BattleScript_TrickRoomContinues;
+                }
                 BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }

@@ -4666,4 +4666,17 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
     },
+
+    [MOVE_TRICK_ROOM] =
+    {
+    	.effect = EFFECT_TRICK_ROOM,
+     	.power = 0,
+      	.type = TYPE_PSYCHIC,
+       	.accuracy = 0,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = -7,
+        .flags = FLAG_MIRROR_MOVE_AFFECTED,
+    }
 };

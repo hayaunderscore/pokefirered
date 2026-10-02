@@ -380,6 +380,7 @@ static void Cmd_subattackerhpbydmg(void);
 static void Cmd_removeattackerstatus1(void);
 static void Cmd_finishaction(void);
 static void Cmd_finishturn(void);
+static void Cmd_settrickroom(void);
 
 // Applicable when SOFT caps are enabled
 const f32 sLevelCapReduction[7] = { .5, .33, .25, .20, .15, .10, .05 };
@@ -643,6 +644,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
+    Cmd_settrickroom,
 };
 
 struct StatFractions
@@ -4054,7 +4056,8 @@ static void Cmd_playanimation(void)
     else if (gBattlescriptCurrInstr[2] == B_ANIM_RAIN_CONTINUES
           || gBattlescriptCurrInstr[2] == B_ANIM_SUN_CONTINUES
           || gBattlescriptCurrInstr[2] == B_ANIM_SANDSTORM_CONTINUES
-          || gBattlescriptCurrInstr[2] == B_ANIM_HAIL_CONTINUES)
+          || gBattlescriptCurrInstr[2] == B_ANIM_HAIL_CONTINUES
+          || gBattlescriptCurrInstr[2] == B_ANIM_TRICK_ROOM_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, gBattlescriptCurrInstr[2], *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -4097,7 +4100,8 @@ static void Cmd_playanimation_var(void)
     else if (*animationIdPtr == B_ANIM_RAIN_CONTINUES
           || *animationIdPtr == B_ANIM_SUN_CONTINUES
           || *animationIdPtr == B_ANIM_SANDSTORM_CONTINUES
-          || *animationIdPtr == B_ANIM_HAIL_CONTINUES)
+          || *animationIdPtr == B_ANIM_HAIL_CONTINUES
+       	  || *animationIdPtr == B_ANIM_TRICK_ROOM_CONTINUES)
     {
         BtlController_EmitBattleAnimation(BUFFER_A, *animationIdPtr, *argumentPtr);
         MarkBattlerForControllerExec(gActiveBattler);
@@ -10075,4 +10079,22 @@ static void Cmd_finishturn(void)
 {
     gCurrentActionFuncId = B_ACTION_FINISHED;
     gCurrentTurnActionNumber = gBattlersCount;
+}
+
+static void Cmd_settrickroom(void)
+{
+    if (gBattleWeather & B_WEATHER_TRICK_ROOM)
+    {
+	   	gBattleWeather = 0;
+	    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRICK_ROOM_ENDS;
+	    gWishFutureKnock.weatherDuration = 5;
+    }
+    else
+    {
+        gBattleWeather = B_WEATHER_TRICK_ROOM;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRICK_ROOM;
+        gWishFutureKnock.weatherDuration = 5;
+    }
+
+    gBattlescriptCurrInstr++;
 }

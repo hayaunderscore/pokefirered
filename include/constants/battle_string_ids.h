@@ -385,8 +385,11 @@
 #define STRINGID_TRAINER1MON2COMEBACK 384
 #define STRINGID_TRAINER1MON1AND2COMEBACK 385
 #define STRINGID_PKMNCANTUSEMOVECHEESE 386
+#define STRINGID_DIMENSIONSARETWISTED 387
+#define STRINGID_TRICKROOMENDS 388
+#define STRINGID_PKMNDIMENSIONSARETWISTED 389
 
-#define BATTLESTRINGS_COUNT     387
+#define BATTLESTRINGS_COUNT     390
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -447,6 +450,8 @@
 #define B_MSG_STARTED_SANDSTORM 3
 #define B_MSG_STARTED_SUNLIGHT  4
 #define B_MSG_STARTED_HAIL      5
+#define B_MSG_TRICK_ROOM        6
+#define B_MSG_TRICK_ROOM_ENDS   7
 
 // gRainContinuesStringIds
 #define B_MSG_RAIN_CONTINUES     0

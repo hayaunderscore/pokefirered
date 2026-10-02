@@ -236,6 +236,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectQuiverDance            @ EFFECT_QUIVER_DANCE
+	.4byte BattleScript_EffectTrickRoom              @ EFFECT_TRICK_ROOM
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -2133,6 +2134,13 @@ BattleScript_EffectHail::
 	sethail
 	goto BattleScript_MoveWeatherChange
 
+BattleScript_EffectTrickRoom::
+	attackcanceler
+	attackstring
+	ppreduce
+	settrickroom
+	goto BattleScript_MoveWeatherChange
+
 BattleScript_EffectTorment::
 	attackcanceler
 	attackstring
@@ -3227,6 +3235,17 @@ BattleScript_SunlightContinues::
 
 BattleScript_SunlightFaded::
 	printstring STRINGID_SUNLIGHTFADED
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_TrickRoomContinues::
+	printstring STRINGID_DIMENSIONSARETWISTED
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_TRICK_ROOM_CONTINUES
+	end2
+
+BattleScript_TrickRoomEnds::
+	printstring STRINGID_TRICKROOMENDS
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

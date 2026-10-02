@@ -831,6 +831,10 @@ const u32 gBattleAnimBgImage_Thunder[] = INCGFX_U32("graphics/battle_anims/backg
 const u32 gBattleAnimBgPalette_Thunder[] = INCGFX_U32("graphics/battle_anims/backgrounds/thunder.png", ".gbapal.lz");
 const u32 gBattleAnimBgTilemap_Thunder[] = INCGFX_U32("graphics/battle_anims/backgrounds/thunder.bin", ".lz");
 
+const u32 gBattleAnimBgImage_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.png", ".4bpp.lz");
+const u32 gBattleAnimBgPalette_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.png", ".gbapal.lz");
+const u32 gBattleAnimBgTilemap_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.bin", ".lz");
+
 const u32 gBattleAnimSpriteGfx_PainSplit[] = INCGFX_U32("graphics/battle_anims/sprites/pain_split.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_PainSplit[] = INCGFX_U32("graphics/battle_anims/sprites/pain_split.png", ".gbapal.lz");
 
