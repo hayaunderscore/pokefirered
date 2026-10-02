@@ -1891,6 +1891,10 @@ Cry_Lilligant::
 	.incbin "sound/direct_sound_samples/cries/lilligant.bin"
 
 	.align 2
+Cry_Indeedee::
+	.incbin "sound/direct_sound_samples/cries/indeedee.bin"
+
+	.align 2
 Cry_Unown_King::
 	.incbin "sound/direct_sound_samples/cries/unown_king.bin"
 

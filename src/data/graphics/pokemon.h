@@ -2763,6 +2763,13 @@ const u32 gMonShinyPalette_Lilligant[] = INCGFX_U32("graphics/pokemon/lilligant/
 const u8 gMonIcon_Lilligant[] = INCGFX_U8("graphics/pokemon/lilligant/icon.png", ".4bpp");
 const u8 gMonFootprint_Lilligant[] = INCGFX_U8("graphics/pokemon/lilligant/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/front.png", ".4bpp.lz");
+const u32 gMonPalette_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Indeedee[] = INCGFX_U8("graphics/pokemon/indeedee/icon.png", ".4bpp");
+const u8 gMonFootprint_Indeedee[] = INCGFX_U8("graphics/pokemon/indeedee/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/front.png", ".4bpp.lz");
 const u32 gMonPalette_Egg[] = INCGFX_U32("graphics/pokemon/egg/normal.pal", ".gbapal.lz");
 

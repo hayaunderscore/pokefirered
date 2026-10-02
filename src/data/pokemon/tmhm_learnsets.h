@@ -6217,7 +6217,19 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_V] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_W] = TMHM_LEARNSET(0),
+    [SPECIES_INDEEDEE]    = TMHM_LEARNSET(TMHM(TM04_CALM_MIND)
+    									| TMHM(TM10_HIDDEN_POWER)
+    									| TMHM(TM12_TAUNT)
+    									| TMHM(TM16_LIGHT_SCREEN)
+    									| TMHM(TM17_PROTECT)
+    									| TMHM(TM20_SAFEGUARD)
+    									| TMHM(TM29_PSYCHIC)
+    									| TMHM(TM30_SHADOW_BALL)
+    									| TMHM(TM32_DOUBLE_TEAM)
+    									| TMHM(TM33_REFLECT)
+    									| TMHM(TM42_FACADE)
+    									| TMHM(TM43_SECRET_POWER)
+    									| TMHM(TM45_ATTRACT)),
 
     [SPECIES_PETILIL]     = TMHM_LEARNSET(TMHM(TM06_TOXIC)
                                         | TMHM(TM09_BULLET_SEED)

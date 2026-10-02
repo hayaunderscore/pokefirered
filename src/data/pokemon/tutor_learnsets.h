@@ -1860,6 +1860,10 @@ static const u16 sTutorLearnsets[] =
                    	   | TUTOR(MOVE_EXPLOSION)
                    	   | TUTOR(MOVE_ROCK_SLIDE)
                    	   | TUTOR(MOVE_SUBSTITUTE),
+    
+    [SPECIES_INDEEDEE] = TUTOR(MOVE_BODY_SLAM)
+    				   | TUTOR(MOVE_SOFT_BOILED)
+           			   | TUTOR(MOVE_SUBSTITUTE),
 
     [SPECIES_PETILIL] = TUTOR(MOVE_MIMIC)
                       | TUTOR(MOVE_DREAM_EATER)

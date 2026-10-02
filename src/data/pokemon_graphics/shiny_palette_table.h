@@ -273,7 +273,7 @@ const struct CompressedSpritePalette gMonShinyPaletteTable[] =
     SPECIES_SHINY_PAL(OLD_UNOWN_T, gMonShinyPalette_DoubleQuestionMark),
     SPECIES_SHINY_PAL(OLD_UNOWN_U, gMonShinyPalette_DoubleQuestionMark),
     SPECIES_SHINY_PAL(OLD_UNOWN_V, gMonShinyPalette_DoubleQuestionMark),
-    SPECIES_SHINY_PAL(OLD_UNOWN_W, gMonShinyPalette_DoubleQuestionMark),
+    SPECIES_SHINY_PAL(INDEEDEE, gMonShinyPalette_Indeedee),
     SPECIES_SHINY_PAL(PETILIL, gMonShinyPalette_Petilil),
     SPECIES_SHINY_PAL(LILLIGANT, gMonShinyPalette_Lilligant),
     SPECIES_SHINY_PAL(UNOWN_KING, gMonShinyPalette_UnownKing),

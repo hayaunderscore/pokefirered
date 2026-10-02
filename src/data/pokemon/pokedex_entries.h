@@ -5095,6 +5095,19 @@ const struct PokedexEntry gPokedexEntries[] =
 	    .trainerScale = 256,
 	    .trainerOffset = 0,
     },
+    
+    [NATIONAL_DEX_INDEEDEE] =
+    {
+   		.categoryName = _("EMOTION"),
+	    .height = 9,
+	    .weight = 280,
+	    .description = gIndeedeePokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 338,
+	    .pokemonOffset = 8,
+	    .trainerScale = 256,
+	    .trainerOffset = 0,
+    },
 
     [NATIONAL_DEX_UNOWN_KING] =
     {

@@ -273,7 +273,7 @@ const struct CompressedSpriteSheet gMonFrontPicTable[] =
     SPECIES_SPRITE(OLD_UNOWN_T, gMonFrontPic_DoubleQuestionMark),
     SPECIES_SPRITE(OLD_UNOWN_U, gMonFrontPic_DoubleQuestionMark),
     SPECIES_SPRITE(OLD_UNOWN_V, gMonFrontPic_DoubleQuestionMark),
-    SPECIES_SPRITE(OLD_UNOWN_W, gMonFrontPic_DoubleQuestionMark),
+    SPECIES_SPRITE(INDEEDEE, gMonFrontPic_Indeedee),
     SPECIES_SPRITE(PETILIL, gMonFrontPic_Petilil),
     SPECIES_SPRITE(LILLIGANT, gMonFrontPic_Lilligant),
     SPECIES_SPRITE(UNOWN_KING, gMonFrontPic_UnownKing),

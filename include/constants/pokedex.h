@@ -397,9 +397,10 @@ enum {
     // These two don't exist yet, though they will soon...
     NATIONAL_DEX_SAPUSAUR,
     NATIONAL_DEX_CHARCOLT,
-    // Specific Gen V mons ported
+    // Specific Gen V+ mons ported
     NATIONAL_DEX_PETILIL,
     NATIONAL_DEX_LILLIGANT,
+    NATIONAL_DEX_INDEEDEE,
     // Old Unown, currently unused
     NATIONAL_DEX_OLD_UNOWN_E,
     NATIONAL_DEX_OLD_UNOWN_F,
@@ -419,7 +420,6 @@ enum {
     NATIONAL_DEX_OLD_UNOWN_T,
     NATIONAL_DEX_OLD_UNOWN_U,
     NATIONAL_DEX_OLD_UNOWN_V,
-    NATIONAL_DEX_OLD_UNOWN_W,
     NATIONAL_DEX_UNOWN_KING,
 };
 
@@ -839,7 +839,7 @@ enum {
     HOENN_DEX_OLD_UNOWN_T,
     HOENN_DEX_OLD_UNOWN_U,
     HOENN_DEX_OLD_UNOWN_V,
-    HOENN_DEX_OLD_UNOWN_W,
+    HOENN_DEX_INDEEDEE,
     HOENN_DEX_PETILIL,
     HOENN_DEX_LILLIGANT,
     HOENN_DEX_UNOWN_KING,

@@ -1365,10 +1365,10 @@ const struct MonCoords gMonFrontPicCoords[] =
         .size = MON_COORDS_SIZE(64, 64),
         .y_offset = 6,
     },
-    [SPECIES_OLD_UNOWN_W] =
+    [SPECIES_INDEEDEE] =
     {
-        .size = MON_COORDS_SIZE(64, 64),
-        .y_offset = 6,
+        .size = MON_COORDS_SIZE(40, 48),
+        .y_offset = 9,
     },
     [SPECIES_PETILIL] =
     {

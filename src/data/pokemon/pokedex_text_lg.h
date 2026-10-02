@@ -2729,3 +2729,8 @@ const u8 gLilligantPokedexText[] = _(
 	"The fragrance of the garland on its\n"
 	"head has a relaxing effect, but\n"
 	"taking care of it is very difficult.");
+
+const u8 gIndeedeePokedexText[] = _(
+	"These POKéMON are highly intelligent.\n"
+	"They touch horns with their fellow\n"
+	"INDEEDEE to share information.");

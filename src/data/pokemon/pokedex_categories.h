@@ -784,6 +784,10 @@ static const u16 sDexCategory_UrbanPkmn_Page13[] = {
     SPECIES_LILLIGANT,
 };
 
+static const u16 sDexCategory_UrbanPkmn_Page14[] = {
+    SPECIES_INDEEDEE,
+};
+
 static const u16 sDexCategory_RarePkmn_Page1[] = {
     SPECIES_UNOWN,
 };
@@ -988,6 +992,7 @@ static const struct PokedexCategoryPage sDexCategory_UrbanPkmn[] = {
     DEX_CATEGORY(UrbanPkmn_Page11),
     DEX_CATEGORY(UrbanPkmn_Page12),
     DEX_CATEGORY(UrbanPkmn_Page13),
+    DEX_CATEGORY(UrbanPkmn_Page14),
 };
 
 static const struct PokedexCategoryPage sDexCategory_RarePkmn[] = {
