@@ -16,6 +16,24 @@ script Route49_EventScript_PokemonTechSign {
 			POK\eMON TECHNICAL INSTITUTE", MSGBOX_SIGN)
 }
 
+script Route49_EventScript_PokemonTechPondSign {
+	msgbox("PLAYGROUND POND
+
+			NOTICE: We have reduced the pond's
+			depth to be half a foot high.
+			Please don't drown.", MSGBOX_SIGN)
+}
+
+script Route49_EventScript_PokemonTechLittleGirl {
+	msgbox("That girl over there\. She's been
+			stuck in that spot for weeks.
+
+			How she got there is a question
+			I can't answer.", MSGBOX_NPC)
+	closemessage
+	end
+}
+
 script Route49_EventScript_PokemonTech_GuardScript {
 	if (var(VAR_MAP_SCENE_POKETECH_GUARD) == 1) {
 		textcolor(NPC_TEXT_COLOR_MALE)
