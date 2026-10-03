@@ -15,6 +15,7 @@ Route16_EventScript_RemoveSnorlax::
 
 Route16_OnTransition::
 	call_if_eq VAR_MAP_SCENE_ROUTE16, 1, Route16_OnTransitionCyclingRoad
+	call_if_set FLAG_DID_SUNKEN_ANNE, Route16_EventScript_HideSnorlax
 	end
 
 Route16_OnTransitionCyclingRoad::
@@ -76,3 +77,8 @@ Route16_EventScript_RouteSign::
 	msgbox Route16_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+script Route16_EventScript_HideSnorlax {
+	// The SNORLAX here should be hidden when doing the route
+	setflag(FLAG_HIDE_ROUTE_16_SNORLAX)
+}

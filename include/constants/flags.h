@@ -201,8 +201,8 @@
 #define FLAG_HIDE_AMBER_IN_LAB_RESEARCH_ROOM               0x0B7
 #define FLAG_HIDE_JOE_IN_POKEMON_TECH_CLASSROOM_1_1        0x0B8
 #define FLAG_HIDE_CANDY_JAR_GIVER                          0x0B9
-#define FLAG_0x0BA               0x0BA
-#define FLAG_0x0BB               0x0BB
+#define FLAG_HIDE_ROUTE_7_SNORLAX                          0x0BA
+#define FLAG_HIDE_ROUTE_7_YOUNGSTER                        0x0BB
 #define FLAG_0x0BC               0x0BC
 #define FLAG_0x0BD               0x0BD
 #define FLAG_0x0BE               0x0BE
