@@ -1,4 +1,6 @@
 #include "constants/event_objects.h"
+#include "constants/map_groups.h"
+#include "constants/maps.h"
 #include "global.h"
 #include "gflib.h"
 #include "decompress.h"
@@ -765,7 +767,11 @@ bool8 FldEff_PokecenterHeal(void)
     task = &gTasks[CreateTask(Task_PokecenterHeal, 0xFF)];
     task->tNumMons = nPokemon;
     task->tFirstBallX = 93;
-    task->tFirstBallY = 36;
+    // Literally by ONE pixel
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_TECH_NEW_LOBBY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_TECH_NEW_LOBBY))
+    	task->tFirstBallY = 35;
+    else
+    	task->tFirstBallY = 36;
     task->tMonitorX = 128;
     task->tMonitorY = 24;
     return FALSE;
@@ -777,18 +783,27 @@ static void Task_PokecenterHeal(u8 taskId)
     sPokecenterHealEffectFuncs[task->tState](task);
 }
 
+static bool32 ShouldShowMonitorSprite(void)
+{
+	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_POKEMON_TECH_NEW_LOBBY) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_POKEMON_TECH_NEW_LOBBY))
+		return FALSE;
+	return TRUE;
+}
+
 static void PokecenterHealEffect_Init(struct Task *task)
 {
     task->tState++;
     task->tGlowEffectSpriteId = CreateGlowingPokeballsEffect(task->tNumMons, task->tFirstBallX, task->tFirstBallY, TRUE);
-    task->tMonitorSpriteId = CreatePokecenterMonitorSprite(task->tMonitorX, task->tMonitorY);
+    if (ShouldShowMonitorSprite())
+    	task->tMonitorSpriteId = CreatePokecenterMonitorSprite(task->tMonitorX, task->tMonitorY);
 }
 
 static void PokecenterHealEffect_WaitForBallPlacement(struct Task *task)
 {
     if (gSprites[task->tGlowEffectSpriteId].sState >= 2)
     {
-        gSprites[task->tMonitorSpriteId].sStartFlash++;
+    	if (ShouldShowMonitorSprite())
+        	gSprites[task->tMonitorSpriteId].sStartFlash++;
         task->tState++;
     }
 }

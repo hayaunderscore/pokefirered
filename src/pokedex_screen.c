@@ -1284,7 +1284,7 @@ static const u8 sText_ThreeDashes[] = _("---");
 #define ADD_STAT(stat, stat2, y) \
 	DexScreen_AddTextPrinterParameterized(sPokedexScreenData->numericalOrderStatWindowId, FONT_SMALL, sText_ ## stat, 6, 2 + y, 4); \
 	ConvertIntToDecimalStringN(statStr, stat2, STR_CONV_MODE_RIGHT_ALIGN, 3); \
-	DexScreen_AddTextPrinterParameterized(sPokedexScreenData->numericalOrderStatWindowId, FONT_SMALL, species == SPECIES_NONE ? sText_ThreeDashes : statStr, 42, 2 + y, 4)
+	DexScreen_AddTextPrinterParameterized(sPokedexScreenData->numericalOrderStatWindowId, FONT_SMALL, species == SPECIES_NONE ? sText_ThreeDashes : (caught ? statStr : gText_ThreeQuestionMarks), 42, 2 + y, 4)
 
 static void MoveCursorFunc_OrderedListMenu(s32 itemIndex, bool8 onInit, struct ListMenu *list)
 {
