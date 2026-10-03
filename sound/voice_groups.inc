@@ -187,6 +187,43 @@ voicegroup002::
 	voice_directsound 63, 64, DirectSoundWaveData_sc88pro_taiko, 255, 0, 255, 0
 	voice_directsound 50, 84, DirectSoundWaveData_ethnic_flavours_kotsuzumi, 255, 0, 255, 0
 	voice_directsound 64, 84, DirectSoundWaveData_ethnic_flavours_kotsuzumi, 255, 0, 255, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
+	voice_noise_alt 80, 0, 0, 0, 10, 50, 0
 
 	.align 2
 voicegroup003::
