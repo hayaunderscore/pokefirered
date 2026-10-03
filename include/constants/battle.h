@@ -215,8 +215,9 @@
 #define B_WEATHER_SUN                 (B_WEATHER_SUN_TEMPORARY | B_WEATHER_SUN_PERMANENT)
 #define B_WEATHER_HAIL_TEMPORARY      (1 << 7)
 #define B_WEATHER_HAIL                (B_WEATHER_HAIL_TEMPORARY)
-#define B_WEATHER_TRICK_ROOM          (1 << 8)
-#define B_WEATHER_ANY                 (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_SUN | B_WEATHER_HAIL | B_WEATHER_TRICK_ROOM)
+// Originally, trick room was a weather effect
+// #define B_WEATHER_TRICK_ROOM          (1 << 8)
+#define B_WEATHER_ANY                 (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_SUN | B_WEATHER_HAIL)
 
 // Move Effects
 #define MOVE_EFFECT_SLEEP               1

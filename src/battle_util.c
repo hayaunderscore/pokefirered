@@ -718,18 +718,13 @@ u8 DoFieldEndTurnEffects(void)
             gBattleStruct->turnCountersTracker++;
             break;
         case ENDTURN_TRICK_ROOM:
-            if (gBattleWeather & B_WEATHER_TRICK_ROOM)
+            if (gBattleStruct->trickRoomCounter > 0)
             {
-                if (--gWishFutureKnock.weatherDuration == 0)
+                if (--gBattleStruct->trickRoomCounter == 0)
                 {
-                    gBattleWeather &= ~B_WEATHER_TRICK_ROOM;
-                    gBattlescriptCurrInstr = BattleScript_TrickRoomEnds;
+                	gBattlescriptCurrInstr = BattleScript_TrickRoomEnds;
+                	BattleScriptExecute(gBattlescriptCurrInstr);
                 }
-                else
-                {
-                    gBattlescriptCurrInstr = BattleScript_TrickRoomContinues;
-                }
-                BattleScriptExecute(gBattlescriptCurrInstr);
                 effect++;
             }
             gBattleStruct->turnCountersTracker++;

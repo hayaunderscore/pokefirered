@@ -10083,17 +10083,15 @@ static void Cmd_finishturn(void)
 
 static void Cmd_settrickroom(void)
 {
-    if (gBattleWeather & B_WEATHER_TRICK_ROOM)
+    if (gBattleStruct->trickRoomCounter > 0)
     {
-	   	gBattleWeather = 0;
+	   	gBattleStruct->trickRoomCounter = 0;
 	    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRICK_ROOM_ENDS;
-	    gWishFutureKnock.weatherDuration = 5;
     }
     else
     {
-        gBattleWeather = B_WEATHER_TRICK_ROOM;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TRICK_ROOM;
-        gWishFutureKnock.weatherDuration = 5;
+        gBattleStruct->trickRoomCounter = 5;
     }
 
     gBattlescriptCurrInstr++;

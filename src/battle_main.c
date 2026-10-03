@@ -2376,6 +2376,7 @@ static void BattleStartClearSetData(void)
     gLeveledUpInBattle = 0;
     gAbsentBattlerFlags = 0;
     gBattleStruct->runTries = 0;
+    gBattleStruct->trickRoomCounter = 0;
     gBattleStruct->safariRockThrowCounter = 0;
     gBattleStruct->safariBaitThrowCounter = 0;
     *(&gBattleStruct->safariCatchFactor) = gSpeciesInfo[GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)].catchRate * 100 / 1275;
@@ -3628,9 +3629,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
             if (speedBattler1 == speedBattler2 && Random() & 1)
                 strikesFirst = 2; // same speeds, same priorities
             else if (speedBattler1 < speedBattler2)
-                strikesFirst = (gBattleWeather & B_WEATHER_TRICK_ROOM) ? 0 : 1; // battler2 has more speed
+                strikesFirst = (gBattleStruct->trickRoomCounter > 0) ? 0 : 1; // battler2 has more speed
             else
-            	strikesFirst = (gBattleWeather & B_WEATHER_TRICK_ROOM) ? 1 : 0; // else battler1 has more speed
+            	strikesFirst = (gBattleStruct->trickRoomCounter > 0) ? 1 : 0; // else battler1 has more speed
         }
         else if (gBattleMoves[moveBattler1].priority < gBattleMoves[moveBattler2].priority)
             strikesFirst = 1; // battler2's move has greater priority
@@ -3642,9 +3643,9 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         if (speedBattler1 == speedBattler2 && Random() & 1)
             strikesFirst = 2; // same speeds, same priorities
         else if (speedBattler1 < speedBattler2)
-            strikesFirst = (gBattleWeather & B_WEATHER_TRICK_ROOM) ? 0 : 1; // battler2 has more speed
+            strikesFirst = (gBattleStruct->trickRoomCounter > 0) ? 0 : 1; // battler2 has more speed
         else
-        	strikesFirst = (gBattleWeather & B_WEATHER_TRICK_ROOM) ? 1 : 0; // else battler1 has more speed
+        	strikesFirst = (gBattleStruct->trickRoomCounter > 0) ? 1 : 0; // else battler1 has more speed
     }
     return strikesFirst;
 }

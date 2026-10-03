@@ -212,6 +212,7 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
 	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	if_effect EFFECT_QUIVER_DANCE, AI_CBM_QuiverDance
+	if_effect EFFECT_TRICK_ROOM, AI_CBM_TrickRoom
 	end
 
 AI_CBM_Sleep::
@@ -426,6 +427,11 @@ AI_CBM_Disable::
 
 AI_CBM_Encore::
 	if_any_move_encored AI_TARGET, Score_Minus8
+	end
+
+AI_CBM_TrickRoom::
+	get_trick_room
+	if_equal 1, Score_Minus8
 	end
 
 AI_CBM_DamageDuringSleep::
@@ -781,6 +787,7 @@ AI_CheckViability::
 	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
 	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	if_effect EFFECT_QUIVER_DANCE, AI_CV_QuiverDance
+	if_effect EFFECT_TRICK_ROOM, AI_CV_TrickRoom
 	end
 
 AI_CV_Sleep::
@@ -1797,6 +1804,25 @@ AI_CV_Counter_PhysicalTypeList::
 	.byte TYPE_GHOST
 	.byte TYPE_STEEL
 	.byte -1
+
+AI_CV_TrickRoom::
+@	if_double_battle AI_CV_TrickRoomDoubles
+	if_target_faster AI_CV_TrickRoom_ScoreUp
+	goto AI_CV_TrickRoom_ScoreDown
+
+@ TODO
+AI_CV_TrickRoomDoubles::
+	end
+
+AI_CV_TrickRoom_ScoreUp::
+	score +3
+	goto AI_CV_TrickRoomEnd
+
+AI_CV_TrickRoom_ScoreDown::
+	score -3
+
+AI_CV_TrickRoomEnd::
+	end
 
 AI_CV_Encore::
 	if_any_move_disabled AI_TARGET, AI_CV_Encore2

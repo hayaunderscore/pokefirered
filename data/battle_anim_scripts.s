@@ -378,8 +378,9 @@ gBattleAnims_Moves::
 	.4byte Move_ABYSS
 	.4byte Move_ABYSS @ For now, both RAPTURE and STRIKE use the same anims as ABYSS
 	.4byte Move_ABYSS
-	.4byte Move_QUIVER_DANCE @ Temporary
-	.4byte Move_COUNT @ cannot be reached, because last move is Psycho Boost
+	.4byte Move_QUIVER_DANCE
+	.4byte Move_TRICK_ROOM
+	.4byte Move_COUNT @ cannot be reached, unless I somehow forgot a move animation
 
 	.align 2
 gBattleAnims_StatusConditions::
@@ -10224,6 +10225,16 @@ Move_ABYSS:
 	call DiveAttackWaterDroplets
 	call DiveAttackWaterDroplets
 	call DiveAttackWaterDroplets
+	end
+
+Move_TRICK_ROOM:
+	playsewithpan SE_M_SUPERSONIC, SOUND_PAN_TARGET
+	fadetobg BG_TRICK_ROOM
+	waitbgfadein
+	delay 0x40
+	restorebg
+	waitbgfadein
+	blendoff
 	end
 
 Move_COUNT:
