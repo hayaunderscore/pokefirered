@@ -72,6 +72,36 @@ script CadmiumIsland_LeafFanclub_EventScript_Ellen {
 	end
 }
 
+script CadmiumIsland_LeafFanclub_EventScript_Yoshi {
+	lock
+	faceplayer
+	msgbox("YOSHI: No, I'm not GISELLE.
+			But welcome!
+
+			My name is YOSHI.
+			The no.1 {PLAYER} entomologist!
+
+			I'm a secondary writer!
+			That's all!")
+	release
+	end
+}
+
+script CadmiumIsland_LeafFanclub_EventScript_Nullrot {
+	lock
+	faceplayer
+	msgbox("NULLROT: What do you call a pile
+			of leaves?
+
+			Anyways! I'm NULLROT.
+			I don't really have a title yet.
+
+			I helped make the visuals!
+			You've probably already seen them.")
+	release
+	end
+}
+
 script CadmiumIsland_LeafFanclub_EventScript_Vicki {
 	lock
 	faceplayer

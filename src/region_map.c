@@ -3344,8 +3344,8 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
 	 	sMapCursor->y = 8;
 		break;
 	case MAPSEC_POKEMON_TECH:
-		sMapCursor->x = 18;
-		sMapCursor->y = 11;
+		sMapCursor->x = 12;
+		sMapCursor->y = 7;
 		break;
     case MAPSEC_ROUTE_2:
         if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_PALLET_TOWN))

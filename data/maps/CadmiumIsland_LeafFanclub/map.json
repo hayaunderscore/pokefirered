@@ -71,6 +71,36 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "CadmiumIsland_LeafFanclub_EventScript_Vicki",
       "flag": "FLAG_HIDE_BILL_NPCS_IN_CADMIUM"
+    },
+    {
+      "local_id": "LOCALID_FANCLUB_VICKI",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_GISELLE",
+      "x": 7,
+      "y": 2,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CadmiumIsland_LeafFanclub_EventScript_Yoshi",
+      "flag": "FLAG_HIDE_BILL_NPCS_IN_CADMIUM"
+    },
+    {
+      "local_id": "LOCALID_FANCLUB_VICKI",
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_RS_BRENDAN",
+      "x": 15,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WANDER_LEFT_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CadmiumIsland_LeafFanclub_EventScript_Nullrot",
+      "flag": "FLAG_HIDE_BILL_NPCS_IN_CADMIUM"
     }
   ],
   "warp_events": [
