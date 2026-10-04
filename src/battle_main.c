@@ -2388,6 +2388,8 @@ static void BattleStartClearSetData(void)
     gAbsentBattlerFlags = 0;
     gBattleStruct->runTries = 0;
     gBattleStruct->trickRoomCounter = 0;
+    gBattleStruct->primalDropCounter = 0;
+    gBattleStruct->primalDropUsed = FALSE;
     gBattleStruct->safariRockThrowCounter = 0;
     gBattleStruct->safariBaitThrowCounter = 0;
     *(&gBattleStruct->safariCatchFactor) = gSpeciesInfo[GetMonData(&gEnemyParty[0], MON_DATA_SPECIES)].catchRate * 100 / 1275;

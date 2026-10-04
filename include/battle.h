@@ -439,7 +439,7 @@ struct BattleStruct
     u8 battlerPartyOrders[MAX_BATTLERS_COUNT][3];
     u8 runTries;
     u8 caughtMonNick[POKEMON_NAME_LENGTH + 1];
-    u8 trickRoomCounter; // unused
+    u8 trickRoomCounter;
     u8 safariRockThrowCounter;
     u8 safariBaitThrowCounter;
     u8 safariEscapeFactor;
@@ -449,8 +449,8 @@ struct BattleStruct
     u8 formToChangeInto;
     u8 chosenMovePositions[MAX_BATTLERS_COUNT];
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
-    u8 field_88; // unused
-    u8 field_89; // unused
+    u8 primalDropCounter;
+    u8 primalDropUsed;
     u8 field_8A; // unused
     u8 playerPartyIdx;
     u8 field_8C; // unused

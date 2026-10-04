@@ -48,6 +48,8 @@ extern const u8 BattleScript_SunlightContinues[];
 extern const u8 BattleScript_SunlightFaded[];
 extern const u8 BattleScript_TrickRoomContinues[];
 extern const u8 BattleScript_TrickRoomEnds[];
+extern const u8 BattleScript_PrimalDropEnds[];
+extern const u8 BattleScript_PrimalDropStarts[];
 extern const u8 BattleScript_OverworldWeatherStarts[];
 extern const u8 BattleScript_SideStatusWoreOff[];
 extern const u8 BattleScript_SafeguardProtected[];

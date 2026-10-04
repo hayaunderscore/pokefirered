@@ -90,7 +90,7 @@ CheckIfLevitateCancelsGroundMove::
 
 AI_CheckBadMove_CheckSoundproof::
 	get_ability AI_TARGET
-	if_not_equal ABILITY_SOUNDPROOF, AI_CheckBadMove_CheckEffect
+	if_not_equal ABILITY_SOUNDPROOF, AI_CheckBadMove_PrimalDrop
 	if_move MOVE_GROWL, Score_Minus10
 	if_move MOVE_ROAR, Score_Minus10
 	if_move MOVE_SING, Score_Minus10
@@ -100,6 +100,14 @@ AI_CheckBadMove_CheckSoundproof::
 	if_move MOVE_UPROAR, Score_Minus10
 	if_move MOVE_METAL_SOUND, Score_Minus10
 	if_move MOVE_GRASS_WHISTLE, Score_Minus10
+
+AI_CheckBadMove_PrimalDrop::
+	get_ability AI_TARGET
+	if_not_equal ABILITY_PRIMAL_DROP, AI_CheckBadMove_CheckEffect
+	if_move MOVE_QUICK_ATTACK, Score_Minus10
+	if_move MOVE_MACH_PUNCH, Score_Minus10
+	if_move MOVE_EXTREME_SPEED, Score_Minus10
+	if_move MOVE_FAKE_OUT, Score_Minus10
 
 AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_SLEEP, AI_CBM_Sleep
@@ -431,7 +439,7 @@ AI_CBM_Encore::
 
 AI_CBM_TrickRoom::
 	get_trick_room
-	if_equal 1, Score_Minus8
+	if_equal 1, Score_Minus10
 	end
 
 AI_CBM_DamageDuringSleep::
@@ -2906,6 +2914,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_BULK_UP
 	.byte EFFECT_CALM_MIND
 	.byte EFFECT_CAMOUFLAGE
+	.byte EFFECT_TRICK_ROOM
 	.byte -1
 
 AI_PreferStrongestMove::

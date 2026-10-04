@@ -388,8 +388,10 @@
 #define STRINGID_DIMENSIONSARETWISTED 387
 #define STRINGID_TRICKROOMENDS 388
 #define STRINGID_PKMNDIMENSIONSARETWISTED 389
+#define STRINGID_PKMNPRIMALDROPACTIVE 390
+#define STRINGID_PKMNPRIMALDROPENDS 391
 
-#define BATTLESTRINGS_COUNT     390
+#define BATTLESTRINGS_COUNT     392
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,

@@ -1114,22 +1114,25 @@ static void Cmd_handle_doubles_trick_room(void)
 	const struct BattleMove *move;
 	
 	// Check if we have any moves that disregard Trick Room entirely
-	for (i = 0; i < MAX_MON_MOVES; i++)
+	if (gBattleStruct->primalDropCounter == 0)
 	{
-		move = &gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]];
-		/* 
-		 * TODO: Handle battle specific move priorities
-		 * when the time comes for me to implement prankster
-		 * God help us all.
-		 */ 
-		if (move->priority > 0 && !(move->priority > 0 && move->power == 0))
+		for (i = 0; i < MAX_MON_MOVES; i++)
 		{
-			AI_THINKING_STRUCT->funcResult = 1;
-			sAIScriptPtr++;
-			return;
+			move = &gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]];
+			/* 
+			 * TODO: Handle battle specific move priorities
+			 * when the time comes for me to implement prankster
+			 * God help us all.
+			 */ 
+			if (move->priority > 0 && !(move->priority > 0 && move->power == 0))
+			{
+				AI_THINKING_STRUCT->funcResult = 1;
+				sAIScriptPtr++;
+				return;
+			}
 		}
 	}
-	
+
 	// Faster or tie?
 	if (GetWhoStrikesFirst(gBattlerAttacker, gBattlerTarget, TRUE) == 1 || GetWhoStrikesFirst(gBattlerAttacker, targetPartner, TRUE) == 1)
 		AI_THINKING_STRUCT->funcResult = 1;

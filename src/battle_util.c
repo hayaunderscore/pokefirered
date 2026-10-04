@@ -468,6 +468,7 @@ enum
     ENDTURN_SUN,
     ENDTURN_HAIL,
     ENDTURN_TRICK_ROOM,
+    ENDTURN_PRIMAL_DROP,
     ENDTURN_FIELD_COUNT,
 };
 
@@ -729,6 +730,18 @@ u8 DoFieldEndTurnEffects(void)
             }
             gBattleStruct->turnCountersTracker++;
             break;
+        case ENDTURN_PRIMAL_DROP:
+        	if (gBattleStruct->primalDropCounter > 0)
+         	{
+          		if (--gBattleStruct->primalDropCounter == 0)
+            	{
+           			gBattlescriptCurrInstr = BattleScript_PrimalDropEnds;
+             		BattleScriptExecute(gBattlescriptCurrInstr);
+             	}
+            	effect++;
+          	}
+         	gBattleStruct->turnCountersTracker++;
+          	break;
         case ENDTURN_FIELD_COUNT:
             effect++;
             break;
@@ -1831,6 +1844,16 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                 }
                 break;
+            case ABILITY_PRIMAL_DROP:
+            	if (!gBattleStruct->primalDropUsed)
+             	{
+              		gBattleStruct->primalDropCounter = 5;
+              		gBattleStruct->primalDropUsed = TRUE;
+                	BattleScriptPushCursorAndCallback(BattleScript_PrimalDropStarts);
+                 	gBattleScripting.battler = battler;
+                  	effect++;
+              	}
+            	break;
             }
             break;
         case ABILITYEFFECT_ENDTURN: // 1
@@ -1906,6 +1929,17 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
                     effect = 1;
                 }
+            }
+            if (gBattleStruct->primalDropCounter > 0 && move)
+            {
+            	if (gBattleMoves[move].power != 0 && gBattleMoves[move].priority > 0)
+             	{
+              		if ((gProtectStructs[gBattlerAttacker].notFirstStrike))
+	                  	gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless;
+	              	else
+	                  	gBattlescriptCurrInstr = BattleScript_MonMadeMoveUseless_PPLoss;
+                	effect = 1;
+              	}
             }
             break;
         case ABILITYEFFECT_ABSORBING: // 3

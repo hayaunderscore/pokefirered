@@ -3249,6 +3249,17 @@ BattleScript_TrickRoomEnds::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_PrimalDropEnds::
+	printstring STRINGID_PKMNPRIMALDROPENDS
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_PrimalDropStarts::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNPRIMALDROPACTIVE
+	waitmessage B_WAIT_TIME_LONG
+	end3
+
 BattleScript_OverworldWeatherStarts::
 	printfromtable gWeatherStartsStringIds
 	waitmessage B_WAIT_TIME_LONG
