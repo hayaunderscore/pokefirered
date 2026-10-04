@@ -738,11 +738,11 @@ IVs: 0 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
 - Flamethrower
 - Sunny Day
 
-Indeedee @ Focus Band
+Indeedee @ Sitrus Berry
 Ability: Synchronize
 EVs: 252 Def / 252 SpD / 4 HP
-IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
-- Fake Out
+IVs: 31 HP / 0 Atk / 31 Def / 0 SpA / 31 SpD / 0 Spe
+- Helping Hand
 - Trick Room
 - Calm Mind
-- Protect
+- Follow Me
