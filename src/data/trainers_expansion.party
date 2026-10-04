@@ -720,3 +720,29 @@ EVs: 252 HP / 252 SpA / 4 SpD
 Rash Nature
 IVs: 30 Atk
 - Transform
+
+=== TRAINER_TRICK_ROOM_TEST ===
+Name: ELLEN
+Class: Pkmn Trainer Unused
+Pic: Cooltrainer F
+Music: Suspicious
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Double Battle / Check Viability / Above Opponent Level
+
+Torkoal @ Charcoal
+Ability: Drought
+EVs: 252 SpD / 252 SpA / 4 HP
+IVs: 0 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Protect
+- Overheat
+- Flamethrower
+- Sunny Day
+
+Indeedee @ Focus Band
+Ability: Synchronize
+EVs: 252 Def / 252 SpD / 4 HP
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 0 Spe
+- Fake Out
+- Trick Room
+- Calm Mind
+- Protect

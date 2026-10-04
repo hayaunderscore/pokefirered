@@ -84,7 +84,7 @@ static void Cmd_if_equal_(void);
 static void Cmd_if_not_equal_(void);
 static void Cmd_if_would_go_first(void);
 static void Cmd_if_would_not_go_first(void);
-static void Cmd_nullsub_2A(void);
+static void Cmd_handle_doubles_trick_room(void);
 static void Cmd_nullsub_2B(void);
 static void Cmd_count_alive_pokemon(void);
 static void Cmd_get_considered_move(void);
@@ -193,7 +193,7 @@ static const BattleAICmdFunc sBattleAICmdTable[] =
     Cmd_if_not_equal_,                    // 0x27
     Cmd_if_would_go_first,                // 0x28
     Cmd_if_would_not_go_first,            // 0x29
-    Cmd_nullsub_2A,                       // 0x2A
+    Cmd_handle_doubles_trick_room,        // 0x2A
     Cmd_nullsub_2B,                       // 0x2B
     Cmd_count_alive_pokemon,              // 0x2C
     Cmd_get_considered_move,              // 0x2D
@@ -1091,8 +1091,51 @@ static void Cmd_if_would_not_go_first(void)
         sAIScriptPtr += 6;
 }
 
-static void Cmd_nullsub_2A(void)
+static u8 BattleAI_GetWantedBattler(u8 wantedBattler)
 {
+    switch (wantedBattler)
+    {
+    case AI_USER:
+        return gBattlerAttacker;
+    case AI_TARGET:
+    default:
+        return gBattlerTarget;
+    case AI_USER_PARTNER:
+        return BATTLE_PARTNER(gBattlerAttacker);
+    case AI_TARGET_PARTNER:
+        return BATTLE_PARTNER(gBattlerTarget);
+    }
+}
+
+static void Cmd_handle_doubles_trick_room(void)
+{
+	u32 targetPartner = BattleAI_GetWantedBattler(AI_TARGET_PARTNER);
+	u32 i;
+	const struct BattleMove *move;
+	
+	// Check if we have any moves that disregard Trick Room entirely
+	for (i = 0; i < MAX_MON_MOVES; i++)
+	{
+		move = &gBattleMoves[gBattleMons[gBattlerAttacker].moves[i]];
+		/* 
+		 * TODO: Handle battle specific move priorities
+		 * when the time comes for me to implement prankster
+		 * God help us all.
+		 */ 
+		if (move->priority > 0 && !(move->priority > 0 && move->power == 0))
+		{
+			AI_THINKING_STRUCT->funcResult = 1;
+			sAIScriptPtr++;
+			return;
+		}
+	}
+	
+	// Faster or tie?
+	if (GetWhoStrikesFirst(gBattlerAttacker, gBattlerTarget, TRUE) == 1 || GetWhoStrikesFirst(gBattlerAttacker, targetPartner, TRUE) == 1)
+		AI_THINKING_STRUCT->funcResult = 1;
+	else
+		AI_THINKING_STRUCT->funcResult = 0;
+	sAIScriptPtr++;
 }
 
 static void Cmd_nullsub_2B(void)
@@ -1969,22 +2012,6 @@ static void Cmd_if_target_not_taunted(void)
         sAIScriptPtr = T1_READ_PTR(sAIScriptPtr + 1);
     else
         sAIScriptPtr += 5;
-}
-
-static u8 BattleAI_GetWantedBattler(u8 wantedBattler)
-{
-    switch (wantedBattler)
-    {
-    case AI_USER:
-        return gBattlerAttacker;
-    case AI_TARGET:
-    default:
-        return gBattlerTarget;
-    case AI_USER_PARTNER:
-        return BATTLE_PARTNER(gBattlerAttacker);
-    case AI_TARGET_PARTNER:
-        return BATTLE_PARTNER(gBattlerTarget);
-    }
 }
 
 static void Cmd_if_target_is_ally(void)

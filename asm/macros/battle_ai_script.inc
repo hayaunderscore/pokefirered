@@ -254,8 +254,7 @@
 	.4byte \ptr
 	.endm
 
-	@ nullsub
-	.macro ai_2a
+	.macro handle_doubles_trick_room
 	.byte 0x2a
 	.endm
 

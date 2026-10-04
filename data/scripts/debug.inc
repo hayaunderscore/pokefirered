@@ -102,7 +102,18 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	lock
+	msgbox Debug_EventScript_Script_3_Text1
+	setvar VAR_FORCE_BATTLE_MUSIC, MUS_BATTLE_REVOLUTION
+	trainerbattle_no_intro TRAINER_TRICK_ROOM_TEST, Debug_EventScript_Script_3_Text2
+	release
 	end
+
+Debug_EventScript_Script_3_Text1:
+	.string "I FUCKING LOVE TRICK ROOM$"
+
+Debug_EventScript_Script_3_Text2:
+	.string "Hmm hmm!$"
 
 Debug_EventScript_Script_4::
 	end

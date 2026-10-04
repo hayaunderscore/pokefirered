@@ -1806,13 +1806,15 @@ AI_CV_Counter_PhysicalTypeList::
 	.byte -1
 
 AI_CV_TrickRoom::
-@	if_double_battle AI_CV_TrickRoomDoubles
+	if_double_battle AI_CV_TrickRoomDoubles
 	if_target_faster AI_CV_TrickRoom_ScoreUp
 	goto AI_CV_TrickRoom_ScoreDown
 
 @ TODO
 AI_CV_TrickRoomDoubles::
-	end
+	handle_doubles_trick_room
+	if_equal 1, AI_CV_TrickRoom_ScoreUp
+	goto AI_CV_TrickRoom_ScoreDown
 
 AI_CV_TrickRoom_ScoreUp::
 	score +3

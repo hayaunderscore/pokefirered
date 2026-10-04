@@ -1713,13 +1713,24 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 
                 if (partyData[i].ball != POKEBALL_COUNT)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
-                
+
                 if (partyData[i].nickname != NULL)
                 	SetMonData(&party[i], MON_DATA_NICKNAME, partyData[i].nickname);
-                
+
                 // Force set raticate to 1 hp lmao
                 if (i == 1 && trainerNum == TRAINER_POKEPASTA_GLITCHY)
                 	SetMonData(&party[i], MON_DATA_HP, &one);
+
+                if (partyData[i].ability != ABILITY_NONE)
+                {
+                	for (j = 0; j < ARRAY_COUNT(gSpeciesInfo[partyData[i].species].abilities); j++)
+                 	{
+                  		if (gSpeciesInfo[partyData[i].species].abilities[j] == partyData[i].ability)
+                    		break;
+                  	}
+                 	if (j < ARRAY_COUNT(gSpeciesInfo[partyData[i].species].abilities))
+                  		SetMonData(&party[i], MON_DATA_ABILITY_NUM, &j);
+                }
 
                 SetMonData(&party[i], MON_DATA_FRIENDSHIP, &partyData[i].friendship);
                 CalculateMonStats(&party[i]);
