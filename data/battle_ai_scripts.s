@@ -1817,11 +1817,11 @@ AI_CV_TrickRoomDoubles::
 	goto AI_CV_TrickRoom_ScoreDown
 
 AI_CV_TrickRoom_ScoreUp::
-	score +3
+	score +8
 	goto AI_CV_TrickRoomEnd
 
 AI_CV_TrickRoom_ScoreDown::
-	score -3
+	score -8
 
 AI_CV_TrickRoomEnd::
 	end
