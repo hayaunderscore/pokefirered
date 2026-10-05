@@ -6215,7 +6215,19 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_U] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_V] = TMHM_LEARNSET(0),
+    [SPECIES_TOGEDEMARU]  = TMHM_LEARNSET(TMHM(TM15_HYPER_BEAM)
+    									| TMHM(TM17_PROTECT)
+    									| TMHM(TM21_FRUSTRATION)
+    									| TMHM(TM23_IRON_TAIL)
+    									| TMHM(TM24_THUNDERBOLT)
+    									| TMHM(TM25_THUNDER)
+    									| TMHM(TM27_RETURN)
+    									| TMHM(TM32_DOUBLE_TEAM)
+    									| TMHM(TM33_REFLECT)
+    									| TMHM(TM34_SHOCK_WAVE)
+    									| TMHM(TM46_THIEF)
+    									| TMHM(HM01_CUT)
+    									| TMHM(HM05_FLASH)),
 
     [SPECIES_INDEEDEE]    = TMHM_LEARNSET(TMHM(TM04_CALM_MIND)
     									| TMHM(TM10_HIDDEN_POWER)

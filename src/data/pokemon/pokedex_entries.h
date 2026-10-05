@@ -5095,7 +5095,20 @@ const struct PokedexEntry gPokedexEntries[] =
 	    .trainerScale = 256,
 	    .trainerOffset = 0,
     },
-    
+
+    [NATIONAL_DEX_TOGEDEMARU] =
+    {
+   		.categoryName = _("ROLY-POLY"),
+	    .height = 3,
+	    .weight = 33,
+	    .description = gTogedemaruPokedexText,
+	    .unusedDescription = gBlastoisePokedexTextUnused,
+	    .pokemonScale = 530,
+	    .pokemonOffset = 13,
+	    .trainerScale = 256,
+	    .trainerOffset = 0,
+    },
+
     [NATIONAL_DEX_INDEEDEE] =
     {
    		.categoryName = _("EMOTION"),

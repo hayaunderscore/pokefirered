@@ -2770,6 +2770,13 @@ const u32 gMonShinyPalette_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/sh
 const u8 gMonIcon_Indeedee[] = INCGFX_U8("graphics/pokemon/indeedee/icon.png", ".4bpp");
 const u8 gMonFootprint_Indeedee[] = INCGFX_U8("graphics/pokemon/indeedee/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/front.png", ".4bpp.lz");
+const u32 gMonPalette_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Togedemaru[] = INCGFX_U8("graphics/pokemon/togedemaru/icon.png", ".4bpp");
+const u8 gMonFootprint_Togedemaru[] = INCGFX_U8("graphics/pokemon/togedemaru/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/front.png", ".4bpp.lz");
 const u32 gMonPalette_Egg[] = INCGFX_U32("graphics/pokemon/egg/normal.pal", ".gbapal.lz");
 

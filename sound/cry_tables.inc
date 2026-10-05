@@ -394,6 +394,7 @@ gCryTable::
 	cry Cry_Petilil
 	cry Cry_Lilligant
 	cry Cry_Indeedee
+	cry Cry_Togedemaru
 	cry Cry_Unown_King
 
 	.align 2
@@ -792,4 +793,5 @@ gCryTable_Reverse::
 	cry_reverse Cry_Petilil
 	cry_reverse Cry_Lilligant
 	cry_reverse Cry_Indeedee
+	cry_reverse Cry_Togedemaru
 	cry_reverse Cry_Unown_King

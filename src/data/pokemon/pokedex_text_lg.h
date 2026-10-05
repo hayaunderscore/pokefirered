@@ -2734,3 +2734,8 @@ const u8 gIndeedeePokedexText[] = _(
 	"These POKéMON are highly intelligent.\n"
 	"They touch horns with their fellow\n"
 	"INDEEDEE to share information.");
+
+const u8 gTogedemaruPokedexText[] = _(
+	"When it's surprised or agitated, the\n"
+	"14 fur spikes on its back will stand\n"
+	"up involuntarily.");

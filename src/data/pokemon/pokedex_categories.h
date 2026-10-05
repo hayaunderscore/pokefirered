@@ -646,6 +646,10 @@ static const u16 sDexCategory_MountainPkmn_Page17[] = {
     SPECIES_JIRACHI,
 };
 
+static const u16 sDexCategory_MountainPkmn_Page18[] = {
+    SPECIES_TOGEDEMARU,
+};
+
 static const u16 sDexCategory_RoughTerrainPkmn_Page1[] = {
     SPECIES_SPEAROW,
     SPECIES_FEAROW,
@@ -962,6 +966,7 @@ static const struct PokedexCategoryPage sDexCategory_MountainPkmn[] = {
     DEX_CATEGORY(MountainPkmn_Page15),
     DEX_CATEGORY(MountainPkmn_Page16),
     DEX_CATEGORY(MountainPkmn_Page17),
+    DEX_CATEGORY(MountainPkmn_Page18),
 };
 
 static const struct PokedexCategoryPage sDexCategory_RoughTerrainPkmn[] = {
