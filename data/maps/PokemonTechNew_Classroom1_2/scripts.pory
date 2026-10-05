@@ -1,5 +1,37 @@
 mapscripts PokemonTechNew_Classroom1_2_MapScripts {}
 
+script PokemonTechNew_Classroom1_2_EventScript_LittleGirl {
+	msgbox("In battles, knowing about what
+			moves the opponent has is key.
+
+			In the case of a bad match-up,
+			you should always have some
+			backed up just in case.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_2_EventScript_Youngster {
+	msgbox("I've heard there's a special item
+			that boosts the DEFENSEs of an
+			unevolved POK\eMON.
+
+			That would be useful for my buddy
+			RATTATA!
+
+			\.What? Just evolve it?
+			No way!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTechNew_Classroom1_2_EventScript_Wolfe {
+	msgbox("I never thought I'd be a teacher
+			in a university like this\.
+
+			Always thought I would be stuck
+			in POK\eTUBE for life.", MSGBOX_NPC)
+	end
+}
+
 script PokemonTechNew_Classroom1_2_EventScript_RemoraidTrade {
 	lock
 	faceplayer
