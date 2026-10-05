@@ -70,7 +70,10 @@ script LavenderTown_EventScript_Cara {
 			You don't want to be there when
 			something bad happens, do you?")
 	closemessage
-	if (checkpartymove(MOVE_ABYSS) != PARTY_SIZE && checkpartymove(MOVE_RAPTURE) != PARTY_SIZE && checkpartymove(MOVE_STRIKE) != PARTY_SIZE) {
+	if (checkpartymove(MOVE_ABYSS) == PARTY_SIZE && checkpartymove(MOVE_RAPTURE) == PARTY_SIZE && checkpartymove(MOVE_STRIKE) == PARTY_SIZE) {
+		textcolor(NPC_TEXT_COLOR_NEUTRAL)
+		msgbox("HAND.{PAUSE 30} You are missing the key.{PAUSE 30}
+				Did you really leave it in the PC?")
 		releaseall
 		end
 	}

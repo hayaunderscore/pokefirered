@@ -97,7 +97,7 @@ CeladonCity_EventScript_GameCornerSign::
 script CeladonCity_EventScript_OldMan1 {
 	lock
 	msgbox(CeladonCity_Text_GymIsGreatFullOfWomen)
-	if (checkpartymove(MOVE_ABYSS) != PARTY_SIZE && checkpartymove(MOVE_RAPTURE) != PARTY_SIZE && checkpartymove(MOVE_STRIKE) != PARTY_SIZE) {
+	if (checkpartymove(MOVE_ABYSS) == PARTY_SIZE && checkpartymove(MOVE_RAPTURE) == PARTY_SIZE && checkpartymove(MOVE_STRIKE) == PARTY_SIZE) {
 		release
 		end
 	}
