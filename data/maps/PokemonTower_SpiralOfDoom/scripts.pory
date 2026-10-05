@@ -16,10 +16,8 @@ script PokemonTower_SpiralOfDoom_EventScript_Kathy {
 
 script PokemonTower_SpiralOfDoom_EventScript_Opal {
 	trainerbattle_single(TRAINER_CHANNELER_OPAL, "Your\. blood\.", "YES! YES!\nI'M AWAKE!")
-	msgbox("This floor wasn't here before.
-
-			How would the walls of LAVENDER
-			TOWER even hold this\. space?", MSGBOX_AUTOCLOSE)
+	msgbox("Sorry for the outburst!
+			The tower gets to you\.", MSGBOX_AUTOCLOSE)
 	end
 }
 
@@ -41,14 +39,14 @@ script PokemonTower_SpiralOfDoom_EventScript_Cary {
 }
 
 script PokemonTower_SpiralOfDoom_EventScript_Wrana {
-	trainerbattle_single(TRAINER_CHANNELER_WRANA, "TURN BACK NOW?", "NO")
-	msgbox("THE PATHS.
-			HAVE DIVERGED", MSGBOX_AUTOCLOSE)
+	trainerbattle_single(TRAINER_CHANNELER_WRANA, "Guhhhhh\. Grk!", "AAAAAA!\nWhat was that!")
+	msgbox("I can feel the disdain the
+			spirits have with this place.", MSGBOX_AUTOCLOSE)
 	end
 }
 
 script PokemonTower_SpiralOfDoom_EventScript_Saslona {
-	trainerbattle_single(TRAINER_CHANNELER_SASLONA, "I should've never taken this\.", "Help! Help me!")
+	trainerbattle_single(TRAINER_CHANNELER_SASLONA, "This role is too much for me\nto bear!", "Help! Help me!")
 	msgbox("Not even ENTEI could save me\.
 
 			Hmm\.? How I even have it?
@@ -59,17 +57,18 @@ script PokemonTower_SpiralOfDoom_EventScript_Saslona {
 script PokemonTower_SpiralOfDoom_EventScript_Final {
 	trainerbattle_single(TRAINER_CHANNELER_FINAL, "I am exhausted.\nLet's get this over with.", "Zzz\.")
 	textcolor(NPC_TEXT_COLOR_NEUTRAL)
-	msgbox("I wanna go home\.", MSGBOX_AUTOCLOSE)
+	msgbox("I wanna go home\.
+			I wanna go see my family.", MSGBOX_AUTOCLOSE)
 	end
 }
 
 script PokemonTower_SpiralOfDoom_EventScript_Woman {
-	msgbox("What the hell is this?
-			This isn't right!
-
-			I don't think the tower can hold
-			a space like this!
-
+	msgbox("This has got to be the most
+			unreal visit I've made here.
+			Expecting the 6th floor?
+			
+			This place is too big to fit in
+			LAVENDER TOWER anyway!
 			Is it an illusion?", MSGBOX_NPC)
 	end
 }
@@ -83,7 +82,10 @@ script PokemonTower_SpiralOfDoom_EventScript_Policeman {
 }
 
 script PokemonTower_SpiralOfDoom_EventScript_Grandma {
-	msgbox("I must be seeing things.
+	msgbox("\. \. \.
+			\.Water?
+			
+			I must be seeing things.
 			I'm too old for this.", MSGBOX_NPC)
 	end
 }
@@ -92,8 +94,8 @@ script PokemonTower_SpiralOfDoom_EventScript_BaldingMan {
 	msgbox("I am in a bit of a pickle.
 			I forgot an ESCAPE ROPE.
 
-			I have to make the trek ALL
-			the way back!", MSGBOX_NPC)
+			I have to make the trek ALL the
+			way back! All the way!", MSGBOX_NPC)
 	end
 }
 
@@ -116,10 +118,11 @@ script PokemonTower_SpiralOfDoom_EventScript_Daisy {
 	fadescreen(FADE_TO_BLACK)
 	closemessage
 	playfanfare(MUS_HEAL)
+	special(HealPlayerParty)
 	waitfanfare
 	fadescreen(FADE_FROM_BLACK)
-	msgbox("DAISY: I feel like I said
-			a different line back there\.
+	msgbox("DAISY: I feel like I said a way
+			line back there\.
 
 			By the way, have you seen
 			{RIVAL} around here\.?
@@ -128,24 +131,45 @@ script PokemonTower_SpiralOfDoom_EventScript_Daisy {
 
 			Aw\. I was gonna deliver him
 			something\.
+			
+			No, he's fine.
+			He told me over the phone!
+			His RATICATE is fine too!
+			
+			\. \. \.
+			\. \. \.
+			
+			We're you\.{PAUSE 30} worried\.?
+			
+			Don't fret with that {PLAYER}!
+			Stay positive!
+			\.As positive we can get, atleast.
 
-			Guess I'm stuck here for the time
-			being.")
+			I will say, I did see a little
+			girl walk in earlier\.
+			What was that about?")
 	release
 	end
 }
 
 script PokemonTower_SpiralOfDoom_EventScript_Channeler {
-	msgbox("A few minutes ago, a little
-			girl walked in.
+	msgbox("A few minutes ago, a little girl
+			walked in with nonchalance.
 			Suddenly everything went black.
 
-			And now\.
-			What I dub, \qoSPIRAL OF DOOM\qc.
+			And now\.{PAUSE 30} We're here.{PAUSE 30}
+			What I dub, {PAUSE 30}\qoSPIRAL OF DOOM\qc.
 
 			Is the girl playing a prank or
-			something\.
-			\.either way, very disrespectful.", MSGBOX_NPC)
+			something\.?
+			\.either way, very disrespectful.
+			
+			The spirits are clearly disastisfied
+			with how everything is currently\.
+			
+			What I'm worried about is the
+			ABSOLs in this area.
+			They're usually in HOENN, no?", MSGBOX_NPC)
 	end
 }
 

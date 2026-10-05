@@ -4952,7 +4952,7 @@
       "height": 51,
       "border_width": 1,
       "border_height": 1,
-      "primary_tileset": "gTileset_Building",
+      "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/PokemonTower_SpiralOfDoom/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTower_SpiralOfDoom/map.bin"
