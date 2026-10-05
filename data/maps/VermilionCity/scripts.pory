@@ -413,7 +413,7 @@ script VermilionCity_EventScript_CheckTicket {
 		putitemaway(ITEM_LETTER, 1)
 		//giveitem(ITEM_LETTER, 1)
 		setflag(FLAG_DELIVERING_SS_ANNE_LETTER)
-		fadenewbgm(MUS_VERMILLION)
+		fadenewbgm(MUS_ENCOUNTER_SAILOR)
 		setweather(WEATHER_NONE)
 		doweather
 		textcolor(NPC_TEXT_COLOR_MALE)
@@ -436,6 +436,7 @@ script VermilionCity_EventScript_CheckTicket {
 				I honestly have no idea what JOE's
 				parents were thinking, signing him
 				up for that place\.")
+		fadedefaultbgm
 		releaseall
 		goto(VermilionCity_EventScript_WalkUpPier)
 		end

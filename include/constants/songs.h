@@ -372,10 +372,11 @@
 #define MUS_ENCOUNTER_SUSPICIOUS    363
 #define MUS_BATTLE_REVOLUTION       364
 #define MUS_EVOLUTION_SPECIAL       365
+#define MUS_ENCOUNTER_SAILOR        366
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_EVOLUTION_SPECIAL
+#define END_MUS                     MUS_ENCOUNTER_SAILOR
 
 #endif  // GUARD_CONSTANTS_SONGS_H

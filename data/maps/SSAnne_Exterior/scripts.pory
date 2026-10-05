@@ -95,6 +95,7 @@ script SSAnne_Exterior_EventScript_SunkenAftermath {
 		walk_down * 4
 	))
 	waitmovement(0)
+	playbgm(MUS_ENCOUNTER_SAILOR, FALSE)
 	msgbox("\.Looks like people managed to
 			survive after all\.
 
@@ -135,6 +136,7 @@ script SSAnne_Exterior_EventScript_SunkenAftermath {
 			There's nothing left for anyone
 			to see here.")
 	closemessage
+	fadenewbgm(MUS_DUMMY)
 	applymovement(LOCALID_SAILOR, moves(
 		walk_up * 5
 	))

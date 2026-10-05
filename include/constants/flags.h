@@ -629,7 +629,7 @@
 #define FLAG_GOT_CANDY_JAR                               0x25C
 #define FLAG_DID_GUN_TRADE                               0x25D
 #define FLAG_GOT_OLD_AMBER                               0x25E
-#define FLAG_0x25F                                       0x25F
+#define FLAG_GOT_WHITE_FLUTE                             0x25F
 #define FLAG_0x260                                       0x260
 #define FLAG_0x261                                       0x261
 #define FLAG_SUNKEN_ANNE                                 0x262

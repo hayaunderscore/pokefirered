@@ -38,6 +38,50 @@ script PokemonTech_Basement_EventScript_Joe {
 	end
 }
 
+script PokemonTech_Basement_EventScript_WhiteFluteKid {
+	lock
+	faceplayer
+	if (flag(FLAG_GOT_WHITE_FLUTE)) {
+		msgbox("How was the WHITE FLUTE I've
+				given you doing?")
+		release
+		end
+	}
+	msgbox("Hey!
+			You're a new face.
+			
+			Say, are you interested in the
+			act of shiny hunting?
+			
+			Shiny POK\eMON are identifiable
+			by a different color.
+			
+			They're really rare!
+			It's about 1 in 8000.
+			
+			You feel like the type of person
+			to keep pushing regardless of
+			whatever happens.
+			
+			So, take this.")
+	giveitem(ITEM_WHITE_FLUTE)
+	msgbox("That flute there increases the
+			odds of a POK\eMON appearing.
+			
+			It's very useful for shiny hunting,
+			if you're being specific.
+			
+			Most people also lead with a
+			lower level POK\eMON to attract
+			higher level encounters.
+			
+			Those bug catchers outside don't
+			know the euphoria of getting it.")
+	setflag(FLAG_GOT_WHITE_FLUTE)
+	release
+	end
+}
+
 script PokemonTech_Basement_EventScript_BathroomSign {
 	msgbox("BATHROOM", MSGBOX_SIGN)
 	end
