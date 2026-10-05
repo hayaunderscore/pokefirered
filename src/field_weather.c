@@ -885,8 +885,8 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex)
     case WEATHER_PAL_STATE_SCREEN_FADING_IN:
         if (gWeatherPtr->fadeInActive != 0)
         {
-            // if (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL)
-            //     MarkFogSpritePalToLighten(paletteIndex);
+            if (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL)
+                MarkFogSpritePalToLighten(paletteIndex);
             paletteIndex = PLTT_ID(paletteIndex);
             for (i = 0; i < 16; i++)
                 gPlttBufferFaded[paletteIndex + i] = gWeatherPtr->fadeDestColor;
@@ -906,18 +906,20 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex)
         }
         else
         {
+        	// Annoyingly, sometimes the sprites don't lighten on fog!
+        	MarkFogSpritePalToLighten(paletteIndex);
             paletteIndex = PLTT_ID(paletteIndex);
             BlendPalette(paletteIndex, 16, 12, RGB(28, 31, 28));
         }
         break;
+    }
 
-        // if faded out, i.e. due to fadescreenswapbuffers,
-        // copy unfaded palette to pal decomp buffer
-        // so it will be restored on fade-in
-        if (gPaletteFade.y == 16)
-        {
-            CpuFastCopy(gPlttBufferUnfaded + OBJ_PLTT_ID(spritePaletteIndex), gPaletteDecompressionBuffer + 2 * OBJ_PLTT_ID(spritePaletteIndex), PLTT_SIZE_4BPP);
-        }
+    // if faded out, i.e. due to fadescreenswapbuffers,
+    // copy unfaded palette to pal decomp buffer
+    // so it will be restored on fade-in
+    if (gPaletteFade.y == 16)
+    {
+        CpuFastCopy(gPlttBufferUnfaded + OBJ_PLTT_ID(spritePaletteIndex), gPaletteDecompressionBuffer + 2 * OBJ_PLTT_ID(spritePaletteIndex), PLTT_SIZE_4BPP);
     }
 }
 
