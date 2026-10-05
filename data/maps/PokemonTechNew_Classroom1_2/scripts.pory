@@ -1,1 +1,66 @@
 mapscripts PokemonTechNew_Classroom1_2_MapScripts {}
+
+script PokemonTechNew_Classroom1_2_EventScript_RemoraidTrade {
+	lock
+	faceplayer
+	setvar(VAR_0x8008, INGAME_TRADE_REMORAID)
+	call(EventScript_GetInGameTradeSpeciesInfo)
+	if (flag(FLAG_DID_GUN_TRADE)) {
+		goto(PokemonTechNew_Classroom1_2_EventScript_AlreadyTraded)
+	}
+	msgbox("My brother is an annoyance.
+			He's so annoying!
+
+			I'm gonna trade away his prized
+			{STR_VAR_2}!
+			That'll show him!
+
+			Though, I do want a {STR_VAR_1} in
+			return\.
+			How about it?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		goto(PokemonTechNew_Classroom1_2_EventScript_DeclineTrade)
+	}
+	call(EventScript_ChooseMonForInGameTrade)
+	if (var(VAR_0x8004) >= PARTY_SIZE) {
+		goto(PokemonTechNew_Classroom1_2_EventScript_DeclineTrade)
+	}
+	call(EventScript_GetInGameTradeSpecies)
+	goto_if_ne(VAR_RESULT, VAR_0x8009, PokemonTechNew_Classroom1_2_EventScript_NotRequestedMon)
+	call(EventScript_DoInGameTrade)
+	msgbox("Thanks!
+			Haha!
+
+			That idiot won't know what hit
+			him! Hehe\.")
+	setflag(FLAG_DID_GUN_TRADE)
+	release
+	end
+}
+
+script PokemonTechNew_Classroom1_2_EventScript_DeclineTrade {
+	msgbox("Aww\.
+
+			Looks like I'll have to find
+			another person\.")
+	release
+	end
+}
+
+script PokemonTechNew_Classroom1_2_EventScript_NotRequestedMon {
+	msgbox("Eugh.
+			This is no QWILFISH.
+
+			Are you blind?
+			Or was you picking wrong deliberate?")
+	release
+	end
+}
+
+script PokemonTechNew_Classroom1_2_EventScript_AlreadyTraded {
+	msgbox("I feel like that REMORAID would
+			be better on your team.
+			How's it hanging?")
+	release
+	end
+}

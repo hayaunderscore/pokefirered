@@ -178,6 +178,22 @@ static const struct InGameTrade sInGameTrades[] = {
         .otGender = MALE,
         .sheen = 10,
         .requestedSpecies = SPECIES_PONYTA
+    },
+    [INGAME_TRADE_REMORAID] = 
+    {
+    	.nickname = _("GUN"),
+     	.species = SPECIES_REMORAID,
+      	.ivs = {15, 22, 12, 31, 23, 20},
+       	.abilityNum = 0,
+        .otId = 42069,
+        .conditions = {5, 30, 5, 5, 5},
+        .personality = 0x666abb55,
+        .heldItem = ITEM_NONE,
+        .mailNum = 255,
+        .otName = _("CHORUS"),
+        .otGender = MALE,
+        .sheen = 10,
+        .requestedSpecies = SPECIES_QWILFISH
     }
 };
 
