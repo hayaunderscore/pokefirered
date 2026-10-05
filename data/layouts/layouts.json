@@ -4944,6 +4944,18 @@
       "secondary_tileset": "gTileset_PokemonTechNew",
       "border_filepath": "data/layouts/PokemonTech_Basement_Bathroom/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTech_Basement_Bathroom/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TOWER_SPIRAL_OF_DOOM",
+      "name": "PokemonTower_SpiralOfDoom_Layout",
+      "width": 51,
+      "height": 51,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_PokemonTower",
+      "border_filepath": "data/layouts/PokemonTower_SpiralOfDoom/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTower_SpiralOfDoom/map.bin"
     }
   ]
 }

@@ -126,8 +126,8 @@
       "x": 18,
       "y": 10,
       "elevation": 3,
-      "dest_map": "MAP_POKEMON_TOWER_6F",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     }
   ],
   "coord_events": [

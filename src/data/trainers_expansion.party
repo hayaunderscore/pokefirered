@@ -746,3 +746,116 @@ IVs: 31 HP / 0 Atk / 31 Def / 0 SpA / 31 SpD / 0 Spe
 - Trick Room
 - Calm Mind
 - Follow Me
+
+=== TRAINER_CHANNELER_JARTHA ===
+Name: JARTHA
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Gastly
+Level: 24
+
+=== TRAINER_CHANNELER_KATHY ===
+Name: KATHY
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Gastly
+Level: 23
+
+Haunter
+Level: 24
+
+=== TRAINER_CHANNELER_OPAL ===
+Name: OPAL
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Gastly
+Level: 23
+
+Haunter
+Level: 23
+
+=== TRAINER_CHANNELER_NINE ===
+Name: NINE
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Unown_N
+Level: 24
+
+Unown_I
+Level: 24
+
+Unown_N
+Level: 24
+
+Unown_E
+Level: 24
+
+=== TRAINER_CHANNELER_CARY ===
+Name: CARY
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Gengar
+Level: 22
+
+Murkrow
+Level: 23
+
+=== TRAINER_CHANNELER_WRANA ===
+Name: WRANA
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Haunter
+Level: 22
+
+=== TRAINER_CHANNELER_SASLONA ===
+Name: SASLONA
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Gengar
+Level: 22
+
+Entei
+Level: 1
+- Explosion
+- Explosion
+- Explosion
+- Explosion
+
+=== TRAINER_CHANNELER_FINAL ===
+Name: FINAL
+Class: Channeler
+Pic: Channeler
+Music: Suspicious
+Double Battle: No
+AI: Check Bad Move
+
+Pidgey
+Level: 5

@@ -1,0 +1,178 @@
+mapscripts PokemonTower_SpiralOfDoom_MapScripts {}
+
+script PokemonTower_SpiralOfDoom_EventScript_Jartha {
+	trainerbattle_single(TRAINER_CHANNELER_JARTHA, "Where am I?", "Why is it massive in here?!")
+	msgbox("This space isn't exactly\.
+			\.euclid.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Kathy {
+	trainerbattle_single(TRAINER_CHANNELER_KATHY, "Ah!\nSomeone as lost as me!", "Guh!")
+	msgbox("The spiral stretches on for
+			miles\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Opal {
+	trainerbattle_single(TRAINER_CHANNELER_OPAL, "Your\. blood\.", "YES! YES!\nI'M AWAKE!")
+	msgbox("This floor wasn't here before.
+
+			How would the walls of LAVENDER
+			TOWER even hold this\. space?", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Nine {
+	trainerbattle_single(TRAINER_CHANNELER_NINE, "I can't see\.", "No\. NO!")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("It would seem she has passed
+			out\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Cary {
+	trainerbattle_single(TRAINER_CHANNELER_CARY, "What do you know about time travel?", "Welp.")
+	msgbox("The spirits are running amok.
+
+			This has to be the work of a
+			truly cunning individual.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Wrana {
+	trainerbattle_single(TRAINER_CHANNELER_WRANA, "TURN BACK NOW?", "NO")
+	msgbox("THE PATHS.
+			HAVE DIVERGED", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Saslona {
+	trainerbattle_single(TRAINER_CHANNELER_SASLONA, "I should've never taken this\.", "Help! Help me!")
+	msgbox("Not even ENTEI could save me\.
+
+			Hmm\.? How I even have it?
+			What?", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Final {
+	trainerbattle_single(TRAINER_CHANNELER_FINAL, "I am exhausted.\nLet's get this over with.", "Zzz\.")
+	textcolor(NPC_TEXT_COLOR_NEUTRAL)
+	msgbox("I wanna go home\.", MSGBOX_AUTOCLOSE)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Woman {
+	msgbox("What the hell is this?
+			This isn't right!
+
+			I don't think the tower can hold
+			a space like this!
+
+			Is it an illusion?", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Policeman {
+	msgbox("I have heard reports about TEAM
+			ROCKET in this area.
+
+			Where are they, exactly?", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Grandma {
+	msgbox("I must be seeing things.
+			I'm too old for this.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_BaldingMan {
+	msgbox("I am in a bit of a pickle.
+			I forgot an ESCAPE ROPE.
+
+			I have to make the trek ALL
+			the way back!", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Camper {
+	msgbox("Hey! You were the kid GISELLE
+			courted at POK\eMON TECH!
+
+			I uh, am trying to get out of\.
+			this\. mess\.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Daisy {
+	lock
+	msgbox("DAISY: {PLAYER}!
+			What are you doing out here?
+
+			Nevermind that.
+			How about you take a rest?")
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("DAISY: I feel like I said
+			a different line back there\.
+
+			By the way, have you seen
+			{RIVAL} around here\.?
+
+			\. \. \.
+
+			Aw\. I was gonna deliver him
+			something\.
+
+			Guess I'm stuck here for the time
+			being.")
+	release
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Channeler {
+	msgbox("A few minutes ago, a little
+			girl walked in.
+			Suddenly everything went black.
+
+			And now\.
+			What I dub, \qoSPIRAL OF DOOM\qc.
+
+			Is the girl playing a prank or
+			something\.
+			\.either way, very disrespectful.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_CrushGirl {
+	msgbox("All these GHOSTs make me queasy!
+			I'm about to blow my nose\.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_WorkerM {
+	msgbox("I was gonna deliver something to
+			the POK\e MART, but\.
+			I ended up here.
+
+			\.{PAUSE 30}
+			Welp.", MSGBOX_NPC)
+	end
+}
+
+script PokemonTower_SpiralOfDoom_EventScript_Giselle {
+	msgbox("GISELLE: Mon amour!
+			What are you doing here?!
+
+			I tried to get out via the stairs,
+			and suddenly, massive room!
+
+			I hope those stairs take us out
+			of this mess\.", MSGBOX_NPC)
+	end
+}

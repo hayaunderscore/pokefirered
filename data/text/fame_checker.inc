@@ -1112,7 +1112,7 @@ gFameCheckerFlavorTextOriginLocation_MrFuji0::
 	.string "LAVENDER TOWN$"
 
 gFameCheckerFlavorTextOriginLocation_MrFuji1::
-	.string "POKéMON TOWER$"
+	.string "LAVENDER TOWER$"
 
 gFameCheckerFlavorTextOriginLocation_MrFuji2::
 	.string "LAVENDER TOWN$"

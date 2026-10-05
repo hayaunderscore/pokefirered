@@ -1,13 +1,13 @@
 @ Male and female text identical, differ (presumably) in JP
 Route12_NorthEntrance_2F_Text_TakeTMDontNeedAnymoreMale::
     .string "My POKéMON's ashes are stored in\n"
-    .string "POKéMON TOWER.\p"
+    .string "LAVENDER TOWER.\p"
     .string "You can have this TM.\n"
     .string "I don't need it anymore…$"
 
 Route12_NorthEntrance_2F_Text_TakeTMDontNeedAnymoreFemale::
     .string "My POKéMON's ashes are stored in\n"
-    .string "POKéMON TOWER.\p"
+    .string "LAVENDER TOWER.\p"
     .string "You can have this TM.\n"
     .string "I don't need it anymore…$"
 
@@ -32,5 +32,5 @@ Route12_NorthEntrance_2F_Text_TheresManFishing::
 Route12_NorthEntrance_2F_Text_ItsPokemonTower::
     .string "Let's see what the binoculars have\n"
     .string "to show…\p"
-    .string "It's POKéMON TOWER!$"
+    .string "It's LAVENDER TOWER!$"
 

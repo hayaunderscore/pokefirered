@@ -1510,3 +1510,6 @@ Text_MonCryScript::
 
 	.include "data/maps/PokemonTech_Basement_Bathroom/scripts.inc"
 	.include "data/maps/PokemonTech_Basement_Bathroom/text.inc"
+
+	.include "data/maps/PokemonTower_SpiralOfDoom/scripts.inc"
+	.include "data/maps/PokemonTower_SpiralOfDoom/text.inc"

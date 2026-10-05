@@ -599,6 +599,49 @@ static void ApplyDroughtGammaShiftWithBlend(s8 gammaIndex, u8 blendCoeff, u16 bl
     }
 }
 
+static void ApplyFogBlendToSprite(u8 blendCoeff, u16 blendColor, u16 curPalIndex)
+{
+	struct RGBColor color;
+    u8 rBlend;
+    u8 gBlend;
+    u8 bBlend;
+
+    BlendPalette(0, 256, blendCoeff, blendColor);
+    color = *(struct RGBColor *)&blendColor;
+    rBlend = color.r;
+    gBlend = color.g;
+    bBlend = color.b;
+
+    if (LightenSpritePaletteInFog(curPalIndex))
+    {
+        u16 palEnd = PLTT_ID(curPalIndex + 1);
+        u16 palOffset = PLTT_ID(curPalIndex);
+
+        while (palOffset < palEnd)
+        {
+            struct RGBColor color = *(struct RGBColor *)&gPlttBufferUnfaded[palOffset];
+            u8 r = color.r;
+            u8 g = color.g;
+            u8 b = color.b;
+
+            r += ((28 - r) * 3) >> 2;
+            g += ((31 - g) * 3) >> 2;
+            b += ((28 - b) * 3) >> 2;
+
+            r += ((rBlend - r) * blendCoeff) >> 4;
+            g += ((gBlend - g) * blendCoeff) >> 4;
+            b += ((bBlend - b) * blendCoeff) >> 4;
+
+            gPlttBufferFaded[palOffset] = (b << 10) | (g << 5) | r;
+            palOffset++;
+        }
+    }
+    else
+    {
+        BlendPalette(PLTT_ID(curPalIndex), 16, blendCoeff, blendColor);
+    }
+}
+
 static void ApplyFogBlend(u8 blendCoeff, u16 blendColor)
 {
     struct RGBColor color;
@@ -842,8 +885,8 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex)
     case WEATHER_PAL_STATE_SCREEN_FADING_IN:
         if (gWeatherPtr->fadeInActive != 0)
         {
-            if (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL)
-                MarkFogSpritePalToLighten(paletteIndex);
+            // if (gWeatherPtr->currWeather == WEATHER_FOG_HORIZONTAL)
+            //     MarkFogSpritePalToLighten(paletteIndex);
             paletteIndex = PLTT_ID(paletteIndex);
             for (i = 0; i < 16; i++)
                 gPlttBufferFaded[paletteIndex + i] = gWeatherPtr->fadeDestColor;
