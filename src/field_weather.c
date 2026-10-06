@@ -220,6 +220,8 @@ static void Task_WeatherInit(u8 taskId)
 
 static void Task_WeatherMain(u8 taskId)
 {
+	u8 palIndex;
+
     if (gWeatherPtr->currWeather != gWeatherPtr->nextWeather)
     {
         if (!sWeatherFuncs[gWeatherPtr->currWeather].finish()
@@ -229,6 +231,15 @@ static void Task_WeatherMain(u8 taskId)
             sWeatherFuncs[gWeatherPtr->nextWeather].initVars();
             gWeatherPtr->gammaStepFrameCounter = 0;
             gWeatherPtr->palProcessingState = WEATHER_PAL_STATE_CHANGING_WEATHER;
+
+            // always reload the default palette when switching weathers
+            // if a weather needs a custom palette, it must load it in the weather init/main funcs
+            palIndex = IndexOfSpritePaletteTag(PALTAG_WEATHER);
+            if (palIndex != 0xFF)
+            {
+                CpuCopy32(gDefaultWeatherSpritePalette, &gPlttBufferUnfaded[OBJ_PLTT_ID(palIndex)], PLTT_SIZE_4BPP);
+            }
+
             gWeatherPtr->currWeather = gWeatherPtr->nextWeather;
             gWeatherPtr->weatherChangeComplete = TRUE;
         }
@@ -907,19 +918,11 @@ void UpdateSpritePaletteWithWeather(u8 spritePaletteIndex)
         else
         {
         	// Annoyingly, sometimes the sprites don't lighten on fog!
-        	MarkFogSpritePalToLighten(paletteIndex);
-            paletteIndex = PLTT_ID(paletteIndex);
-            BlendPalette(paletteIndex, 16, 12, RGB(28, 31, 28));
+        	// MarkFogSpritePalToLighten(paletteIndex);
+            // paletteIndex = PLTT_ID(paletteIndex);
+            // BlendPalette(paletteIndex, 16, 12, RGB(28, 31, 28));
         }
         break;
-    }
-
-    // if faded out, i.e. due to fadescreenswapbuffers,
-    // copy unfaded palette to pal decomp buffer
-    // so it will be restored on fade-in
-    if (gPaletteFade.y == 16)
-    {
-        CpuFastCopy(gPlttBufferUnfaded + OBJ_PLTT_ID(spritePaletteIndex), gPaletteDecompressionBuffer + 2 * OBJ_PLTT_ID(spritePaletteIndex), PLTT_SIZE_4BPP);
     }
 }
 
