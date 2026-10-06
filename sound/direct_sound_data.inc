@@ -1895,6 +1895,10 @@ Cry_Indeedee::
 	.incbin "sound/direct_sound_samples/cries/indeedee.bin"
 
 	.align 2
+Cry_Indeedee_M::
+	.incbin "sound/direct_sound_samples/cries/indeedee_m.bin"
+
+	.align 2
 Cry_Togedemaru::
 	.incbin "sound/direct_sound_samples/cries/togedemaru.bin"
 

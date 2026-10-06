@@ -5952,6 +5952,9 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
 
     if (species > SPECIES_EGG)
         return gMonPaletteTable[0].data;
+    
+    if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF) && species == SPECIES_INDEEDEE)
+    	species = SPECIES_INDEEDEE_MALE;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
     if (shinyValue < SHINY_ODDS)

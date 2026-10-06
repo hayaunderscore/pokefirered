@@ -169,6 +169,10 @@ static u8 GetBattlerYDelta(u8 battlerId, u16 species)
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonBackPicCoords[coordSpecies].y_offset;
         }
+        else if (species == SPECIES_INDEEDEE && gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
+        {
+        	ret = gMonBackPicCoords[SPECIES_INDEEDEE_MALE].y_offset;
+        }
         else if (species == SPECIES_CASTFORM)
         {
             ret = sCastformBackSpriteYCoords[gBattleMonForms[battlerId]];
@@ -197,6 +201,10 @@ static u8 GetBattlerYDelta(u8 battlerId, u16 species)
             else
                 coordSpecies = letter + SPECIES_UNOWN_B - 1;
             ret = gMonFrontPicCoords[coordSpecies].y_offset;
+        }
+        else if (species == SPECIES_INDEEDEE && gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
+        {
+        	ret = gMonFrontPicCoords[SPECIES_INDEEDEE_MALE].y_offset;
         }
         else if (species == SPECIES_CASTFORM)
         {
@@ -2028,6 +2036,10 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
                 unownSpecies = letter + SPECIES_UNOWN_B - 1;
             coords = &gMonBackPicCoords[unownSpecies];
         }
+        else if (species == SPECIES_INDEEDEE && gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
+        {
+       		coords = &gMonBackPicCoords[SPECIES_INDEEDEE_MALE];
+        }
         else if (species > NUM_SPECIES)
         {
             coords = &gMonBackPicCoords[0];
@@ -2059,6 +2071,10 @@ s16 GetBattlerSpriteCoordAttr(u8 battlerId, u8 attr)
             else
                 unownSpecies = letter + SPECIES_UNOWN_B - 1;
             coords = &gMonFrontPicCoords[unownSpecies];
+        }
+        else if (species == SPECIES_INDEEDEE && gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
+        {
+       		coords = &gMonFrontPicCoords[SPECIES_INDEEDEE_MALE];
         }
         else if (species == SPECIES_CASTFORM)
         {

@@ -466,7 +466,8 @@ const u8 *const gMonIconTable[] = {
     [SPECIES_UNOWN_Y]     = gMonIcon_UnownY,
     [SPECIES_UNOWN_Z]     = gMonIcon_UnownZ,
     [SPECIES_UNOWN_EMARK] = gMonIcon_UnownExclamationMark,
-    [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark
+    [SPECIES_UNOWN_QMARK] = gMonIcon_UnownQuestionMark,
+    [SPECIES_INDEEDEE_MALE] = gMonIcon_IndeedeeMale,
 };
 
 const u8 gMonIconPaletteIndices[] = {
@@ -909,7 +910,8 @@ const u8 gMonIconPaletteIndices[] = {
     [SPECIES_UNOWN_Y]     = 0,
     [SPECIES_UNOWN_Z]     = 0,
     [SPECIES_UNOWN_EMARK] = 0,
-    [SPECIES_UNOWN_QMARK] = 0
+    [SPECIES_UNOWN_QMARK] = 0,
+    [SPECIES_INDEEDEE_MALE] = 2,
 };
 
 const struct SpritePalette gMonIconPaletteTable[] = {
@@ -1066,6 +1068,13 @@ u16 GetIconSpecies(u16 species, u32 personality)
         else
             letter += (SPECIES_UNOWN_B - 1);
         result = letter;
+    }
+    else if (species == SPECIES_INDEEDEE)
+    {
+    	if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
+     		result = SPECIES_INDEEDEE_MALE;
+    	else
+      		result = SPECIES_INDEEDEE;
     }
     else
     {
