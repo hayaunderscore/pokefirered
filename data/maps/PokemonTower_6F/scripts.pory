@@ -154,32 +154,35 @@ script PokemonTower_6F_EventScript_Cara2 {
 	if (checkpartymove(MOVE_ABYSS) == PARTY_SIZE && checkpartymove(MOVE_RAPTURE) == PARTY_SIZE && checkpartymove(MOVE_STRIKE) == PARTY_SIZE) {
 		msgbox("\. \. \.
 				\. \. \.
-				
+
 				Hello? Hello?{PAUSE 30}
 				Did you forget something?
-				
+
 				You did!
 				I'm astonished!
-				
+
 				Guess we're stuck here forever!
 				Heehee!
-				
+
 				Despite it all\.
 				You {PLAYER}, are still limited\.
 				\.limited by the mind of the HAND.
-				
+
 				They truly are a fool for going
 				in here without the plan.
-				
+
 				\. \. \.
 				\. \. \.
-				
+
 				Do you hear it?
 				An intervention, {PAUSE 30}perhaps?")
+		closemessage
 		delay(30)
 		buffermovename(STR_VAR_1, MOVE_ABYSS)
 		msgbox("LET'S GET THIS OVER WITH.
 				{COLOR BLUE}I{COLOR RED} DON'T HAVE TIME FOR GAMES.")
+		delay(30)
+		closemessage
 		textcolor(NPC_TEXT_COLOR_NEUTRAL)
 		msgbox("     used {STR_VAR_1}!")
 		closemessage
