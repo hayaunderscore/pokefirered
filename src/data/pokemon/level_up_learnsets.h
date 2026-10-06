@@ -3655,8 +3655,8 @@ static const u16 sSpecies274LevelUpLearnset[] = {
 };
 
 static const u16 sSpecies275LevelUpLearnset[] = {
+	LEVEL_UP_MOVE(0, MOVE_QUIVER_DANCE),
     LEVEL_UP_MOVE(1, MOVE_PETAL_DANCE),
-    LEVEL_UP_MOVE(1, MOVE_QUIVER_DANCE), // TODO: Port QUIVER DANCE
     LEVEL_UP_MOVE(1, MOVE_TEETER_DANCE),
     LEVEL_UP_MOVE(1, MOVE_CHARM),
     LEVEL_UP_MOVE(1, MOVE_MEGA_DRAIN),
