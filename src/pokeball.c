@@ -676,6 +676,7 @@ static void SpriteCB_BallThrow_Shake(struct Sprite *sprite)
 #define tCryTaskWantedCry       data[2]
 #define tCryTaskMonPtr1         data[3]
 #define tCryTaskMonPtr2         data[4]
+#define tCryTaskPersonality     data[5]
 #define tCryTaskFrames          data[10]
 #define tCryTaskState           data[15]
 
@@ -684,6 +685,7 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
     u8 wantedCry = gTasks[taskId].tCryTaskWantedCry;
     s8 pan = gTasks[taskId].tCryTaskPan;
     u16 species = gTasks[taskId].tCryTaskSpecies;
+    u32 personality = gTasks[taskId].tCryTaskPersonality;
     struct Pokemon *mon = (void *)(u32)((gTasks[taskId].tCryTaskMonPtr1 << 16) | (u16)(gTasks[taskId].tCryTaskMonPtr2));
 
     switch (gTasks[taskId].tCryTaskState)
@@ -698,9 +700,9 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
     case 1:
         // Play single cry
         if (ShouldPlayNormalMonCry(mon) == TRUE)
-            PlayCry_ByMode(species, pan, CRY_MODE_NORMAL);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_NORMAL);
         else
-            PlayCry_ByMode(species, pan, CRY_MODE_WEAK);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_WEAK);
 
         DestroyTask(taskId);
         break;
@@ -714,9 +716,9 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
         {
             // Play first doubles cry
             if (ShouldPlayNormalMonCry(mon) == TRUE)
-                PlayCry_ReleaseDouble(species, pan, CRY_MODE_DOUBLES);
+                PlayCry_ReleaseDouble(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_DOUBLES);
             else
-                PlayCry_ReleaseDouble(species, pan, CRY_MODE_WEAK_DOUBLES);
+                PlayCry_ReleaseDouble(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_WEAK_DOUBLES);
 
             DestroyTask(taskId);
         }
@@ -753,9 +755,9 @@ static void Task_PlayCryWhenReleasedFromBall(u8 taskId)
         }
         // Play second doubles cry
         if (ShouldPlayNormalMonCry(mon) == TRUE)
-            PlayCry_ReleaseDouble(species, pan, CRY_MODE_NORMAL);
+            PlayCry_ReleaseDouble(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_NORMAL);
         else
-            PlayCry_ReleaseDouble(species, pan, CRY_MODE_WEAK);
+            PlayCry_ReleaseDouble(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_WEAK);
 
         DestroyTask(taskId);
         break;
@@ -777,6 +779,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
     {
         struct Pokemon *mon;
         u16 species;
+        u32 personality;
         s8 pan;
         u16 wantedCryCase;
         u8 taskId;
@@ -793,6 +796,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
         }
 
         species = GetMonData(mon, MON_DATA_SPECIES);
+        personality = GetMonData(mon, MON_DATA_PERSONALITY);
         if ((battlerId == GetBattlerAtPosition(B_POSITION_PLAYER_LEFT) || battlerId == GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
          && IsDoubleBattle() && gBattleSpritesDataPtr->animationData->introAnimActive)
         {
@@ -815,6 +819,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
             wantedCryCase = 2;
 
         taskId = CreateTask(Task_PlayCryWhenReleasedFromBall, 3);
+        gTasks[taskId].tCryTaskPersonality = personality & 0xFF;
         gTasks[taskId].tCryTaskSpecies = species;
         gTasks[taskId].tCryTaskPan = pan;
         gTasks[taskId].tCryTaskWantedCry = wantedCryCase;
@@ -833,6 +838,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
 #undef tCryTaskWantedCry
 #undef tCryTaskMonPtr1
 #undef tCryTaskMonPtr2
+#undef tCryTaskPersonality
 #undef tCryTaskFrames
 #undef tCryTaskState
 

@@ -2004,7 +2004,7 @@ static void SpriteCB_MoveWildMonToRight(struct Sprite *sprite)
         if (sprite->x2 == 0)
         {
             sprite->callback = SpriteCB_WildMonShowHealthbox;
-            PlayCry_Normal(sprite->data[2], 25);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(sprite->data[2], sprite->data[3]), 25);
         }
     }
 }
@@ -2060,6 +2060,7 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
 {
     u8 battler = sprite->sBattler;
     u16 species;
+    u32 personality;
     u8 yOffset;
 
     if (gBattleSpritesDataPtr->battlerData[battler].transformSpecies != 0)
@@ -2067,7 +2068,7 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
     else
         species = sprite->sSpeciesId;
 
-    GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_PERSONALITY);  // Unused return value.
+    personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battler]], MON_DATA_PERSONALITY);
 
     if (species == SPECIES_UNOWN)
     {
@@ -2092,7 +2093,7 @@ void SpriteCB_FaintOpponentMon(struct Sprite *sprite)
     }
     else
     {
-        yOffset = gMonFrontPicCoords[species].y_offset;
+        yOffset = gMonFrontPicCoords[GetSpeciesIdBasedOnGender(species, personality)].y_offset;
     }
 
     sprite->data[3] = 8 - yOffset / 8;

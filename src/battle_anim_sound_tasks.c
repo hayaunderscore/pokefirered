@@ -126,6 +126,7 @@ static void SoundTask_LoopSEAdjustPanning_Step(u8 taskId)
 void SoundTask_PlayCryHighPitch(u8 taskId)
 {
     u16 species = SPECIES_NONE;
+    u32 personality = 0;
     u8 battlerId;
     s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
 
@@ -147,17 +148,24 @@ void SoundTask_PlayCryHighPitch(u8 taskId)
         return;
     }
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-        species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    {
+    	species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+     	personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+    }
     else
-        species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    {
+    	species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+     	personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+    }
     if (species != SPECIES_NONE)
-        PlayCry_ByMode(species, pan, CRY_MODE_HIGH_PITCH);
+        PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_HIGH_PITCH);
     DestroyAnimVisualTask(taskId);
 }
 
 void SoundTask_PlayDoubleCry(u8 taskId)
 {
     u16 species = SPECIES_NONE;
+    u32 personality = 0;
     u8 battlerId;
     s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
         
@@ -178,18 +186,25 @@ void SoundTask_PlayDoubleCry(u8 taskId)
         return;
     }
     if (GetBattlerSide(battlerId) != B_SIDE_PLAYER)
-        species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    {
+    	species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+     	personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+    }
     else
-        species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    {
+    	species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+     	personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
+    }
     gTasks[taskId].data[0] = gBattleAnimArgs[1];
     gTasks[taskId].data[1] = species;
     gTasks[taskId].data[2] = pan;
+    gTasks[taskId].data[3] = personality;
     if (species != SPECIES_NONE)
     {
         if (gBattleAnimArgs[1] == DOUBLE_CRY_GROWL)
-            PlayCry_ByMode(species, pan, CRY_MODE_GROWL_1);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_GROWL_1);
         else // DOUBLE_CRY_ROAR
-            PlayCry_ByMode(species, pan, CRY_MODE_ROAR_1);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_ROAR_1);
         gTasks[taskId].func = SoundTask_PlayDoubleCry_Step;
     }
     else
@@ -201,6 +216,7 @@ void SoundTask_PlayDoubleCry(u8 taskId)
 static void SoundTask_PlayDoubleCry_Step(u8 taskId)
 {
     u16 species = gTasks[taskId].data[1];
+    u32 personality = gTasks[taskId].data[3];
     s8 pan = gTasks[taskId].data[2];
 
     if (gTasks[taskId].data[9] < 2)
@@ -211,7 +227,7 @@ static void SoundTask_PlayDoubleCry_Step(u8 taskId)
     {
         if (!IsCryPlaying())
         {
-            PlayCry_ByMode(species, pan, CRY_MODE_GROWL_2);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_GROWL_2);
             DestroyAnimVisualTask(taskId);
         }
     }
@@ -219,7 +235,7 @@ static void SoundTask_PlayDoubleCry_Step(u8 taskId)
     {
         if (!IsCryPlaying())
         {
-            PlayCry_ByMode(species, pan, CRY_MODE_ROAR_2);
+            PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_ROAR_2);
             DestroyAnimVisualTask(taskId);
         }
     }
@@ -235,18 +251,25 @@ void SoundTask_WaitForCry(u8 taskId)
 
 #define tSpecies data[1]
 #define tPan     data[2]
+#define tPersonality data[3]
 #define tState   data[9]
 
 void SoundTask_PlayCryWithEcho(u8 taskId)
 {
     u16 species;
+    u32 personality;
     s8 pan = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
     species = gAnimBattlerSpecies[gBattleAnimAttacker];
+    if (GetBattlerSide(gBattleAnimAttacker) != B_SIDE_PLAYER)
+    	personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
+    else
+    	personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gBattleAnimAttacker]], MON_DATA_PERSONALITY);
     gTasks[taskId].tSpecies = species;
     gTasks[taskId].tPan = pan;
+    gTasks[taskId].tPersonality = personality;
     if (species != SPECIES_NONE)
     {
-        PlayCry_ByMode(species, pan, CRY_MODE_ECHO_START);
+        PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_ECHO_START);
         gTasks[taskId].func = SoundTask_PlayCryWithEcho_Step;
     }
     else
@@ -265,9 +288,10 @@ static void SoundTask_PlayCryWithEcho_Step(u8 taskId)
     else if (!IsCryPlaying())
     {
         u16 species = gTasks[taskId].tSpecies;
+        u32 personality = gTasks[taskId].tPersonality;
         s8 pan = gTasks[taskId].tPan;
         
-        PlayCry_ByMode(species, pan, CRY_MODE_ECHO_END);
+        PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), pan, CRY_MODE_ECHO_END);
         DestroyAnimVisualTask(taskId);
     }
 }

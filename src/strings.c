@@ -93,6 +93,7 @@ const u8 gText_Lbs[] = _("lbs.");
 const u8 gTextJP_PokemonData[] = _("ポケモンデ-タ");
 const u8 gText_Cry[] = _("{START_BUTTON}CRY");
 const u8 gText_NextDataCancel[] = _("{A_BUTTON}NEXT DATA {B_BUTTON}CANCEL");
+const u8 gText_VariationNextDataCancel[] = _("{DPAD_LEFTRIGHT}VARIATION {A_BUTTON}NEXT DATA {B_BUTTON}CANCEL");
 const u8 gText_Next[] = _("{A_BUTTON}NEXT");
 const u8 gText_CancelPreviousData[] = _("{A_BUTTON}CANCEL {B_BUTTON}PREVIOUS DATA");
 const u8 gText_Area[] = _("AREA");

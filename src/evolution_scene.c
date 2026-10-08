@@ -164,6 +164,7 @@ static void CB2_BeginEvolutionScene(void)
 #define tLearnMoveNoState   data[8]
 #define tEvoWasStopped      data[9]
 #define tPartyId            data[10]
+#define tPersonality        data[11]
 
 #define TASK_BIT_CAN_STOP       (1 << 0)
 #define TASK_BIT_LEARN_MOVE     (1 << 7)
@@ -297,6 +298,7 @@ void EvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, bool8 canStopEvo, u
     gTasks[id].tLearnsFirstMove = TRUE;
     gTasks[id].tEvoWasStopped = FALSE;
     gTasks[id].tPartyId = partyId;
+    gTasks[id].tPersonality = personality;
 
     memcpy(&sEvoStructPtr->savedPalette, &gPlttBufferUnfaded[BG_PLTT_ID(2)], sizeof(sEvoStructPtr->savedPalette));
 
@@ -511,6 +513,7 @@ void TradeEvolutionScene(struct Pokemon* mon, u16 postEvoSpecies, u8 preEvoSprit
     gTasks[id].tLearnsFirstMove = TRUE;
     gTasks[id].tEvoWasStopped = FALSE;
     gTasks[id].tPartyId = partyId;
+    gTasks[id].tPersonality = personality;
 
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
@@ -687,7 +690,7 @@ static void Task_EvolutionScene(u8 taskId)
     case EVOSTATE_INTRO_MON_ANIM:
         if (!IsTextPrinterActive(0))
         {
-            PlayCry_Normal(gTasks[taskId].tPreEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPersonality), 0);
             gTasks[taskId].tState++;
         }
         break;
@@ -769,7 +772,7 @@ static void Task_EvolutionScene(u8 taskId)
     case EVOSTATE_EVO_MON_ANIM:
         if (!gPaletteFade.active)
         {
-            PlayCry_Normal(gTasks[taskId].tPostEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPostEvoSpecies, gTasks[taskId].tPersonality), 0);
             gTasks[taskId].tState++;
         }
         break;
@@ -847,7 +850,7 @@ static void Task_EvolutionScene(u8 taskId)
     case EVOSTATE_CANCEL_MON_ANIM:
         if (!gPaletteFade.active)
         {
-            PlayCry_Normal(gTasks[taskId].tPreEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPersonality), 0);
             gTasks[taskId].tState++;
         }
         break;
@@ -1122,7 +1125,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
     case T_EVOSTATE_INTRO_CRY:
         if (!IsTextPrinterActive(0))
         {
-            PlayCry_Normal(gTasks[taskId].tPreEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPersonality), 0);
             gTasks[taskId].tState++;
         }
         break;
@@ -1201,7 +1204,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
         if (IsSEPlaying())
         {
 //            Free(sBgAnimPal);
-            PlayCry_Normal(gTasks[taskId].tPostEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPostEvoSpecies, gTasks[taskId].tPersonality), 0);
             memcpy(&gPlttBufferUnfaded[BG_PLTT_ID(2)], sEvoStructPtr->savedPalette, sizeof(sEvoStructPtr->savedPalette));
             gTasks[taskId].tState++;
         }
@@ -1271,7 +1274,7 @@ static void Task_TradeEvolutionScene(u8 taskId)
     case T_EVOSTATE_CANCEL_MON_ANIM:
         if (!gPaletteFade.active)
         {
-            PlayCry_Normal(gTasks[taskId].tPreEvoSpecies, 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(gTasks[taskId].tPreEvoSpecies, gTasks[taskId].tPersonality), 0);
             gTasks[taskId].tState++;
         }
         break;

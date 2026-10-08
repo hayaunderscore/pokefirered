@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "decompress.h"
 #include "data.h"
+#include "graphics.h"
 
 struct PicData
 {
@@ -11,6 +12,22 @@ struct PicData
     u8 spriteId;
     u8 active;
 };
+
+struct PokedexEntrySpriteData
+{
+	struct CompressedSpriteSheet sprite;
+	struct CompressedSpritePalette palette;
+};
+
+static const struct PokedexEntrySpriteData sPokedexSpeciesSprites[NUM_SPECIES] =
+{
+	[SPECIES_INDEEDEE] = {
+		.sprite = {gMonPokedexPic_Indeedee, 0x800, SPECIES_INDEEDEE},
+		.palette = {gMonPokedexPal_Indeedee, SPECIES_INDEEDEE},
+	}
+};
+
+#include "data/pokemon/pokedex_sprites.h"
 
 #define PICS_COUNT 8
 
@@ -44,6 +61,12 @@ static bool16 DecompressPic(u16 species, u32 personality, bool8 isFrontPic, u8 *
 {
     if (!isTrainer)
     {
+	   	// HACK: Terrible override. But it works!
+		if (gDecompressingPokedexPicture && sPokedexSpeciesSprites[species].sprite.data != NULL)
+		{
+			LoadSpecialPokePic(&sPokedexSpeciesSprites[species].sprite, dest, species, personality, isFrontPic);
+			return FALSE;
+		}
         if (isFrontPic)
         {
             if (!ignoreDeoxys)
@@ -107,7 +130,12 @@ void LoadPicPaletteByTagOrSlot(u16 species, u32 otId, u32 personality, u8 palett
 void LoadPicPaletteBySlot(u16 species, u32 otId, u32 personality, u8 paletteSlot, bool8 isTrainer)
 {
     if (!isTrainer)
-        LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    {
+    	if (gDecompressingPokedexPicture && sPokedexSpeciesSprites[species].palette.data != NULL)
+     		LoadCompressedPalette(sPokedexSpeciesSprites[species].palette.data, BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    	else
+      		LoadCompressedPalette(GetMonSpritePalFromSpeciesAndPersonality(species, otId, personality), BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
+    }
     else
         LoadCompressedPalette(gTrainerFrontPicPaletteTable[species].data, BG_PLTT_ID(paletteSlot), PLTT_SIZE_4BPP);
 }

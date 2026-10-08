@@ -2776,6 +2776,9 @@ const u32 gMonBackPic_IndeedeeMale[] = INCGFX_U32("graphics/pokemon/indeedee/mal
 const u32 gMonShinyPalette_IndeedeeMale[] = INCGFX_U32("graphics/pokemon/indeedee/male/shiny.pal", ".gbapal.lz");
 const u8 gMonIcon_IndeedeeMale[] = INCGFX_U8("graphics/pokemon/indeedee/male/icon.png", ".4bpp");
 
+const u32 gMonPokedexPic_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/pokedex.png", ".4bpp.lz");
+const u32 gMonPokedexPal_Indeedee[] = INCGFX_U32("graphics/pokemon/indeedee/pokedex.pal", ".gbapal.lz");
+
 const u32 gMonFrontPic_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/front.png", ".4bpp.lz");
 const u32 gMonPalette_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/normal.pal", ".gbapal.lz");
 const u32 gMonBackPic_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemaru/back.png", ".4bpp.lz");

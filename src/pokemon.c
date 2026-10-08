@@ -5263,10 +5263,19 @@ u16 SpeciesToCryId(u16 species)
     if (species < SPECIES_RAINER - 1)
         return species;
     
-    if (species >= SPECIES_RAINER - 1 && species <= SPECIES_UNOWN_KING - 1)
+    if ((species >= SPECIES_RAINER - 1 && species <= SPECIES_UNOWN_KING - 1) || species >= SPECIES_GENDER_DIFFERENCES_START - 1)
     	return sCadmiumSpeciesIdToCryId[species - ((SPECIES_CELEBI + 1) - 1)];
 
     return sHoennSpeciesIdToCryId[species - ((SPECIES_UNOWN_KING + 1) - 1)];
+}
+
+#include "data/pokemon/gender_difference_species.h"
+
+u16 GetSpeciesIdBasedOnGender(u16 species, u32 personality)
+{
+	if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF) && gSpeciesGenderDifferences[species] != SPECIES_NONE)
+		return gSpeciesGenderDifferences[species];
+	return species;
 }
 
 // Spots can be drawn on Spinda's color indexes 1, 2, or 3
@@ -5952,15 +5961,12 @@ const u32 *GetMonSpritePalFromSpeciesAndPersonality(u16 species, u32 otId, u32 p
 
     if (species > SPECIES_EGG)
         return gMonPaletteTable[0].data;
-    
-    if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF) && species == SPECIES_INDEEDEE)
-    	species = SPECIES_INDEEDEE_MALE;
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
     if (shinyValue < SHINY_ODDS)
-        return gMonShinyPaletteTable[species].data;
+        return gMonShinyPaletteTable[GetSpeciesIdBasedOnGender(species, personality)].data;
     else
-        return gMonPaletteTable[species].data;
+        return gMonPaletteTable[GetSpeciesIdBasedOnGender(species, personality)].data;
 }
 
 const struct CompressedSpritePalette *GetMonSpritePalStruct(struct Pokemon *mon)
@@ -5977,9 +5983,9 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
 
     shinyValue = GET_SHINY_VALUE(otId, personality);
     if (shinyValue < SHINY_ODDS)
-        return &gMonShinyPaletteTable[species];
+        return &gMonShinyPaletteTable[GetSpeciesIdBasedOnGender(species, personality)];
     else
-        return &gMonPaletteTable[species];
+        return &gMonPaletteTable[GetSpeciesIdBasedOnGender(species, personality)];
 }
 
 bool32 IsHMMove2(u16 move)

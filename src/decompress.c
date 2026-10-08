@@ -108,18 +108,16 @@ void LoadSpecialPokePic(const struct CompressedSpriteSheet *src, void *dest, s32
         else
             LZ77UnCompWram(gMonFrontPicTable[i].data, dest);
     }
-    else if (species == SPECIES_INDEEDEE)
+    else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
+        LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
+    else if (species != GetSpeciesIdBasedOnGender(species, personality))
     {
-    	j = SPECIES_INDEEDEE;
-    	if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
-     		j = SPECIES_INDEEDEE_MALE;
-	   	if (!isFrontPic)
+    	j = GetSpeciesIdBasedOnGender(species, personality);
+   		if (!isFrontPic)
 	        LZ77UnCompWram(gMonBackPicTable[j].data, dest);
 	    else
 	        LZ77UnCompWram(gMonFrontPicTable[j].data, dest);
     }
-    else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
-        LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
     else
         LZ77UnCompWram(src->data, dest);
 
@@ -364,19 +362,17 @@ void LoadSpecialPokePic_DontHandleDeoxys(const struct CompressedSpriteSheet *src
         else
             LZ77UnCompWram(gMonFrontPicTable[i].data, dest);
     }
-    else if (species == SPECIES_INDEEDEE)
-    {
-    	j = SPECIES_INDEEDEE;
-    	if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
-     		j = SPECIES_INDEEDEE_MALE;
-	   	if (!isFrontPic)
-	        LZ77UnCompWram(gMonBackPicTable[j].data, dest);
-	    else
-	        LZ77UnCompWram(gMonFrontPicTable[j].data, dest);
-    }
     else if (species > NUM_SPECIES) // is species unknown? draw the ? icon
     {
         LZ77UnCompWram(gMonFrontPicTable[0].data, dest);
+    }
+    else if (species != GetSpeciesIdBasedOnGender(species, personality))
+    {
+    	j = GetSpeciesIdBasedOnGender(species, personality);
+   		if (!isFrontPic)
+	        LZ77UnCompWram(gMonBackPicTable[j].data, dest);
+	    else
+	        LZ77UnCompWram(gMonFrontPicTable[j].data, dest);
     }
     else
     {

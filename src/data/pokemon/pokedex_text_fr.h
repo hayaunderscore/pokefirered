@@ -2750,9 +2750,14 @@ const u8 gLilligantPokedexText[] = _(
 	"taking care of it is very difficult.");
 
 const u8 gIndeedeePokedexText[] = _(
-	"These POKéMON are highly intelligent.\n"
-	"They touch horns with their fellow\n"
-	"INDEEDEE to share information.");
+	"These intelligent POKéMON touch horns\n"
+	"with each other to share information\n"
+	"between them.");
+
+const u8 gIndeedeeMalePokedexText[] = _(
+	"It can pick up on the emotions of\n"
+	"creatures around it. Positive emotions\n"
+	"are the source of its strength.");
 
 const u8 gTogedemaruPokedexText[] = _(
 	"When it's surprised or agitated, the\n"

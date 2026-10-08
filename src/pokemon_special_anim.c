@@ -218,7 +218,7 @@ static void Task_UseItem_Normal(u8 taskId)
             ptr->cancelDisabled = TRUE;
             if (ptr->closeness == 3)
             {
-                PlayCry_Normal(ptr->species, 0);
+                PlayCry_Normal(GetSpeciesIdBasedOnGender(ptr->species, ptr->personality), 0);
             }
             PSA_ShowMessageWindow();
             ptr->state++;

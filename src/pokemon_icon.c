@@ -1069,19 +1069,12 @@ u16 GetIconSpecies(u16 species, u32 personality)
             letter += (SPECIES_UNOWN_B - 1);
         result = letter;
     }
-    else if (species == SPECIES_INDEEDEE)
-    {
-    	if (gSpeciesInfo[species].genderRatio <= (personality & 0xFF))
-     		result = SPECIES_INDEEDEE_MALE;
-    	else
-      		result = SPECIES_INDEEDEE;
-    }
     else
     {
         if (species > NUM_SPECIES)
             result = SPECIES_NONE;
         else
-            result = species;
+            result = GetSpeciesIdBasedOnGender(species, personality);
     }
 
     return result;

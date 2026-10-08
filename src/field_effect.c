@@ -2960,6 +2960,7 @@ static u8 InitFieldMoveMonSprite(u32 species, u32 otId, u32 personality)
     sprite->callback = SpriteCallbackDummy;
     sprite->oam.priority = 0;
     sprite->data[0] = species;
+    sprite->data[1] = personality;
     sprite->data[6] = playCry;
     return monSprite;
 }
@@ -2973,11 +2974,11 @@ static void SpriteCB_FieldMoveMonSlideOnscreen(struct Sprite *sprite)
         sprite->callback = SpriteCB_FieldMoveMonWaitAfterCry;
         if (sprite->data[6])
         {
-            PlayCry_NormalNoDucking(sprite->data[0], 0, CRY_VOLUME_RS, CRY_PRIORITY_NORMAL);
+            PlayCry_NormalNoDucking(GetSpeciesIdBasedOnGender(sprite->data[0], sprite->data[1]), 0, CRY_VOLUME_RS, CRY_PRIORITY_NORMAL);
         }
         else
         {
-            PlayCry_Normal(sprite->data[0], 0);
+            PlayCry_Normal(GetSpeciesIdBasedOnGender(sprite->data[0], sprite->data[1]), 0);
         }
     }
 }

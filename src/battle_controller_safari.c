@@ -593,8 +593,9 @@ static void SafariHandlePlayFanfareOrBGM(void)
 static void SafariHandleFaintingCry(void)
 {
     u16 species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_PERSONALITY);
 
-    PlayCry_Normal(species, 25);
+    PlayCry_Normal(GetSpeciesIdBasedOnGender(species, personality), 25);
     SafariBufferExecCompleted();
 }
 

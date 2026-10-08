@@ -2394,6 +2394,8 @@ extern const u32 gMonPalette_IndeedeeMale[];
 extern const u32 gMonBackPic_IndeedeeMale[];
 extern const u32 gMonShinyPalette_IndeedeeMale[];
 extern const u8 gMonIcon_IndeedeeMale[];
+extern const u32 gMonPokedexPic_Indeedee[];
+extern const u32 gMonPokedexPal_Indeedee[];
 extern const u32 gMonFrontPic_Togedemaru[];
 extern const u32 gMonPalette_Togedemaru[];
 extern const u32 gMonBackPic_Togedemaru[];

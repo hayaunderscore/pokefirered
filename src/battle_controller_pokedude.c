@@ -1301,6 +1301,7 @@ static void PokedudeHandleLoadMonSprite(void)
 {
     u32 y;
     u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_PERSONALITY);
 
     BattleLoadOpponentMonSpriteGfx(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], gActiveBattler);
     y = GetBattlerSpriteDefault_Y(gActiveBattler);
@@ -1312,6 +1313,7 @@ static void PokedudeHandleLoadMonSprite(void)
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = -DISPLAY_WIDTH;
     gSprites[gBattlerSpriteIds[gActiveBattler]].data[0] = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].data[2] = species;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].data[3] = personality & 0xFF;
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], gBattleMonForms[gActiveBattler]);
     SetBattlerShadowSpriteCallback(gActiveBattler, GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES));
@@ -1827,13 +1829,15 @@ static void PokedudeHandleFaintingCry(void)
 {
     struct Pokemon *mon;
     u16 species;
+    u32 personality;
 
     if (GetBattlerSide(gActiveBattler) == B_SIDE_PLAYER)
         mon = &gPlayerParty[gBattlerPartyIndexes[gActiveBattler]];
     else
         mon = &gEnemyParty[gBattlerPartyIndexes[gActiveBattler]];
     species = GetMonData(mon, MON_DATA_SPECIES);
-    PlayCry_Normal(species, 25);
+    personality = GetMonData(mon, MON_DATA_PERSONALITY);
+    PlayCry_Normal(GetSpeciesIdBasedOnGender(species, personality), 25);
     PokedudeBufferExecCompleted();
 }
 
@@ -1871,10 +1875,12 @@ static void PokedudeHandleIntroTrainerBallThrow(void)
 static void StartSendOutAnim(u8 battlerId)
 {
     u16 species;
+    u32 personality;
 
     gBattleSpritesDataPtr->battlerData[battlerId].transformSpecies = SPECIES_NONE;
     gBattlerPartyIndexes[battlerId] = gBattleBufferA[battlerId][1];
     species = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_SPECIES);
+    personality = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battlerId]], MON_DATA_PERSONALITY);
     gBattleControllerData[battlerId] = CreateInvisibleSpriteWithCallback(SpriteCB_WaitForBattlerBallReleaseAnim);
     SetMultiuseSpriteTemplateToPokemon(species, GetBattlerPosition(battlerId));
     gBattlerSpriteIds[battlerId] = CreateSprite(&gMultiuseSpriteTemplate,
@@ -1884,6 +1890,7 @@ static void StartSendOutAnim(u8 battlerId)
     gSprites[gBattleControllerData[battlerId]].data[1] = gBattlerSpriteIds[battlerId];
     gSprites[gBattlerSpriteIds[battlerId]].data[0] = battlerId;
     gSprites[gBattlerSpriteIds[battlerId]].data[2] = species;
+    gSprites[gBattlerSpriteIds[battlerId]].data[3] = personality & 0xFF;
     gSprites[gBattlerSpriteIds[battlerId]].oam.paletteNum = battlerId;
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[battlerId]], gBattleMonForms[battlerId]);
     gSprites[gBattlerSpriteIds[battlerId]].invisible = TRUE;

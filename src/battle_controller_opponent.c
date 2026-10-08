@@ -1020,6 +1020,7 @@ static void OpponentHandleSetRawMonData(void)
 static void OpponentHandleLoadMonSprite(void)
 {
     u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_PERSONALITY);
     u32 y;
 
     if (gBattleTypeFlags & BATTLE_TYPE_GHOST)
@@ -1042,6 +1043,7 @@ static void OpponentHandleLoadMonSprite(void)
     gSprites[gBattlerSpriteIds[gActiveBattler]].x2 = -DISPLAY_WIDTH;
     gSprites[gBattlerSpriteIds[gActiveBattler]].data[0] = gActiveBattler;
     gSprites[gBattlerSpriteIds[gActiveBattler]].data[2] = species;
+    gSprites[gBattlerSpriteIds[gActiveBattler]].data[3] = personality & 0xFF;
     gSprites[gBattlerSpriteIds[gActiveBattler]].oam.paletteNum = gActiveBattler;
     StartSpriteAnim(&gSprites[gBattlerSpriteIds[gActiveBattler]], gBattleMonForms[gActiveBattler]);
     if (!(gBattleTypeFlags & BATTLE_TYPE_GHOST))
@@ -1611,8 +1613,9 @@ static void OpponentHandlePlayFanfare(void)
 static void OpponentHandleFaintingCry(void)
 {
     u16 species = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gEnemyParty[gBattlerPartyIndexes[gActiveBattler]], MON_DATA_PERSONALITY);
 
-    PlayCry_ByMode(species, 25, CRY_MODE_FAINT);
+    PlayCry_ByMode(GetSpeciesIdBasedOnGender(species, personality), 25, CRY_MODE_FAINT);
     OpponentBufferExecCompleted();
 }
 

@@ -6,6 +6,7 @@
 #include "sprite.h"
 
 extern u8 gDecompressionBuffer[0x4000];
+extern bool32 gDecompressingPokedexPicture;
 
 void LZDecompressWram(const void *src, void *dest);
 void LZDecompressVram(const void *src, void *dest);
