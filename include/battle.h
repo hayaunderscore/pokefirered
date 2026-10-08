@@ -451,9 +451,9 @@ struct BattleStruct
     u8 stateIdAfterSelScript[MAX_BATTLERS_COUNT];
     u8 primalDropCounter;
     u8 primalDropUsed;
-    u8 field_8A; // unused
+    u8 activeAbilityPopUps;
     u8 playerPartyIdx;
-    u8 field_8C; // unused
+    u8 currentAbility; // unused
     u8 field_8D; // unused
     u8 stringMoveType;
     u8 expGetterBattlerId;

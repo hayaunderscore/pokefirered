@@ -60,6 +60,7 @@
 #define BS_OPPONENT1                12
 #define BS_PLAYER2                  13 // for Cmd_updatestatusicon
 #define BS_OPPONENT2                14
+#define BS_ABILITY_BATTLER			15
 
 // atk 01, accuracy calc
 #define NO_ACC_CALC 0xFFFE
@@ -89,6 +90,7 @@
 #define VARIOUS_RETURN_OPPONENT_MON2            10
 #define VARIOUS_CHECK_POKEFLUTE                 11
 #define VARIOUS_WAIT_FANFARE                    12
+#define VARIOUS_ABILITY_POPUP                   13
 
 // Cmd_manipulatedmg
 #define DMG_CHANGE_SIGN            0

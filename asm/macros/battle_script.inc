@@ -1382,3 +1382,7 @@
 	.macro jumpifnotbattletype flags:req, jumpptr:req
 	jumpifword CMP_NO_COMMON_BITS, gBattleTypeFlags, \flags, \jumpptr
 	.endm
+
+	.macro showabilitypopup battler
+	various \battler, VARIOUS_ABILITY_POPUP
+	.endm

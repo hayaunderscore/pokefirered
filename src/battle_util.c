@@ -66,6 +66,9 @@ u8 GetBattlerForBattleScript(u8 caseId)
     case BS_OPPONENT1:
         ret = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
         break;
+    case BS_ABILITY_BATTLER:
+    	ret = gBattleStruct->currentAbility;
+     	break;
     case BS_ATTACKER_WITH_PARTNER:
     case BS_FAINTED_LINK_MULTIPLE_2:
     case BS_ATTACKER_SIDE:
@@ -1373,6 +1376,7 @@ u8 AtkCanceller_UnableToUseMove(void)
                 CancelMultiTurnMoves(gBattlerAttacker);
                 gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_LOAFING;
+                gBattleStruct->currentAbility = gBattlerAttacker;
                 gBattlescriptCurrInstr = BattleScript_MoveUsedLoafingAround;
                 gMoveResultFlags |= MOVE_RESULT_MISSED;
                 effect = 1;
@@ -2276,7 +2280,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     gLastUsedAbility = ABILITY_INTIMIDATE;
                     gStatuses3[i] &= ~STATUS3_INTIMIDATE_POKES;
                     BattleScriptPushCursorAndCallback(BattleScript_IntimidateActivatesEnd3);
-                    gBattleStruct->intimidateBattler = i;
+                    gBattleStruct->currentAbility = gBattleStruct->intimidateBattler = i;
                     effect++;
                     break;
                 }
@@ -2474,6 +2478,8 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
 
         if (effect && caseID < ABILITYEFFECT_CHECK_OTHER_SIDE && gLastUsedAbility != 0xFF)
             RecordAbilityBattle(battler, gLastUsedAbility);
+        if (effect && caseID <= ABILITYEFFECT_ON_DAMAGE)
+        	gBattleStruct->currentAbility = battler;
     }
 
     return effect;
