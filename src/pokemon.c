@@ -5916,6 +5916,8 @@ static u16 GetBattleBGM(void)
          	return MUS_RS_VS_TRAINER;
         case TRAINER_CLASS_POKEPASTA:
          	return MUS_BATTLE_REVOLUTION;
+        case TRAINER_CLASS_ABYSS_QUEEN:
+        	return MUS_VS_REGI;
         case TRAINER_CLASS_BOSS:
         case TRAINER_CLASS_TEAM_ROCKET:
         case TRAINER_CLASS_COOLTRAINER:

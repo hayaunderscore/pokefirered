@@ -1007,7 +1007,7 @@ void DrawBattleEntryBackground(void)
                 LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_BUILDING);
                 return;
             }
-            if (trainerClass == TRAINER_CLASS_CARA)
+            if (trainerClass == TRAINER_CLASS_CARA || trainerClass == TRAINER_CLASS_ABYSS_QUEEN)
             {
             	LoadBattleTerrainEntryGfx(BATTLE_TERRAIN_CAVE);
              	return;
@@ -1043,7 +1043,7 @@ static u8 GetBattleTerrainOverride(void)
             return BATTLE_TERRAIN_LEADER;
         else if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CHAMPION)
             return BATTLE_TERRAIN_CHAMPION;
-        if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CARA)
+        if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CARA || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ABYSS_QUEEN)
         	return BATTLE_TERRAIN_UNDERWATER;
     }
     battleScene = GetCurrentMapBattleScene();

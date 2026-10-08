@@ -474,7 +474,7 @@ u8 BattleSetup_GetTerrainId(void)
     if (MetatileBehavior_IsSandOrShallowFlowingWater(tileBehavior))
         return BATTLE_TERRAIN_SAND;
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-	    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CARA)
+	    if (gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_CARA || gTrainers[gTrainerBattleOpponent_A].trainerClass == TRAINER_CLASS_ABYSS_QUEEN)
 	    	return BATTLE_TERRAIN_CAVE;
     switch (gMapHeader.mapType)
     {

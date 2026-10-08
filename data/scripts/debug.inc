@@ -116,7 +116,47 @@ Debug_EventScript_Script_3_Text2:
 	.string "Hmm hmm!$"
 
 Debug_EventScript_Script_4::
+	lock
+	dynmultichoice 0, 0, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, Debug_EventScript_Script_4_Text_0, Debug_EventScript_Script_4_Text_1, Debug_EventScript_Script_4_Text_2
+	switch VAR_RESULT
+	case 0, Debug_EventScript_Script_4_3
+	case 1, Debug_EventScript_Script_4_4
+	case 2, Debug_EventScript_Script_4_5
+Debug_EventScript_Script_4_1:
+	release
 	end
+
+Debug_EventScript_Script_4_3:
+	trainerbattle_no_intro TRAINER_AN_ATTACK_THA_CARA, Debug_EventScript_Script_4_Text_3
+	goto Debug_EventScript_Script_4_1
+
+Debug_EventScript_Script_4_4:
+	trainerbattle_no_intro TRAINER_AN_ATTACK_THA_BRET, Debug_EventScript_Script_4_Text_4
+	goto Debug_EventScript_Script_4_1
+
+Debug_EventScript_Script_4_5:
+	trainerbattle_no_intro TRAINER_ABYSS_QUEEN_ABBY, Debug_EventScript_Script_4_Text_5
+	goto Debug_EventScript_Script_4_1
+
+
+Debug_EventScript_Script_4_Text_0:
+	.string "CARA$"
+
+Debug_EventScript_Script_4_Text_1:
+	.string "BRET$"
+
+Debug_EventScript_Script_4_Text_2:
+	.string "ABBY$"
+
+Debug_EventScript_Script_4_Text_3:
+	.string "That's all folks!$"
+
+Debug_EventScript_Script_4_Text_4:
+	.string "Don't get queasy, now!$"
+
+Debug_EventScript_Script_4_Text_5:
+	.string "Impressive!\nVery nice…$"
+
 
 Debug_EventScript_Script_5::
 	end
