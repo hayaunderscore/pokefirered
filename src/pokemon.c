@@ -5929,6 +5929,8 @@ static u16 GetBattleBGM(void)
             return MUS_VS_TRAINER;
         }
     }
+    if (GetMonData(&gEnemyParty[0], MON_DATA_SPECIES) > KANTO_SPECIES_END)
+    	return MUS_VS_WILD_GUYANA;
     return MUS_VS_WILD;
 }
 

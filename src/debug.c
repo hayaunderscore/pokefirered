@@ -3700,6 +3700,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_BATTLE_REVOLUTION) \
     X(MUS_EVOLUTION_SPECIAL) \
     X(MUS_ENCOUNTER_SAILOR) \
+    X(MUS_VS_WILD_GUYANA) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

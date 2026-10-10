@@ -990,6 +990,7 @@ SECTIONS {
         sound/songs/midi/mus_battle_revolution.o(.rodata);
         sound/songs/midi/mus_evolution_special.o(.rodata);
         sound/songs/midi/mus_encounter_sailor.o(.rodata);
+        sound/songs/midi/mus_vs_wild_guyana.o(.rodata);
     } > ROM =0
 
     lib_rodata :

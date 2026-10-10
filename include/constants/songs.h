@@ -373,10 +373,11 @@
 #define MUS_BATTLE_REVOLUTION       364
 #define MUS_EVOLUTION_SPECIAL       365
 #define MUS_ENCOUNTER_SAILOR        366
+#define MUS_VS_WILD_GUYANA          367
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_ENCOUNTER_SAILOR
+#define END_MUS                     MUS_VS_WILD_GUYANA
 
 #endif  // GUARD_CONSTANTS_SONGS_H
