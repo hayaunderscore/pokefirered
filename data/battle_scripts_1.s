@@ -3258,7 +3258,8 @@ BattleScript_PrimalDropStarts::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNPRIMALDROPACTIVE
-	waitmessage B_WAIT_TIME_LONG
+	waitstate
+	playanimation BS_BATTLER_0, B_ANIM_PRIMAL_DROP_STARTS
 	end3
 
 BattleScript_OverworldWeatherStarts::

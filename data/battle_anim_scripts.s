@@ -425,6 +425,7 @@ gBattleAnims_General::
 	.4byte General_SafariRockThrow          @ B_ANIM_ROCK_THROW
 	.4byte General_SafariReaction           @ B_ANIM_SAFARI_REACTION
 	.4byte General_TrickRoom                @ B_ANIM_TRICK_ROOM_CONTINUES
+	.4byte General_PrimalDrop               @ B_ANIM_PRIMAL_DROP_STARTS
 
 	.align 2
 gBattleAnims_Special::
@@ -11111,6 +11112,14 @@ General_TrickRoom::
 	waitbgfadein
 	delay 0x40
 	restorebg
+	waitbgfadein
+	blendoff
+	end
+
+General_PrimalDrop::
+	playsewithpan SE_M_SWEET_SCENT, SOUND_PAN_TARGET
+	createvisualtask AnimTask_BlendColorCycle, 2, F_PAL_BG, 3, 5, 5, 13, RGB(31, 21, 21)
+	waitforvisualfinish
 	waitbgfadein
 	blendoff
 	end

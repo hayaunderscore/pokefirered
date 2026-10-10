@@ -377,6 +377,7 @@
 #define B_ANIM_ROCK_THROW               26
 #define B_ANIM_SAFARI_REACTION          27
 #define B_ANIM_TRICK_ROOM_CONTINUES     28
+#define B_ANIM_PRIMAL_DROP_STARTS       29
 
 // special animations table (gBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

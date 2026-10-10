@@ -1849,7 +1849,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_PRIMAL_DROP:
-            	if (!gBattleStruct->primalDropUsed)
+            	if (gBattleStruct->primalDropCounter == 0)
              	{
               		gBattleStruct->primalDropCounter = 5;
               		gBattleStruct->primalDropUsed = TRUE;
