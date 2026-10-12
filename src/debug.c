@@ -387,11 +387,11 @@ static const u8 sDebugText_Fill[] =             _("Fill PC/Pockets…{CLEAR_TEXT
 static const u8 sDebugText_Sound[] =            _("Sound…{CLEAR_TEXT_TO 110}{RIGHT_ARROW}");
 static const u8 sDebugText_Cancel[] =           _("Cancel");
 // Script menu
-static const u8 sDebugText_Util_Script_1[] =               _("Script 1");
+static const u8 sDebugText_Util_Script_1[] =               _("FREE TORCHIC NO VIRUS");
 static const u8 sDebugText_Util_Script_2[] =               _("Point of divergence");
 static const u8 sDebugText_Util_Script_3[] =               _("Trick Room Doubles Test");
 static const u8 sDebugText_Util_Script_4[] =               _("Battle Tests");
-static const u8 sDebugText_Util_Script_5[] =               _("Script 5");
+static const u8 sDebugText_Util_Script_5[] =               _("Roamer Test");
 static const u8 sDebugText_Util_Script_6[] =               _("Script 6");
 static const u8 sDebugText_Util_Script_7[] =               _("Script 7");
 static const u8 sDebugText_Util_Script_8[] =               _("Script 8");
@@ -3701,6 +3701,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_EVOLUTION_SPECIAL) \
     X(MUS_ENCOUNTER_SAILOR) \
     X(MUS_VS_WILD_GUYANA) \
+    X(MUS_VS_LEGEND_BEAST) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

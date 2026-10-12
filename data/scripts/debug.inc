@@ -157,8 +157,9 @@ Debug_EventScript_Script_4_Text_4:
 Debug_EventScript_Script_4_Text_5:
 	.string "Impressive!\nVery nice…$"
 
-
 Debug_EventScript_Script_5::
+	special InitRoamer
+	callnative StartRoamerBattle
 	end
 
 Debug_EventScript_Script_6::

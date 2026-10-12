@@ -374,10 +374,11 @@
 #define MUS_EVOLUTION_SPECIAL       365
 #define MUS_ENCOUNTER_SAILOR        366
 #define MUS_VS_WILD_GUYANA          367
+#define MUS_VS_LEGEND_BEAST         368
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_VS_WILD_GUYANA
+#define END_MUS                     MUS_VS_LEGEND_BEAST
 
 #endif  // GUARD_CONSTANTS_SONGS_H
