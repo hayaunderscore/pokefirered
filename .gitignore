@@ -75,3 +75,7 @@ data/maps/*/scripts.inc
 # Specific poryscript scripts
 data/scripts/gabby_and_ty.inc
 .porydaw/
+
+# speciesproc reasons
+src/data/pokemon/species_info.h
+src/data/pokemon/pokedex_entries.h
