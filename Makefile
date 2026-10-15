@@ -47,7 +47,7 @@ else
   CPP := $(PREFIX)cpp
 endif
 
-ROM := poke$(BUILD_NAME).gba
+ROM := champrumble.gba
 OBJ_DIR := $(BUILD_DIR)/$(BUILD_NAME)
 ASSETS_DIR_NAME := $(BUILD_DIR)/assets
 

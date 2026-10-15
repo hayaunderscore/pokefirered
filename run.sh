@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
+MODERN=1
+
 compiledb --exclude "^data/" --exclude "^build/" --exclude "^graphics/" make -j8
-if [[ -v MODERN ]]; then
-	mgba-qt ./pokefirered_modern.gba
-else
-	mgba-qt ./pokefirered.gba
-fi
+mgba-qt champrumble.gba
