@@ -111,6 +111,10 @@ DirectSoundWaveData_sd90_cowbell::
 	.incbin "sound/direct_sound_samples/sd90_cowbell.bin"
 
 	.align 2
+DirectSoundWaveData_unknown_female_voice::
+	.incbin "sound/direct_sound_samples/unknown_female_voice.bin"
+
+	.align 2
 DirectSoundWaveData_unused_heart_of_asia_indian_drum::
 	.incbin "sound/direct_sound_samples/unused_heart_of_asia_indian_drum.bin"
 

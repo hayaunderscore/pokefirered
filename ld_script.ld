@@ -992,6 +992,7 @@ SECTIONS {
         sound/songs/midi/mus_encounter_sailor.o(.rodata);
         sound/songs/midi/mus_vs_wild_guyana.o(.rodata);
         sound/songs/midi/mus_vs_legend_beast.o(.rodata);
+        sound/songs/midi/mus_b_pike.o(.rodata);
     } > ROM =0
 
     lib_rodata :

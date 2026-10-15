@@ -8844,3 +8844,134 @@ voicegroup202::
 	voice_noise_alt 60, 0, 0, 0, 1, 6, 1
 
 	.align 2
+voicegroup203::
+	voice_keysplit_all voicegroup198 @ Custom Standard FR/LG-focused drum kit with GM-type notes
+	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 204, 0, 242
+	voice_keysplit voicegroup003, KeySplitTable1 @ Grand Piano
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 165, 180, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_high, 255, 137, 154, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 255, 165, 180, 165
+	voice_keysplit voicegroup003, KeySplitTable1 @ Grand Piano copy
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 204, 51, 242
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 128, 146, 118, 137
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 128, 146, 108, 137
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 255, 76, 133, 137
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 128, 127, 103, 201
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_accordion, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 249, 25, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 64, 216, 51, 224
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 249, 25, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 51, 204, 92, 226
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 128, 204, 103, 64
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_overdrive_guitar, 128, 0, 255, 214
+	voice_keysplit voicegroup197, KeySplitTable1 @ Custom Distortion Guitar split by high and low samples might need more work
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_special_scream_drive, 255, 0, 255, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 235, 128, 115
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_slap_bass, 255, 235, 128, 115
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_synth_bass, 255, 252, 0, 115
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_30303_mega_bass, 255, 178, 180, 165
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_pizzicato_strings, 255, 216, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 242, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_timpani, 255, 204, 193, 239
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_8, 0, 1, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_9, 0, 0, 12, 0
+	voice_directsound 60, 0, DirectSoundWaveData_classical_choir_voice_ahhs, 255, 0, 255, 0
+	voice_directsound 60, 0, DirectSoundWaveData_unknown_female_voice, 128, 165, 128, 204
+	voice_programmable_wave 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup006, KeySplitTable4
+	voice_keysplit voicegroup005, KeySplitTable3
+	voice_keysplit voicegroup007, KeySplitTable5
+	voice_keysplit voicegroup007, KeySplitTable5
+	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_mystery_dungeon_koto, 255, 255, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_square_2_alt 60, 0, 3, 0, 3, 3, 0
+	voice_noise 60, 0, 0, 0, 1, 6, 1
+	voice_directsound 60, 0, DirectSoundWaveData_unused_sd90_oboe, 255, 165, 154, 127 @ 71=Clarinet
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127 @ 75-Pan Flute
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_enhanced_delay_shaku, 255, 191, 97, 165 @ 77-Shakuhachi
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_whistle, 255, 0, 255, 127
+	voice_square_2 60, 0, 2, 0, 1, 6, 1
+	voice_programmable_wave 60, 0, ProgrammableWaveData_1, 0, 7, 15, 1
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_2, 0, 2, 9, 1
+	voice_programmable_wave 60, 0, ProgrammableWaveData_3, 0, 7, 15, 1
+	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_8, 0, 1, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_9, 0, 0, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_10, 0, 7, 15, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_11, 0, 7, 15, 0
+	voice_square_2_alt 60, 0, 0, 0, 1, 4, 0
+	voice_square_1 60, 0, 2, 0, 1, 6, 0, 0
+	voice_square_1_alt 60, 0, 0, 1, 2, 1, 5, 0
+	voice_square_2_alt 60, 0, 2, 0, 1, 6, 0
+	voice_noise 60, 0, 0, 0, 7, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_wind, 255, 0, 255, 127
+	voice_programmable_wave 60, 0, ProgrammableWaveData_10, 0, 7, 15, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_8, 0, 1, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_9, 0, 0, 12, 0
+	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
+	voice_programmable_wave 60, 0, ProgrammableWaveData_11, 0, 7, 15, 0
+	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 255, 165, 128, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_harp, 255, 242, 0, 204
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 196
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
+	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0 @ Noisy Bell sound like Tinkle Bell
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_jingle_bell, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_ethnic_flavours_hyoushigi, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_taiko, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_ambient_tom, 255, 165, 51, 235
+	voice_directsound 60, 0, DirectSoundWaveData_wave_54, 255, 0, 255, 165 @ 118=Bass Drum of some sort
+	voice_directsound 60, 0, DirectSoundWaveData_trinity_cymbal_crash, 255, 165, 51, 235
+	voice_noise_alt 60, 0, 0, 0, 1, 0, 0
+	voice_noise_alt 60, 0, 0, 0, 1, 7, 1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_bubbles, 255, 0, 255, 127
+	voice_square_1_alt 60, 0, 2, 0, 0, 1, 6, 0
+	voice_directsound 60, 0, DirectSoundWaveData_bicycle_bell, 255, 249, 0, 165
+	voice_directsound 60, 0, DirectSoundWaveData_wave_56, 255, 0, 255, 127 @ Train SFX in Helicopter slot
+	voice_noise_alt 60, 0, 0, 0, 7, 10, 1
+	voice_noise_alt 60, 0, 0, 0, 2, 6, 1
+
+	.align 2
