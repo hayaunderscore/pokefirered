@@ -12,7 +12,7 @@
 #define TYPES_PER_MON		   2
 #define EGG_GROUPS_PER_MON	   2
 #define ABILITIES_PER_MON	   2
-#define EVOS_PER_MON		   4
+#define EVOS_PER_MON		   5
 
 #define SPECIESINFO_MALE	   0x00
 #define SPECIESINFO_FEMALE	   0xFE
@@ -26,11 +26,14 @@
 #define PATH_POKEDEX_TEXT		   POKEMON_DATA_PATH "pokedex_text_fr.h" // I might want to preserve LeafGreen's dex entries for later...
 #define PATH_POKEDEX_ENTRIES	   POKEMON_DATA_PATH "pokedex_entries.h"
 #define PATH_EVOLUTION_INFO		   POKEMON_DATA_PATH "evolution.h"
+#define PATH_LEVEL_UP_INFO		   POKEMON_DATA_PATH "level_up_learnset_pointers.h"
 #define PATH_GENDER_DIFFERENCE	   POKEMON_DATA_PATH "gender_difference_species.h"
 #define PATH_SPECIES_NAMES		   "src/data/text/species_names.h"
 
 #define PATH_BACK_PIC_COORDS	   POKEMON_GRAPHICS_DATA_PATH "back_pic_coordinates.h"
 #define PATH_BACK_PIC_TABLE		   POKEMON_GRAPHICS_DATA_PATH "back_pic_table.h"
+#define PATH_MON_ELEVATION		   POKEMON_GRAPHICS_DATA_PATH "enemy_mon_elevation.h"
+#define PATH_MON_FOOTPRINTS		   POKEMON_GRAPHICS_DATA_PATH "footprint_table.h"
 #define PATH_FRONT_PIC_COORDS	   POKEMON_GRAPHICS_DATA_PATH "front_pic_coordinates.h"
 #define PATH_FRONT_PIC_TABLE	   POKEMON_GRAPHICS_DATA_PATH "front_pic_table.h"
 #define PATH_PALETTE_TABLE		   POKEMON_GRAPHICS_DATA_PATH "palette_table.h"
@@ -79,7 +82,9 @@ struct SpeciesData {
 	std::string bodyColor;
 	bool noFlip;
 	std::string levelUpLearnsetPointer;
-	EvolutionData evolutions[4];
+	std::string genderDifferenceSpecies;
+	uint8_t enemyMonElevation;
+	std::vector<EvolutionData> evolutions;
 
 	// Sprite data
 	SpriteData back;
@@ -105,15 +110,17 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 
 static void dumpSpeciesInfo(void);
 static void dumpPokedex(void);
-// static void dumpEvolutionInfo(SpeciesData& species);
-// static void dumpLevelUpLearnsetInfo(SpeciesData& species);
-// static void dumpGenderDifferences(SpeciesData& species);
-// static void dumpSpeciesNames(SpeciesData& species);
+static void dumpEvolutionInfo(void);
+static void dumpLevelUpLearnsetInfo(void);
+static void dumpGenderDifferences(void);
+static void dumpEnemyMonElevation(void);
+static void dumpSpeciesNames(void);
 
-// static void dumpBackSpriteInfo(SpeciesData& species);
-// static void dumpFrontSpriteInfo(SpeciesData& species);
-// static void dumpPaletteTables(SpeciesData& species);
-// static void dumpIconInfo(SpeciesData& species);
+// static void dumpBackSpriteInfo(void);
+// static void dumpFrontSpriteInfo(void);
+// static void dumpFootprints(void);
+// static void dumpPaletteTables(void);
+// static void dumpIconInfo(void);
 
 std::vector<SpeciesData> speciesMap;
 std::string speciesDexConstants;
@@ -146,6 +153,11 @@ int main(int argc, char* argv[])
 
 	dumpSpeciesInfo();
 	dumpPokedex();
+	dumpEvolutionInfo();
+	dumpLevelUpLearnsetInfo();
+	dumpGenderDifferences();
+	dumpEnemyMonElevation();
+	dumpSpeciesNames();
 
 	return 0;
 }
@@ -256,7 +268,30 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 	spec.safariZoneFleeRate = value.value("safariZoneFleeRate", 0);
 	spec.bodyColor = value.value("bodyColor", "BODY_COLOR_BLACK");
 	spec.noFlip = value.value("noFlip", false);
-	spec.levelUpLearnsetPointer = value.value("levelUpLearnset", "NULL");
+	// TODO: Ideally, I'd want this to be it's own array so you can directly edit it in species.json
+	spec.levelUpLearnsetPointer = value.value("levelUpLearnset", "sBulbasaurLevelUpLearnset");
+	spec.genderDifferenceSpecies = value.value("genderDifferenceSpecies", "");
+	spec.enemyMonElevation = value.value("enemyMonElevation", 0);
+
+	if (value.contains("evolutions")) {
+		int count = 0;
+		for (const auto& evo : value.at("evolutions")) {
+			count++;
+			if (count > EVOS_PER_MON)
+				break; // Too many!
+
+			EvolutionData evoData { };
+			evoData.method = evo.at("method");
+			// Param might be a number and not a string
+			if (evo.at("param").is_number())
+				evoData.param = std::to_string(evo.at("param").get<int>());
+			else if (evo.at("param").is_string())
+				evoData.param = evo.at("param");
+			evoData.species = evo.at("species");
+
+			spec.evolutions.push_back(evoData);
+		}
+	}
 
 	// Sprite data
 	if (value.contains("back"))
@@ -286,6 +321,9 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 
 #define ADD_NAMED_ARG(name, eqv) \
 	out << "\t\t." << name << " = " << std::to_string(v.eqv) << ",\n";
+
+#define ADD_NAMED_ARG_BOOLEAN(name, eqv) \
+	out << "\t\t." << name << " = " << (v.eqv ? "TRUE" : "FALSE") << ",\n";
 
 #define ADD_NAMED_ARG_STR(name, eqv) \
 	out << "\t\t." << name << " = " << v.eqv << ",\n";
@@ -437,7 +475,7 @@ static void dumpSpeciesInfo(void)
 
 		ADD_NAMED_ARG("safariZoneFleeRate", safariZoneFleeRate);
 		ADD_NAMED_ARG_STR("bodyColor", bodyColor);
-		ADD_NAMED_ARG("noFlip", noFlip);
+		ADD_NAMED_ARG_BOOLEAN("noFlip", noFlip);
 
 		out << "\t},\n";
 	}
@@ -483,6 +521,165 @@ static void dumpPokedex(void)
 		ADD_NAMED_ARG("trainerOffset", trainerOffset);
 
 		out << "\t},\n";
+	}
+	out << "};\n";
+}
+
+static void dumpEvolutionInfo(void)
+{
+	std::ofstream out(PATH_EVOLUTION_INFO, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_EVOLUTION_INFO);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const struct Evolution gEvolutionTable[NUM_SPECIES][EVOS_PER_MON] =\n{\n";
+
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		if (k == "SPECIES_EGG")
+			break;
+
+		if (v.evolutions.empty())
+			continue;
+
+		// index
+		out << "\t[" << k << "] = {";
+
+		for (size_t i = 0; i < v.evolutions.size(); i++) {
+			out << "{";
+			out << v.evolutions[i].method;
+			out << ", ";
+			out << v.evolutions[i].param;
+			out << ", ";
+			out << v.evolutions[i].species;
+			out << "}";
+			if (i < v.evolutions.size() - 1)
+				out << ",\n";
+		}
+
+		out << "},\n";
+	}
+	out << "};\n";
+}
+
+static void dumpLevelUpLearnsetInfo(void)
+{
+	std::ofstream out(PATH_LEVEL_UP_INFO, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_LEVEL_UP_INFO);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const u16 *const gLevelUpLearnsets[NUM_SPECIES] =\n{\n";
+
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		if (k == "SPECIES_EGG")
+			break;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << v.levelUpLearnsetPointer;
+		out << ",\n";
+	}
+	out << "};\n";
+}
+
+static void dumpGenderDifferences(void)
+{
+	std::ofstream out(PATH_GENDER_DIFFERENCE, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_GENDER_DIFFERENCE);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const u16 gSpeciesGenderDifferences[NUM_SPECIES] =\n{\n";
+
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		if (k == "SPECIES_EGG")
+			break;
+
+		if (v.genderDifferenceSpecies.empty())
+			continue;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << v.genderDifferenceSpecies;
+		out << ",\n";
+	}
+	out << "};\n";
+}
+
+static void dumpEnemyMonElevation(void)
+{
+	std::ofstream out(PATH_MON_ELEVATION, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_MON_ELEVATION);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const u8 gEnemyMonElevation[NUM_SPECIES] =\n{\n";
+
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		if (k == "SPECIES_EGG")
+			break;
+
+		if (v.enemyMonElevation == 0)
+			continue;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << std::to_string(v.enemyMonElevation);
+		out << ",\n";
+	}
+	out << "};\n";
+}
+
+static void dumpSpeciesNames(void)
+{
+	std::ofstream out(PATH_SPECIES_NAMES, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_SPECIES_NAMES);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] =\n{\n";
+
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		if (k == "SPECIES_EGG")
+			break;
+
+		if (v.name.empty())
+			continue;
+
+		// index
+		out << "\t[" << k << "] = _(\"";
+		out << v.name;
+		out << "\"),\n";
 	}
 	out << "};\n";
 }

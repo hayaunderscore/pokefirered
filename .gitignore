@@ -79,3 +79,8 @@ data/scripts/gabby_and_ty.inc
 # speciesproc reasons
 src/data/pokemon/species_info.h
 src/data/pokemon/pokedex_entries.h
+src/data/pokemon/evolution.h
+src/data/pokemon/level_up_learnset_pointers.h
+src/data/pokemon/gender_difference_species.h
+src/data/text/species_names.h
+src/data/pokemon_graphics/enemy_mon_elevation.h
