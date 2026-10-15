@@ -91,6 +91,7 @@ struct SpeciesData {
 	SpriteData front;
 	std::string palettePointer;
 	std::string shinyPalettePointer;
+	std::string footprintPointer;
 
 	struct {
 		std::string pointer;
@@ -116,11 +117,11 @@ static void dumpGenderDifferences(void);
 static void dumpEnemyMonElevation(void);
 static void dumpSpeciesNames(void);
 
-// static void dumpBackSpriteInfo(void);
-// static void dumpFrontSpriteInfo(void);
-// static void dumpFootprints(void);
-// static void dumpPaletteTables(void);
-// static void dumpIconInfo(void);
+static void dumpBackSpriteInfo(void);
+static void dumpFrontSpriteInfo(void);
+static void dumpFootprints(void);
+static void dumpPaletteTables(void);
+static void dumpIconInfo(void);
 
 std::vector<SpeciesData> speciesMap;
 std::string speciesDexConstants;
@@ -148,7 +149,7 @@ int main(int argc, char* argv[])
 	nlohmann::ordered_json j = nlohmann::ordered_json::parse(file);
 	for (auto& [species, info] : j.items()) {
 		speciesMap.push_back(createSpeciesData(species, info));
-		std::printf("Processed data for %s\n", species.c_str());
+		// std::printf("Processed data for %s\n", species.c_str());
 	}
 
 	dumpSpeciesInfo();
@@ -158,6 +159,11 @@ int main(int argc, char* argv[])
 	dumpGenderDifferences();
 	dumpEnemyMonElevation();
 	dumpSpeciesNames();
+	dumpBackSpriteInfo();
+	dumpFrontSpriteInfo();
+	dumpPaletteTables();
+	dumpFootprints();
+	dumpIconInfo();
 
 	return 0;
 }
@@ -298,9 +304,10 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 		spec.back = createSpriteData(value.at("back"));
 	if (value.contains("front"))
 		spec.front = createSpriteData(value.at("front"));
-	spec.palettePointer = value.value("palette", "NULL");
-	spec.shinyPalettePointer = value.value("shinyPalette", "NULL");
-	spec.icon.pointer = value.value("icon", "NULL");
+	spec.palettePointer = value.value("palette", "gMonPalette_CircledQuestionMark");
+	spec.shinyPalettePointer = value.value("shinyPalette", "gMonShinyPalette_CircledQuestionMark");
+	spec.footprintPointer = value.value("footprint", "gMonFootprint_QuestionMark");
+	spec.icon.pointer = value.value("icon", "gMonIcon_QuestionMark");
 	spec.icon.paletteIdx = value.value("iconPalette", 0);
 
 	// Pokedex info
@@ -319,20 +326,38 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 	return spec;
 }
 
+/*
+ * Various helpers for adding values to the header files.
+ * All of these require the variables out (std::ofstream) and v (any struct/class).
+ */
+
+// .name = str(v.eqv),
 #define ADD_NAMED_ARG(name, eqv) \
 	out << "\t\t." << name << " = " << std::to_string(v.eqv) << ",\n";
 
+// .name = (v.eqv ? "TRUE" : "FALSE"),
 #define ADD_NAMED_ARG_BOOLEAN(name, eqv) \
 	out << "\t\t." << name << " = " << (v.eqv ? "TRUE" : "FALSE") << ",\n";
 
+// .name = v.eqv,
 #define ADD_NAMED_ARG_STR(name, eqv) \
 	out << "\t\t." << name << " = " << v.eqv << ",\n";
 
+// .name = _("v.eqv"),
 #define ADD_NAMED_ARG_FORMAT_STR(name, eqv) \
 	out << "\t\t." << name << " = _(" << '"' << v.eqv << '"' << "),\n";
 
-#define ADD_NAMED_ARG_FORMAT_COMPOUND_STR(name, eqv) \
-	out << "\t\t." << name << " = COMPOUND_STRING(" << v.eqv << "),\n";
+// .name = mac(v.eqv),
+#define ADD_NAMED_ARG_MACRO(name, mac, eqv) \
+	out << "\t\t." << name << " = " << mac << "(" << v.eqv << "),\n";
+
+// mac(name, v.eqv),
+#define ADD_NAMED_ARG_INDEXED_MACRO(name, mac, eqv) \
+	out << "\t" << mac << "(" << name << ", " << v.eqv << "),\n";
+
+// .name = mac(x, y),
+#define ADD_NAMED_ARG_COORDS(name, mac, x, y) \
+	out << "\t\t." << name << " = " << mac << "(" << std::to_string(x) << ", " << std::to_string(y) << "),\n";
 
 // Source - https://stackoverflow.com/a/13172514
 // Posted by Some programmer dude, modified by community. See post 'Timeline' for change history
@@ -356,6 +381,7 @@ std::vector<std::string> split_string(const std::string& str,
 	return strings;
 }
 
+// .name = COMPOUND_STRING( /* eqv lines */ )
 #define ADD_NAMED_ARG_FORMAT_COMPOUND_STR_MULTILINE(name, eqv) \
 	out << "\t\t." << name << " = COMPOUND_STRING(\n";         \
 	{                                                          \
@@ -373,9 +399,11 @@ std::vector<std::string> split_string(const std::string& str,
 	}                                                          \
 	out << "),\n";
 
+// .name = eqv,
 #define ADD_VALUED_ARG(name, eqv) \
 	out << "\t\t." << name << " = " << eqv << ",\n";
 
+// .name = { /* v.eqv values */ },
 #define ADD_NAMED_ARRAY(name, eqv, size) \
 	out << "\t\t." << name << " = {";    \
 	for (int i = 0; i < size; i++) {     \
@@ -386,6 +414,7 @@ std::vector<std::string> split_string(const std::string& str,
 			out << "},\n";               \
 	}
 
+// .name = { /* v.eqv values */ }, (enums)
 #define ADD_NAMED_ARRAY_STRING(name, eqv, size)     \
 	out << "\t\t." << name << " = {";               \
 	for (int i = 0; i < size; i++) {                \
@@ -396,7 +425,8 @@ std::vector<std::string> split_string(const std::string& str,
 			out << "},\n";                          \
 	}
 
-#define ADD_NAMED_ARG_DEFINE(name, eqv, def) \
+// .name = def(str(v.eqv)),
+#define ADD_NAMED_ARG_MACRO_NSTR(name, eqv, def) \
 	out << "\t\t." << name << " = " << def << "(" << std::to_string(v.eqv) << "),\n";
 
 static void printHeader(std::ofstream& out)
@@ -457,7 +487,7 @@ static void dumpSpeciesInfo(void)
 
 		// Usually a percentage, so chuck this in
 		if (v.genderRatio < 100 && v.genderRatio > 0)
-			ADD_NAMED_ARG_DEFINE("genderRatio", genderRatio, "PERCENT_FEMALE");
+			ADD_NAMED_ARG_MACRO_NSTR("genderRatio", genderRatio, "PERCENT_FEMALE");
 		// otherwise...
 		if (v.genderRatio == SPECIESINFO_MALE)
 			ADD_VALUED_ARG("genderRatio", "MON_MALE");
@@ -682,4 +712,241 @@ static void dumpSpeciesNames(void)
 		out << "\"),\n";
 	}
 	out << "};\n";
+}
+
+static void dumpBackSpriteInfo(void)
+{
+	// Handle coordinates first
+	{
+		std::ofstream out(PATH_BACK_PIC_COORDS, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_BACK_PIC_COORDS);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct MonCoords gMonBackPicCoords[] =\n{\n";
+		for (const auto& v : speciesMap) {
+			const std::string k = v.species;
+
+			if (v.back.pointer.empty())
+				continue;
+
+			// index
+			out << "\t[" << k << "] = ";
+			out << "\n\t{\n";
+
+			ADD_NAMED_ARG_COORDS("size", "MON_COORDS_SIZE", v.back.size.w, v.back.size.h);
+			ADD_NAMED_ARG("y_offset", back.yOffset);
+
+			out << "\t},\n";
+		}
+		out << "};\n";
+
+		out.close();
+	}
+	// Handle sprite pointers
+	{
+		std::ofstream out(PATH_BACK_PIC_TABLE, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_BACK_PIC_TABLE);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct CompressedSpriteSheet gMonBackPicTable[] =\n{\n";
+		std::regex specRegex("SPECIES_");
+		for (const auto& v : speciesMap) {
+			const std::string k = std::regex_replace(v.species, specRegex, "");
+
+			if (v.back.pointer.empty())
+				continue;
+
+			ADD_NAMED_ARG_INDEXED_MACRO(k, "SPECIES_SPRITE", back.pointer);
+		}
+		out << "};\n";
+
+		out.close();
+	}
+}
+
+static void dumpFrontSpriteInfo(void)
+{
+	// Handle coordinates first
+	{
+		std::ofstream out(PATH_FRONT_PIC_COORDS, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_FRONT_PIC_COORDS);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct MonCoords gMonFrontPicCoords[] =\n{\n";
+		for (const auto& v : speciesMap) {
+			const std::string k = v.species;
+
+			if (v.front.pointer.empty())
+				continue;
+
+			// index
+			out << "\t[" << k << "] = ";
+			out << "\n\t{\n";
+
+			ADD_NAMED_ARG_COORDS("size", "MON_COORDS_SIZE", v.front.size.w, v.front.size.h);
+			ADD_NAMED_ARG("y_offset", front.yOffset);
+
+			out << "\t},\n";
+		}
+		out << "};\n";
+
+		out.close();
+	}
+	// Handle sprite pointers
+	{
+		std::ofstream out(PATH_FRONT_PIC_TABLE, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_FRONT_PIC_TABLE);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct CompressedSpriteSheet gMonFrontPicTable[] =\n{\n";
+		std::regex specRegex("SPECIES_");
+		for (const auto& v : speciesMap) {
+			const std::string k = std::regex_replace(v.species, specRegex, "");
+
+			if (v.front.pointer.empty())
+				continue;
+
+			ADD_NAMED_ARG_INDEXED_MACRO(k, "SPECIES_SPRITE", front.pointer);
+		}
+		out << "};\n";
+
+		out.close();
+	}
+}
+
+static void dumpFootprints(void)
+{
+	std::ofstream out(PATH_MON_FOOTPRINTS, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_MON_FOOTPRINTS);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating the array
+	out << "const u8 *const gMonFootprintTable[] =\n{\n";
+
+	bool breakOut = false;
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// break upon encountering SPECIES_EGG; we're done here
+		// but only after it lmao
+		if (k == "SPECIES_EGG")
+			breakOut = true;
+
+		if (v.footprintPointer.empty())
+			continue;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << v.footprintPointer;
+		out << ",\n";
+
+		if (breakOut)
+			break;
+	}
+	out << "};\n";
+}
+
+static void dumpPaletteTables(void)
+{
+	// normal palettes
+	{
+		std::ofstream out(PATH_PALETTE_TABLE, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_PALETTE_TABLE);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct CompressedSpritePalette gMonPaletteTable[] =\n{\n";
+		std::regex specRegex("SPECIES_");
+		for (const auto& v : speciesMap) {
+			const std::string k = std::regex_replace(v.species, specRegex, "");
+
+			if (v.palettePointer.empty())
+				continue;
+
+			ADD_NAMED_ARG_INDEXED_MACRO(k, "SPECIES_PAL", palettePointer);
+		}
+		out << "};\n";
+
+		out.close();
+	}
+	// shiny palettes
+	{
+		std::ofstream out(PATH_SHINY_PALETTE_TABLE, std::ios::out | std::ios::trunc);
+		if (!out.is_open()) {
+			std::fprintf(stderr, "FAILED to open %s!", PATH_SHINY_PALETTE_TABLE);
+			exit(1);
+		}
+		printHeader(out);
+
+		// start creating the array
+		out << "const struct CompressedSpritePalette gMonShinyPaletteTable[] =\n{\n";
+		std::regex specRegex("SPECIES_");
+		for (const auto& v : speciesMap) {
+			const std::string k = std::regex_replace(v.species, specRegex, "");
+
+			if (v.shinyPalettePointer.empty())
+				continue;
+
+			ADD_NAMED_ARG_INDEXED_MACRO(k, "SPECIES_SHINY_PAL", shinyPalettePointer);
+		}
+		out << "};\n";
+
+		out.close();
+	}
+}
+
+static void dumpIconInfo(void)
+{
+	std::ofstream out(PATH_ICON_TABLE, std::ios::out | std::ios::trunc);
+	if (!out.is_open()) {
+		std::fprintf(stderr, "FAILED to open %s!", PATH_ICON_TABLE);
+		exit(1);
+	}
+	printHeader(out);
+
+	// start creating gMonIconTable first
+	out << "const u8 *const gMonIconTable[] =\n{\n";
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << v.icon.pointer;
+		out << ",\n";
+	}
+	out << "};\n\n";
+
+	// then move to the indices
+	out << "const u8 gMonIconPaletteIndices[] =\n{\n";
+	for (const auto& v : speciesMap) {
+		const std::string k = v.species;
+
+		// index
+		out << "\t[" << k << "] = ";
+		out << std::to_string(v.icon.paletteIdx);
+		out << ",\n";
+	}
+	out << "};\n\n";
 }
