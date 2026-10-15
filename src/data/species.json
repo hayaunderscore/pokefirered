@@ -21,7 +21,7 @@
 		"height": 0,
 		"weight": 0,
 		"description": [
-			"This is a newly discovered POK\u00e9MON. It is",
+			"This is a newly discovered POKéMON. It is",
 			"currently under investigation. No detailed",
 			"information is available at this time."
 		],
@@ -86,7 +86,7 @@
 		"weight": 69,
 		"description": [
 			"There is a plant seed on its back right",
-			"from the day this POK\u00e9MON is born.",
+			"from the day this POKéMON is born.",
 			"The seed slowly grows larger."
 		],
 		"pokemonScale": 356,
@@ -405,7 +405,7 @@
 		"height": 17,
 		"weight": 905,
 		"description": [
-			"Its wings can carry this POK\u00e9MON close to",
+			"Its wings can carry this POKéMON close to",
 			"an altitude of 4,600 feet. It blows out",
 			"fire at very high temperatures."
 		],
@@ -533,7 +533,7 @@
 		"height": 10,
 		"weight": 225,
 		"description": [
-			"This POK\u00e9MON is very popular as a pet.",
+			"This POKéMON is very popular as a pet.",
 			"Its fur-covered tail is a symbol of its",
 			"longevity."
 		],
@@ -784,7 +784,7 @@
 		"weight": 320,
 		"description": [
 			"The wings are protected by rain-repellent",
-			"dust. As a result, this POK\u00e9MON can fly",
+			"dust. As a result, this POKéMON can fly",
 			"about even in rain."
 		],
 		"pokemonScale": 312,
@@ -911,7 +911,7 @@
 		"height": 6,
 		"weight": 100,
 		"description": [
-			"This POK\u00e9MON is in a temporary stage",
+			"This POKéMON is in a temporary stage",
 			"while making its body. It is almost",
 			"completely unable to move on its own."
 		],
@@ -1771,7 +1771,7 @@
 		"trainerOffset": -2
 	},
 	"SPECIES_NIDORAN_F": {
-		"name": "NIDORAN\u2640",
+		"name": "NIDORAN♀",
 		"baseHP": 55,
 		"baseAttack": 47,
 		"baseDefense": 52,
@@ -1956,7 +1956,7 @@
 		"trainerOffset": -2
 	},
 	"SPECIES_NIDORAN_M": {
-		"name": "NIDORAN\u2642",
+		"name": "NIDORAN♂",
 		"baseHP": 46,
 		"baseAttack": 57,
 		"baseDefense": 40,
@@ -2688,7 +2688,7 @@
 		"height": 5,
 		"weight": 54,
 		"description": [
-			"Its scientific name is \u201cOddium Wanderus.\u201d",
+			"Its scientific name is “Oddium Wanderus.”",
 			"At night, it is said to walk nearly 1,000",
 			"feet on its two roots."
 		],
@@ -3662,7 +3662,7 @@
 		"height": 19,
 		"weight": 1550,
 		"description": [
-			"A POK\u00e9MON that is described in Chinese",
+			"A POKéMON that is described in Chinese",
 			"legends. It is said to race at an",
 			"unbelievable speed."
 		],
@@ -5205,7 +5205,7 @@
 		"height": 14,
 		"weight": 392,
 		"description": [
-			"A two-headed POK\u00e9MON that was discovered",
+			"A two-headed POKéMON that was discovered",
 			"as a sudden mutation. It runs at a pace",
 			"of over 60 miles per hour."
 		],
@@ -6243,7 +6243,7 @@
 		"description": [
 			"It explodes in response to even minor",
 			"stimuli. It is feared, with the nickname",
-			"of \u201cThe Bomb Ball.\u201d"
+			"of “The Bomb Ball.”"
 		],
 		"pokemonScale": 256,
 		"pokemonOffset": 0,
@@ -6362,8 +6362,8 @@
 		"height": 20,
 		"weight": 1200,
 		"description": [
-			"It is called \u201cThe Walking Tropical",
-			"Rainforest.\u201d Each of the nuts has",
+			"It is called “The Walking Tropical",
+			"Rainforest.” Each of the nuts has",
 			"a face and a will of its own."
 		],
 		"pokemonScale": 283,
@@ -6598,7 +6598,7 @@
 		"weight": 502,
 		"description": [
 			"The spirit of a pro boxer has infused this",
-			"POK\u00e9MON. It throws punches that are",
+			"POKéMON. It throws punches that are",
 			"faster than a bullet train."
 		],
 		"pokemonScale": 256,
@@ -6841,7 +6841,7 @@
 		"height": 10,
 		"weight": 1150,
 		"description": [
-			"Strong, but not too bright, this POK\u00e9MON",
+			"Strong, but not too bright, this POKéMON",
 			"can shatter even a skyscraper with its",
 			"charging TACKLES."
 		],
@@ -7019,7 +7019,7 @@
 		"height": 10,
 		"weight": 350,
 		"description": [
-			"Blue plant vines cloak the POK\u00e9MON's",
+			"Blue plant vines cloak the POKéMON's",
 			"identity in a tangled mass. It entangles",
 			"anything that gets close."
 		],
@@ -7446,7 +7446,7 @@
 		"height": 11,
 		"weight": 800,
 		"description": [
-			"This POK\u00e9MON has a geometric body.",
+			"This POKéMON has a geometric body.",
 			"Because of its body, the locals suspect",
 			"that it is an alien creature."
 		],
@@ -7918,7 +7918,7 @@
 		"description": [
 			"It is virtually worthless in terms of both",
 			"power and speed. It is the most weak and",
-			"pathetic POK\u00e9MON in the world."
+			"pathetic POKéMON in the world."
 		],
 		"pokemonScale": 317,
 		"pokemonOffset": 4,
@@ -8171,7 +8171,7 @@
 		"height": 3,
 		"weight": 65,
 		"description": [
-			"An extremely rare POK\u00e9MON that may",
+			"An extremely rare POKéMON that may",
 			"evolve in a number of different ways",
 			"depending on stimuli."
 		],
@@ -8408,7 +8408,7 @@
 		"description": [
 			"Using the most advanced technologies,",
 			"scientists finally succeeded in making the",
-			"first artificial POK\u00e9MON."
+			"first artificial POKéMON."
 		],
 		"pokemonScale": 328,
 		"pokemonOffset": 7,
@@ -8470,7 +8470,7 @@
 		"height": 4,
 		"weight": 75,
 		"description": [
-			"A prehistoric POK\u00e9MON that lived in the",
+			"A prehistoric POKéMON that lived in the",
 			"primordial sea, it swims by twisting its",
 			"10 tentacles about."
 		],
@@ -8591,7 +8591,7 @@
 		"height": 5,
 		"weight": 115,
 		"description": [
-			"This POK\u00e9MON was regenerated from the",
+			"This POKéMON was regenerated from the",
 			"fossil of an ancient creature. It protects",
 			"itself with a hard shell."
 		],
@@ -8821,7 +8821,7 @@
 		"height": 17,
 		"weight": 554,
 		"description": [
-			"One of the legendary bird POK\u00e9MON.",
+			"One of the legendary bird POKéMON.",
 			"With its long tail trailing behind, its",
 			"flying form is magnificent."
 		],
@@ -8879,7 +8879,7 @@
 		"height": 16,
 		"weight": 526,
 		"description": [
-			"One of the legendary bird POK\u00e9MON.",
+			"One of the legendary bird POKéMON.",
 			"While it is flying, it makes crackling and",
 			"snapping sounds."
 		],
@@ -8937,7 +8937,7 @@
 		"height": 20,
 		"weight": 600,
 		"description": [
-			"One of the legendary bird POK\u00e9MON.",
+			"One of the legendary bird POKéMON.",
 			"Those seeing it are overwhelmed by its",
 			"orange wings that seem to be on fire."
 		],
@@ -9180,7 +9180,7 @@
 		"height": 20,
 		"weight": 1220,
 		"description": [
-			"A POK\u00e9MON whose genetic code was",
+			"A POKéMON whose genetic code was",
 			"repeatedly recombined for research.",
 			"It turned vicious as a result."
 		],
@@ -9238,7 +9238,7 @@
 		"height": 4,
 		"weight": 40,
 		"description": [
-			"A POK\u00e9MON of South America that was",
+			"A POKéMON of South America that was",
 			"thought to have been extinct. It is very",
 			"intelligent and learns any move."
 		],
@@ -9552,7 +9552,7 @@
 		"height": 9,
 		"weight": 190,
 		"description": [
-			"This POK\u00e9MON is fully covered by",
+			"This POKéMON is fully covered by",
 			"nonflammable fur. It can withstand any",
 			"kind of fire attack."
 		],
@@ -13493,7 +13493,7 @@
 		"description": [
 			"In a south sea nation, the people live in",
 			"communities that are built on groups of",
-			"these POK\u00e9MON."
+			"these POKéMON."
 		],
 		"pokemonScale": 410,
 		"pokemonOffset": 15,
@@ -13905,7 +13905,7 @@
 		"weight": 350,
 		"description": [
 			"Upon hearing its eerie howls, other",
-			"POK\u00e9MON get the shivers and head straight",
+			"POKéMON get the shivers and head straight",
 			"back to their nests."
 		],
 		"pokemonScale": 256,
@@ -14513,7 +14513,7 @@
 		"weight": 235,
 		"description": [
 			"Even in the most vicious storm, this",
-			"POK\u00e9MON plays happily if thunder rumbles",
+			"POKéMON plays happily if thunder rumbles",
 			"in the sky."
 		],
 		"pokemonScale": 363,
@@ -14691,7 +14691,7 @@
 		"weight": 468,
 		"description": [
 			"It has a very compassionate nature. If it",
-			"sees a sick POK\u00e9MON, it will nurse the",
+			"sees a sick POKéMON, it will nurse the",
 			"sufferer back to health."
 		],
 		"pokemonScale": 256,
@@ -14747,7 +14747,7 @@
 		"height": 19,
 		"weight": 1780,
 		"description": [
-			"This POK\u00e9MON races across the",
+			"This POKéMON races across the",
 			"land while barking a cry that sounds",
 			"like crashing thunder."
 		],
@@ -14804,7 +14804,7 @@
 		"height": 21,
 		"weight": 1980,
 		"description": [
-			"A POK\u00e9MON that races across the land.",
+			"A POKéMON that races across the land.",
 			"It is said that one is born every time a",
 			"new volcano appears."
 		],
@@ -14861,7 +14861,7 @@
 		"height": 20,
 		"weight": 1870,
 		"description": [
-			"This POK\u00e9MON races across the land.",
+			"This POKéMON races across the land.",
 			"It is said that north winds will somehow",
 			"blow whenever it appears."
 		],
@@ -15279,7 +15279,7 @@
 		"height": 16,
 		"weight": 855,
 		"description": [
-			"This POK\u00e9MON is simultaneously mortal",
+			"This POKéMON is simultaneously mortal",
 			"and divine, yet none at once. In a",
 			"normal world, it should not exist."
 		],
@@ -15336,7 +15336,7 @@
 		"height": 20,
 		"weight": 1000,
 		"description": [
-			"This POK\u00e9MON is very docile and",
+			"This POKéMON is very docile and",
 			"typically don't fight. Because of this,",
 			"it is popular with retired trainers."
 		],
@@ -15393,7 +15393,7 @@
 		"height": 17,
 		"weight": 905,
 		"description": [
-			"A very aggressive POK\u00e9MON that you do",
+			"A very aggressive POKéMON that you do",
 			"not want to see in the wild. Its white",
 			"tail burns things quite easily."
 		],
@@ -16375,7 +16375,7 @@
 		"height": 9,
 		"weight": 280,
 		"description": [
-			"These intelligent POK\u00e9MON touch horns",
+			"These intelligent POKéMON touch horns",
 			"with each other to share information",
 			"between them."
 		],
@@ -16558,7 +16558,7 @@
 		"height": 110,
 		"weight": 6660,
 		"description": [
-			"This POK\u00e9MON sleeps for thousands of",
+			"This POKéMON sleeps for thousands of",
 			"years to regain power. Legends say",
 			"that it once ruled everything."
 		],
@@ -17298,7 +17298,7 @@
 		"height": 4,
 		"weight": 175,
 		"description": [
-			"A POK\u00e9MON with abundant curiosity.",
+			"A POKéMON with abundant curiosity.",
 			"It shows an interest in everything, so it",
 			"always zigs and zags."
 		],
@@ -18038,7 +18038,7 @@
 		"height": 13,
 		"weight": 596,
 		"description": [
-			"A POK\u00e9MON that was feared as a forest",
+			"A POKéMON that was feared as a forest",
 			"guardian. It can read the foe's mind and",
 			"take preemptive action."
 		],
@@ -18165,7 +18165,7 @@
 		"height": 8,
 		"weight": 120,
 		"description": [
-			"This POK\u00e9MON is so quick, it is said to",
+			"This POKéMON is so quick, it is said to",
 			"be able to avoid any attack. It loves to",
 			"feed on tree sap."
 		],
@@ -18223,8 +18223,8 @@
 		"height": 8,
 		"weight": 12,
 		"description": [
-			"A most peculiar POK\u00e9MON that somehow",
-			"appears in a POK\u00e9 BALL when a NINCADA",
+			"A most peculiar POKéMON that somehow",
+			"appears in a POKé BALL when a NINCADA",
 			"evolves."
 		],
 		"pokemonScale": 372,
@@ -18646,7 +18646,7 @@
 		"weight": 280,
 		"description": [
 			"It is a flying transporter that carries",
-			"small POK\u00e9MON in its beak. It bobs on the",
+			"small POKéMON in its beak. It bobs on the",
 			"waves to rest its wings."
 		],
 		"pokemonScale": 288,
@@ -18888,7 +18888,7 @@
 		"height": 145,
 		"weight": 3980,
 		"description": [
-			"It is among the largest of all POK\u00e9MON.",
+			"It is among the largest of all POKéMON.",
 			"It herds prey in a pack then swallows the",
 			"massed prey in one gulp."
 		],
@@ -20152,7 +20152,7 @@
 		"weight": 864,
 		"description": [
 			"It grows stronger by enduring harsh",
-			"training. It is a gutsy POK\u00e9MON that can",
+			"training. It is a gutsy POKéMON that can",
 			"withstand any attack."
 		],
 		"pokemonScale": 256,
@@ -22022,7 +22022,7 @@
 		"height": 20,
 		"weight": 1305,
 		"description": [
-			"It is the world's most slothful POK\u00e9MON.",
+			"It is the world's most slothful POKéMON.",
 			"However, it can exert horrifying power by",
 			"releasing pent-up energy all at once."
 		],
@@ -22749,7 +22749,7 @@
 		"weight": 125,
 		"description": [
 			"Strong feelings of hatred turned a puppet",
-			"into a POK\u00e9MON. If it opens its mouth,",
+			"into a POKéMON. If it opens its mouth,",
 			"its cursed energy escapes."
 		],
 		"pokemonScale": 262,
@@ -23461,7 +23461,7 @@
 		"height": 7,
 		"weight": 125,
 		"description": [
-			"It is a kind of POK\u00e9MON progenitor.",
+			"It is a kind of POKéMON progenitor.",
 			"It uses its extending claws to catch prey",
 			"hiding among rocks on the seafloor."
 		],
@@ -23583,7 +23583,7 @@
 		"weight": 66,
 		"description": [
 			"It is highly attuned to the emotions of",
-			"people and POK\u00e9MON. It hides if it senses",
+			"people and POKéMON. It hides if it senses",
 			"hostility."
 		],
 		"pokemonScale": 457,
@@ -24302,7 +24302,7 @@
 		"height": 45,
 		"weight": 3520,
 		"description": [
-			"This POK\u00e9MON is said to have",
+			"This POKéMON is said to have",
 			"expanded the sea by bringing heavy rains.",
 			"It has the power to control water."
 		],
@@ -24359,7 +24359,7 @@
 		"height": 35,
 		"weight": 9500,
 		"description": [
-			"This legendary POK\u00e9MON is said to",
+			"This legendary POKéMON is said to",
 			"represent the land. It went to sleep after",
 			"dueling KYOGRE."
 		],
