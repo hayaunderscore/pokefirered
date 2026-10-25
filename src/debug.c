@@ -3703,6 +3703,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_VS_WILD_GUYANA) \
     X(MUS_VS_LEGEND_BEAST) \
     X(MUS_B_PIKE) \
+    X(MUS_DRIFTVEIL_CITY) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

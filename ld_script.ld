@@ -993,6 +993,7 @@ SECTIONS {
         sound/songs/midi/mus_vs_wild_guyana.o(.rodata);
         sound/songs/midi/mus_vs_legend_beast.o(.rodata);
         sound/songs/midi/mus_b_pike.o(.rodata);
+        sound/songs/midi/mus_driftveil_city.o(.rodata);
     } > ROM =0
 
     lib_rodata :

@@ -1969,3 +1969,11 @@ DirectSoundWaveData_2009_sy_loop::
 	.align 2
 DirectSoundWaveData_orchestral_hits::
 	.incbin "sound/direct_sound_samples/orchestral_hits.bin"
+
+	.align 2
+DirectSoundWaveData_bw_organ::
+	.incbin "sound/direct_sound_samples/bw_organ.bin"
+
+	.align 2
+DirectSoundWaveData_bw_organ2::
+	.incbin "sound/direct_sound_samples/bw_organ2.bin"

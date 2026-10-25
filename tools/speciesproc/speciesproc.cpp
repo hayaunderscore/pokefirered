@@ -2,12 +2,13 @@
 // Converts JSON species data into equivalent header files
 
 #include "./nlohmann/json.hpp"
+#include "./styml.h"
 #include <algorithm>
 #include <fstream>
 #include <regex>
 #include <sstream>
+#include <stdexcept>
 #include <string>
-#include <unordered_map>
 
 #define TYPES_PER_MON		   2
 #define EGG_GROUPS_PER_MON	   2
@@ -107,7 +108,8 @@ struct SpeciesData {
 	int16_t trainerScale, trainerOffset;
 };
 
-static SpeciesData createSpeciesData(const std::string species, const nlohmann::ordered_json value);
+static SpeciesData createLegacySpeciesData(const std::string species, const nlohmann::ordered_json value);
+static SpeciesData createSpeciesData(const std::string species, styml::Document doc);
 
 static void dumpSpeciesInfo(void);
 static void dumpPokedex(void);
@@ -123,18 +125,44 @@ static void dumpFootprints(void);
 static void dumpPaletteTables(void);
 static void dumpIconInfo(void);
 
-std::vector<SpeciesData> speciesMap;
-std::string speciesDexConstants;
+std::vector<SpeciesData> speciesMap = { };
+std::string speciesDexConstants = "";
+std::filesystem::path speciesPath;
+std::filesystem::path dataPath;
+
+bool argExportYaml = false;
+
+static void handleArguments(int argc, char* argv[])
+{
+	// We skip the first argument; thats the program name
+	for (int i = 1; i < argc; i++) {
+		std::string arg = argv[i];
+		// probably a flag...
+		if (arg.rfind("--", 0) == 0) {
+			arg = arg.substr(2, arg.size());
+			if (arg == "exportYaml")
+				argExportYaml = true;
+			continue;
+		}
+		// ordered arguments, obviously
+		if (speciesPath.empty())
+			speciesPath = arg;
+		else if (dataPath.empty())
+			dataPath = arg;
+	}
+
+	if (speciesPath.empty() && dataPath.empty()) {
+		std::fprintf(stderr,
+			"USAGE: speciesproc [--exportYaml] <species-path> <data-folder-path>");
+		exit(1);
+	}
+}
 
 int main(int argc, char* argv[])
 {
-	if (argc != 3) {
-		std::fprintf(stderr,
-			"USAGE: speciesproc <species-path> <data-folder-path>");
-		exit(1);
-	}
+	handleArguments(argc, argv);
 
-	std::ifstream entries(PATH_POKEDEX_CONSTANTS);
+	std::ifstream entries(dataPath / PATH_POKEDEX_CONSTANTS);
 	if (!entries.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_POKEDEX_CONSTANTS);
 		exit(1);
@@ -143,13 +171,17 @@ int main(int argc, char* argv[])
 	buf << entries.rdbuf();
 	speciesDexConstants = buf.str();
 
-	std::string speciesPath = argv[1];
 	std::ifstream file(speciesPath);
 
-	nlohmann::ordered_json j = nlohmann::ordered_json::parse(file);
-	for (auto& [species, info] : j.items()) {
-		speciesMap.push_back(createSpeciesData(species, info));
-		// std::printf("Processed data for %s\n", species.c_str());
+	if (speciesPath.extension() == ".json") {
+		nlohmann::ordered_json j = nlohmann::ordered_json::parse(file);
+		for (auto& [species, info] : j.items()) {
+			speciesMap.push_back(createLegacySpeciesData(species, info));
+			// std::printf("Processed data for %s\n", species.c_str());
+		}
+	} else {
+		std::fprintf(stderr, "FAILED to generate species info: invalid file type!");
+		exit(1);
 	}
 
 	dumpSpeciesInfo();
@@ -196,7 +228,7 @@ std::string stringFromJsonStrArray(const nlohmann::ordered_json value)
 	return str;
 }
 
-static SpeciesData createSpeciesData(const std::string species, const nlohmann::ordered_json value)
+static SpeciesData createLegacySpeciesData(const std::string species, const nlohmann::ordered_json value)
 {
 	SpeciesData spec { };
 	int i;
@@ -326,6 +358,110 @@ static SpeciesData createSpeciesData(const std::string species, const nlohmann::
 	return spec;
 }
 
+#define GET_VALUE(doc, target, source, type, def) \
+	if (doc.hasKey(source))                       \
+		target = doc[source].as<type>();          \
+	else                                          \
+		target = def;
+
+#define GET_VALUE_NO_DEFAULT(doc, target, source, type, def) \
+	target = doc[source].as<type>();
+
+static SpeciesData createSpeciesData(const std::string species, styml::Document doc)
+{
+	SpeciesData spec { };
+	uint32_t i;
+
+	spec.species = species;
+
+	GET_VALUE(doc, spec.name, "name", std::string, "");
+
+	if (doc.hasKey("baseStats")) {
+		GET_VALUE(doc["baseStats"], spec.baseStats.hp, "hp", uint8_t, 1);
+		GET_VALUE(doc["baseStats"], spec.baseStats.atk, "attack", uint8_t, 1);
+		GET_VALUE(doc["baseStats"], spec.baseStats.def, "defense", uint8_t, 1);
+		GET_VALUE(doc["baseStats"], spec.baseStats.spAtk, "specialAttack", uint8_t, 1);
+		GET_VALUE(doc["baseStats"], spec.baseStats.spDef, "specialDefense", uint8_t, 1);
+		GET_VALUE(doc["baseStats"], spec.baseStats.spd, "speed", uint8_t, 1);
+	}
+
+	if (doc.hasKey("types")) {
+		for (i = 0; i < TYPES_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc["types"], spec.types[i], i, std::string, "");
+	} else if (doc.hasKey("type")) {
+		for (i = 0; i < TYPES_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc, spec.types[i], "type", std::string, "");
+	} else {
+		for (i = 0; i < TYPES_PER_MON; i++)
+			spec.types[i] = "TYPE_NORMAL";
+	}
+
+	GET_VALUE(doc, spec.catchRate, "catchRate", uint8_t, 120);
+	GET_VALUE(doc, spec.expYield, "expYield", uint8_t, 0);
+
+	if (doc.hasKey("evYield")) {
+		GET_VALUE(doc["evYield"], spec.evYield.hp, "hp", uint16_t, 1);
+		GET_VALUE(doc["evYield"], spec.evYield.atk, "attack", uint16_t, 1);
+		GET_VALUE(doc["evYield"], spec.evYield.def, "defense", uint16_t, 1);
+		GET_VALUE(doc["evYield"], spec.evYield.spAtk, "specialAttack", uint16_t, 1);
+		GET_VALUE(doc["evYield"], spec.evYield.spDef, "specialDefense", uint16_t, 1);
+		GET_VALUE(doc["evYield"], spec.evYield.spd, "speed", uint16_t, 1);
+	}
+
+	GET_VALUE(doc, spec.itemCommon, "itemCommon", std::string, "ITEM_NONE");
+	GET_VALUE(doc, spec.itemRare, "itemRare", std::string, "ITEM_NONE");
+
+	if (doc.hasKey("genderRatio")) {
+		std::string genderRatio = doc["genderRatio"].as<std::string>();
+		try {
+			spec.genderRatio = std::stod(genderRatio);
+		} catch (const std::invalid_argument& e) {
+			if (genderRatio == "MON_MALE")
+				spec.genderRatio = 0;
+			else if (genderRatio == "MON_FEMALE")
+				spec.genderRatio = 254;
+			else if (genderRatio == "MON_GENDERLESS")
+				spec.genderRatio = 255;
+		}
+	} else {
+		spec.genderRatio = 50.0;
+	}
+
+	GET_VALUE(doc, spec.eggCycles, "eggCycles", uint16_t, 60);
+	GET_VALUE(doc, spec.friendship, "baseFriendship", uint16_t, 70);
+	GET_VALUE(doc, spec.growthRate, "growthRate", std::string, "GROWTH_FAST");
+
+	if (doc.hasKey("eggGroups")) {
+		for (i = 0; i < EGG_GROUPS_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc["eggGroups"], spec.eggGroups[i], i, std::string, "EGG_GROUP_NONE");
+	} else if (doc.hasKey("eggGroup")) {
+		for (i = 0; i < EGG_GROUPS_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc, spec.eggGroups[i], "eggGroup", std::string, "EGG_GROUP_NONE");
+	} else {
+		for (i = 0; i < EGG_GROUPS_PER_MON; i++)
+			spec.eggGroups[i] = "EGG_GROUP_NONE";
+	}
+
+	if (doc.hasKey("abilities")) {
+		for (i = 0; i < ABILITIES_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc["abilities"], spec.abilities[i], i, std::string, "ABILITY_NONE");
+	} else if (doc.hasKey("eggGroup")) {
+		for (i = 0; i < ABILITIES_PER_MON; i++)
+			GET_VALUE_NO_DEFAULT(doc, spec.abilities[i], "eggGroup", std::string, "ABILITY_NONE");
+	} else {
+		for (i = 0; i < ABILITIES_PER_MON; i++)
+			spec.abilities[i] = "ABILITY_NONE";
+	}
+	
+	GET_VALUE(doc, spec.safariZoneFleeRate, "safariZoneFleeRate", uint8_t, 0);
+	GET_VALUE(doc, spec.bodyColor, "bodyColor", std::string, "BODY_COLOR_BLACK");
+	GET_VALUE(doc, spec.noFlip, "noFlip", bool, false);
+	GET_VALUE(doc, spec.levelUpLearnsetPointer, "levelUpLearnset", std::string, "sBulbasaurLevelUpLearnset");
+	
+
+	return spec;
+}
+
 /*
  * Various helpers for adding values to the header files.
  * All of these require the variables out (std::ofstream) and v (any struct/class).
@@ -436,7 +572,7 @@ static void printHeader(std::ofstream& out)
 
 static void dumpSpeciesInfo(void)
 {
-	std::ofstream out(PATH_SPECIES_INFO, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_SPECIES_INFO), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_SPECIES_INFO);
 		exit(1);
@@ -514,7 +650,7 @@ static void dumpSpeciesInfo(void)
 
 static void dumpPokedex(void)
 {
-	std::ofstream out(PATH_POKEDEX_ENTRIES, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_POKEDEX_ENTRIES), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_POKEDEX_ENTRIES);
 		exit(1);
@@ -557,7 +693,7 @@ static void dumpPokedex(void)
 
 static void dumpEvolutionInfo(void)
 {
-	std::ofstream out(PATH_EVOLUTION_INFO, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_EVOLUTION_INFO), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_EVOLUTION_INFO);
 		exit(1);
@@ -599,7 +735,7 @@ static void dumpEvolutionInfo(void)
 
 static void dumpLevelUpLearnsetInfo(void)
 {
-	std::ofstream out(PATH_LEVEL_UP_INFO, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_LEVEL_UP_INFO), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_LEVEL_UP_INFO);
 		exit(1);
@@ -626,7 +762,7 @@ static void dumpLevelUpLearnsetInfo(void)
 
 static void dumpGenderDifferences(void)
 {
-	std::ofstream out(PATH_GENDER_DIFFERENCE, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_GENDER_DIFFERENCE), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_GENDER_DIFFERENCE);
 		exit(1);
@@ -656,7 +792,7 @@ static void dumpGenderDifferences(void)
 
 static void dumpEnemyMonElevation(void)
 {
-	std::ofstream out(PATH_MON_ELEVATION, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_MON_ELEVATION), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_MON_ELEVATION);
 		exit(1);
@@ -686,7 +822,7 @@ static void dumpEnemyMonElevation(void)
 
 static void dumpSpeciesNames(void)
 {
-	std::ofstream out(PATH_SPECIES_NAMES, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_SPECIES_NAMES), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_SPECIES_NAMES);
 		exit(1);
@@ -718,7 +854,7 @@ static void dumpBackSpriteInfo(void)
 {
 	// Handle coordinates first
 	{
-		std::ofstream out(PATH_BACK_PIC_COORDS, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_BACK_PIC_COORDS), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_BACK_PIC_COORDS);
 			exit(1);
@@ -748,7 +884,7 @@ static void dumpBackSpriteInfo(void)
 	}
 	// Handle sprite pointers
 	{
-		std::ofstream out(PATH_BACK_PIC_TABLE, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_BACK_PIC_TABLE), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_BACK_PIC_TABLE);
 			exit(1);
@@ -776,7 +912,7 @@ static void dumpFrontSpriteInfo(void)
 {
 	// Handle coordinates first
 	{
-		std::ofstream out(PATH_FRONT_PIC_COORDS, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_FRONT_PIC_COORDS), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_FRONT_PIC_COORDS);
 			exit(1);
@@ -806,7 +942,7 @@ static void dumpFrontSpriteInfo(void)
 	}
 	// Handle sprite pointers
 	{
-		std::ofstream out(PATH_FRONT_PIC_TABLE, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_FRONT_PIC_TABLE), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_FRONT_PIC_TABLE);
 			exit(1);
@@ -832,7 +968,7 @@ static void dumpFrontSpriteInfo(void)
 
 static void dumpFootprints(void)
 {
-	std::ofstream out(PATH_MON_FOOTPRINTS, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_MON_FOOTPRINTS), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_MON_FOOTPRINTS);
 		exit(1);
@@ -869,7 +1005,7 @@ static void dumpPaletteTables(void)
 {
 	// normal palettes
 	{
-		std::ofstream out(PATH_PALETTE_TABLE, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_PALETTE_TABLE), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_PALETTE_TABLE);
 			exit(1);
@@ -893,7 +1029,7 @@ static void dumpPaletteTables(void)
 	}
 	// shiny palettes
 	{
-		std::ofstream out(PATH_SHINY_PALETTE_TABLE, std::ios::out | std::ios::trunc);
+		std::ofstream out((dataPath / PATH_SHINY_PALETTE_TABLE), std::ios::out | std::ios::trunc);
 		if (!out.is_open()) {
 			std::fprintf(stderr, "FAILED to open %s!", PATH_SHINY_PALETTE_TABLE);
 			exit(1);
@@ -919,7 +1055,7 @@ static void dumpPaletteTables(void)
 
 static void dumpIconInfo(void)
 {
-	std::ofstream out(PATH_ICON_TABLE, std::ios::out | std::ios::trunc);
+	std::ofstream out((dataPath / PATH_ICON_TABLE), std::ios::out | std::ios::trunc);
 	if (!out.is_open()) {
 		std::fprintf(stderr, "FAILED to open %s!", PATH_ICON_TABLE);
 		exit(1);

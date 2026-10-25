@@ -844,6 +844,7 @@ MUS_ENCOUNTER_SAILOR      = 6E 01
 MUS_VS_WILD_GUYANA        = 6F 01
 MUS_VS_LEGEND_BEAST       = 70 01
 MUS_B_PIKE                = 71 01
+MUS_DRIFTVEIL_CITY        = 72 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

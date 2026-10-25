@@ -173,13 +173,21 @@ Music: Female
 Double Battle: Yes
 AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
 
+Geodude
+Level: 23
+IVs: 0 HP / 10 Atk / 4 Def / 0 SpA / 4 SpD / 0 Spe
+
+Petilil
+Level: 23
+IVs: 0 HP / 0 Atk / 4 Def / 10 SpA / 0 SpD / 8 Spe
+
 Nincada
 Level: 23
-IVs: 0 HP / 4 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
+IVs: 8 HP / 12 Atk / 8 Def / 0 SpA / 0 SpD / 0 Spe
 
 Cubone
 Level: 23
-IVs: 0 HP / 10 Atk / 4 Def / 0 SpA / 4 SpD / 0 Spe
+IVs: 8 HP / 12 Atk / 4 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_RIVAL_SS_ANNE_RATICATE ===
 Name: BLUE

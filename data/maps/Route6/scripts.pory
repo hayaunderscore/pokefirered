@@ -17,6 +17,16 @@ script Route6_EventScript_SaffronSign {
 	end
 }
 
+script Route6_EventScript_Rock {
+	msgbox("It's a rock.
+			By the water.
+
+			The rock doesn't seem to be that
+			significant.
+			You can ignore it.", MSGBOX_SIGN)
+	end
+}
+
 # script Route6_EventScript_PokemonTech_GuardScript {
 # 	if (var(VAR_MAP_SCENE_POKETECH_GUARD) == 1) {
 # 		lockall

@@ -369,6 +369,7 @@ gSongTable::
 	song mus_vs_wild_guyana, 0, 0
 	song mus_vs_legend_beast, 0, 0
 	song mus_b_pike, 0, 0
+	song mus_driftveil_city, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

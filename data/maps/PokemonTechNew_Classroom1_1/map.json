@@ -2,7 +2,7 @@
   "id": "MAP_POKEMON_TECH_NEW_CLASSROOM1_1",
   "name": "PokemonTechNew_Classroom1_1",
   "layout": "LAYOUT_POKEMON_TECH_NEW_CLASSROOM1_1",
-  "music": "MUS_SEVII_45",
+  "music": "MUS_DRIFTVEIL_CITY",
   "region_map_section": "MAPSEC_POKEMON_TECH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
