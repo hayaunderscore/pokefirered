@@ -1127,12 +1127,15 @@ void Task_UseFly(u8 taskId)
 
 static u16 GetOriginalGraphicsId(u8 localId, u32 mapGroup, u32 mapNum)
 {
+	const struct MapHeader *mapHeader;
+	const struct ObjectEventTemplate *objTemplate;
+	
     if (localId == LOCALID_PLAYER)
         return GetPlayerAvatarGraphicsIdByCurrentState();
     if (localId == OBJ_EVENT_ID_FOLLOWER)
         return GetFollowerSprite();
-    const struct MapHeader *mapHeader = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
-    const struct ObjectEventTemplate *objTemplate = FindObjectEventTemplateByLocalId(localId, mapHeader->events->objectEvents, mapHeader->events->objectEventCount);
+    mapHeader = Overworld_GetMapHeaderByGroupAndId(mapGroup, mapNum);
+    objTemplate = FindObjectEventTemplateByLocalId(localId, mapHeader->events->objectEvents, mapHeader->events->objectEventCount);
     return objTemplate->graphicsId;
 }
 
@@ -4159,13 +4162,13 @@ static void Task_SpinMorphObjectEvent(u8 taskId)
 
 static void MorphObject_Internal(u32 objectEventId, u32 graphicsId, enum MorphType type)
 {
+	u8 taskId = 0;
     if (type == INSTANT_MORPH)
     {
         ObjectEventSetGraphicsId(&gObjectEvents[objectEventId], graphicsId);
         ObjectEventTurn(&gObjectEvents[objectEventId], gObjectEvents[objectEventId].movementDirection);
         return;
     }
-    u8 taskId = 0;
     if (type == MOSAIC_MORPH)
         taskId = CreateTask(Task_MosaicMorphObjectEvent, 0);
     else if (type == SPIN_MORPH)

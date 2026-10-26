@@ -1941,7 +1941,7 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
             if (!is_empty_string(pokemon->nickname))
             {
                 fprintf(f, "#line %d\n", pokemon->header_line);
-                fprintf(f, "            .nickname = COMPOUND_STRING(\"");
+                fprintf(f, "            .nickname = _(\"");
                 fprint_string(f, pokemon->nickname);
                 fprintf(f, "\"),\n");
             }

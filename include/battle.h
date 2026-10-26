@@ -102,10 +102,10 @@ struct TrainerMonItemCustomMoves
     u16 moves[MAX_MON_MOVES];
 };
 
-struct TrainerMonCustom 
+struct TrainerMonCustom
 {
-	u8 iv[6];
-	u8 ev[6];
+	u32 iv;
+	const u8 *ev;
 	u8 lvl;
 	u16 species;
 	u16 heldItem;
@@ -116,7 +116,7 @@ struct TrainerMonCustom
 	u16 moves[MAX_MON_MOVES];
 	u8 gender;
 	u8 shiny;
-	const u8 *nickname;
+	const u8 nickname[POKEMON_NAME_LENGTH];
 };
 
 #define NO_ITEM_DEFAULT_MOVES(party) { .NoItemDefaultMoves = party }, .partySize = ARRAY_COUNT(party), .partyFlags = 0
@@ -139,8 +139,8 @@ struct TrainerMonCustom
 #define TRAINER_MON_FEMALE 2
 
 // expansions
-#define TRAINER_PARTY_IVS(hp, atk, def, spatk, spdef, spe) { hp, atk, def, spatk, spdef, spe }
-#define TRAINER_PARTY_EVS(hp, atk, def, spatk, spdef, spe) { hp, atk, def, spatk, spdef, spe }
+#define TRAINER_PARTY_IVS(hp, atk, def, speed, spatk, spdef) (hp | (atk << 5) | (def << 10) | (speed << 15) | (spatk << 20) | (spdef << 25))
+#define TRAINER_PARTY_EVS(hp, atk, def, speed, spatk, spdef) ((const u8[6]){hp,atk,def,speed,spatk,spdef})
 
 union TrainerMonPtr
 {

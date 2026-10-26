@@ -1703,13 +1703,12 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                	if (partyData[i].heldItem > ITEM_NONE)
                 	SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[i].heldItem);
 
+                SetMonData(&party[i], MON_DATA_IVS, &partyData[i].iv);
                 CustomTrainerPartyAssignMoves(&party[i], &partyData[i]);
 
-                for (j = 0; j < 6; j++)
-                {
-                	SetMonData(&party[i], MON_DATA_HP_IV + j, &partyData[i].iv[j]);
-                 	SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].ev[j]);
-                }
+                if (partyData[i].ev)
+	                for (j = 0; j < 6; j++)
+	                 	SetMonData(&party[i], MON_DATA_HP_EV + j, &partyData[i].ev[j]);
 
                 if (partyData[i].ball != POKEBALL_COUNT)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
