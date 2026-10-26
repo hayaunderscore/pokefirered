@@ -134,10 +134,68 @@ Debug_EventScript_Script_4_4:
 	trainerbattle_no_intro TRAINER_AN_ATTACK_THA_BRET, Debug_EventScript_Script_4_Text_4
 	goto Debug_EventScript_Script_4_1
 
-Debug_EventScript_Script_4_5:
+Debug_EventScript_Script_4_5::
+	fadescreen FADE_TO_WHITE
+	fadenewbgm MUS_DUMMY
+	delay 60
+	setweather WEATHER_FOG_DIAGONAL
+	doweather
+	msgbox Debug_EventScript_Script_4_5_Text_0
+	applymovement LOCALID_PLAYER, Debug_EventScript_Script_4_5_Movement_0
+	getplayerxy VAR_0x8004, VAR_0x8005
+	subvar VAR_0x8004, 7
+	subvar VAR_0x8005, 5
+	special HideAllObjectEventsExceptPlayer
+	playse SE_PIN
+	setlayouttiles LAYOUT_ENDLESS_OCEAN, VAR_0x8004, VAR_0x8005, 0, 0, 15, 11
+	fadescreen FADE_FROM_WHITE
+	delay 60
+	playbgm MUS_HER, FALSE
+	textcolor NPC_TEXT_COLOR_FEMALE
+	msgbox Debug_EventScript_Script_4_5_Text_1
 	trainerbattle_no_intro TRAINER_ABYSS_QUEEN_ABBY, Debug_EventScript_Script_4_Text_5
+	msgbox Debug_EventScript_Script_4_5_Text_2
+	reloadmap
 	goto Debug_EventScript_Script_4_1
 
+
+Debug_EventScript_Script_4_5_Movement_0:
+	face_down
+	step_end
+
+Debug_EventScript_Script_4_5_Text_0:
+	.string "You eagerly await {COLOR BLUE}her{COLOR DARK_GRAY} presence\.\p"
+	.string "Truly, {PAUSE 30}you think this is the best\n"
+	.string "usage of your time.\p"
+	.string ". {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}.\n"
+	.string "{PAUSE 60}Is {COLOR BLUE}she{COLOR DARK_GRAY} here yet?\p"
+	.string ". {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}.\n"
+	.string "{COLOR RED}GET UP YOU DAMN DOOFUS!$"
+
+Debug_EventScript_Script_4_5_Text_1:
+	.string "ARCEUS, {COLOR BLUE}I{COLOR RED} WAS TRYING TO HAVE\n"
+	.string "{COLOR BLUE}MY{COLOR RED} BEAUTY SLEEP!\p"
+	.string "WHY DO YOU NEED {COLOR BLUE}ME{COLOR RED} ANYWAYS?\p"
+	.string ". . . .{PAUSE 30}\n"
+	.string "YOU WANT TO BATTLE {COLOR BLUE}MOI{COLOR RED}?\l"
+	.string "BIG MISTAKE, HAND!\p"
+	.string "DIDN'T ANYONE SAY TO NOT STICK YOUR\n"
+	.string "NOSE TO {COLOR BLUE}SOMETHING{COLOR RED} IT DON'T BELONG?\p"
+	.string "YET YOU'RE STILL WILLING TO SET\n"
+	.string "THIS ALL UP. VERY IMPATIENT!\p"
+	.string "BUT SINCE YOU'RE WILLING TO BATTLE\.{PAUSE 30}\n"
+	.string "\.FOR SOME REASON\.\l"
+	.string "YOU'LL GET ONE.\p"
+	.string "BUT!{PAUSE 30}\n"
+	.string "{COLOR BLUE}I'M{COLOR RED} NOT GONNA GO EASY >:)$"
+
+Debug_EventScript_Script_4_5_Text_2:
+	.string "INTRIGUING!\n"
+	.string "YOU MANAGED TO BEAT {COLOR BLUE}ME{COLOR RED}!\p"
+	.string "OK, LET'S WRAP THIS UP.\n"
+	.string "WE'RE DONE.\p"
+	.string "GO FIND SOMETHING ELSE TO DO!{PAUSE 60}\n"
+	.string "THAT ISN'T SPARRING WITH {COLOR BLUE}ME{COLOR RED}!$"
 
 Debug_EventScript_Script_4_Text_0:
 	.string "CARA$"
@@ -155,7 +213,7 @@ Debug_EventScript_Script_4_Text_4:
 	.string "Don't get queasy, now!$"
 
 Debug_EventScript_Script_4_Text_5:
-	.string "Impressive!\nVery nice…$"
+	.string "IMPRESSIVE!\nVERY NICE…$"
 
 Debug_EventScript_Script_5::
 	special InitRoamer
@@ -163,6 +221,14 @@ Debug_EventScript_Script_5::
 	end
 
 Debug_EventScript_Script_6::
+	lock
+	getplayerxy VAR_0x8004, VAR_0x8005
+	subvar VAR_0x8004, 7
+	subvar VAR_0x8005, 5
+	setlayouttiles LAYOUT_ENDLESS_OCEAN, VAR_0x8004, VAR_0x8005, 0, 0, 15, 11
+	delay 60
+	reloadmap
+	release
 	end
 
 Debug_EventScript_Script_7::

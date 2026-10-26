@@ -14,6 +14,71 @@ const BATTLE_MAX = 4
 
 const VAR_CURRENT_OPPONENT = VAR_TEMP_2 // npc number
 
+# script sample {
+# 	fadescreen(FADE_TO_WHITE)
+# 	fadenewbgm(MUS_DUMMY)
+# 	delay(60)
+# 	setweather(WEATHER_FOG_DIAGONAL)
+# 	doweather
+# 	msgbox("You eagerly await {COLOR BLUE}her{COLOR DARK_GRAY} presence\.
+
+# 			Truly, {PAUSE 30}you think this is the best
+# 			usage of your time.
+
+# 			. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}.
+# 			{PAUSE 60}Is {COLOR BLUE}she{COLOR DARK_GRAY} here yet?
+
+# 			. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}. {PAUSE 30}.
+# 			{COLOR RED}GET UP YOU DAMN DOOFUS!")
+# 	applymovement(LOCALID_PLAYER, moves(
+# 		face_down
+# 	))
+# 	getplayerxy(VAR_0x8004, VAR_0x8005)
+# 	subvar(VAR_0x8004, 7)
+# 	subvar(VAR_0x8005, 5)
+# 	playse(SE_PIN)
+# 	setlayouttiles(LAYOUT_ENDLESS_OCEAN, VAR_0x8004, VAR_0x8005, 0, 0, 15, 11)
+# 	fadescreen(FADE_FROM_WHITE)
+# 	delay(60)
+# 	playbgm(MUS_HER, FALSE)
+# 	textcolor(NPC_TEXT_COLOR_FEMALE)
+# 	msgbox("ARCEUS, {COLOR BLUE}I{COLOR RED} WAS TRYING TO HAVE
+# 			{COLOR BLUE}MY{COLOR RED} BEAUTY SLEEP!
+
+# 			WHY DO YOU NEED {COLOR BLUE}ME{COLOR RED} ANYWAYS?
+
+# 			. . . .{PAUSE 30}
+# 			YOU WANT TO BATTLE {COLOR BLUE}MOI{COLOR RED}?
+# 			BIG MISTAKE, HAND!
+
+# 			DIDN'T ANYONE SAY TO NOT STICK YOUR
+# 			NOSE INTO {COLOR BLUE}SOMETHING{COLOR RED} IT DON'T BELONG?
+
+# 			YET YOU'RE STILL WILLING TO SET THIS
+# 			ALL UP. VERY IMPATIENT!
+
+# 			BUT SINCE YOU'RE WILLING TO BATTLE\.{PAUSE 30}
+# 			\.FOR SOME REASON\.
+# 			YOU'LL GET ONE.
+
+# 			BUT!{PAUSE 30}
+# 			{COLOR BLUE}I'M{COLOR RED} NOT GONNA GO EASY >:)")
+# 	trainerbattle_no_intro(TRAINER_ABYSS_QUEEN_ABBY, Debug_EventScript_Script_4_Text_5)
+# 	special(GetCurrentMapLayout)
+# 	getplayerxy(VAR_0x8006, VAR_0x8005)
+# 	subvar(VAR_0x8006, 7)
+# 	subvar(VAR_0x8005, 5)
+# 	setlayouttiles(VAR_0x8004, VAR_0x8006, VAR_0x8005, VAR_0x8006, VAR_0x8005, 15, 11)
+# 	msgbox("INTRIGUING!
+# 			YOU MANAGED TO BEAT {COLOR BLUE}ME{COLOR RED}!
+
+# 			OK, LET'S WRAP THIS UP.
+# 			WE'RE DONE.
+
+# 			GO FIND SOMETHING ELSE TO DO!{PAUSE 60}
+# 			THAT ISN'T SPARRING WITH {COLOR BLUE}ME{COLOR RED}!")
+# }
+
 script PokemonTech_Basement_EventScript_Joe {
 	msgbox("JOE: Woah!
 			You're stronger than I thought!
@@ -49,32 +114,32 @@ script PokemonTech_Basement_EventScript_WhiteFluteKid {
 	}
 	msgbox("Hey!
 			You're a new face.
-			
+
 			Say, are you interested in the
 			act of shiny hunting?
-			
+
 			Shiny POK\eMON are identifiable
 			by a different color.
-			
+
 			They're really rare!
 			It's about 1 in 8000.
-			
+
 			You feel like the type of person
 			to keep pushing regardless of
 			whatever happens.
-			
+
 			So, take this.")
 	giveitem(ITEM_WHITE_FLUTE)
 	msgbox("That flute there increases the
 			odds of a POK\eMON appearing.
-			
+
 			It's very useful for shiny hunting,
 			if you're being specific.
-			
+
 			Most people also lead with a
 			lower level POK\eMON to attract
 			higher level encounters.
-			
+
 			Those bug catchers outside don't
 			know the euphoria of getting it.")
 	setflag(FLAG_GOT_WHITE_FLUTE)

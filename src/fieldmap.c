@@ -1,3 +1,5 @@
+#include "constants/maps.h"
+#include "event_data.h"
 #include "global.h"
 #include "gflib.h"
 #include "overworld.h"
@@ -416,6 +418,11 @@ void MapGridSetMetatileEntryAt(s32 x, s32 y, u16 metatile)
         i = x + VMap.Xsize * y;
         VMap.map[i] = metatile;
     }
+    // else
+    // {
+    // 	i = x + VMap.Xsize * y;
+    // 	VMap.map[i] = GetBorderBlockAt(x % mapLayout->borderWidth, y % mapLayout->borderHeight) & MAPGRID_METATILE_ID_MASK;
+    // }
 }
 
 void MapGridSetMetatileImpassabilityAt(s32 x, s32 y, bool32 impassable)
@@ -948,4 +955,9 @@ void LoadMapTilesetPalettes(struct MapLayout const *mapLayout)
         LoadPrimaryTilesetPalette(mapLayout);
         LoadSecondaryTilesetPalette(mapLayout);
     }
+}
+
+void GetMapId(void)
+{
+	gSpecialVar_0x8009 = gSaveBlock1Ptr->location.mapGroup << 8;
 }

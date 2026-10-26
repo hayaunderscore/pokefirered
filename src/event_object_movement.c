@@ -9072,9 +9072,9 @@ static void DestroyVirtualObjects(void)
     }
 }
 
-static int GetVirtualObjectSpriteId(u8 virtualObjId)
+u8 GetVirtualObjectSpriteId(u8 virtualObjId)
 {
-    int i;
+    s32 i;
     for (i = 0; i < MAX_SPRITES; i++)
     {
         struct Sprite *sprite = &gSprites[i];

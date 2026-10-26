@@ -152,8 +152,8 @@ gSpecials::
 	def_special ShowFieldMessageStringVar4
 	def_special DrawWholeMapView
 	def_special GetPlayerXY
-	def_special NullFieldSpecial  @ Mauville/Petalburg Gym specials
-	def_special NullFieldSpecial
+	def_special GetCurrentMapLayout
+	def_special HideAllObjectEventsExceptPlayer
 	def_special NullFieldSpecial
 	def_special GetPlayerTrainerIdOnesDigit
 	def_special BufferBigGuyOrBigGirlString

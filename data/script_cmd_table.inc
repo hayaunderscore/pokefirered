@@ -223,6 +223,9 @@ gScriptCmdTable::
 	.4byte ScrCmd_warphole2                      @ 0xdb
 	.4byte Script_MorphObject                    @ 0xdc
 	.4byte Script_MorphObjectAt                  @ 0xdd
+	.4byte ScrCmd_destroyvobject				 @ 0xde
+	.4byte ScrCmd_DrawTiles        				 @ 0xdf
+	.4byte ScrCmd_reloadmap                      @ 0xe0
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

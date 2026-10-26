@@ -356,8 +356,8 @@ const u8 gMoveDescription_WaterPulse[] = _("An attack with a\npulsing blast of\n
 const u8 gMoveDescription_DoomDesire[] = _("A move that attacks\nthe foe with a\nblast of light two\nturns after use.");
 const u8 gMoveDescription_PsychoBoost[] = _("An intense attack\nthat also sharply\nreduces the user's\nSP. ATK stat.");
 const u8 gMoveDescription_Abyss[] = _("A yawning, dark,\ninfinite chasm.\nThe foe will faint\nif it hits.");
-const u8 gMoveDescription_Rapture[] = _("An attack that\ninitiates a RAPTURE\nonto the foe.");
-const u8 gMoveDescription_Strike[] = _("An attack that\nSTRIKEs the foe\ndown to LAND.");
+const u8 gMoveDescription_Rapture[] = _("A beam of light\nwith no escape.\nThe foe will faint\nif it hits.");
+const u8 gMoveDescription_Strike[] = _("A cleansing of\nmany remains.\nThe foe will faint\nif it hits.");
 const u8 gMoveDescription_QuiverDance[] = _("The user performs\na dance to raise\nSP. ATK, SP. DEF\nand SPEED stats.");
 const u8 gMoveDescription_TrickRoom[] = _("Slower POKéMON get\nto move first\nfor 5 turns.");
 

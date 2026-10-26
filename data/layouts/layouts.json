@@ -4956,6 +4956,18 @@
       "secondary_tileset": "gTileset_PokemonTower",
       "border_filepath": "data/layouts/PokemonTower_SpiralOfDoom/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTower_SpiralOfDoom/map.bin"
+    },
+    {
+      "id": "LAYOUT_ENDLESS_OCEAN",
+      "name": "ENDLESS_OCEAN",
+      "width": 15,
+      "height": 11,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/ENDLESS_OCEAN/border.bin",
+      "blockdata_filepath": "data/layouts/ENDLESS_OCEAN/map.bin"
     }
   ]
 }

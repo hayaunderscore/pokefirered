@@ -131,6 +131,11 @@ void GetPlayerXY(void)
     gSpecialVar_0x8005 = gSaveBlock1Ptr->pos.y;
 }
 
+void GetCurrentMapLayout(void)
+{
+	gSpecialVar_0x8004 = gSaveBlock1Ptr->mapLayoutId;
+}
+
 u8 GetPlayerTrainerIdOnesDigit(void)
 {
     u16 playerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
@@ -2599,4 +2604,15 @@ void ReturnCameraToPlayer(void)
 {
     MoveCameraAndRedrawMap(gSaveBlock1Ptr->savedPos.x - gSaveBlock1Ptr->pos.x,
                            gSaveBlock1Ptr->savedPos.y - gSaveBlock1Ptr->pos.y);
+}
+
+void HideAllObjectEventsExceptPlayer(void)
+{
+	u8 i = 0;
+	for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+	{
+		struct ObjectEvent* event = &gObjectEvents[i];
+		if (!event->isPlayer)
+			event->invisible = TRUE;
+	}
 }

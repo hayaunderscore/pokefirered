@@ -1,3 +1,4 @@
+#include "field_camera.h"
 #include "global.h"
 #include "gflib.h"
 #include "script.h"
@@ -1191,6 +1192,16 @@ bool8 ScrCmd_turnvobject(struct ScriptContext * ctx)
     u8 direction = ScriptReadByte(ctx);
 
     TurnVirtualObject(virtualObjId, direction);
+    return FALSE;
+}
+
+bool8 ScrCmd_destroyvobject(struct ScriptContext * ctx)
+{
+    u8 virtualObjId = ScriptReadByte(ctx);
+    u8 spriteId = GetVirtualObjectSpriteId(virtualObjId);
+
+    if (spriteId < MAX_SPRITES)
+   		DestroySprite(&gSprites[spriteId]);
     return FALSE;
 }
 
@@ -2402,5 +2413,48 @@ bool8 ScrCmd_warphole2(struct ScriptContext * ctx)
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
     DoFallWarp();
     ResetInitialPlayerAvatarState();
+    return TRUE;
+}
+
+extern const struct MapLayout * gMapLayouts[];
+
+// Taken from Celia's Stupid Romhack
+// 'Thanks Celia!'
+void ScrCmd_DrawTiles(struct ScriptContext *ctx) //thanks kasen youre a godsend
+{
+    u16 targetLayout = VarGet(ScriptReadHalfword(ctx)); //the layout you want to print on the map
+    s16 startingX = VarGet(ScriptReadHalfword(ctx));
+    s16 startingY = VarGet(ScriptReadHalfword(ctx));
+    s16 x1 = VarGet(ScriptReadHalfword(ctx));
+    s16 y1 = VarGet(ScriptReadHalfword(ctx));
+    s16 x2 = VarGet(ScriptReadHalfword(ctx));
+    s16 y2 = VarGet(ScriptReadHalfword(ctx));
+
+    s16 i;
+    s16 j;
+
+    const struct MapLayout *mapLayout = gMapLayouts[targetLayout - 1];
+
+    for (i = x1; i <= x2; i++)
+    {
+        for (j = y1; j <= y2; j++)
+        {
+            u16 metatile = mapLayout->map[j * mapLayout->width + i];
+
+            s16 destX = i + startingX + MAP_OFFSET;
+            s16 destY = j + startingY + MAP_OFFSET;
+
+            MapGridSetMetatileEntryAt(destX, destY, metatile);// thank you for this bit griffin
+        }
+    }
+    DrawWholeMapView();
+}
+
+bool8 ScrCmd_reloadmap(struct ScriptContext * ctx)
+{
+	StoreInitialPlayerAvatarState();
+    SetWarpDestination(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum, -1, gSaveBlock1Ptr->pos.x, gSaveBlock1Ptr->pos.y);
+    DoDiveWarp();
+    // ResetInitialPlayerAvatarState();
     return TRUE;
 }

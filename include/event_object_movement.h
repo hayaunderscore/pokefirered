@@ -153,6 +153,7 @@ bool8 UpdateWalkSlowerAnim(struct Sprite *sprite);
 void SetJumpSpriteData(struct Sprite *, u8, u8, u8);
 u8 DoJumpSpriteMovement(struct Sprite *);
 u8 DoJumpSpecialSpriteMovement(struct Sprite *);
+u8 GetVirtualObjectSpriteId(u8 virtualObjId);
 void TurnVirtualObject(u8 virtualObjId, u8 direction);
 const u8 *GetObjectEventScriptPointerByObjectEventId(u8 objectEventId);
 u8 GetFirstInactiveObjectEventId(void);
