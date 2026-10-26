@@ -21,10 +21,11 @@ mapscripts PokemonTower_3F_MapScripts {
 
 script PokemonTower_3F_EventScript_AddRival {
 	setflag(FLAG_HIDE_TOWER_GISELLE)
-	if (flag(FLAG_ABYSS_ROUTE) && var(VAR_MAP_SCENE_POKEMON_TOWER_2F) < 3) {
-		// This route is available regardless if you sunk the ANNE or not!
-		clearflag(FLAG_HIDE_TOWER_GISELLE)
-	}
+	// 10/26/26: She's always hidden by default now
+	# if (flag(FLAG_ABYSS_ROUTE) && var(VAR_MAP_SCENE_POKEMON_TOWER_2F) < 3) {
+	# 	// This route is available regardless if you sunk the ANNE or not!
+	# 	clearflag(FLAG_HIDE_TOWER_GISELLE)
+	# }
 }
 
 script PokemonTower_3F_EventScript_RivalTriggerLeft {
@@ -42,35 +43,45 @@ script PokemonTower_3F_EventScript_RivalTriggerRight {
 }
 
 script PokemonTower_3F_EventScript_Rival {
-	playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
-	switch (var(VAR_TEMP_1)) {
-		case 0:
-			applymovement(LOCALID_TOWER_GISELLE, moves(
-				walk_left * 9
-				walk_down * 3
-			))
-		case 1:
-			applymovement(LOCALID_TOWER_GISELLE, moves(
-				walk_left * 9
-				walk_down * 4
-			))
+	if (!flag(FLAG_ABYSS_ROUTE))
+	{
+		// No encounter.
+		releaseall
+		return
 	}
+	playbgm(MUS_ENCOUNTER_RIVAL, FALSE)
+	addobject(LOCALID_TOWER_GISELLE)
+	applymovement(LOCALID_PLAYER, moves(
+		walk_in_place_fast_up
+	))
+	playse(SE_EXIT)
+	waitse
+	playse(SE_PIN)
+	applymovement(LOCALID_TOWER_GISELLE, moves(
+		face_down
+		emote_exclamation_mark
+		delay_16 * 4
+	))
 	waitmovement(0)
-	if (var(VAR_TEMP_1) == value(1)) {
+	if (var(VAR_TEMP_1) == value(0)) {
 		applymovement(LOCALID_TOWER_GISELLE, moves(
-			walk_in_place_left
+			walk_down
+		))
+		waitmovement(0)
+		applymovement(LOCALID_TOWER_GISELLE, moves(
+			walk_in_place_right
 		))
 		applymovement(LOCALID_PLAYER, moves(
-			walk_in_place_right
+			walk_in_place_left
 		))
 		waitmovement(0)
 	}
 	textcolor(NPC_TEXT_COLOR_FEMALE)
-	msgbox("GISELLE: Oh! Didn't expect to see
-			you here, miss\.
+	msgbox("GISELLE: Oh! {PAUSE 30}Didn't expect to see
+			you here, {PAUSE 30}miss\.
 
 			\.Come to think of it I never
-			got your name.
+			got your name.{PAUSE 30} Silly me!
 
 			\.
 			{PLAYER}?
@@ -86,8 +97,7 @@ script PokemonTower_3F_EventScript_Rival {
 
 			Also, did your POK\eMON get stronger?")
 	setvar(VAR_LAST_TALKED, LOCALID_TOWER_GISELLE)
-	trainerbattle_no_intro(TRAINER_RIVAL_GISELLE_TOWER, "You meanie!
-														You\. had to have cheated again!")
+	trainerbattle_no_intro(TRAINER_RIVAL_GISELLE_TOWER, "Beat me once, shame on you.\nBeat me twice? Shame on me?!")
 	msgbox("Ah dang it!
 			You and your POK\eMON\.
 
@@ -108,17 +118,35 @@ script PokemonTower_3F_EventScript_Rival {
 			Ah yes, Ta ta! See you!")
 	closemessage
 	playbgm(MUS_RIVAL_EXIT, FALSE)
-	switch (var(VAR_TEMP_1)) {
-		case 0:
-			applymovement(LOCALID_TOWER_GISELLE, moves(
-				walk_left
-				walk_down * 7
-			))
-		case 1:
-			applymovement(LOCALID_TOWER_GISELLE, moves(
-				walk_down * 6
-			))
+	if (var(VAR_TEMP_1) == value(1))
+	{
+		applymovement(LOCALID_PLAYER, moves(
+			walk_right
+			face_down
+		))
+		waitmovement(0)
+		applymovement(LOCALID_TOWER_GISELLE, moves(
+			walk_down
+		))
+		waitmovement(0)
 	}
+	else {
+		applymovement(LOCALID_PLAYER, moves(
+			face_down
+		))
+	}
+	applymovement(LOCALID_TOWER_GISELLE, moves(
+		walk_down * 3
+	))
+	waitmovement(0)
+	applymovement(LOCALID_PLAYER, moves(
+		face_right
+	))
+	applymovement(LOCALID_TOWER_GISELLE, moves(
+		walk_right * 5
+		walk_down
+		walk_right * 4
+	))
 	waitmovement(0)
 	removeobject(LOCALID_TOWER_GISELLE)
 	fadedefaultbgm

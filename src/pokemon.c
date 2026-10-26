@@ -5900,6 +5900,8 @@ static u16 GetBattleBGM(void)
         return MUS_RS_VS_TRAINER;
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
     {
+    	if (gTrainerBattleOpponent_A == TRAINER_RIVAL_GISELLE_TOWER || gTrainerBattleOpponent_A == TRAINER_RIVAL_GISELLE_CONDO)
+     		return MUS_BATTLE_REVOLUTION;
         switch (gTrainers[gTrainerBattleOpponent_A].trainerClass)
         {
         case TRAINER_CLASS_CHAMPION:

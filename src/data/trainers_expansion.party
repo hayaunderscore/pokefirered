@@ -310,13 +310,31 @@ Class: Rival Generic
 Pic: Giselle
 Gender: Female
 Music: Female
-Double Battle: No
+Double Battle: Yes
 Items: Super Potion / Super Potion
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
+
+Petilil
+Ability: Chlorophyll
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Mega Drain
+- Leech Seed
+- Helping Hand
+- Sleep Powder
+
+Graveler
+Ability: Rock Head
+Level: 24
+IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
+- Magnitude
+- Follow Me
+- Rock Slide
+- Body Slam
 
 Ninjask
 Ability: Speed Boost
-Level: 24
+Level: 25
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Double Team
 - Shadow Ball
@@ -325,12 +343,12 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
 Cubone
 Ability: Rock Head
-Level: 25
+Level: 26
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Focus Punch
 - Brick Break
 - Ancient Power
-- Rock Slide
+- Helping Hand
 
 === TRAINER_AN_ATTACK_THA_CARA ===
 Name: CARA
@@ -388,9 +406,27 @@ Class: Rival Generic
 Pic: Giselle
 Gender: Female
 Music: Female
-Double Battle: No
+Double Battle: Yes
 Items: Hyper Potion / Hyper Potion
-AI: Check Bad Move / Try To Faint / Check Viability
+AI: Check Bad Move / Try To Faint / Check Viability / Double Battle
+
+Lilligant
+Ability: Chlorophyll
+Level: 42
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Giga Drain
+- Leech Seed
+- Quiver Dance
+- Sleep Powder
+
+Graveler
+Ability: Rock Head
+Level: 41
+IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
+- Magnitude
+- Helping Hand
+- Rock Slide
+- Counter
 
 Ninjask
 Ability: Speed Boost
@@ -405,7 +441,7 @@ Marowak
 Ability: Rock Head
 Level: 43
 IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
-- Bonemerang
+- Helping Hand
 - Brick Break
 - Ancient Power
 - Flamethrower

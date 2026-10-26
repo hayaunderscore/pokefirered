@@ -1713,7 +1713,7 @@ static u8 CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
                 if (partyData[i].ball != POKEBALL_COUNT)
                 	SetMonData(&party[i], MON_DATA_POKEBALL, &partyData[i].ball);
 
-                if (partyData[i].nickname != NULL)
+                if (partyData[i].nickname[0] != 0)
                 	SetMonData(&party[i], MON_DATA_NICKNAME, partyData[i].nickname);
 
                 // Force set raticate to 1 hp lmao

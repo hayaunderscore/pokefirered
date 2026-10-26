@@ -117,11 +117,13 @@ Debug_EventScript_Script_3_Text2:
 
 Debug_EventScript_Script_4::
 	lock
-	dynmultichoice 0, 0, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, Debug_EventScript_Script_4_Text_0, Debug_EventScript_Script_4_Text_1, Debug_EventScript_Script_4_Text_2
+	dynmultichoice 0, 0, FALSE, 3, 0, DYN_MULTICHOICE_CB_NONE, Debug_EventScript_Script_4_Text_0, Debug_EventScript_Script_4_Text_1, Debug_EventScript_Script_4_Text_2, Debug_EventScript_Script_4_Text_G1, Debug_EventScript_Script_4_Text_G2
 	switch VAR_RESULT
 	case 0, Debug_EventScript_Script_4_3
 	case 1, Debug_EventScript_Script_4_4
 	case 2, Debug_EventScript_Script_4_5
+	case 3, Debug_EventScript_Script_4_6
+	case 4, Debug_EventScript_Script_4_7
 Debug_EventScript_Script_4_1:
 	release
 	end
@@ -158,6 +160,13 @@ Debug_EventScript_Script_4_5::
 	reloadmap
 	goto Debug_EventScript_Script_4_1
 
+Debug_EventScript_Script_4_6:
+	trainerbattle_no_intro TRAINER_RIVAL_GISELLE_TOWER, Debug_EventScript_Script_4_Text_4
+	goto Debug_EventScript_Script_4_1
+
+Debug_EventScript_Script_4_7:
+	trainerbattle_no_intro TRAINER_RIVAL_GISELLE_CONDO, Debug_EventScript_Script_4_Text_4
+	goto Debug_EventScript_Script_4_1
 
 Debug_EventScript_Script_4_5_Movement_0:
 	face_down
@@ -205,6 +214,12 @@ Debug_EventScript_Script_4_Text_1:
 
 Debug_EventScript_Script_4_Text_2:
 	.string "ABBY$"
+
+Debug_EventScript_Script_4_Text_G1:
+	.string "GISELLE (T)$"
+
+Debug_EventScript_Script_4_Text_G2:
+	.string "GISELLE (C)$"
 
 Debug_EventScript_Script_4_Text_3:
 	.string "That's all folks!$"
