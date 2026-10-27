@@ -195,6 +195,19 @@ Movement_PlayerApproachCounter:
 	walk_up
 	step_end
 
+CableClub_EventScript_PlayerMightHaveContentThatCannotBePerceived::
+	specialvar VAR_RESULT, HasContentThatCannotBePerceivedByOthers
+	goto_if_eq VAR_RESULT, FALSE, CableClub_EventScript_PlayerContinue
+	msgbox CableClub_Text_HasContentThatCannotBePerceived, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, CableClub_EventScript_AbortLink
+CableClub_EventScript_PlayerContinue::
+	return
+
+CableClub_Text_HasContentThatCannotBePerceived::
+	.string "You have specific things that may\n"
+	.string "not be perceived by others.\p"
+	.string "Connect anyway?$"
+
 CableClub_EventScript_WelcomeToCableClub::
 	message CableClub_Text_WelcomeWhichCableClubService
 	waitmessage
@@ -268,6 +281,7 @@ CableClub_EventScript_TryEnterColosseum::
 	message CableClub_Text_PleaseWaitBCancel
 	waitmessage
 	textcolor NPC_TEXT_COLOR_NEUTRAL
+	call CableClub_EventScript_PlayerMightHaveContentThatCannotBePerceived
 	special TryBattleLinkup
 	waitstate
 	call EventScript_RestorePrevTextColor
@@ -364,6 +378,7 @@ CableClub_EventScript_TradeCenter::
 	message CableClub_Text_PleaseWaitBCancel
 	waitmessage
 	textcolor NPC_TEXT_COLOR_NEUTRAL
+	call CableClub_EventScript_PlayerMightHaveContentThatCannotBePerceived
 	special TryTradeLinkup
 	waitstate
 	call EventScript_RestorePrevTextColor

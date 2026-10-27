@@ -154,7 +154,7 @@ gSpecials::
 	def_special GetPlayerXY
 	def_special GetCurrentMapLayout
 	def_special HideAllObjectEventsExceptPlayer
-	def_special NullFieldSpecial
+	def_special HasContentThatCannotBePerceivedByOthers
 	def_special GetPlayerTrainerIdOnesDigit
 	def_special BufferBigGuyOrBigGirlString
 	def_special BufferSonOrDaughterString
