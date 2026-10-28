@@ -334,7 +334,8 @@
     "Route",
     "Route28",
     "SecretGarden",
-    "Route49"
+    "Route49",
+    "DecamarkRoute"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",

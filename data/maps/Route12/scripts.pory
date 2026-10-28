@@ -105,3 +105,47 @@ script Route12_EventScript_BlockadeGirl {
 	release
 	end
 }
+
+script Route12_EventScript_Rock {
+	lock
+	if (!flag(FLAG_ABYSS_ROUTE)) {
+		msgbox("A rock.
+				You smell bad.")
+		release
+		end
+	}
+	if (!flag(FLAG_BADGE05_GET)) {
+		msgbox("An opening can be seen on the
+				rock's edge.
+
+				You cannot pierce it open.{PAUSE 30}
+				Not yet.")
+		release
+	} else {
+		specialvar(VAR_RESULT, PartyHasMonWithSurf)
+		if (var(VAR_RESULT) == FALSE)
+		{
+			msgbox("An opening can be seen on the
+					rock's edge.
+
+					You do not have a POK\eMON that
+					can SURF.")
+			release
+			end
+		}
+		msgbox("An opening can be seen on the
+				rock's edge.
+
+				Would you like to use SURF?", MSGBOX_YESNO)
+		if (var(VAR_RESULT) == FALSE)
+		{
+			release
+			end
+		}
+		setflag(FLAG_SYS_SKIP_SURF_MSG)
+		call(EventScript_UseSurf)
+		release
+		end
+	}
+	end
+}

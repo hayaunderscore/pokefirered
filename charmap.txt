@@ -847,6 +847,7 @@ MUS_VS_LEGEND_BEAST       = 70 01
 MUS_B_PIKE                = 71 01
 MUS_DRIFTVEIL_CITY        = 72 01
 MUS_HER                   = 73 01
+MUS_ETERNA_FOREST         = 74 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

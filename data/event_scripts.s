@@ -1513,3 +1513,6 @@ Text_MonCryScript::
 
 	.include "data/maps/PokemonTower_SpiralOfDoom/scripts.inc"
 	.include "data/maps/PokemonTower_SpiralOfDoom/text.inc"
+
+	.include "data/maps/DecamarkRoute/scripts.inc"
+	.include "data/maps/DecamarkRoute/text.inc"

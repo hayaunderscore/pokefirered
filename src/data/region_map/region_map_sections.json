@@ -1211,6 +1211,10 @@
       "y": 7,
       "width": 3,
       "height": 1
+    },
+    {
+      "id": "MAPSEC_DECAMARK",
+      "name": "ISLE 6"
     }
   ]
 }

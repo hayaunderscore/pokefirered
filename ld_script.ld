@@ -995,6 +995,7 @@ SECTIONS {
         sound/songs/midi/mus_b_pike.o(.rodata);
         sound/songs/midi/mus_driftveil_city.o(.rodata);
         sound/songs/midi/mus_her.o(.rodata);
+        sound/songs/midi/mus_eterna_forest.o(.rodata);
     } > ROM =0
 
     lib_rodata :

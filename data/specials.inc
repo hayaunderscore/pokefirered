@@ -148,7 +148,7 @@ gSpecials::
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial  @ Mauville Gym specials
-	def_special NullFieldSpecial
+	def_special PartyHasMonWithSurf
 	def_special ShowFieldMessageStringVar4
 	def_special DrawWholeMapView
 	def_special GetPlayerXY

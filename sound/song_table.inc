@@ -371,6 +371,7 @@ gSongTable::
 	song mus_b_pike, 0, 0
 	song mus_driftveil_city, 0, 0
 	song mus_her, 0, 0
+	song mus_eterna_forest, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

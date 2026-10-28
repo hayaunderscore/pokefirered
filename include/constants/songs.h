@@ -378,10 +378,11 @@
 #define MUS_B_PIKE                  369
 #define MUS_DRIFTVEIL_CITY          370
 #define MUS_HER                     371
+#define MUS_ETERNA_FOREST           372
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_HER
+#define END_MUS                     MUS_ETERNA_FOREST
 
 #endif  // GUARD_CONSTANTS_SONGS_H

@@ -1085,7 +1085,7 @@
       "id": "LAYOUT_ROUTE20",
       "name": "Route20_Layout",
       "width": 120,
-      "height": 20,
+      "height": 32,
       "border_width": 2,
       "border_height": 2,
       "primary_tileset": "gTileset_General",
@@ -4968,6 +4968,18 @@
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/ENDLESS_OCEAN/border.bin",
       "blockdata_filepath": "data/layouts/ENDLESS_OCEAN/map.bin"
+    },
+    {
+      "id": "LAYOUT_DECAMARK_ROUTE",
+      "name": "DecamarkRoute_Layout",
+      "width": 60,
+      "height": 20,
+      "border_width": 1,
+      "border_height": 1,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavenderTown",
+      "border_filepath": "data/layouts/DecamarkRoute/border.bin",
+      "blockdata_filepath": "data/layouts/DecamarkRoute/map.bin"
     }
   ]
 }
