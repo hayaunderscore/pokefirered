@@ -4,17 +4,25 @@
 <img width="720" height="480" alt="STARTPOINT" src="3new/STARTPOINT.png" />
 </p>
 
-<p align="center">
-<img width="240" height="160" alt="SCHOOL" src="3new/SCHOOL.png" />
-<img width="240" height="160" alt="HAUL" src="3new/HAUL.png" />
-<img width="240" height="160" alt="CALLING" src="3new/CALLING.png" />
-</p>
-
 > It's as you remember it...
 
 This holds the repository for a ROM hack that includes a new rock by the water and the Trainer-fly glitch. (hence the name)
 
 Sporadic updates, though I do hope to finish it maybe...
+
+# Features
+
+- All POKéMON on both FireRed and LeafGreen are obtainable in the wild.
+- Most tutorials have been removed.
+- ~~Events made obtainable by default~~
+- Miscellaneous QOL features
+- 1 new
+
+# Story
+
+I recommend you figure out this yourself :3c
+
+No outside knowledge is needed for this hack!!
 
 # Credits
 
@@ -25,4 +33,8 @@ Sporadic updates, though I do hope to finish it maybe...
 - hyo (trainer sprites)
 - muzyun (trainer sprites)
 - Kasen (trainer sprites)
+- Vicki (support)
+- Claire (move animations, tech advice)
 - Nullrot (trainer sprites)
+- Emily (writing advice)
+- MezmerKaiser (various music)
