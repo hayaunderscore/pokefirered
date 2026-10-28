@@ -4619,7 +4619,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO,
         .power = 0,
-        .type = TYPE_MYSTERY,
+        .type = TYPE_WATER,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,
@@ -4645,7 +4645,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_OHKO,
         .power = 0,
-        .type = TYPE_MYSTERY,
+        .type = TYPE_ELECTRIC,
         .accuracy = 100,
         .pp = 5,
         .secondaryEffectChance = 0,

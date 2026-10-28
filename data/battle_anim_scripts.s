@@ -377,7 +377,7 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHO_BOOST
 	.4byte Move_ABYSS
 	.4byte Move_RAPTURE
-	.4byte Move_ABYSS
+	.4byte Move_RECTIFY
 	.4byte Move_QUIVER_DANCE
 	.4byte Move_TRICK_ROOM
 	.4byte Move_COUNT @ cannot be reached, unless I somehow forgot a move animation
@@ -10260,6 +10260,54 @@ Move_RAPTURE:
 	blendoff
 	restorebg
 	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
+	end
+
+Move_RECTIFY:
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 0, 6, RGB_BLACK
+	loadspritegfx ANIM_TAG_LIGHTNING
+	loadspritegfx ANIM_TAG_SPARK_2
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
+	playsewithpan SE_M_STRENGTH, SOUND_PAN_TARGET
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
+	delay 255
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 5, 0, 5, 0
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -5, 10, 5, 1
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 15, 20, 5, 2
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -15, -10, 5, 0
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 25, 0, 5, 1
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -8, 8, 5, 2
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, 2, -8, 5, 0
+	delay 2
+	createsprite gElectricitySpriteTemplate, ANIM_TARGET, 2, -20, 15, 5, 1
+	fadetobg BG_THUNDER
+	waitbgfadein
+	createvisualtask AnimTask_StartSlidingBg, 5, -256, 0, 1, -1
+	monbg ANIM_ATTACKER
+	delay 1
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 0, 10, RGB_WHITEALPHA
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, -32
+	playsewithpan SE_THUNDER, SOUND_PAN_TARGET
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, -16
+	delay 1
+	createsprite gLightningSpriteTemplate, ANIM_TARGET, 2, 0, 16
+	delay 255
+	invisible ANIM_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 10, 0, RGB_WHITEALPHA
+	restorebg
+	waitbgfadeout
+	clearmonbg ANIM_ATTACKER
 	setarg 7, 0xFFFF
 	waitbgfadein
 	end

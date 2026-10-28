@@ -2921,7 +2921,7 @@ static void PokeSum_DrawMoveTypeIcon(u32 i)
 		// case MOVE_RAPTURE:
 		// 	moveType = MENU_TYPE_FLYNG_Q;
 		// 	break;
-		case MOVE_RAPTURE:
+		case MOVE_RECTIFY:
 			moveType = MENU_TYPE_ELEC_Q;
 			break;
 	}
