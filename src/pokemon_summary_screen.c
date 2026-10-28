@@ -2910,6 +2910,24 @@ static void PokeSum_PrintAbilityNameAndDesc(void)
 
 }
 
+static void PokeSum_DrawMoveTypeIcon(u32 i)
+{
+	u16 moveType = sMonSummaryScreen->moveTypes[i] + 1;
+	switch (sMonSummaryScreen->moveIds[i])
+	{
+		case MOVE_ABYSS:
+			moveType = MENU_TYPE_WATER_Q;
+			break;
+		// case MOVE_RAPTURE:
+		// 	moveType = MENU_TYPE_FLYNG_Q;
+		// 	break;
+		case MOVE_RAPTURE:
+			moveType = MENU_TYPE_ELEC_Q;
+			break;
+	}
+	BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], moveType, 3, GetMoveNamePrinterYpos(i));
+}
+
 static void PokeSum_DrawMoveTypeIcons(void)
 {
     u8 i;
@@ -2921,11 +2939,11 @@ static void PokeSum_DrawMoveTypeIcons(void)
         if (sMonSummaryScreen->moveIds[i] == MOVE_NONE)
             continue;
 
-        BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], sMonSummaryScreen->moveTypes[i] + 1, 3, GetMoveNamePrinterYpos(i));
+        PokeSum_DrawMoveTypeIcon(i);
     }
 
     if (sMonSummaryScreen->mode == PSS_MODE_SELECT_MOVE)
-        BlitMenuInfoIcon(sMonSummaryScreen->windowIds[5], sMonSummaryScreen->moveTypes[4] + 1, 3, GetMoveNamePrinterYpos(4));
+    	PokeSum_DrawMoveTypeIcon(4);
 }
 
 static void PokeSum_PrintPageHeaderText(u8 curPageIndex)

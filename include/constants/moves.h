@@ -359,7 +359,7 @@
 // All of these moves take up the same TM slot (55)
 #define MOVE_ABYSS 355
 #define MOVE_RAPTURE 356
-#define MOVE_STRIKE 357
+#define MOVE_RECTIFY 357
 // Quiver Dance specifically because its Lilligant's entire MO, you know.
 #define MOVE_QUIVER_DANCE 358
 // This might be Indeedee's signature move

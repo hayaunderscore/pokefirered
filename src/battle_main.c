@@ -3624,7 +3624,7 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     }
     if (gTrainerBattleOpponent_A == TRAINER_RIVAL_SS_ANNE_RATICATE && GetBattlerSide(battler1) == B_SIDE_PLAYER)
 	{
-		if (moveBattler1 == MOVE_ABYSS || moveBattler1 == MOVE_RAPTURE || moveBattler1 == MOVE_STRIKE)
+		if (moveBattler1 == MOVE_ABYSS || moveBattler1 == MOVE_RAPTURE || moveBattler1 == MOVE_RECTIFY)
 		{
 			FlagSet(FLAG_PROCEEDED_ROUTE);
 			FlagClear(FLAG_FLAWED_ROUTE);

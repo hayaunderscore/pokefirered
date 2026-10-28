@@ -1259,7 +1259,7 @@ static const u16 sTMHMMoves[] =
 
 static const u16 sTM55Moves[] = 
 {
-	MOVE_RAPTURE,
+	MOVE_RECTIFY,
 	MOVE_ABYSS,
-	MOVE_STRIKE
+	MOVE_RAPTURE
 };

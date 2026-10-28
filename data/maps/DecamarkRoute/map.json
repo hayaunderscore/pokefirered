@@ -40,5 +40,22 @@
   ],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 50,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DecamarkRoute_EventScript_Sign"
+    },
+    {
+      "type": "sign",
+      "x": 52,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "DecamarkRoute_EventScript_Rock"
+    }
+  ]
 }

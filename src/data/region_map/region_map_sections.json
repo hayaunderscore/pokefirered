@@ -1215,6 +1215,10 @@
     {
       "id": "MAPSEC_DECAMARK",
       "name": "ISLE 6"
+    },
+    {
+      "id": "MAPSEC_FOREST_OF_CALM",
+      "name": "FOREST OF CALM"
     }
   ]
 }

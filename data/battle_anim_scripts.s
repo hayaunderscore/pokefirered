@@ -376,7 +376,7 @@ gBattleAnims_Moves::
 	.4byte Move_DOOM_DESIRE
 	.4byte Move_PSYCHO_BOOST
 	.4byte Move_ABYSS
-	.4byte Move_ABYSS @ For now, both RAPTURE and STRIKE use the same anims as ABYSS
+	.4byte Move_RAPTURE
 	.4byte Move_ABYSS
 	.4byte Move_QUIVER_DANCE
 	.4byte Move_TRICK_ROOM
@@ -10226,6 +10226,42 @@ Move_ABYSS:
 	call DiveAttackWaterDroplets
 	call DiveAttackWaterDroplets
 	call DiveAttackWaterDroplets
+	end
+
+Move_RAPTURE:
+	loadspritegfx ANIM_TAG_WHITE_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_CIRCLE_OF_LIGHT
+	loadspritegfx ANIM_TAG_BIRD
+	loadspritegfx ANIM_TAG_IMPACT
+	fadetobg BG_SOLAR_BEAM_OPPONENT
+	waitbgfadeout
+	monbg ANIM_ATTACKER
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
+	waitbgfadein
+	setalpha 12, 8
+	playsewithpan SE_M_SOLAR_BEAM, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 0, 16, RGB_WHITEALPHA
+	createvisualtask AnimTask_FadeScreenToWhite, 5
+	waitforvisualfinish
+	delay 255
+	delay 255
+	delay 255
+	invisible ANIM_TARGET
+	playsewithpan SE_M_WING_ATTACK, SOUND_PAN_TARGET
+	createsprite gRaptureUpSpriteTemplate, ANIM_ATK_PARTNER, 2, 101, 65498, 13, 336
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	createvisualtask SoundTask_PlaySE1WithPanning, 5, SE_M_HYPER_BEAM, SOUND_PAN_TARGET
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPalExclude, 5, 5, 2, 16, 0, RGB_WHITEALPHA
+	createvisualtask AnimTask_HorizontalShake, 5, ANIM_TARGET, 5, 14
+	waitforvisualfinish
+	clearmonbg ANIM_ATTACKER
+	blendoff
+	restorebg
+	waitbgfadeout
+	setarg 7, 0xFFFF
+	waitbgfadein
 	end
 
 Move_TRICK_ROOM:

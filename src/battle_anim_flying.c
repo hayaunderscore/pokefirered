@@ -137,6 +137,17 @@ const struct SpriteTemplate gFlyBallUpSpriteTemplate =
     .callback = AnimFlyBallUp,
 };
 
+const struct SpriteTemplate gRaptureUpSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .paletteTag = ANIM_TAG_CIRCLE_OF_LIGHT,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = sAffineAnims_FlyBallUp,
+    .callback = AnimFlyBallUp,
+};
+
 const struct SpriteTemplate gFlyBallAttackSpriteTemplate =
 {
     .tileTag = ANIM_TAG_ROUND_SHADOW,

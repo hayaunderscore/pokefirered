@@ -369,7 +369,7 @@ EventScript_UseTM55_1:
 	checkpartymove MOVE_RAPTURE
 	compare_var_to_value VAR_RESULT, PARTY_SIZE
 	goto_if_ne EventScript_UseTM55_10
-	checkpartymove MOVE_STRIKE
+	checkpartymove MOVE_RECTIFY
 	compare_var_to_value VAR_RESULT, PARTY_SIZE
 	goto_if_ne EventScript_UseTM55_11
 EventScript_UseTM55_8:
@@ -387,7 +387,7 @@ EventScript_UseTM55_2:
 	end
 
 EventScript_UseTM55_3:
-	checkpartymove MOVE_STRIKE
+	checkpartymove MOVE_RECTIFY
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_ne EventScript_UseTM55_2
 	goto EventScript_UseTM55_1
@@ -410,7 +410,7 @@ EventScript_UseTM55_10:
 
 EventScript_UseTM55_11:
 	copyvar VAR_TEMP_4, VAR_RESULT
-	setvar VAR_TEMP_5, MOVE_STRIKE
+	setvar VAR_TEMP_5, MOVE_RECTIFY
 	goto EventScript_UseTM55_8
 
 EventScript_FldEffTM55::

@@ -151,7 +151,7 @@ script PokemonTower_6F_EventScript_Cara2 {
 	delay(30)
 	setvar(VAR_LAST_TALKED, LOCALID_TOWER_CARA)
 	// Fucking idiot forgot their ABYSS user. Teehee!
-	if (checkpartymove(MOVE_ABYSS) == PARTY_SIZE && checkpartymove(MOVE_RAPTURE) == PARTY_SIZE && checkpartymove(MOVE_STRIKE) == PARTY_SIZE) {
+	if (checkpartymove(MOVE_ABYSS) == PARTY_SIZE && checkpartymove(MOVE_RAPTURE) == PARTY_SIZE && checkpartymove(MOVE_RECTIFY) == PARTY_SIZE) {
 		msgbox("\. \. \.
 				\. \. \.
 

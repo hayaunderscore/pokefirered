@@ -718,7 +718,7 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_PSYCHO_BOOST  - 1] = gMoveDescription_PsychoBoost,
     [MOVE_ABYSS         - 1] = gMoveDescription_Abyss,
     [MOVE_RAPTURE       - 1] = gMoveDescription_Rapture,
-    [MOVE_STRIKE        - 1] = gMoveDescription_Strike,
+    [MOVE_RECTIFY        - 1] = gMoveDescription_Strike,
     [MOVE_QUIVER_DANCE  - 1] = gMoveDescription_QuiverDance,
     [MOVE_TRICK_ROOM    - 1] = gMoveDescription_TrickRoom,
 };
