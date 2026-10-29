@@ -1516,3 +1516,6 @@ Text_MonCryScript::
 
 	.include "data/maps/DecamarkRoute/scripts.inc"
 	.include "data/maps/DecamarkRoute/text.inc"
+
+	.include "data/maps/ForestOfCalm/scripts.inc"
+	.include "data/maps/ForestOfCalm/text.inc"

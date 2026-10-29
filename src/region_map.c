@@ -727,6 +727,10 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_POKEMON_TECH,
         .name = sMapsecName_POK__MON_TECH,
         .desc = gText_RegionMap_AreaDesc_PokemonTech
+    }, {
+        .id = MAPSEC_FOREST_OF_CALM,
+        .name = sMapsecName_FOREST_OF_CALM,
+        .desc = gText_RegionMap_AreaDesc_ForestOfCalm,
     },
 };
 
@@ -1189,10 +1193,33 @@ static void CreateMainMapTask(void)
 
 static bool32 SelectedMapsecSEEnabled(void)
 {
-    if (GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, GetMapCursorY(), GetMapCursorX()) == MAPSEC_ROUTE_4_POKECENTER)
-        return FALSE;
-    else
-        return TRUE;
+	// LAYER_MAP
+	u16 sec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_MAP, GetMapCursorY(), GetMapCursorX());
+	bool32 result = TRUE;
+	switch (sec)
+	{
+		case MAPSEC_ROUTE_4_POKECENTER:
+			result = FALSE;
+			break;
+	}
+	// LAYER_DUNGEON
+	sec = GetSelectedMapSection(GetSelectedRegionMap(), LAYER_DUNGEON, GetMapCursorY(), GetMapCursorX());
+	if (result)
+	{
+		switch (sec)
+		{
+			case MAPSEC_MT_SILVER:
+				result = FlagGet(FLAG_WORLD_MAP_MT_SILVER) || FlagGet(FLAG_WORLD_MAP_ROUTE_28);
+				break;
+			case MAPSEC_NEPTUNE_CAVERN:
+				result = FlagGet(FLAG_INTERACTED_WITH_SAILOR);
+				break;
+			case MAPSEC_FOREST_OF_CALM:
+				result = FlagGet(FLAG_WORLD_MAP_ISLE_6);
+				break;
+		}
+	}
+	return result;
 }
 
 static void PlaySEForSelectedMapsec(void)
@@ -1559,6 +1586,8 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
     	FillBgTilemapBufferRect_Palette0(0, 0x10B, 5, 12, 1, 1);
      	FillBgTilemapBufferRect(0, 0x001, 4, 12, 1, 1, 1);
     }
+    if (whichMap == REGIONMAP_KANTO && !FlagGet(FLAG_WORLD_MAP_ISLE_6))
+    	FillBgTilemapBufferRect_Palette0(0, 0x003, 23, 13, 2, 1);
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -2976,6 +3005,8 @@ static u16 GetMapsecUnderCursor(void)
     	mapsec = MAPSEC_NONE;
     if (mapsec == MAPSEC_CADMIUM_ISLAND && !FlagGet(FLAG_WORLD_MAP_CADMIUM_ISLAND))
     	mapsec = MAPSEC_NONE;
+    if (mapsec == MAPSEC_DECAMARK && !FlagGet(FLAG_WORLD_MAP_ISLE_6))
+    	mapsec = MAPSEC_NONE;
     return mapsec;
 }
 
@@ -2994,6 +3025,8 @@ static u16 GetDungeonMapsecUnderCursor(void)
     if (mapsec == MAPSEC_MT_SILVER && (!FlagGet(FLAG_WORLD_MAP_MT_SILVER) && !FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
     	mapsec = MAPSEC_NONE;
     if ((mapsec == MAPSEC_ROUTE || mapsec == MAPSEC_NEPTUNE_CAVERN) && !FlagGet(FLAG_INTERACTED_WITH_SAILOR))
+    	mapsec = MAPSEC_NONE;
+    if (mapsec == MAPSEC_FOREST_OF_CALM && !FlagGet(FLAG_WORLD_MAP_ISLE_6))
     	mapsec = MAPSEC_NONE;
     return mapsec;
 }
@@ -3131,6 +3164,8 @@ static u8 GetDungeonMapsecType(u8 mapsec)
     	return FlagGet(FLAG_WORLD_MAP_MT_SILVER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_POKEMON_TECH:
     	return (FlagGet(FLAG_WORLD_MAP_POKEMON_TECH) || FlagGet(FLAG_DID_SUNKEN_ANNE)) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+    case MAPSEC_FOREST_OF_CALM:
+    	return FlagGet(FLAG_WORLD_MAP_FOREST_OF_CALM) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3419,6 +3454,10 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
             GetPlayerPositionOnRegionMap();
         }
         break;
+    case MAPSEC_FOREST_OF_CALM:
+    	sMapCursor->x = 20;
+    	sMapCursor->y = 9;
+     	break;
     default:
         GetPlayerPositionOnRegionMap();
         break;
@@ -3677,6 +3716,8 @@ static void CreateDungeonIcons(void)
                  	if (!FlagGet(FLAG_INTERACTED_WITH_SAILOR)) continue;
                 }
                 if (mapsec == MAPSEC_MT_SILVER && (!FlagGet(FLAG_WORLD_MAP_MT_SILVER) && !FlagGet(FLAG_WORLD_MAP_ROUTE_28)))
+                	continue;
+                if (mapsec == MAPSEC_FOREST_OF_CALM && !FlagGet(FLAG_WORLD_MAP_ISLE_6))
                 	continue;
                 CreateDungeonIconSprite(i, numIcons, x, y, numIcons + 35, 10);
                 if (GetDungeonMapsecType(mapsec) != 2)

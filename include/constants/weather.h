@@ -19,6 +19,7 @@
 #define WEATHER_ABNORMAL           15  // unused
 #define WEATHER_ROUTE119_CYCLE     20  // unused
 #define WEATHER_ROUTE123_CYCLE     21  // unused
+#define WEATHER_SHADE_CLOUDS       16
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's

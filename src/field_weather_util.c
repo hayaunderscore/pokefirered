@@ -86,6 +86,7 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_UNDERWATER_BUBBLES: return WEATHER_UNDERWATER_BUBBLES;
     case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
     case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
+    case WEATHER_SHADE_CLOUDS:       return WEATHER_SHADE_CLOUDS;
     default:                         return WEATHER_NONE;
     }
 }

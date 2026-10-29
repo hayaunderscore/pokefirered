@@ -33,6 +33,7 @@ enum MapPreviewScreenId
     MPS_VIAPOIS_CHAMBER,
     MPS_MT_SILVER,
     MPS_OLD_LAB,
+    MPS_FOREST_OF_CALM,
     MPS_COUNT
 };
 

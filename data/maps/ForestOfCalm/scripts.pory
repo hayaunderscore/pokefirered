@@ -1,0 +1,7 @@
+mapscripts ForestOfCalm_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: ForestOfCalm_OnTransition
+}
+
+script ForestOfCalm_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_FOREST_OF_CALM)
+}

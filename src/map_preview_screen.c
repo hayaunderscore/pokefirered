@@ -322,6 +322,14 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .tilemapptr = sRocketHideoutMapPreviewTilemap,
         .palptr = sRocketHideoutMapPreviewPalette
     },
+    [MPS_FOREST_OF_CALM] = {
+        .mapsec = MAPSEC_FOREST_OF_CALM,
+        .type = MPS_TYPE_FOREST,
+        .flagId = FLAG_WORLD_MAP_FOREST_OF_CALM,
+        .tilesptr = sViridianForestMapPreviewTiles,
+        .tilemapptr = sViridianForestMapPreviewTilemap,
+        .palptr = sViridianForestMapPreviewPalette
+    },
 };
 
 static const struct WindowTemplate sMapNameWindow = {

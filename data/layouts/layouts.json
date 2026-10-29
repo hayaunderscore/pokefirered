@@ -4980,6 +4980,18 @@
       "secondary_tileset": "gTileset_LavenderTown",
       "border_filepath": "data/layouts/DecamarkRoute/border.bin",
       "blockdata_filepath": "data/layouts/DecamarkRoute/map.bin"
+    },
+    {
+      "id": "LAYOUT_FOREST_OF_CALM",
+      "name": "ForestOfCalm_Layout",
+      "width": 50,
+      "height": 50,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_LavenderTown",
+      "border_filepath": "data/layouts/ForestOfCalm/border.bin",
+      "blockdata_filepath": "data/layouts/ForestOfCalm/map.bin"
     }
   ]
 }

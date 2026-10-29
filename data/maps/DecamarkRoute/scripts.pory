@@ -1,4 +1,10 @@
-mapscripts DecamarkRoute_MapScripts {}
+mapscripts DecamarkRoute_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: DecamarkRoute_OnTransition
+}
+
+script DecamarkRoute_OnTransition {
+	setworldmapflag(FLAG_WORLD_MAP_ISLE_6)
+}
 
 script DecamarkRoute_EventScript_Sign {
 	msgbox("FOREST OF CALM AHEAD", MSGBOX_SIGN)

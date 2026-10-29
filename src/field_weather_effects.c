@@ -2162,6 +2162,68 @@ bool8 Shade_Finish(void)
 }
 
 //------------------------------------------------------------------------------
+// WEATHER_SHADE_CLOUDS
+//------------------------------------------------------------------------------
+
+void ShadeClouds_InitVars(void)
+{
+    gWeatherPtr->initStep = 0;
+    gWeatherPtr->gammaTargetIndex = 3;
+    gWeatherPtr->gammaStepDelay = 20;
+    gWeatherPtr->weatherGfxLoaded = FALSE;
+    if (!gWeatherPtr->cloudSpritesCreated)
+        Weather_SetBlendCoeffs(0, 16);
+}
+
+void ShadeClouds_InitAll(void)
+{
+    ShadeClouds_InitVars();
+    while (!gWeatherPtr->weatherGfxLoaded)
+    	ShadeClouds_Main();
+}
+
+void ShadeClouds_Main(void)
+{
+	switch (gWeatherPtr->initStep)
+    {
+    case 0:
+        CreateCloudSprites();
+        gWeatherPtr->initStep++;
+        break;
+    case 1:
+        Weather_SetTargetBlendCoeffs(12, 8, 1);
+        gWeatherPtr->initStep++;
+        break;
+    case 2:
+        if (Weather_UpdateBlend())
+        {
+            gWeatherPtr->weatherGfxLoaded = TRUE;
+            gWeatherPtr->initStep++;
+        }
+        break;
+    }
+}
+
+bool8 ShadeClouds_Finish(void)
+{
+	switch (gWeatherPtr->finishStep)
+    {
+    case 0:
+        Weather_SetTargetBlendCoeffs(0, 16, 1);
+        gWeatherPtr->finishStep++;
+        return TRUE;
+    case 1:
+        if (Weather_UpdateBlend())
+        {
+            DestroyCloudSprites();
+            gWeatherPtr->finishStep++;
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
+//------------------------------------------------------------------------------
 // WEATHER_UNDERWATER_BUBBLES
 //------------------------------------------------------------------------------
 

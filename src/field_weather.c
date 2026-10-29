@@ -82,6 +82,8 @@ static const struct WeatherCallbacks sWeatherFuncs[] = {
     {Drought_InitVars, Drought_Main, Drought_InitAll, Drought_Finish},
     {Downpour_InitVars, Thunderstorm_Main, Downpour_InitAll, Thunderstorm_Finish},
     {Bubbles_InitVars, Bubbles_Main, Bubbles_InitAll, Bubbles_Finish},
+    {},
+    {ShadeClouds_InitVars, ShadeClouds_Main, ShadeClouds_InitAll, ShadeClouds_Finish},
 };
 
 static void (*const sWeatherPalStateFuncs[])(void) = {
@@ -373,6 +375,7 @@ static void FadeInScreenWithWeather(void)
     case WEATHER_DOWNPOUR:
     case WEATHER_SNOW:
     case WEATHER_SHADE:
+    case WEATHER_SHADE_CLOUDS:
         if (FadeInScreen_RainShowShade() == FALSE)
         {
             gWeatherPtr->gammaIndex = 3;
@@ -781,6 +784,7 @@ void FadeScreen(u8 mode, s8 delay)
     case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
     case WEATHER_DROUGHT:
+    case WEATHER_SHADE_CLOUDS:
         useWeatherPal = TRUE;
         break;
     default:
@@ -849,6 +853,7 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
     case WEATHER_FOG_HORIZONTAL:
     case WEATHER_SHADE:
     case WEATHER_DROUGHT:
+    case WEATHER_SHADE_CLOUDS:
         useWeatherPal = TRUE;
         break;
     default:
@@ -1198,6 +1203,7 @@ void SlightlyDarkenPalsInWeather(u16 *palbuf, u16 *unused, u32 size)
     case WEATHER_SNOW:
     case WEATHER_RAIN_THUNDERSTORM:
     case WEATHER_SHADE:
+    case WEATHER_SHADE_CLOUDS:
     case WEATHER_DOWNPOUR:
         BlendPalettesAt(palbuf, RGB_BLACK, 3, size);
         break;

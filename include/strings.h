@@ -1063,6 +1063,7 @@ extern const u8 gText_RegionMap_AreaDesc_DottedHole[];
 extern const u8 gText_RegionMap_AreaDesc_NeptuneCavern[];
 extern const u8 gText_RegionMap_AreaDesc_MtSilver[];
 extern const u8 gText_RegionMap_AreaDesc_PokemonTech[];
+extern const u8 gText_RegionMap_AreaDesc_ForestOfCalm[];
 
 // field_screen_effect
 extern const u8 gText_PlayerScurriedToCenter[];

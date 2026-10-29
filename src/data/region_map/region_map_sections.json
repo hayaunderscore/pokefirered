@@ -1214,7 +1214,11 @@
     },
     {
       "id": "MAPSEC_DECAMARK",
-      "name": "ISLE 6"
+      "name": "ISLE 6",
+      "x": 19,
+      "y": 9,
+      "width": 2,
+      "height": 1
     },
     {
       "id": "MAPSEC_FOREST_OF_CALM",
