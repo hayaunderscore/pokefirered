@@ -3923,6 +3923,19 @@ static bool32 IsCeladonDeptStoreMapsec(u16 mapsec)
     return TRUE;
 }
 
+static bool32 IsCaveOfCalm(u16 mapsec)
+{
+	if (sRegionMap != NULL)
+		return FALSE;
+	if (mapsec != MAPSEC_FOREST_OF_CALM)
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_CAVE_OF_CALM))
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CAVE_OF_CALM))
+		return FALSE;
+	return TRUE;
+}
+
 u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
 {
     u8 *dst;
@@ -3932,6 +3945,8 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
+        else if (IsCaveOfCalm(mapsec) == TRUE)
+        	dst = StringCopy(dst0, sMapsecName_CAVE_OF_CALM);
         else
             dst = StringCopy(dst0, sMapNames[idx]);
     }

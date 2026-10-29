@@ -226,6 +226,7 @@ gScriptCmdTable::
 	.4byte ScrCmd_destroyvobject				 @ 0xde
 	.4byte ScrCmd_DrawTiles        				 @ 0xdf
 	.4byte ScrCmd_reloadmap                      @ 0xe0
+	.4byte ScrCmd_fadescreenswapbuffers			 @ 0xe1
 
 gScriptCmdTableEnd::
 	.4byte ScrCmd_nop

@@ -1,0 +1,47 @@
+{
+  "id": "MAP_CAVE_OF_CALM",
+  "name": "CaveOfCalm",
+  "layout": "LAYOUT_CAVE_OF_CALM",
+  "music": "MUS_CAVE_OF_ORIGIN",
+  "region_map_section": "MAPSEC_FOREST_OF_CALM",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "floor_number": 0,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [
+    {
+      "x": 10,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_FOREST_OF_CALM",
+      "dest_warp_id": "2"
+    },
+    {
+      "warp_id": "WARP_ID_DYNAMIC",
+      "x": 10,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_DYNAMIC",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "CaveOfCalm_EventScript_Summoning"
+    }
+  ],
+  "bg_events": []
+}

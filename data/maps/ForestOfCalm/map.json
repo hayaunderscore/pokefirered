@@ -29,6 +29,13 @@
       "elevation": 0,
       "dest_map": "MAP_DECAMARK_ROUTE",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 28,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_CAVE_OF_CALM",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

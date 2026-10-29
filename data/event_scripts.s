@@ -1519,3 +1519,12 @@ Text_MonCryScript::
 
 	.include "data/maps/ForestOfCalm/scripts.inc"
 	.include "data/maps/ForestOfCalm/text.inc"
+
+	.include "data/maps/CaveOfCalm/scripts.inc"
+	.include "data/maps/CaveOfCalm/text.inc"
+
+	.include "data/maps/CarasHouse_1F/scripts.inc"
+	.include "data/maps/CarasHouse_1F/text.inc"
+
+	.include "data/maps/CarasHouse_2F/scripts.inc"
+	.include "data/maps/CarasHouse_2F/text.inc"

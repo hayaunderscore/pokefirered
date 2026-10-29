@@ -48,7 +48,8 @@
     "gMapGroup_MtSilver",
     "gMapGroup_IndoorRoute28",
     "gMapGroup_OldLab",
-    "gMapGroup_PokemonTech"
+    "gMapGroup_PokemonTech",
+    "gMapGroup_IndoorSpecial"
   ],
   "gMapGroup_Link": [
     "BattleColosseum_2P",
@@ -67,7 +68,8 @@
     "CadmiumIsland",
     "DeepRuins_Hell",
     "DeepRuins_FinalHallway",
-    "WaitingRoom_Bridge"
+    "WaitingRoom_Bridge",
+    "CaveOfCalm"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",
@@ -622,5 +624,9 @@
     "PokemonTech_Basement",
     "PokemonTechNew_Classroom1_1",
     "PokemonTechNew_Classroom1_2"
+  ],
+  "gMapGroup_IndoorSpecial": [
+    "CarasHouse_1F",
+    "CarasHouse_2F"
   ]
 }

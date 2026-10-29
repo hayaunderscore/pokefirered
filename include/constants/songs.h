@@ -379,10 +379,12 @@
 #define MUS_DRIFTVEIL_CITY          370
 #define MUS_HER                     371
 #define MUS_ETERNA_FOREST           372
+#define MUS_CAVE_OF_ORIGIN          373
+#define MUS_NEW_BARK                374
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_ETERNA_FOREST
+#define END_MUS                     MUS_NEW_BARK
 
 #endif  // GUARD_CONSTANTS_SONGS_H

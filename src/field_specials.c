@@ -11,6 +11,7 @@
 #include "overworld.h"
 #include "field_message_box.h"
 #include "event_data.h"
+#include "string_util.h"
 #include "strings.h"
 #include "battle.h"
 #include "fieldmap.h"
@@ -2635,4 +2636,31 @@ bool8 HasContentThatCannotBePerceivedByOthers(void)
 			return TRUE;
 	}
 	return FALSE;
+}
+
+static const struct {
+	u8 name[POKEMON_NAME_LENGTH + 1];
+	u16 value;
+} sPasswords[] = {
+	{_("CARA"), 1},
+	{_("NIHIL"), 2},
+};
+
+static void CB2_ReturnToFieldNamingScreen(void)
+{
+	u32 i;
+	gSpecialVar_Result = 0;
+	for (i = 0; i < ARRAY_COUNT(sPasswords); i++) {
+		if (StringCaseCompare(gStringVar1, sPasswords[i].name) == 0)
+		{
+			gSpecialVar_Result = sPasswords[i].value;
+			break;
+		}
+	}
+	CB2_ReturnToFieldContinueScriptPlayMapMusic();
+}
+
+void DoNamingScreenSpecial(void)
+{
+	DoNamingScreen(NAMING_SCREEN_PASSWORD, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldNamingScreen);
 }

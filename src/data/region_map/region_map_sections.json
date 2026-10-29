@@ -1223,6 +1223,14 @@
     {
       "id": "MAPSEC_FOREST_OF_CALM",
       "name": "FOREST OF CALM"
+    },
+    {
+      "id": "MAPSEC_SPECIAL_AREA_2",
+      "name": "CAVE OF CALM"
+    },
+    {
+      "id": "MAPSEC_GLITCH_CITY",
+      "name": "??????????"
     }
   ]
 }

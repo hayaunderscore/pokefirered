@@ -1,0 +1,72 @@
+mapscripts CaveOfCalm_MapScripts {
+	MAP_SCRIPT_ON_LOAD: CaveOfCalm_OnLoad
+}
+
+script CaveOfCalm_OnLoad {
+	setlayouttiles(LAYOUT_ENDLESS_OCEAN, 6, 9, 0, 0, 8, 6)
+}
+
+const EVENT_CARA = 1 // OG Cara fight
+const EVENT_NIHIL = 2 // Nihilego (?)
+
+script CaveOfCalm_EventScript_Summoning {
+	lock
+	applymovement(LOCALID_PLAYER, moves(
+		face_up
+	))
+	delay(30)
+	msgbox("Open the gate?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		closemessage
+		applymovement(LOCALID_PLAYER, moves(
+			walk_down
+		))
+		waitmovement(0)
+		release
+		end
+	}
+	fadescreenswapbuffers(FADE_TO_BLACK)
+	special(DoNamingScreenSpecial)
+	waitstate
+	switch (var(VAR_RESULT)) {
+		case EVENT_CARA:
+			setdynamicwarp(MAP_CARAS_HOUSE_1F, 0)
+		default:
+			msgbox("Nothing happened!")
+			closemessage
+			applymovement(LOCALID_PLAYER, moves(
+				walk_down
+			))
+			waitmovement(0)
+			release
+			end
+	}
+	closemessage
+	playbgm(MUS_DUMMY, FALSE)
+	playse(SE_CLICK)
+	delay(48)
+	playse(SE_M_EARTHQUAKE)
+	setvar(VAR_0x8004, 0)
+	setvar(VAR_0x8005, 1)
+	setvar(VAR_0x8006, 60)
+	setvar(VAR_0x8007, 3)
+	special(ShakeScreen)
+	delay(128)
+	fadescreen(FADE_TO_WHITE)
+	waitse
+	playse(SE_M_HYDRO_PUMP)
+	waitse
+	setlayouttiles(LAYOUT_CAVE_OF_CALM, 0, 0, 6, 9, 14, 15)
+	playse(SE_M_DIVE)
+	fadescreen(FADE_FROM_WHITE)
+	waitse
+	fadedefaultbgm
+	release
+	setvar(VAR_TEMP_0, 1)
+	end
+}
+
+script CaveOfCalm_EventScript_WarpToCarasHouse {
+	warp(MAP_CARAS_HOUSE_1F, 0)
+	end
+}

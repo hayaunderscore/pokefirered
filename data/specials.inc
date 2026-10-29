@@ -16,7 +16,7 @@ gSpecials::
 	def_special ExitLinkRoom
 	def_special NullFieldSpecial  @ Secret Base specials
 	def_special Script_GetObjectFacingDirection
-	def_special NullFieldSpecial
+	def_special DoNamingScreenSpecial
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
 	def_special NullFieldSpecial
