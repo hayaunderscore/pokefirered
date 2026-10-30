@@ -1907,6 +1907,10 @@ Cry_Togedemaru::
 	.incbin "sound/direct_sound_samples/cries/togedemaru.bin"
 
 	.align 2
+Cry_Nihilego::
+	.incbin "sound/direct_sound_samples/cries/nihilego.bin"
+
+	.align 2
 Cry_Unown_King::
 	.incbin "sound/direct_sound_samples/cries/unown_king.bin"
 

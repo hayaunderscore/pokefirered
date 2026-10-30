@@ -470,6 +470,7 @@ static const u8 gInitialMovementTypeFacingDirections[MOVEMENT_TYPES_COUNT] = {
 #define OBJ_EVENT_PAL_TAG_NPC                         0x1125
 #define OBJ_EVENT_PAL_TAG_AMBER                       0x1126
 #define OBJ_EVENT_PAL_TAG_GREEN_ALT                   0x1127
+#define OBJ_EVENT_PAL_TAG_NIHILEGO                    0x1128
 #define OBJ_EVENT_PAL_TAG_NONE                        0x11FF
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -511,6 +512,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
 	{gObjectEventPal_Player,                  OBJ_EVENT_PAL_TAG_NPC},
 	{gObjectEventPal_Amber,                   OBJ_EVENT_PAL_TAG_AMBER},
 	{gObjectEventPal_GreenAlt,                OBJ_EVENT_PAL_TAG_GREEN_ALT},
+	{gObjectEventPal_Nihilego,                OBJ_EVENT_PAL_TAG_NIHILEGO},
     {NULL,                                    OBJ_EVENT_PAL_TAG_NONE},
 };
 

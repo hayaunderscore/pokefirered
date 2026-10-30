@@ -6213,7 +6213,22 @@ static const u32 sTMHMLearnsets[][2] =
 
     [SPECIES_OLD_UNOWN_T] = TMHM_LEARNSET(0),
 
-    [SPECIES_OLD_UNOWN_U] = TMHM_LEARNSET(0),
+    [SPECIES_NIHILEGO]    = TMHM_LEARNSET(TMHM(TM16_LIGHT_SCREEN)
+    									| TMHM(TM17_PROTECT)
+    									| TMHM(TM20_SAFEGUARD)
+    									| TMHM(TM21_FRUSTRATION)
+             							| TMHM(TM24_THUNDERBOLT)
+                    					| TMHM(TM25_THUNDER)
+             							| TMHM(TM27_RETURN)
+                    					| TMHM(TM29_PSYCHIC)
+                    					| TMHM(TM30_SHADOW_BALL)
+                         				| TMHM(TM36_SLUDGE_BOMB)
+                             			| TMHM(TM37_SANDSTORM)
+                                		| TMHM(TM39_ROCK_TOMB)
+                                  		| TMHM(TM42_FACADE)
+                    					| TMHM(TM33_REFLECT)
+                   						| TMHM(HM02_FLY)
+                   						| TMHM(HM06_ROCK_SMASH)),
 
     [SPECIES_TOGEDEMARU]  = TMHM_LEARNSET(TMHM(TM15_HYPER_BEAM)
     									| TMHM(TM17_PROTECT)

@@ -1528,3 +1528,6 @@ Text_MonCryScript::
 
 	.include "data/maps/CarasHouse_2F/scripts.inc"
 	.include "data/maps/CarasHouse_2F/text.inc"
+
+	.include "data/maps/NihilegoEncounter/scripts.inc"
+	.include "data/maps/NihilegoEncounter/text.inc"

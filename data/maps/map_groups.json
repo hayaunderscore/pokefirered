@@ -69,7 +69,8 @@
     "DeepRuins_Hell",
     "DeepRuins_FinalHallway",
     "WaitingRoom_Bridge",
-    "CaveOfCalm"
+    "CaveOfCalm",
+    "NihilegoEncounter"
   ],
   "gMapGroup_Dungeons": [
     "ViridianForest",

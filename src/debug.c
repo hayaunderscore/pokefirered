@@ -3709,6 +3709,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_ETERNA_FOREST) \
     X(MUS_CAVE_OF_ORIGIN) \
     X(MUS_NEW_BARK) \
+    X(MUS_VS_NIHIL) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

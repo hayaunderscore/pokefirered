@@ -5028,6 +5028,18 @@
       "secondary_tileset": "gTileset_GenericBuilding1",
       "border_filepath": "data/layouts/CarasHouse_2F/border.bin",
       "blockdata_filepath": "data/layouts/CarasHouse_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_NIHILEGO_ENCOUNTER",
+      "name": "NihilegoEncounter_Layout",
+      "width": 25,
+      "height": 16,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_CeruleanCave",
+      "border_filepath": "data/layouts/NihilegoEncounter/border.bin",
+      "blockdata_filepath": "data/layouts/NihilegoEncounter/map.bin"
     }
   ]
 }

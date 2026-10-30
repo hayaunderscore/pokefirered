@@ -998,6 +998,7 @@ SECTIONS {
         sound/songs/midi/mus_eterna_forest.o(.rodata);
         sound/songs/midi/mus_cave_of_origin.o(.rodata);
         sound/songs/midi/mus_new_bark.o(.rodata);
+        sound/songs/midi/mus_vs_nihil.o(.rodata);
     } > ROM =0
 
     lib_rodata :

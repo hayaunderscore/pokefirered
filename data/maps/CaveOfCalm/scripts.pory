@@ -8,6 +8,18 @@ script CaveOfCalm_OnLoad {
 
 const EVENT_CARA = 1 // OG Cara fight
 const EVENT_NIHIL = 2 // Nihilego (?)
+const EVENT_ABBY = 3
+const EVENT_LEAF = 4
+
+script CaveOfCalm_EventScript_ExitSummoning {
+	closemessage
+	applymovement(LOCALID_PLAYER, moves(
+		walk_down
+	))
+	waitmovement(0)
+	release
+	end
+}
 
 script CaveOfCalm_EventScript_Summoning {
 	lock
@@ -17,13 +29,7 @@ script CaveOfCalm_EventScript_Summoning {
 	delay(30)
 	msgbox("Open the gate?", MSGBOX_YESNO)
 	if (var(VAR_RESULT) == NO) {
-		closemessage
-		applymovement(LOCALID_PLAYER, moves(
-			walk_down
-		))
-		waitmovement(0)
-		release
-		end
+		goto(CaveOfCalm_EventScript_ExitSummoning)
 	}
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	special(DoNamingScreenSpecial)
@@ -31,15 +37,28 @@ script CaveOfCalm_EventScript_Summoning {
 	switch (var(VAR_RESULT)) {
 		case EVENT_CARA:
 			setdynamicwarp(MAP_CARAS_HOUSE_1F, 0)
+		case EVENT_NIHIL:
+			setdynamicwarp(MAP_NIHILEGO_ENCOUNTER, 0)
+		case EVENT_ABBY:
+			textcolor(NPC_TEXT_COLOR_FEMALE)
+			msgbox("ARE YOU SERIOUSLY GONNA TRY
+					TO INPUT {COLOR BLUE}MY{COLOR RED} NAME EVERYWHERE?
+
+					YOU ARE NOT GONNA GET ANY
+					REWARD FOR GUSHING OVER {COLOR BLUE}ME{COLOR RED}.
+					PISS OFF!")
+			goto(CaveOfCalm_EventScript_ExitSummoning)
+		case EVENT_LEAF:
+			fadenewbgm(MUS_DUMMY)
+			delay(30)
+			msgbox("Nothing\.{PAUSE 60} happened\.?")
+			goto(CaveOfCalm_EventScript_ExitSummoning)
 		default:
-			msgbox("Nothing happened!")
-			closemessage
-			applymovement(LOCALID_PLAYER, moves(
-				walk_down
-			))
-			waitmovement(0)
-			release
-			end
+			message("Nothing happened!")
+			waitmessage
+			playfanfare(MUS_TOO_BAD)
+			waitfanfare
+			goto(CaveOfCalm_EventScript_ExitSummoning)
 	}
 	closemessage
 	playbgm(MUS_DUMMY, FALSE)

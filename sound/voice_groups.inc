@@ -9121,7 +9121,7 @@ voicegroup205::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 242, 0, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 128, 204
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_xylophone, 255, 235, 0, 204
-	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 216
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_tubular_bell, 255, 165, 90, 248
 	voice_directsound 60, 0, DirectSoundWaveData_steinway_b_piano, 255, 204, 51, 242
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 255, 0, 255, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_organ2, 128, 146, 118, 137

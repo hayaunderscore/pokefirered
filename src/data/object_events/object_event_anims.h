@@ -995,6 +995,30 @@ static const union AnimCmd *const sAnimTable_Inanimate[] = {
     [ANIM_STAY_STILL] = sAnim_StayStill
 };
 
+static const union AnimCmd sAnim_FollowerFaceSouth[] = {
+    ANIMCMD_FRAME(0, 60),
+    ANIMCMD_FRAME(1, 60),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FollowerFaceNorth[] = {
+	ANIMCMD_FRAME(2, 60),
+    ANIMCMD_FRAME(3, 60),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FollowerFaceWest[] = {
+	ANIMCMD_FRAME(4, 60),
+    ANIMCMD_FRAME(5, 60),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FollowerFaceEast[] = {
+	ANIMCMD_FRAME(4, 60, .hFlip = TRUE),
+    ANIMCMD_FRAME(5, 60, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
 // Leftover from Ruby/Sapphire
 static const union AnimCmd *const sAnimTable_QuintyPlump[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_QuintyPlumpFaceSouth,
@@ -1040,6 +1064,30 @@ static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+    [ANIM_RAISE_HAND] = sAnim_RaiseHand,
+};
+
+static const union AnimCmd *const sAnimTable_FollowerStandard[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FollowerFaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FollowerFaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_FollowerFaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FollowerFaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_FollowerFaceSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_FollowerFaceNorth,
+    [ANIM_STD_GO_WEST] = sAnim_FollowerFaceWest,
+    [ANIM_STD_GO_EAST] = sAnim_FollowerFaceEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_FollowerFaceSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_FollowerFaceNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_FollowerFaceWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_FollowerFaceEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_FollowerFaceSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_FollowerFaceNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_FollowerFaceWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_FollowerFaceEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_FollowerFaceSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_FollowerFaceNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_FollowerFaceWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_FollowerFaceEast,
     [ANIM_RAISE_HAND] = sAnim_RaiseHand,
 };
 

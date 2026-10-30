@@ -1882,3 +1882,12 @@ static const struct SpriteFrameImage sPicTable_GreenAlt[] = {
     overworld_frame(gObjectEventPic_GreenSurfRun, 2, 4, 12),
     overworld_frame(gObjectEventPic_GreenSurfRun, 2, 4, 13),
 };
+
+static const struct SpriteFrameImage sPicTable_Nihilego[] = {
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 0),
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 1),
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 2),
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 3),
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 4),
+    overworld_frame(gObjectEventPic_Nihilego, 4, 4, 5),
+};

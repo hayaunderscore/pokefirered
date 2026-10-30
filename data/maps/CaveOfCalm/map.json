@@ -24,12 +24,11 @@
       "dest_warp_id": "2"
     },
     {
-      "warp_id": "WARP_ID_DYNAMIC",
       "x": 10,
       "y": 13,
       "elevation": 0,
       "dest_map": "MAP_DYNAMIC",
-      "dest_warp_id": "0"
+      "dest_warp_id": "WARP_ID_DYNAMIC"
     }
   ],
   "coord_events": [

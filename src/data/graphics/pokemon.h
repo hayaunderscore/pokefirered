@@ -2786,6 +2786,13 @@ const u32 gMonShinyPalette_Togedemaru[] = INCGFX_U32("graphics/pokemon/togedemar
 const u8 gMonIcon_Togedemaru[] = INCGFX_U8("graphics/pokemon/togedemaru/icon.png", ".4bpp");
 const u8 gMonFootprint_Togedemaru[] = INCGFX_U8("graphics/pokemon/togedemaru/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Nihilego[] = INCGFX_U32("graphics/pokemon/nihilego/front.png", ".4bpp.lz");
+const u32 gMonPalette_Nihilego[] = INCGFX_U32("graphics/pokemon/nihilego/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Nihilego[] = INCGFX_U32("graphics/pokemon/nihilego/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Nihilego[] = INCGFX_U32("graphics/pokemon/nihilego/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Nihilego[] = INCGFX_U8("graphics/pokemon/nihilego/icon.png", ".4bpp");
+const u8 gMonFootprint_Nihilego[] = INCGFX_U8("graphics/pokemon/nihilego/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/front.png", ".4bpp.lz");
 const u32 gMonPalette_Egg[] = INCGFX_U32("graphics/pokemon/egg/normal.pal", ".gbapal.lz");
 

@@ -2644,6 +2644,8 @@ static const struct {
 } sPasswords[] = {
 	{_("CARA"), 1},
 	{_("NIHIL"), 2},
+	{_("ABBY"), 3},
+	{_("LEAF"), 4},
 };
 
 static void CB2_ReturnToFieldNamingScreen(void)

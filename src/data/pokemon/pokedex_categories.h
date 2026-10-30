@@ -833,6 +833,7 @@ static const u16 sDexCategory_RarePkmn_Page9[] = {
 };
 
 static const u16 sDexCategory_RarePkmn_Page10[] = {
+	SPECIES_NIHILEGO,
     SPECIES_UNOWN_KING,
 };
 
