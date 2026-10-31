@@ -1,4 +1,24 @@
-mapscripts NihilegoEncounter_MapScripts {}
+mapscripts NihilegoEncounter_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: NihilegoEncounter_OnTransition
+	MAP_SCRIPT_ON_RESUME: NihilegoEncounter_OnResume
+}
+
+script NihilegoEncounter_OnResume {
+	if (flag(FLAG_SYS_SPECIAL_WILD_BATTLE)) {
+		specialvar(VAR_RESULT, GetBattleOutcome)
+		if (var(VAR_RESULT) != B_OUTCOME_CAUGHT) {
+			return
+		}
+		removeobject(LOCALID_EVENT_NIHILEGO)
+	}
+}
+
+script NihilegoEncounter_OnTransition {
+	clearflag(FLAG_HIDE_NIHILEGO)
+	if (flag(FLAG_FOUGHT_NIHILEGO)) {
+		setflag(FLAG_HIDE_NIHILEGO)
+	}
+}
 
 script NihilegoEncounter_EventScript_Hi {
 	lock
@@ -11,6 +31,23 @@ script NihilegoEncounter_EventScript_Hi {
 	special(StartLegendaryBattle)
 	waitstate
 	clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch (var(VAR_RESULT)) {
+		case B_OUTCOME_WON:
+			goto(NihilegoEncounter_EventScript_NihilegoBookedIt)
+		case B_OUTCOME_RAN:
+			goto(NihilegoEncounter_EventScript_NihilegoBookedIt)
+		case B_OUTCOME_PLAYER_TELEPORTED:
+			goto(NihilegoEncounter_EventScript_NihilegoBookedIt)
+	}
+	setflag(FLAG_FOUGHT_NIHILEGO)
+	release
+	end
+}
+
+script NihilegoEncounter_EventScript_NihilegoBookedIt {
+	setvar(VAR_0x8004, SPECIES_NIHILEGO)
+	call(EventScript_MonFlewAway)
 	release
 	end
 }

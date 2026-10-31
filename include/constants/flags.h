@@ -796,12 +796,12 @@
 // Unused?
 #define FLAG_ITEM_SUNKEN_ANNE_HYPER_POTION               0x300
 #define FLAG_RECEIVED_POKEPODS                           0x301
-#define FLAG_0x302               0x302
-#define FLAG_0x303               0x303
-#define FLAG_0x304               0x304
-#define FLAG_0x305               0x305
-#define FLAG_0x306               0x306
-#define FLAG_0x307               0x307
+#define FLAG_ITEM_ABYSS_JR_MIST_STONE                    0x302
+#define FLAG_ITEM_ABYSS_JR_ESCAPE_ROPE                   0x303
+#define FLAG_ITEM_ABYSS_JR_QUICK_CLAW                    0x304
+#define FLAG_FOUGHT_NIHILEGO                             0x305
+#define FLAG_HIDE_NIHILEGO                               0x306
+#define FLAG_FOUGHT_CARA_REMATCH                         0x307
 #define FLAG_0x308               0x308
 #define FLAG_0x309               0x309
 #define FLAG_0x30A               0x30A

@@ -1,1 +1,58 @@
 mapscripts CarasHouse_2F_MapScripts {}
+
+script CarasHouse_2F_EventScript_ExitPC {
+	setvar(VAR_0x8004, 1)
+	special(AnimatePcTurnOff)
+	playse(SE_PC_OFF)
+	waitse
+	releaseall
+	end
+}
+
+script CarasHouse_2F_EventScript_PC {
+	lockall
+	setvar(VAR_0x8004, 1)
+	special(AnimatePcTurnOn)
+	playse(SE_PC_ON)
+	waitse
+	msgbox("There's a message on the PC\.{PAUSE 30}
+			Read it?", MSGBOX_YESNO)
+	if (var(VAR_RESULT) == NO) {
+		goto(CarasHouse_2F_EventScript_ExitPC)
+	}
+	signmsg
+	msgbox("Dear Diore,
+
+			i just lernd my first crse word{PAUSE_UNTIL_PRESS}
+			bich")
+	normalmsg
+	msgbox("You scroll through that meaningless
+			entry\.")
+	signmsg
+	msgbox("Dear Diary,
+
+			I saw something in my room.
+			I have no idea what it is.
+
+			Probably nothing to worry about!
+			But it is somewhere on the wall\.
+			\.specifically the right wall.
+
+			Something something noclip\.
+			\.perhaps?")
+	normalmsg
+	closemessage
+	goto(CarasHouse_2F_EventScript_ExitPC)
+}
+
+script CarasHouse_2F_EventScript_Cara {
+	trainerbattle_double(TRAINER_AN_ATTACK_THA_CARA_2, "Mhmn\.?{PAUSE 30}
+			Nyeh?
+
+			A trainer?{PAUSE 30}
+			In this vast void?
+			Oh well\.
+
+			Guess you probably want a fight\.{PAUSE 30}
+			\.don't ya?", "Yawn\.\nSo sleepy\.", "You don't have enough POK\eMON\nthough\.")
+}

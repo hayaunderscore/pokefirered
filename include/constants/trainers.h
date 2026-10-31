@@ -17,6 +17,7 @@
 #define TRAINER_ENCOUNTER_MUSIC_HIKER       11 // used for other trainer classes too
 #define TRAINER_ENCOUNTER_MUSIC_INTERVIEWER 12
 #define TRAINER_ENCOUNTER_MUSIC_RICH        13 // Rich Boys and Gentlemen
+#define TRAINER_ENCOUNTER_MUSIC_BURNT       14 // Cara specifically
 
 #define TRAINER_PIC_AQUA_LEADER_ARCHIE      0
 #define TRAINER_PIC_AQUA_GRUNT_M            1
@@ -176,6 +177,7 @@
 #define TRAINER_PIC_DAWN                  155
 #define TRAINER_PIC_HELENA_AND_SERENA     156
 #define TRAINER_PIC_GREEN                 157
+#define TRAINER_PIC_CARA_2                158
 
 // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
 #define TRAINER_BACK_PIC_RED                    0

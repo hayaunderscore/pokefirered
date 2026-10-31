@@ -1,1 +1,34 @@
 mapscripts CarasHouse_1F_MapScripts {}
+
+script CarasHouse_1F_EventScript_Mom {
+	lock
+	faceplayer
+	msgbox("MOM?: Welcome ho-
+			\.wait a minute.
+			You're not\.
+
+			\.Hmm!
+
+			I suppose you might be a friend
+			of theirs then!
+
+			It would seem you've taken quite
+			the trek to get here.
+			How about you take a rest?")
+	fadescreen(FADE_TO_BLACK)
+	closemessage
+	special(HealPlayerParty)
+	playfanfare(MUS_HEAL)
+	waitfanfare
+	fadescreen(FADE_FROM_BLACK)
+	msgbox("MOM: There! Your POK\eMON should be
+			back in tip-top shape.
+
+			Have a safe trip!")
+	applymovement(VAR_LAST_TALKED, moves(
+		face_original_direction
+	))
+	waitmovement(0)
+	release
+	end
+}

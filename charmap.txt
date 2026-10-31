@@ -851,6 +851,8 @@ MUS_ETERNA_FOREST         = 74 01
 MUS_CAVE_OF_ORIGIN        = 75 01
 MUS_NEW_BARK              = 76 01
 MUS_VS_NIHIL              = 77 01
+MUS_BURNED_TOWER          = 78 01
+MUS_VS_JOHTO_TRAINER      = 79 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

@@ -1287,5 +1287,6 @@ extern const u8 TradeCenter_EventScript_Chair0[];
 extern const u8 TradeCenter_EventScript_Chair1[];
 extern const u8 TradeCenter_ConfirmLeaveRoom[];
 extern const u8 TradeCenter_TerminateLink[];
+extern const u8 EventScript_ObjectApproachPlayer[];
 
 #endif // GUARD_EVENT_SCRIPTS_H

@@ -1058,6 +1058,9 @@ void PlayTrainerEncounterMusic(void)
         case TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS:
         	music = MUS_ENCOUNTER_SUSPICIOUS;
          	break;
+        case TRAINER_ENCOUNTER_MUSIC_BURNT:
+        	music = MUS_BURNED_TOWER;
+         	break;
         default:
             music = MUS_ENCOUNTER_ROCKET;
             break;

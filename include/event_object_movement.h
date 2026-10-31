@@ -203,6 +203,7 @@ u8 UpdateSpritePaletteByTemplate(const struct SpriteTemplate *template, struct S
 const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
 const struct ObjectEventTemplate *FindObjectEventTemplateByLocalId(u8 localId, const struct ObjectEventTemplate *templates, u8 count);
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY);
+u16 GetObjectEventTrainerSightFlagByObjectEventId(u8 objEventId);
 
 void MovementType_None(struct Sprite *sprite);
 

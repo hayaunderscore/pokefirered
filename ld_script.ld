@@ -999,6 +999,8 @@ SECTIONS {
         sound/songs/midi/mus_cave_of_origin.o(.rodata);
         sound/songs/midi/mus_new_bark.o(.rodata);
         sound/songs/midi/mus_vs_nihil.o(.rodata);
+        sound/songs/midi/mus_burned_tower.o(.rodata);
+        sound/songs/midi/mus_vs_johto_trainer.o(.rodata);
     } > ROM =0
 
     lib_rodata :

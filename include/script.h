@@ -74,6 +74,7 @@ void SetWalkingIntoSignVars(void);
 bool8 IsMsgBoxWalkawayDisabled(void);
 
 extern const u8 *gRamScriptRetAddr;
+extern const u8 *gApproachingTrainerScriptPtr;
 extern u8 gWalkAwayFromSignInhibitTimer;
 
 u8* ReadWord(u8 index);

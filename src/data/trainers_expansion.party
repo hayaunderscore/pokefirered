@@ -903,3 +903,62 @@ AI: Check Bad Move
 
 Pidgey
 Level: 5
+
+=== TRAINER_AN_ATTACK_THA_CARA_2 ===
+Name: CARA
+Class: Cara
+Pic: Cara 2
+Gender: Female
+Music: Burnt
+Double Battle: Yes
+AI: Check Bad Move / Try To Faint / Check Viability / Above Opponent Level / Double Battle
+
+Kingdra @ Lum Berry
+Ability: Swift Swim
+IVs: 31 HP / 0 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 4 HP / 252 SpA / 252 Spe
+Modest Nature
+- Agility
+- Dragon Dance
+- Ice Beam
+- Surf
+
+Furret @ Leftovers
+Ability: Keen Eye
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 252 Def / 4 SpD
+Bold Nature
+- Follow Me
+- Protect
+- Toxic
+- Assist
+
+Muk @ Sitrus Berry
+Ability: Sticky Hold
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Atk / 252 SpD
+Careful Nature
+- Acid Armor
+- Minimize
+- Disable
+- Sludge Bomb
+
+Gengar @ Bright Powder
+Ability: Levitate
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Atk / 252 Spe
+Jolly Nature
+- Curse
+- Destiny Bond
+- Shadow Ball
+- Taunt
+
+Rainer @ Choice Band
+Ability: Torrent
+IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
+EVs: 252 HP / 4 Atk / 252 SpA
+Quiet Nature
+- Abyss
+- Surf
+- Earthquake
+- Mirror Coat

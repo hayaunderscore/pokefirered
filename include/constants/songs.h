@@ -382,10 +382,12 @@
 #define MUS_CAVE_OF_ORIGIN          373
 #define MUS_NEW_BARK                374
 #define MUS_VS_NIHIL                375
+#define MUS_BURNED_TOWER            376
+#define MUS_VS_JOHTO_TRAINER        377
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_VS_NIHIL
+#define END_MUS                     MUS_VS_JOHTO_TRAINER
 
 #endif  // GUARD_CONSTANTS_SONGS_H

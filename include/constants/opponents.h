@@ -24,7 +24,7 @@
 #define TRAINER_CHANNELER_MIZUKI                  18
 #define TRAINER_CHANNELER_SASLONA                 19
 #define TRAINER_CHANNELER_FINAL                   20
-#define TRAINER_BUG_MANIAC                        21
+#define TRAINER_AN_ATTACK_THA_CARA_2              21
 #define TRAINER_RS_PSYCHIC_M                      22
 #define TRAINER_RS_PSYCHIC_F                      23
 #define TRAINER_RS_GENTLEMAN                      24

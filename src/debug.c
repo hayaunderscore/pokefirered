@@ -3710,6 +3710,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_CAVE_OF_ORIGIN) \
     X(MUS_NEW_BARK) \
     X(MUS_VS_NIHIL) \
+    X(MUS_BURNED_TOWER) \
+    X(MUS_VS_JOHTO_TRAINER) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

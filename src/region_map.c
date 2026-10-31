@@ -3936,6 +3936,22 @@ static bool32 IsCaveOfCalm(u16 mapsec)
 	return TRUE;
 }
 
+static const u8 sMapsecName_NEW_BARK_TOWN[] = _("NEW BARK TOWN");
+
+static bool32 IsNewBarkTown(u16 mapsec)
+{
+	if (sRegionMap != NULL)
+		return FALSE;
+	if (mapsec != MAPSEC_GLITCH_CITY)
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_CARAS_HOUSE_1F))
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CARAS_HOUSE_1F)
+	 && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CARAS_HOUSE_2F))
+		return FALSE;
+	return TRUE;
+}
+
 u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
 {
     u8 *dst;
@@ -3947,6 +3963,8 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
             dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
         else if (IsCaveOfCalm(mapsec) == TRUE)
         	dst = StringCopy(dst0, sMapsecName_CAVE_OF_CALM);
+        else if (IsNewBarkTown(mapsec) == TRUE)
+        	dst = StringCopy(dst0, sMapsecName_NEW_BARK_TOWN);
         else
             dst = StringCopy(dst0, sMapNames[idx]);
     }

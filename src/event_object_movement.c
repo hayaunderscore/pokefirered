@@ -197,12 +197,12 @@ static u8 setup##_callback(struct ObjectEvent *objectEvent, struct Sprite *sprit
 }
 
 static const struct SpriteTemplate gCameraSpriteTemplate = {
-    .tileTag = 0, 
+    .tileTag = 0,
     .paletteTag = TAG_NONE,
-    .oam = &gDummyOamData, 
-    .anims = gDummySpriteAnimTable, 
-    .images = NULL, 
-    .affineAnims = gDummySpriteAffineAnimTable, 
+    .oam = &gDummyOamData,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = ObjectCB_CameraObject
 };
 
@@ -1167,7 +1167,7 @@ static u8 InitObjectEventStateFromTemplate(const struct ObjectEventTemplate *tem
     s16 y2 = 0;
     s16 x3 = 0;
     s16 y3 = 0;
-    
+
     if (template->kind == OBJ_KIND_CLONE)
     {
         isClone = TRUE;
@@ -1240,7 +1240,7 @@ static bool8 ShouldInitObjectEventStateFromTemplate(const struct ObjectEventTemp
 
     if (!TemplateIsObstacleAndVisibleFromConnectingMap(template, x, y))
         return FALSE;
-    
+
     return TRUE;
 }
 
@@ -1320,7 +1320,7 @@ u8 Unref_TryInitLocalObjectEvent(u8 localId)
         return OBJECT_EVENTS_COUNT;
 
     objectEventCount = gMapHeader.events->objectEventCount;
-    
+
     for (i = 0; i < objectEventCount; i++)
     {
         template = &gSaveBlock1Ptr->objectEventTemplates[i];
@@ -1413,7 +1413,7 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     objectEvent = &gObjectEvents[objectEventId];
     graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-        
+
     if (spriteTemplate->paletteTag != TAG_NONE)
         LoadObjectEventPalette(spriteTemplate->paletteTag);
 
@@ -1520,7 +1520,7 @@ void CopyObjectGraphicsInfoToSpriteTemplate(u16 graphicsId, void (*callback)(str
     spriteTemplate->anims = graphicsInfo->anims;
     spriteTemplate->images = graphicsInfo->images;
     spriteTemplate->affineAnims = graphicsInfo->affineAnims;
-    
+
     do
     {
         if (ScriptContext_IsEnabled() != TRUE && QL_GetPlaybackState() == QL_PLAYBACK_STATE_RUNNING)
@@ -1528,7 +1528,7 @@ void CopyObjectGraphicsInfoToSpriteTemplate(u16 graphicsId, void (*callback)(str
         else
             spriteTemplate->callback = callback;
     } while (0);
-    
+
     *subspriteTables = graphicsInfo->subspriteTables;
 }
 
@@ -1639,7 +1639,7 @@ u8 CreateFameCheckerObject(u8 graphicsId, u8 localId, s16 x, s16 y)
 
     if (spriteTemplate.paletteTag != TAG_NONE)
         LoadObjectEventPalette(spriteTemplate.paletteTag);
-    
+
     spriteId = CreateSpriteAtEnd(&spriteTemplate, x, y, 0);
     if (spriteId != MAX_SPRITES)
     {
@@ -1841,7 +1841,7 @@ static void ObjectEventSetGraphics(struct ObjectEvent *objectEvent, const struct
         var2 = AllocSpriteTiles(var3);
         if (var2 == -1)
         {
-            var2 = AllocSpriteTiles(var);    
+            var2 = AllocSpriteTiles(var);
         }
         sprite->oam.tileNum = var2;
     }
@@ -1903,10 +1903,10 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u8 graphicsId)
 {
     if (graphicsId >= OBJ_EVENT_GFX_VARS)
         graphicsId = VarGetObjectEventGraphicsId(graphicsId - OBJ_EVENT_GFX_VARS);
-    
+
     if (graphicsId >= NUM_OBJ_EVENT_GFX)
         graphicsId = OBJ_EVENT_GFX_LITTLE_BOY;
-    
+
     return gObjectEventGraphicsInfoPointers[graphicsId];
 }
 
@@ -4605,7 +4605,7 @@ static u8 GetCollisionInDirection(struct ObjectEvent *objectEvent, u8 direction)
 u8 GetCollisionAtCoords(struct ObjectEvent *objectEvent, s16 x, s16 y, u32 dir)
 {
     u8 direction = dir;
-    
+
 #if OW_FLAG_NO_COLLISION != 0
     if (FlagGet(OW_FLAG_NO_COLLISION))
         return COLLISION_NONE;
@@ -4914,7 +4914,7 @@ void QL_UpdateObjectEventCurrentMovement(struct ObjectEvent *objectEvent, struct
 
     if (ObjectEventIsHeldMovementActive(objectEvent) && !sprite->animBeginning)
         QuestLogObjectEventExecHeldMovementAction(objectEvent, sprite);
-    
+
     if (MetatileBehavior_IsIce_2(objectEvent->currentMetatileBehavior) == TRUE
         || MetatileBehavior_IsTrickHouseSlipperyFloor(objectEvent->currentMetatileBehavior) == TRUE)
         objectEvent->disableAnim = TRUE;
@@ -5068,7 +5068,7 @@ static void ObjectEventSetSingleMovement(struct ObjectEvent *objectEvent, struct
 {
     objectEvent->movementActionId = movementActionId;
     sprite->data[2] = 0;
-    
+
     if (gQuestLogPlaybackState == QL_PLAYBACK_STATE_RECORDING)
         QuestLogRecordNPCStep(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup, movementActionId);
 }
@@ -5130,7 +5130,7 @@ void InitMovementNormal(struct ObjectEvent *objectEvent, struct Sprite *sprite, 
     SetStepAnimHandleAlternation(objectEvent, sprite, functions[speed](objectEvent->facingDirection));
 }
 
-static bool32 HasRunningAnimation(u16 graphicsId) 
+static bool32 HasRunningAnimation(u16 graphicsId)
 {
 	switch (graphicsId)
 	{
@@ -5823,7 +5823,7 @@ u8 MovementAction_GlideDown_Step0(struct ObjectEvent *objectEvent, struct Sprite
 {
     if(objectEvent->facingDirection != DIR_SOUTH)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_SOUTH));
-    
+
     InitNpcForMovement(objectEvent, sprite, DIR_SOUTH, MOVE_SPEED_FAST_1);
     return MovementAction_GlideDown_Step1(objectEvent, sprite);
 }
@@ -5843,7 +5843,7 @@ u8 MovementAction_GlideUp_Step0(struct ObjectEvent *objectEvent, struct Sprite *
 {
     if(objectEvent->facingDirection != DIR_NORTH)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_NORTH));
-    
+
     InitNpcForMovement(objectEvent, sprite, DIR_NORTH, MOVE_SPEED_FAST_1);
     return MovementAction_GlideUp_Step1(objectEvent, sprite);
 }
@@ -5863,7 +5863,7 @@ u8 MovementAction_GlideLeft_Step0(struct ObjectEvent *objectEvent, struct Sprite
 {
     if(objectEvent->facingDirection != DIR_WEST)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_WEST));
-    
+
     InitNpcForMovement(objectEvent, sprite, DIR_WEST, MOVE_SPEED_FAST_1);
     return MovementAction_GlideLeft_Step1(objectEvent, sprite);
 }
@@ -5883,7 +5883,7 @@ u8 MovementAction_GlideRight_Step0(struct ObjectEvent *objectEvent, struct Sprit
 {
     if(objectEvent->facingDirection != DIR_EAST)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_EAST));
-    
+
     InitNpcForMovement(objectEvent, sprite, DIR_EAST, MOVE_SPEED_FAST_1);
     return MovementAction_GlideRight_Step1(objectEvent, sprite);
 }
@@ -5911,7 +5911,7 @@ u8 MovementAction_FaceDownFast_Step0(struct ObjectEvent *objectEvent, struct Spr
 {
     if(objectEvent->facingDirection != DIR_SOUTH)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_SOUTH));
-    
+
     AnimateSprite(sprite);
     FaceDirectionFast(objectEvent, sprite, DIR_SOUTH);
     return TRUE;
@@ -5921,7 +5921,7 @@ u8 MovementAction_FaceUpFast_Step0(struct ObjectEvent *objectEvent, struct Sprit
 {
     if(objectEvent->facingDirection != DIR_NORTH)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_NORTH));
-    
+
     AnimateSprite(sprite);
     FaceDirectionFast(objectEvent, sprite, DIR_NORTH);
     return TRUE;
@@ -5931,7 +5931,7 @@ u8 MovementAction_FaceLeftFast_Step0(struct ObjectEvent *objectEvent, struct Spr
 {
     if(objectEvent->facingDirection != DIR_WEST)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_WEST));
-    
+
     AnimateSprite(sprite);
     FaceDirectionFast(objectEvent, sprite, DIR_WEST);
     return TRUE;
@@ -5941,7 +5941,7 @@ u8 MovementAction_FaceRightFast_Step0(struct ObjectEvent *objectEvent, struct Sp
 {
     if(objectEvent->facingDirection != DIR_EAST)
         StartSpriteAnim(sprite, GetFaceDirectionAnimNum(DIR_EAST));
-    
+
     AnimateSprite(sprite);
     FaceDirectionFast(objectEvent, sprite, DIR_EAST);
     return TRUE;
@@ -7825,7 +7825,7 @@ static void CalcWhetherObjectIsOffscreen(struct ObjectEvent *objectEvent, struct
     }
     x2 = graphicsInfo->width + (s16)x;
     y2 = graphicsInfo->height + (s16)y;
-    
+
     if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SSANNE_EXTERIOR)
      && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SSANNE_EXTERIOR)
      && objectEvent->localId == LOCALID_SS_ANNE)
@@ -7844,7 +7844,7 @@ static void CalcWhetherObjectIsOffscreen(struct ObjectEvent *objectEvent, struct
     {
         objectEvent->offScreen = TRUE;
     }
-    if (FlagGet(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT)) 
+    if (FlagGet(FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT))
     {
     	objectEvent->offScreen = FALSE;
     }
@@ -9283,4 +9283,13 @@ u8 Script_GetObjectFacingDirection(void)
 {
     u8 objId = GetObjectEventIdByLocalId(VarGet(VAR_TEMP_1));
     return gObjectEvents[objId].facingDirection;
+}
+
+u16 GetObjectEventTrainerSightFlagByObjectEventId(u8 objEventId)
+{
+	const struct ObjectEventTemplate* eventTemplate = GetObjectEventTemplateByLocalIdAndMap(gObjectEvents[objEventId].localId, gObjectEvents[objEventId].mapNum, gObjectEvents[objEventId].mapGroup);
+    // ideally, would use a the last two bytes of the object event template
+    if (eventTemplate->kind == OBJ_KIND_NORMAL)
+    	return eventTemplate->objUnion.normal.trainerType;
+    return 0;
 }

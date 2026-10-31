@@ -5913,6 +5913,8 @@ static u16 GetBattleBGM(void)
         case TRAINER_CLASS_CARA:
         	if (gTrainerBattleOpponent_A == TRAINER_AN_ATTACK_THA_BRET)
          		return MUS_VS_ZINNIA;
+        	else if (gTrainerBattleOpponent_A == TRAINER_AN_ATTACK_THA_CARA_2)
+          		return MUS_VS_JOHTO_TRAINER;
         	return MUS_VS_DEAD_REGI;
         case TRAINER_CLASS_INTERVIEWER:
          	return MUS_RS_VS_TRAINER;

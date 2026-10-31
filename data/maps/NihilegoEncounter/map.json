@@ -2,10 +2,10 @@
   "id": "MAP_NIHILEGO_ENCOUNTER",
   "name": "NihilegoEncounter",
   "layout": "LAYOUT_NIHILEGO_ENCOUNTER",
-  "music": "MUS_CAVE_OF_ORIGIN",
+  "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_GLITCH_CITY",
   "requires_flash": false,
-  "weather": "WEATHER_NONE",
+  "weather": "WEATHER_RAIN",
   "map_type": "MAP_TYPE_UNDERWATER",
   "allow_cycling": true,
   "allow_escaping": false,
@@ -19,8 +19,8 @@
       "local_id": "LOCALID_EVENT_NIHILEGO",
       "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NIHILEGO",
-      "x": 12,
-      "y": 6,
+      "x": 58,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -28,16 +28,65 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NihilegoEncounter_EventScript_Hi",
-      "flag": "0"
+      "flag": "FLAG_HIDE_NIHILEGO"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ESCAPE_ROPE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ABYSS_JR_ESCAPE_ROPE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 44,
+      "y": 14,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_MIST_STONE",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ABYSS_JR_MIST_STONE"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 33,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 1,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_QUICK_CLAW",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ABYSS_JR_QUICK_CLAW"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 14,
+      "x": 9,
+      "y": 7,
       "elevation": 0,
       "dest_map": "MAP_CAVE_OF_CALM",
       "dest_warp_id": "1"
+    },
+    {
+      "x": 61,
+      "y": 6,
+      "elevation": 0,
+      "dest_map": "MAP_FOREST_OF_CALM",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [],

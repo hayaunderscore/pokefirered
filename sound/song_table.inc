@@ -375,6 +375,8 @@ gSongTable::
 	song mus_cave_of_origin, 0, 0
 	song mus_new_bark, 0, 0
 	song mus_vs_nihil, 0, 0
+	song mus_burned_tower, 0, 0
+	song mus_vs_johto_trainer, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

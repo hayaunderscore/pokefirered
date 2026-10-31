@@ -7,6 +7,7 @@
 #include "event_data.h"
 #include "quest_log.h"
 #include "mystery_gift.h"
+#include "trainer_see.h"
 #include "constants/maps.h"
 #include "constants/map_scripts.h"
 
@@ -28,6 +29,7 @@ enum {
 };
 
 EWRAM_DATA u8 gWalkAwayFromSignInhibitTimer = 0;
+EWRAM_DATA const u8 *gApproachingTrainerScriptPtr = NULL;
 EWRAM_DATA const u8 *gRamScriptRetAddr = NULL;
 
 static u8 sGlobalScriptContextStatus;
@@ -632,7 +634,7 @@ void GetMapNum(void)
 void GetGabbyAndTyLocalIds(void)
 {
 	// TODO
-	if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE16) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE16))
+if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_ROUTE16) && gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_ROUTE16))
 	{
 		gSpecialVar_0x8004 = LOCALID_ROUTE16_GABBY;
 		gSpecialVar_0x8005 = LOCALID_ROUTE16_TY;
@@ -644,4 +646,11 @@ void ObjectEventSetGraphicsIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup,
 void Script_SetObjectEventGraphicId(void)
 {
 	ObjectEventSetGraphicsIdByLocalIdAndMap(gSpecialVar_0x8004, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8005);
+}
+
+// trainer sight scripts
+bool8 LoadTrainerObjectScript(void)
+{
+    sGlobalScriptContext.scriptPtr = gApproachingTrainerScriptPtr;
+    return TRUE;
 }
