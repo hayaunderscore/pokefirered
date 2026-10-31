@@ -1,3 +1,4 @@
+#include "constants/map_groups.h"
 #include "global.h"
 #include "gflib.h"
 #include "scanline_effect.h"
@@ -31,6 +32,7 @@ enum {
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
     REGIONMAP_SEVII67,
+    REGIONMAP_JOHTO,
     REGIONMAP_COUNT
 };
 
@@ -405,12 +407,14 @@ static const u32 sMapCursor_Gfx[] = INCGFX_U32("graphics/region_map/cursor.png",
 static const u32 sPlayerIcon_Red[] = INCGFX_U32("graphics/region_map/player_icon_red.png", ".4bpp.lz");
 static const u32 sPlayerIcon_Leaf[] = INCGFX_U32("graphics/region_map/player_icon_leaf.png", ".4bpp.lz");
 static const u32 sRegionMap_Gfx[] = INCGFX_U32("graphics/region_map/region_map.png", ".4bpp.lz");
+static const u32 sJohtoRegionMap_Gfx[] = INCGFX_U32("graphics/region_map/johto.png", ".4bpp.lz");
 static const u32 sMapEdge_Gfx[] = INCGFX_U32("graphics/region_map/map_edge.png", ".4bpp.lz");
 static const u32 sSwitchMapMenu_Gfx[] = INCGFX_U32("graphics/region_map/switch_map_menu.png", ".4bpp.lz");
 static const u32 sKanto_Tilemap[] = INCGFX_U32("graphics/region_map/kanto.bin", ".lz");
 static const u32 sSevii123_Tilemap[] = INCGFX_U32("graphics/region_map/sevii_123.bin", ".lz");
 static const u32 sSevii45_Tilemap[] = INCGFX_U32("graphics/region_map/sevii_45.bin", ".lz");
 static const u32 sSevii67_Tilemap[] = INCGFX_U32("graphics/region_map/sevii_67.bin", ".lz");
+static const u32 sJohto_Tilemap[] = INCGFX_U32("graphics/region_map/johto.bin", ".lz");
 static const u32 sMapEdge_Tilemap[] = INCGFX_U32("graphics/region_map/map_edge.bin", ".lz");
 static const u32 sSwitchMap_KantoSeviiAll_Tilemap[] = INCGFX_U32("graphics/region_map/switch_map_kanto_sevii_all.bin", ".lz");
 static const u32 sSwitchMap_KantoSevii123_Tilemap[] = INCGFX_U32("graphics/region_map/switch_map_kanto_sevii_123.bin", ".lz");
@@ -841,6 +845,7 @@ static const u8 sTextColors[] = {TEXT_DYNAMIC_COLOR_6, TEXT_COLOR_WHITE, TEXT_CO
 #include "data/region_map/region_map_layout_sevii_123.h"
 #include "data/region_map/region_map_layout_sevii_45.h"
 #include "data/region_map/region_map_layout_sevii_67.h"
+#include "data/region_map/region_map_layout_johto.h"
 
 static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_PALLET_TOWN         - KANTO_MAPSEC_START] = {MAP(MAP_PALLET_TOWN),                           HEAL_LOCATION_PALLET_TOWN},
@@ -1034,6 +1039,18 @@ static bool32 KantoExtraMaps(void)
 	return gMapHeader.regionMapSectionId > MAPSEC_SPECIAL_AREA;
 }
 
+static bool32 PossiblyInJohto(void)
+{
+	if (gMapHeader.regionMapSectionId != MAPSEC_GLITCH_CITY)
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_CARAS_HOUSE_1F))
+		return FALSE;
+	if (gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CARAS_HOUSE_1F)
+	 && gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_CARAS_HOUSE_2F))
+		return FALSE;
+	return TRUE;
+}
+
 static void InitRegionMapType(void)
 {
     u8 i;
@@ -1059,9 +1076,11 @@ static void InitRegionMapType(void)
         sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
+    if (PossiblyInJohto())
+    	region = REGIONMAP_JOHTO;
     // Some maps have ids that are located beyond SEVII_MAPSEC_START,
     // but are actually in kanto
-    if (KantoExtraMaps())
+    else if (KantoExtraMaps())
     	region = REGIONMAP_KANTO;
     else if (gMapHeader.regionMapSectionId >= SEVII_MAPSEC_START)
     {
@@ -1157,7 +1176,12 @@ static bool8 LoadRegionMapGfx(void)
         ResetTempTileDataBuffers();
         break;
     case 3:
-        DecompressAndCopyTileDataToVram(0, sRegionMap_Gfx, 0, 0, 0);
+    	// Johto has its own dedicated tileset
+     	// Because of this, we can't switch maps!
+    	if (sRegionMap->playersRegion == REGIONMAP_JOHTO)
+     		DecompressAndCopyTileDataToVram(0, sJohtoRegionMap_Gfx, 0, 0, 0);
+    	else
+        	DecompressAndCopyTileDataToVram(0, sRegionMap_Gfx, 0, 0, 0);
         if (sRegionMap->type != REGIONMAP_TYPE_NORMAL)
             DecompressAndCopyTileDataToVram(1, sBackground_Gfx, 0, 0, 0);
         break;
@@ -1176,6 +1200,9 @@ static bool8 LoadRegionMapGfx(void)
         break;
     case 8:
         LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
+        break;
+    case 9:
+        LZ77UnCompWram(sJohto_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
         break;
     default:
         LZ77UnCompWram(sBackground_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
@@ -3458,6 +3485,13 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
     	sMapCursor->x = 20;
     	sMapCursor->y = 9;
      	break;
+    case MAPSEC_GLITCH_CITY:
+    	if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_CARAS_HOUSE_1F) && (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CARAS_HOUSE_1F) || gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_CARAS_HOUSE_2F)))
+     	{
+      		sMapCursor->x = 21;
+       		sMapCursor->y = 11;
+         	break;
+	    }
     default:
         GetPlayerPositionOnRegionMap();
         break;
@@ -3477,6 +3511,8 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Sevii45[layer][y][x];
     case REGIONMAP_SEVII67:
         return sRegionMapSections_Sevii67[layer][y][x];
+    case REGIONMAP_JOHTO:
+    	return sRegionMapSections_Johto[layer][y][x];
     default:
         return MAPSEC_NONE;
     }
@@ -3936,7 +3972,7 @@ static bool32 IsCaveOfCalm(u16 mapsec)
 	return TRUE;
 }
 
-static const u8 sMapsecName_NEW_BARK_TOWN[] = _("NEW BARK TOWN");
+// static const u8 sMapsecName_NEW_BARK_TOWN[] = _("NEW BARK TOWN");
 
 static bool32 IsNewBarkTown(u16 mapsec)
 {

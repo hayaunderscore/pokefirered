@@ -1231,6 +1231,10 @@
     {
       "id": "MAPSEC_GLITCH_CITY",
       "name": "ABYSS JR."
+    },
+    {
+      "id": "MAPSEC_NEW_BARK_TOWN",
+      "name": "NEW BARK TOWN"
     }
   ]
 }
