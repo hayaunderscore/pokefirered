@@ -6,3 +6,30 @@ CeladonCity_Condominiums_2F_EventScript_MeetingRoomSign::
 	msgbox CeladonCity_Condominiums_2F_Text_GameFreakMeetingRoom, MSGBOX_SIGN
 	end
 `
+
+script CeladonCity_Condominiums_2F_EventScript_Channeler {
+	lock
+	faceplayer
+	msgbox("Ah, CELADON CITY\.
+			A calm city, it is.
+
+			A perfect place to keep yourself
+			calm\.{PAUSE 30} But even then\.
+			\.things lurk in the shadows.
+
+			And then\.
+			\.you look back.
+			You see {COLOR DARK_GRAY}NOTHING{COLOR RED}.
+
+			\. \. \. \.{PAUSE 30}
+			The thought scares me.
+
+			In a different time and place,
+			this nothing would be something\.
+
+			Maybe nothing could be interpreted in
+			a different way\.
+			\.like a language.")
+	release
+	end
+}

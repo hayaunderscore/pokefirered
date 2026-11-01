@@ -258,7 +258,12 @@ script PokemonTower_6F_EventScript_Nightmare {
 			here\.{PAUSE 30} yet it isn't.
 
 			Sometimes, some things are best
-			left forgotten.")
+			left forgotten.
+			
+			\. \. \. \.
+			
+			It's probably best to remember
+			{COLOR RED}HER NAME{COLOR DARK_GRAY}, though.")
 	release
 	end
 }
