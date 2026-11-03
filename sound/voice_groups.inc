@@ -9191,7 +9191,7 @@ voicegroup205::
 	voice_programmable_wave 60, 0, ProgrammableWaveData_3, 0, 7, 15, 2
 	voice_square_1_alt 60, 0, 0, 0, 0, 1, 7, 1
 	voice_square_1_alt 60, 0, 0, 0, 0, 0, 7, 1
-	voice_programmable_wave_alt 60, 0, ProgrammableWaveData_4, 0, 0, 12, 0
+	voice_square_1 60, 0, 0, 0, 0, 1, 7, 1
 	voice_programmable_wave 60, 0, ProgrammableWaveData_5, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_6, 0, 7, 15, 2
 	voice_programmable_wave 60, 0, ProgrammableWaveData_7, 0, 7, 15, 2
@@ -9219,7 +9219,7 @@ voicegroup205::
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_string_ensemble_72, 255, 0, 255, 196
 	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_oboe, 255, 165, 154, 127
-	voice_directsound 60, 0, DirectSoundWaveData_wave_57, 255, 0, 255, 0 @ Noisy Bell sound like Tinkle Bell
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_distortion_guitar_high, 255, 0, 255, 127 @ Noisy Bell sound like Tinkle Bell
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_jingle_bell, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_glockenspiel, 255, 165, 51, 235
 	voice_directsound 60, 0, DirectSoundWaveData_ethnic_flavours_hyoushigi, 255, 165, 51, 235

@@ -34,7 +34,7 @@ No outside knowledge is needed for this hack!!
 - muzyun (trainer sprites)
 - Kasen (trainer sprites)
 - Vicki (support)
-- Claire (move animations, tech advice)
+- Claire (pokemon sprites, move animations, tech advice)
 - Nullrot (trainer sprites)
 - Emily (writing advice)
 - MezmerKaiser (various music)

@@ -2793,6 +2793,13 @@ const u32 gMonShinyPalette_Nihilego[] = INCGFX_U32("graphics/pokemon/nihilego/sh
 const u8 gMonIcon_Nihilego[] = INCGFX_U8("graphics/pokemon/nihilego/icon.png", ".4bpp");
 const u8 gMonFootprint_Nihilego[] = INCGFX_U8("graphics/pokemon/nihilego/footprint.png", ".1bpp");
 
+const u32 gMonFrontPic_Mewthree[] = INCGFX_U32("graphics/pokemon/mewthree/front.png", ".4bpp.lz");
+const u32 gMonPalette_Mewthree[] = INCGFX_U32("graphics/pokemon/mewthree/normal.pal", ".gbapal.lz");
+const u32 gMonBackPic_Mewthree[] = INCGFX_U32("graphics/pokemon/mewthree/back.png", ".4bpp.lz");
+const u32 gMonShinyPalette_Mewthree[] = INCGFX_U32("graphics/pokemon/mewthree/shiny.pal", ".gbapal.lz");
+const u8 gMonIcon_Mewthree[] = INCGFX_U8("graphics/pokemon/mewthree/icon.png", ".4bpp");
+const u8 gMonFootprint_Mewthree[] = INCGFX_U8("graphics/pokemon/mewthree/footprint.png", ".1bpp");
+
 const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/front.png", ".4bpp.lz");
 const u32 gMonPalette_Egg[] = INCGFX_U32("graphics/pokemon/egg/normal.pal", ".gbapal.lz");
 

@@ -1911,6 +1911,10 @@ Cry_Nihilego::
 	.incbin "sound/direct_sound_samples/cries/nihilego.bin"
 
 	.align 2
+Cry_Mewthree::
+	.incbin "sound/direct_sound_samples/cries/mewthree.bin"
+
+	.align 2
 Cry_Unown_King::
 	.incbin "sound/direct_sound_samples/cries/unown_king.bin"
 

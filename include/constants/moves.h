@@ -364,8 +364,9 @@
 #define MOVE_QUIVER_DANCE 358
 // This might be Indeedee's signature move
 #define MOVE_TRICK_ROOM 359
+#define MOVE_PSYSTRIKE 360
 
-#define MOVES_COUNT 360
+#define MOVES_COUNT 361
 
 // Used for checks for moves affected by Disable, Mimic, etc.
 #define MOVE_UNAVAILABLE 0xFFFF

@@ -397,6 +397,7 @@ gCryTable::
 	cry Cry_Indeedee_M
 	cry Cry_Togedemaru
 	cry Cry_Nihilego
+	cry Cry_Mewthree
 	cry Cry_Unown_King
 
 	.align 2
@@ -798,4 +799,5 @@ gCryTable_Reverse::
 	cry_reverse Cry_Indeedee_M
 	cry_reverse Cry_Togedemaru
 	cry_reverse Cry_Nihilego
+	cry_reverse Cry_Mewthree
 	cry_reverse Cry_Unown_King

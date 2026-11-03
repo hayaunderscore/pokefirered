@@ -16285,7 +16285,7 @@ SPECIES_OLD_UNOWN_S:
     shinyPalette: gMonShinyPalette_DoubleQuestionMark
     icon: gMonIcon_QuestionMark
     iconPalette: 0
-SPECIES_OLD_UNOWN_T:
+SPECIES_MEWTHREE:
     name: "?"
     back:
         size:
