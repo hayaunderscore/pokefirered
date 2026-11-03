@@ -5040,6 +5040,18 @@
       "secondary_tileset": "gTileset_CeruleanCave",
       "border_filepath": "data/layouts/NihilegoEncounter/border.bin",
       "blockdata_filepath": "data/layouts/NihilegoEncounter/map.bin"
+    },
+    {
+      "id": "LAYOUT_POKEMON_TECH_NEW_BASEMENT_PSEUDO_GYM",
+      "name": "PokemonTechNew_BasementPseudoGym_Layout",
+      "width": 14,
+      "height": 19,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_CableClub",
+      "border_filepath": "data/layouts/PokemonTechNew_BasementPseudoGym/border.bin",
+      "blockdata_filepath": "data/layouts/PokemonTechNew_BasementPseudoGym/map.bin"
     }
   ]
 }

@@ -853,6 +853,7 @@ MUS_NEW_BARK              = 76 01
 MUS_VS_NIHIL              = 77 01
 MUS_BURNED_TOWER          = 78 01
 MUS_VS_JOHTO_TRAINER      = 79 01
+MUS_GYM_DRIFTVEIL         = 7A 01
 
 A_BUTTON        = F8 00
 B_BUTTON        = F8 01

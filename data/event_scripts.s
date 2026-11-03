@@ -1531,3 +1531,6 @@ Text_MonCryScript::
 
 	.include "data/maps/NihilegoEncounter/scripts.inc"
 	.include "data/maps/NihilegoEncounter/text.inc"
+
+	.include "data/maps/PokemonTechNew_BasementPseudoGym/scripts.inc"
+	.include "data/maps/PokemonTechNew_BasementPseudoGym/text.inc"

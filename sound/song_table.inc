@@ -377,6 +377,7 @@ gSongTable::
 	song mus_vs_nihil, 0, 0
 	song mus_burned_tower, 0, 0
 	song mus_vs_johto_trainer, 0, 0
+	song mus_gym_driftveil, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0
