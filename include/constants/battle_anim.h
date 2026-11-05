@@ -296,6 +296,8 @@
 #define ANIM_TAG_SLASH_2                    (ANIM_SPRITES_START + 286)
 #define ANIM_TAG_WHIP_HIT                   (ANIM_SPRITES_START + 287)
 #define ANIM_TAG_BLUE_RING_2                (ANIM_SPRITES_START + 288)
+#define ANIM_TAG_BLUE_SPARK                 (ANIM_SPRITES_START + 289)
+#define ANIM_TAG_BLACK_HOLE                 (ANIM_SPRITES_START + 290)
 
 // battlers
 #define ANIM_ATTACKER    0
@@ -346,6 +348,7 @@
 #define BG_SOLAR_BEAM_PLAYER 25
 #define BG_SOLAR_BEAM_CONTESTS 26
 #define BG_TRICK_ROOM 27
+#define BG_PSYSTRIKE 28
 
 // table ids for general animations (gBattleAnims_General)
 #define B_ANIM_CASTFORM_CHANGE          0

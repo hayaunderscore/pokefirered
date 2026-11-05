@@ -55,6 +55,9 @@ const u32 gBattleAnimSpritePal_Gust[] = INCGFX_U32("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_Spark2[] = INCGFX_U32("graphics/battle_anims/sprites/spark_2.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_Spark2[] = INCGFX_U32("graphics/battle_anims/sprites/spark_2.png", ".gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BlueSpark[] = INCGFX_U32("graphics/battle_anims/sprites/blue_spark.png", ".4bpp.lz");
+const u32 gBattleAnimSpritePal_BlueSpark[] = INCGFX_U32("graphics/battle_anims/sprites/blue_spark.png", ".gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Orange[] = INCGFX_U32("graphics/battle_anims/sprites/orange.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_Orange[] = INCGFX_U32("graphics/battle_anims/sprites/orange.png", ".gbapal.lz");
 
@@ -581,6 +584,9 @@ const u32 gBattleAnimSpritePal_LargeFreshEgg[] = INCGFX_U32("graphics/battle_ani
 const u32 gBattleAnimSpriteGfx_ShadowBall[] = INCGFX_U32("graphics/battle_anims/sprites/shadow_ball.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_ShadowBall[] = INCGFX_U32("graphics/battle_anims/sprites/shadow_ball.png", ".gbapal.lz");
 
+const u32 gBattleAnimSpriteGfx_BlackHole[] = INCGFX_U32("graphics/battle_anims/sprites/black_hole.png", ".4bpp.lz");
+const u32 gBattleAnimSpritePal_BlackHole[] = INCGFX_U32("graphics/battle_anims/sprites/black_hole.png", ".gbapal.lz");
+
 const u32 gBattleAnimSpriteGfx_Lick[] = INCGFX_U32("graphics/battle_anims/sprites/lick.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_Lick[] = INCGFX_U32("graphics/battle_anims/sprites/lick.png", ".gbapal.lz");
 
@@ -834,6 +840,10 @@ const u32 gBattleAnimBgTilemap_Thunder[] = INCGFX_U32("graphics/battle_anims/bac
 const u32 gBattleAnimBgImage_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.png", ".4bpp.lz");
 const u32 gBattleAnimBgPalette_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.png", ".gbapal.lz");
 const u32 gBattleAnimBgTilemap_TrickRoom[] = INCGFX_U32("graphics/battle_anims/backgrounds/trick_room.bin", ".lz");
+
+const u32 gBattleAnimBgImage_Psystrike[] = INCGFX_U32("graphics/battle_anims/backgrounds/psystrike.png", ".4bpp.lz");
+const u32 gBattleAnimBgPalette_Psystrike[] = INCGFX_U32("graphics/battle_anims/backgrounds/psystrike.png", ".gbapal.lz");
+const u32 gBattleAnimBgTilemap_Psystrike[] = INCGFX_U32("graphics/battle_anims/backgrounds/psystrike.bin", ".lz");
 
 const u32 gBattleAnimSpriteGfx_PainSplit[] = INCGFX_U32("graphics/battle_anims/sprites/pain_split.png", ".4bpp.lz");
 const u32 gBattleAnimSpritePal_PainSplit[] = INCGFX_U32("graphics/battle_anims/sprites/pain_split.png", ".gbapal.lz");

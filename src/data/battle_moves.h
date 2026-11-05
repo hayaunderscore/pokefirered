@@ -4614,7 +4614,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
-    
+
     [MOVE_ABYSS] =
     {
         .effect = EFFECT_OHKO,
@@ -4627,7 +4627,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
-    
+
     [MOVE_RAPTURE] =
     {
         .effect = EFFECT_OHKO,
@@ -4640,7 +4640,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
     },
-    
+
     [MOVE_RECTIFY] =
     {
         .effect = EFFECT_OHKO,
@@ -4678,5 +4678,18 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .target = MOVE_TARGET_USER,
         .priority = -7,
         .flags = FLAG_MIRROR_MOVE_AFFECTED,
-    }
+    },
+
+    [MOVE_PSYSTRIKE] =
+    {
+        .effect = EFFECT_OHKO,
+        .power = 0,
+        .type = TYPE_PSYCHIC,
+        .accuracy = 100,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
+    },
 };

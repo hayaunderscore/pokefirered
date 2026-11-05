@@ -1298,6 +1298,8 @@ const struct CompressedSpriteSheet gBattleAnimPicTable[] =
     {gBattleAnimSpriteGfx_Slash, 0x0800, ANIM_TAG_SLASH_2},
     {gBattleAnimSpriteGfx_SlamHit, 0x1000, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpriteGfx_GoldRing, 0x0100, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpriteGfx_BlueSpark, 0x0180, ANIM_TAG_BLUE_SPARK},
+    {gBattleAnimSpriteGfx_BlackHole, 0x0800, ANIM_TAG_BLACK_HOLE},
 };
 
 const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
@@ -1591,6 +1593,8 @@ const struct CompressedSpritePalette gBattleAnimPaletteTable[] =
     {gBattleAnimSpritePal_Slash2, ANIM_TAG_SLASH_2},
     {gBattleAnimSpritePal_WhipHit, ANIM_TAG_WHIP_HIT},
     {gBattleAnimSpritePal_BlueRing2, ANIM_TAG_BLUE_RING_2},
+    {gBattleAnimSpritePal_BlueSpark, ANIM_TAG_BLUE_SPARK},
+    {gBattleAnimSpritePal_BlackHole, ANIM_TAG_BLACK_HOLE},
 };
 
 const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
@@ -1623,4 +1627,5 @@ const struct BattleAnimBackground gBattleAnimBackgroundTable[] =
     [BG_SOLAR_BEAM_PLAYER]   = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactPlayer},
     [BG_SOLAR_BEAM_CONTESTS] = {gBattleAnimBgImage_Impact,     gBattleAnimBgPalette_SolarBeam,  gBattleAnimBgTilemap_ImpactContests},
     [BG_TRICK_ROOM]          = {gBattleAnimBgImage_TrickRoom,  gBattleAnimBgPalette_TrickRoom,  gBattleAnimBgTilemap_TrickRoom},
+    [BG_PSYSTRIKE]           = {gBattleAnimBgImage_Psystrike,  gBattleAnimBgPalette_Psystrike,  gBattleAnimBgTilemap_Psystrike}
 };

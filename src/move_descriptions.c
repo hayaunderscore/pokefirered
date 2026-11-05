@@ -360,6 +360,7 @@ const u8 gMoveDescription_Rapture[] = _("A beam of light\nwith no escape.\nThe f
 const u8 gMoveDescription_Strike[] = _("A cleansing of\nmany remains.\nThe foe will faint\nif it hits.");
 const u8 gMoveDescription_QuiverDance[] = _("The user performs\na dance to raise\nSP. ATK, SP. DEF\nand SPEED stats.");
 const u8 gMoveDescription_TrickRoom[] = _("Slower POKéMON get\nto move first\nfor 5 turns.");
+const u8 gMoveDescription_Psystrike[] = _("A devastating attack\nthat melts the foe's\nwill to fight. The\nfoe faints instantly.");
 
 const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_POUND         - 1] = gMoveDescription_Pound,
@@ -721,4 +722,5 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] = {
     [MOVE_RECTIFY        - 1] = gMoveDescription_Strike,
     [MOVE_QUIVER_DANCE  - 1] = gMoveDescription_QuiverDance,
     [MOVE_TRICK_ROOM    - 1] = gMoveDescription_TrickRoom,
+    [MOVE_PSYSTRIKE     - 1] = gMoveDescription_Psystrike,
 };
