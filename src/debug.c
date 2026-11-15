@@ -3713,6 +3713,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_BURNED_TOWER) \
     X(MUS_VS_JOHTO_TRAINER) \
     X(MUS_GYM_DRIFTVEIL) \
+    X(MUS_VS_KYLE) \
+    X(MUS_VS_DEMIWAIFU) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

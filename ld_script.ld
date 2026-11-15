@@ -1002,6 +1002,8 @@ SECTIONS {
         sound/songs/midi/mus_burned_tower.o(.rodata);
         sound/songs/midi/mus_vs_johto_trainer.o(.rodata);
         sound/songs/midi/mus_gym_driftveil.o(.rodata);
+        sound/songs/midi/mus_vs_kyle.o(.rodata);
+        sound/songs/midi/mus_vs_demiwaifu.o(.rodata);
     } > ROM =0
 
     lib_rodata :

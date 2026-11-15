@@ -1985,3 +1985,11 @@ DirectSoundWaveData_bw_organ::
 	.align 2
 DirectSoundWaveData_bw_organ2::
 	.incbin "sound/direct_sound_samples/bw_organ2.bin"
+
+	.align 2
+DirectSoundWaveData_sc88pro_romantic_tp_60::
+	.incbin "sound/direct_sound_samples/sc88pro_romantic_tp_60.bin"
+
+	.align 2
+DirectSoundWaveData_sc88pro_romantic_tp_72::
+	.incbin "sound/direct_sound_samples/sc88pro_romantic_tp_72.bin"

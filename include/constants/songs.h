@@ -385,10 +385,12 @@
 #define MUS_BURNED_TOWER            376
 #define MUS_VS_JOHTO_TRAINER        377
 #define MUS_GYM_DRIFTVEIL           378
+#define MUS_VS_KYLE                 379
+#define MUS_VS_DEMIWAIFU            380
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_GYM_DRIFTVEIL
+#define END_MUS                     MUS_VS_DEMIWAIFU
 
 #endif  // GUARD_CONSTANTS_SONGS_H
