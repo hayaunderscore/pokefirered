@@ -451,4 +451,6 @@ gSpecials::
 	def_special DoSlidingPuzzle
 	def_special TeleportCamera
 	def_special ReturnCameraToPlayer
+	def_special CreateEnemyEventMon2
+	def_special GetRandomNumber
 gSpecialsEnd::

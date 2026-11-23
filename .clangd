@@ -6,3 +6,6 @@ CompileFlags:
             -Wno-pointer-sign,
             -D __APPLE__,
         ] # include GBA global to fix type errors, silence pointer warnings for text, and use define to silence other warnings
+Diagnostics:
+    Suppress:
+        - typecheck_cast_to_incomplete

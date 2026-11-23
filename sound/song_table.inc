@@ -380,6 +380,8 @@ gSongTable::
 	song mus_gym_driftveil, 0, 0
 	song mus_vs_kyle, 0, 0
 	song mus_vs_demiwaifu, 0, 0
+	song mus_encounter_giovanni, 0, 0
+	song mus_moms_theme, 0, 0
 
 dummy_song_header:
 	.byte 0, 0, 0, 0

@@ -205,7 +205,7 @@
 #define VAR_MAP_SCENE_PALLET_TOWN_FREE_CANDY                                   0x4097
 #define VAR_MAP_SCENE_POKEMON_TECH                                             0x4098
 #define VAR_MAP_SCENE_POKEMON_TECH_BASEMENT_CURRENT_BATTLE                     0x4099
-#define VAR_0x409A                 0x409A
+#define VAR_MAP_SCENE_JOHTO_MOM_FUN_EVENT                                      0x409A
 #define VAR_0x409B                 0x409B
 #define VAR_0x409C                 0x409C
 #define VAR_0x409D                 0x409D
@@ -305,7 +305,7 @@
 #define VAR_0x40FC                 0x40FC
 #define VAR_0x40FD                 0x40FD
 #define VAR_0x40FE                 0x40FE
-#define VAR_0x40FF                 0x40FF
+#define VAR_FUN_VALUE              0x40FF // This is a number from 1-100.
 
 #define VARS_END                   0x40FF
 #define VARS_COUNT                 (VARS_END - VARS_START + 1)

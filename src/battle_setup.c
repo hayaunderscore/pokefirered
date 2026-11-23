@@ -371,7 +371,7 @@ void StartLegendaryBattle(void)
 	   	CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_NIHIL);
 	    break;
     default:
-        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_RS_VS_TRAINER);
+        CreateBattleStartTask(B_TRANSITION_BLUR, MUS_VS_DEMIWAIFU);
         break;
     }
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);

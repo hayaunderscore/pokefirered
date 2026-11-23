@@ -802,7 +802,7 @@
 #define FLAG_FOUGHT_NIHILEGO                             0x305
 #define FLAG_HIDE_NIHILEGO                               0x306
 #define FLAG_FOUGHT_CARA_REMATCH                         0x307
-#define FLAG_0x308               0x308
+#define FLAG_JOHTO_MOM_FUN_EVENT_DONE                    0x308
 #define FLAG_0x309               0x309
 #define FLAG_0x30A               0x30A
 #define FLAG_0x30B               0x30B
@@ -1335,7 +1335,7 @@
 
 #define FLAG_SYS_QL_DEPARTED                                        (SYS_FLAGS + 0x8)
 #define FLAG_SYS_SKIP_SURF_MSG                                      (SYS_FLAGS + 0x9)
-#define FLAG_0x80A                                                  (SYS_FLAGS + 0xA)
+#define FLAG_SYS_RESET_ON_LOSS                                      (SYS_FLAGS + 0xA)
 #define FLAG_0x80B                                                  (SYS_FLAGS + 0xB)
 #define FLAG_0x80C                                                  (SYS_FLAGS + 0xC)
 #define FLAG_0x80D                                                  (SYS_FLAGS + 0xD)

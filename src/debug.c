@@ -3715,6 +3715,8 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     X(MUS_GYM_DRIFTVEIL) \
     X(MUS_VS_KYLE) \
     X(MUS_VS_DEMIWAIFU) \
+    X(MUS_ENCOUNTER_GIOVANNI) \
+    X(MUS_MOMS_THEME) \
 
 #define SOUND_LIST_SE \
     X(SE_USE_ITEM) \

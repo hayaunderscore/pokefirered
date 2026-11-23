@@ -1,3 +1,5 @@
+#include "constants/flags.h"
+#include "event_data.h"
 #include "global.h"
 #include "gflib.h"
 #include "m4a.h"
@@ -98,9 +100,9 @@ struct
 const u8 gKeypadIconTiles[] = INCGFX_U8("graphics/fonts/keypad_icons.png", ".4bpp");
 
 static const u16 sFontSmallLatinGlyphs[] = INCGFX_U16("graphics/fonts/latin_small.png", ".hwlatfont");
-static const u8 sFontSmallLatinGlyphWidths[] = 
+static const u8 sFontSmallLatinGlyphWidths[] =
 {
-     5,  5,  5,  5,  5,  5,  5,  5,  5,  4,  5,  4,  4,  5, 
+     5,  5,  5,  5,  5,  5,  5,  5,  5,  4,  5,  4,  4,  5,
      5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,  5,
      5,  5,  4,  5,  4,  4,  5,  5,  5,  6,  5,  5,  5,  5,
      5,  5,  8,  7,  8,  5,  5,  5,  5,  5,  8,  8,  7,  5,
@@ -291,7 +293,7 @@ static const u8 sFontMaleLatinGlyphWidths[] =
      8,  8,  8,  8,  8,  8,  8,  6
 };
 static const u16 sFontMaleJapaneseGlyphs[] = INCGFX_U16("graphics/fonts/japanese_male.png", ".fwjpnfont");
-static const u8 sFontMaleJapaneseGlyphWidths[] = 
+static const u8 sFontMaleJapaneseGlyphWidths[] =
 {
      0, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
     10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
@@ -535,6 +537,8 @@ bool8 TextPrinterWaitAutoMode(struct TextPrinter *textPrinter)
 {
     struct TextPrinterSubStruct *subStruct = &textPrinter->subUnion.sub;
     u8 delay = (gQuestLogState == QL_STATE_PLAYBACK) ? 50 : 120;
+    if (FlagGet(FLAG_SYS_RESET_ON_LOSS))
+    	delay = 0;
 
     if (subStruct->autoScrollDelay == delay)
     {
@@ -777,7 +781,7 @@ u16 RenderText(struct TextPrinter *textPrinter)
                     width = widthHelper - textPrinter->printerTemplate.currentX;
                     if (width > 0)
                     {
-                        if (currChar == EXT_CTRL_CODE_CLEAR_TEXT_TO) 
+                        if (currChar == EXT_CTRL_CODE_CLEAR_TEXT_TO)
                             ClearTextSpanDebug(textPrinter, width);
                         else
                             ClearTextSpan(textPrinter, width);
@@ -886,7 +890,7 @@ u16 RenderText(struct TextPrinter *textPrinter)
     case RENDER_STATE_SCROLL:
         if (textPrinter->scrollDistance)
         {
-    
+
             if (textPrinter->scrollDistance < sWindowVerticalScrollSpeeds[gSaveBlock2Ptr->optionsTextSpeed])
             {
                 ScrollWindow(textPrinter->printerTemplate.windowId, 0, textPrinter->scrollDistance, PIXEL_FILL(textPrinter->printerTemplate.bgColor));
@@ -1686,7 +1690,7 @@ static s32 GetGlyphWidth_Female(u16 glyphId, bool32 isJapanese)
     {
         if (glyphId == 0)
             return 10;
-        
+
         return sFontFemaleJapaneseGlyphWidths[glyphId];
     }
     else

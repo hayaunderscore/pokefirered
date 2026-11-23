@@ -203,7 +203,12 @@ PalletTown_ProfessorOaksLab_Text_OakCompleteMonGuideWasMyDream::
     .string "I can't get the job done.\p"
     .string "So, I want you two to fulfill my\n"
     .string "dream for me.\p"
-    .string "Get moving, you two.\p"
+    .string "I've also heard that there have\n"
+    .string "been sightings of rare POKéMON not\l"
+    .string "found in KANTO!\p"
+    .string "I've accomodated for that, so it\n"
+    .string "will add another to the max of 151.\p"
+    .string "Now get moving, you two.\p"
     .string "This is a great undertaking in\n"
     .string "POKéMON history!$"
 
@@ -354,4 +359,3 @@ PalletTown_ProfessorOaksLab_Text_RivalIllCompleteThePokedex::
     .string "I think I'll try looking around\n"
     .string "ONE ISLAND first…\p"
     .string "Anyways, I'm outta here!$"
-

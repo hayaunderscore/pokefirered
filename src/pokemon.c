@@ -6292,6 +6292,36 @@ void CreateEnemyEventMon(void)
     }
 }
 
+void CreateEnemyEventMon2(void)
+{
+    s32 species = gSpecialVar_0x8004;
+    s32 level = gSpecialVar_0x8005;
+    s32 itemId = gSpecialVar_0x8006;
+    u32 move0 = gSpecialVar_0x8007;
+    u32 move1 = gSpecialVar_0x8008;
+    u32 move2 = gSpecialVar_0x8009;
+    u32 move3 = gSpecialVar_0x800A;
+
+    ZeroEnemyPartyMons();
+    CreateEventMon(&gEnemyParty[0], species, level, USE_RANDOM_IVS, FALSE, 0, OT_ID_PLAYER_ID, 0);
+    if (itemId)
+    {
+        u8 heldItem[2];
+        
+        heldItem[0] = itemId;
+        heldItem[1] = itemId >> 8;
+        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, heldItem);
+    }
+    if (move0)
+    	SetMonData(&gEnemyParty[0], MON_DATA_MOVE1, &move0);
+    if (move1)
+    	SetMonData(&gEnemyParty[0], MON_DATA_MOVE2, &move1);
+    if (move2)
+    	SetMonData(&gEnemyParty[0], MON_DATA_MOVE3, &move2);
+    if (move3)
+    	SetMonData(&gEnemyParty[0], MON_DATA_MOVE4, &move3);
+}
+
 void HandleSetPokedexFlag(u16 nationalNum, u8 caseId, u32 personality)
 {
     u8 getFlagCaseId = (caseId == FLAG_SET_SEEN) ? FLAG_GET_SEEN : FLAG_GET_CAUGHT;

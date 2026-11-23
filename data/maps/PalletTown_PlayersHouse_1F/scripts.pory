@@ -1,7 +1,4 @@
 raw `
-PalletTown_PlayersHouse_1F_MapScripts::
-	.byte 0
-
 PalletTown_PlayersHouse_1F_EventScript_Mom::
 	lock
 	faceplayer
@@ -54,3 +51,82 @@ PalletTown_PlayersHouse_1F_EventScript_TVScreenFemale::
 	msgbox PalletTown_PlayersHouse_1F_Text_MovieOnTVGirlOnBrickRoad
 	return
 `
+
+const VAR_JOHTO_MOM_SCENE = VAR_MAP_SCENE_JOHTO_MOM_FUN_EVENT
+
+mapscripts PalletTown_PlayersHouse_1F_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: PalletTown_PlayersHouse_1F_OnTransition
+	MAP_SCRIPT_ON_FRAME_TABLE [
+		VAR_JOHTO_MOM_SCENE, 1: PalletTown_PlayersHouse_1F_JohtoMomEvent
+	]
+}
+
+script PalletTown_PlayersHouse_1F_OnTransition {
+	setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MOM)
+	if (flag(FLAG_BEAT_RIVAL_IN_OAKS_LAB)) {
+		return
+	}
+	// We got the encounter, there's now a chance for your mom to be replaced
+	if (var(VAR_JOHTO_MOM_SCENE) == 2 && flag(FLAG_JOHTO_MOM_FUN_EVENT_DONE)) {
+		special(GetRandomNumber)
+		if (var(VAR_RESULT) < 128) {
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_JOHTO_MOM)
+		}
+		return
+	}
+	if (flag(FLAG_JOHTO_MOM_FUN_EVENT_DONE)) {
+		return
+	}
+	// 1999 or 2000, and 2009 or 2010
+	// Release dates of G&S, as well as their remakes
+	if (var(VAR_FUN_VALUE) >= 99 || var(VAR_FUN_VALUE) == 9 || var(VAR_FUN_VALUE) == 10 || var(VAR_FUN_VALUE) == 0) {
+		// 50% chance idiot
+		special(GetRandomNumber)
+		if (var(VAR_RESULT) < 128) {
+			setvar(VAR_JOHTO_MOM_SCENE, 1)
+			setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_JOHTO_MOM)
+		}
+	}
+}
+
+script PalletTown_PlayersHouse_1F_JohtoMomEvent {
+	lockall
+	playbgm(MUS_MOMS_THEME, FALSE)
+	playse(SE_PIN)
+	applymovement(LOCALID_MOM, moves(
+		face_up
+		emote_exclamation_mark
+		delay_16 * 3
+		walk_up * 2
+		walk_right
+	))
+	waitmovement(0)
+	delay(30)
+	textcolor(NPC_TEXT_COLOR_FEMALE)
+	msgbox("Oh, {PLAYER}\.!
+
+			Our neighbor, PROF. OAK, was
+			looking for you.
+
+			He said he wanted you to do
+			something for him.
+
+			No, your POK\eGEAR is still back
+			in the repair shop\.
+
+			You can probably ask DAISY later
+			for a TOWN MAP.")
+	closemessage
+	delay(30)
+	applymovement(LOCALID_MOM, moves(
+		walk_left
+		walk_down * 2
+		face_left
+	))
+	waitmovement(0)
+	setflag(FLAG_JOHTO_MOM_FUN_EVENT_DONE)
+	setvar(VAR_JOHTO_MOM_SCENE, 2)
+	fadedefaultbgm
+	releaseall
+	end
+}

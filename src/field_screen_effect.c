@@ -1,6 +1,8 @@
+#include "event_data.h"
 #include "global.h"
 #include "gflib.h"
 #include "field_screen_effect.h"
+#include "main.h"
 #include "overworld.h"
 #include "scanline_effect.h"
 #include "script.h"
@@ -14,6 +16,7 @@
 #include "event_scripts.h"
 #include "constants/heal_locations.h"
 #include "constants/maps.h"
+#include "text.h"
 
 static const u16 sFlashLevelToRadius[] = { 200, 72, 56, 40, 24 };
 const s32 gMaxFlashLevel = ARRAY_COUNT(sFlashLevelToRadius) - 1;
@@ -409,6 +412,10 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
             gTasks[taskId].tState = 4;
         else
             gTasks[taskId].tState = 1;
+
+        // White out special scene
+        if (FlagGet(FLAG_SYS_RESET_ON_LOSS))
+        	gTasks[taskId].tState = 7;
         break;
     case 1:
         if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedToCenter, 2, 8))
@@ -422,6 +429,13 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
             gTasks[taskId].tState++;
+        }
+        break;
+    case 7:
+   		gTextFlags.autoScroll = TRUE;
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_PlayerScurriedBackHomeButWasUnableTo, 2, 8))
+        {
+        	DoSoftReset();
         }
         break;
     case 2:

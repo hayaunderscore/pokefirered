@@ -153,6 +153,7 @@ void NewGameInitData(void)
     ResetTrainerTowerResults();
 
     memset(&gSaveBlock2Ptr->follower, 0, sizeof(gSaveBlock2Ptr->follower));
+    VarSet(VAR_FUN_VALUE, (Random() % 100) + 1);
     FlagSet(FLAG_SYS_INITIALIZED_FOLLOWER);
 }
 

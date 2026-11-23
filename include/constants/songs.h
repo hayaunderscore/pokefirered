@@ -387,10 +387,12 @@
 #define MUS_GYM_DRIFTVEIL           378
 #define MUS_VS_KYLE                 379
 #define MUS_VS_DEMIWAIFU            380
+#define MUS_ENCOUNTER_GIOVANNI      381
+#define MUS_MOMS_THEME              382
 
 #define MUS_NONE                    0xFFFF
 
 #define START_MUS                   MUS_HEAL
-#define END_MUS                     MUS_VS_DEMIWAIFU
+#define END_MUS                     MUS_MOMS_THEME
 
 #endif  // GUARD_CONSTANTS_SONGS_H

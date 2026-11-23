@@ -25,10 +25,6 @@ PalletTown_PlayersHouse_2F_EventScript_NES::
 	msgbox PalletTown_PlayersHouse_2F_Text_PlayedWithNES, MSGBOX_SIGN
 	end
 
-PalletTown_PlayersHouse_2F_EventScript_Sign::
-	msgbox PalletTown_PlayersHouse_2F_Text_PressLRForHelp, MSGBOX_SIGN
-	end
-
 PalletTown_PlayersHouse_2F_EventScript_PC::
 	goto_if_questlog EventScript_ReleaseEnd
 	lockall
@@ -48,3 +44,26 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	releaseall
 	end
 `
+
+script PalletTown_PlayersHouse_2F_EventScript_Sign {
+	if (var(VAR_FUN_VALUE) == 67) {
+		msgbox("Congratulations!
+				You got a 67 fun value!
+				
+				\. \. \. \.{PAUSE 60}
+				Idiot.
+				You thought that was funny?", MSGBOX_SIGN)
+		givemon(SPECIES_SQUIRTLE, 1)
+		seteventmon2(SPECIES_RAINER, 100, ITEM_NONE, MOVE_ABYSS, MOVE_ABYSS, MOVE_ABYSS, MOVE_ABYSS)
+		setflag(FLAG_SYS_RESET_ON_LOSS)
+		setflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+		special(StartLegendaryBattle)
+		waitstate
+		clearflag(FLAG_SYS_SPECIAL_WILD_BATTLE)
+		special(DoSoftReset)
+		end
+	}
+	msgbox(PalletTown_PlayersHouse_2F_Text_PressLRForHelp, MSGBOX_SIGN)
+	end
+}
+	

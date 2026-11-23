@@ -2666,3 +2666,8 @@ void DoNamingScreenSpecial(void)
 {
 	DoNamingScreen(NAMING_SCREEN_PASSWORD, gStringVar1, gSaveBlock2Ptr->playerGender, MON_MALE, 0, CB2_ReturnToFieldNamingScreen);
 }
+
+void GetRandomNumber(void)
+{
+	gSpecialVar_Result = Random() % 256;
+}

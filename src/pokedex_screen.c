@@ -6,6 +6,7 @@
 #include "m4a.h"
 #include "pokemon.h"
 #include "scanline_effect.h"
+#include "string_util.h"
 #include "task.h"
 #include "new_menu_helpers.h"
 #include "event_data.h"
@@ -85,6 +86,8 @@ struct PokedexScreenData
     u16 numOwnedKanto;
     u16 numSeenNational;
     u16 numOwnedNational;
+    u16 numSeenKantoNational;
+    u16 numOwnedKantoNational;
 };
 
 struct PokedexScreenWindowGfx
@@ -119,6 +122,7 @@ static bool32 DexScreen_TryScrollMonsVertical(u8 direction);
 static void DexScreen_RemoveWindow(u8 *windowId_p);
 static void DexScreen_AddTextPrinterParameterized(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintNum3RightAlign(u8 windowId, u8 fontId, u16 num, u8 x, u8 y, u8 colorIdx);
+static void DexScreen_PrintNumPlusNumRightAlign(u8 windowId, u8 fontId, u16 num1, u16 num2, u8 x, u8 y, u8 colorIdx);
 static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u8 y);
 static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex);
 static void DexScreen_PrintControlInfo(const u8 *src);
@@ -938,6 +942,8 @@ void DexScreen_LoadResources(void)
     sPokedexScreenData->numOwnedNational = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 1);
     sPokedexScreenData->numSeenKanto = DexScreen_GetDexCount(FLAG_GET_SEEN, 0);
     sPokedexScreenData->numOwnedKanto = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 0);
+    sPokedexScreenData->numSeenKantoNational = DexScreen_GetDexCount(FLAG_GET_SEEN, 2);
+    sPokedexScreenData->numOwnedKantoNational = DexScreen_GetDexCount(FLAG_GET_CAUGHT, 2);
     SetBGMVolume_SuppressHelpSystemReduction(0x80);
     ChangeBgX(0, 0, 0);
     ChangeBgY(0, 0, 0);
@@ -1180,9 +1186,9 @@ static void DexScreen_InitGfxForTopMenu(void)
         sPokedexScreenData->modeSelectListMenuId = ListMenuInit(&listMenuTemplate, sPokedexScreenData->modeSelectCursorPos, sPokedexScreenData->modeSelectItemsAbove);
         FillWindowPixelBuffer(sPokedexScreenData->dexCountsWindowId, PIXEL_FILL(0));
         DexScreen_AddTextPrinterParameterized(sPokedexScreenData->dexCountsWindowId, FONT_NORMAL_COPY_1, gText_Seen, 0, 9, 0);
-        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numSeenKanto, 32, 21, 2);
+        DexScreen_PrintNumPlusNumRightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numSeenKanto, sPokedexScreenData->numSeenKantoNational, 32, 21, 2);
         DexScreen_AddTextPrinterParameterized(sPokedexScreenData->dexCountsWindowId, FONT_NORMAL_COPY_1, gText_Owned, 0, 37, 0);
-        DexScreen_PrintNum3RightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numOwnedKanto, 32, 49, 2);
+        DexScreen_PrintNumPlusNumRightAlign(sPokedexScreenData->dexCountsWindowId, 1, sPokedexScreenData->numOwnedKanto, sPokedexScreenData->numOwnedKantoNational, 32, 49, 2);
     }
     FillWindowPixelBuffer(0, PIXEL_FILL(15));
     DexScreen_PrintStringWithAlignment(gText_PokedexTableOfContents, TEXT_CENTER);
@@ -1303,7 +1309,7 @@ static void MoveCursorFunc_OrderedListMenu(s32 itemIndex, bool8 onInit, struct L
 
     if (!seen)
     	species = SPECIES_NONE; // Show up as ?
-    
+
     hp = gSpeciesInfo[species].baseHP;
     atk = gSpeciesInfo[species].baseAttack;
     def = gSpeciesInfo[species].baseDefense;
@@ -2412,6 +2418,28 @@ static void DexScreen_PrintNum3RightAlign(u8 windowId, u8 fontId, u16 num, u8 x,
     DexScreen_AddTextPrinterParameterized(windowId, fontId, buff, x, y, colorIdx);
 }
 
+#define GetStringRightAlignXOffset(_fontId, _string, _maxWidth) ({ \
+    u16 strWidth = GetStringWidth(_fontId, _string, 0); \
+    _maxWidth - strWidth; \
+})
+
+static void DexScreen_PrintStringRightAlign(u8 windowId, u8 fontId, const u8 *str, u8 x, u8 y, u8 colorIdx)
+{
+    DexScreen_AddTextPrinterParameterized(windowId, fontId, str, x - (GetStringWidth(fontId, str, fontId == FONT_SMALL ? 0 : 1) / 2), y, colorIdx);
+}
+
+static const u8 sText_NumPlusNum[] = _("{STR_VAR_1}+{STR_VAR_2}");
+
+static void DexScreen_PrintNumPlusNumRightAlign(u8 windowId, u8 fontId, u16 num1, u16 num2, u8 x, u8 y, u8 colorIdx)
+{
+	if (num2 == 0)
+		return DexScreen_PrintNum3RightAlign(windowId, fontId, num1, x, y, colorIdx);
+	ConvertIntToDecimalStringN(gStringVar1, num1, STR_CONV_MODE_LEFT_ALIGN, 3);
+	ConvertIntToDecimalStringN(gStringVar2, num2, STR_CONV_MODE_LEFT_ALIGN, 3);
+	StringExpandPlaceholders(gStringVar3, sText_NumPlusNum);
+	DexScreen_PrintStringRightAlign(windowId, fontId, gStringVar3, x, y, colorIdx);
+}
+
 static void DexScreen_PrintMonDexNo(u8 windowId, u8 fontId, u16 species, u8 x, u8 y)
 {
     u16 dexNum = SpeciesToNationalPokedexNum(species);
@@ -2504,6 +2532,13 @@ static u16 DexScreen_GetDexCount(u8 caseId, bool8 whichDex)
 
         }
         break;
+    case 2: // Only National mons
+	   	for (i = KANTO_DEX_COUNT - 1; i < NATIONAL_DEX_COUNT; i++)
+	    {
+	        if (DexScreen_GetSetPokedexFlag(i + 1, caseId, FALSE))
+	            count++;
+	    }
+	    break;
     }
     return count;
 }
