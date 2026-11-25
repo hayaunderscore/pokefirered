@@ -1,7 +1,4 @@
 raw `
-Route1_MapScripts::
-	.byte 0
-
 Route1_EventScript_MartClerk::
 	lock
 	faceplayer
@@ -35,3 +32,26 @@ Route1_EventScript_RouteSign::
 	msgbox Route1_Text_RouteSign, MSGBOX_SIGN
 	end
 `
+
+mapscripts Route1_MapScripts {
+	MAP_SCRIPT_ON_TRANSITION: Route1_EventScript_CeliaLedgeClearFlag
+}
+
+script Route1_EventScript_CeliaLedge {
+	// Oh hey, it's that dumb softlock. Too bad!
+	if (var(VAR_FUN_VALUE) == 14) {
+		special(GetRandomNumber)
+		if (var(VAR_RESULT) < 36) {
+			setlayouttiles(
+				LAYOUT_STUPID_FUCKING_CELIA_LEDGE_THAT_I_HATE_SO_MUCH, 
+				0, 9, 0, 0, 9, 2
+			)
+		}
+	}
+	setvar(VAR_TEMP_0, 1)
+}
+
+script Route1_EventScript_CeliaLedgeClearFlag {
+	setvar(VAR_TEMP_0, 0)
+	end
+}

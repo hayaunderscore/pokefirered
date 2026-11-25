@@ -5052,6 +5052,18 @@
       "secondary_tileset": "gTileset_CableClub",
       "border_filepath": "data/layouts/PokemonTechNew_BasementPseudoGym/border.bin",
       "blockdata_filepath": "data/layouts/PokemonTechNew_BasementPseudoGym/map.bin"
+    },
+    {
+      "id": "LAYOUT_STUPID_FUCKING_CELIA_LEDGE_THAT_I_HATE_SO_MUCH",
+      "name": "StupidFuckingCeliaLedgeThatIHateSoMuch",
+      "width": 10,
+      "height": 3,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/StupidFuckingCeliaLedgeThatIHateSoMuch/border.bin",
+      "blockdata_filepath": "data/layouts/StupidFuckingCeliaLedgeThatIHateSoMuch/map.bin"
     }
   ]
 }
