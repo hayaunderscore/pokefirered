@@ -1735,10 +1735,10 @@ static void ItemPrintFunc_OrderedListMenu(u8 windowId, u32 itemId, u8 y)
     if (caught)
     {
         BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, MENU_INFO_ICON_CAUGHT, 0x28 - 6, y);
-        type1 = gSpeciesInfo[species].types[0];
+        type1 = GET_SPECIES_TYPE(species, 0);
         BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, type1 + 1, 0x78 - 8, y);
-        if (type1 != gSpeciesInfo[species].types[1])
-            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, gSpeciesInfo[species].types[1] + 1, 0x98 - 8, y);
+        if (type1 != GET_SPECIES_TYPE(species, 1))
+            BlitMenuInfoIcon(sPokedexScreenData->numericalOrderWindowId, GET_SPECIES_TYPE(species, 1) + 1, 0x98 - 8, y);
     }
 }
 
@@ -3351,9 +3351,9 @@ u8 DexScreen_DrawMonAreaPage(void)
 
     if (monIsCaught)
     {
-        BlitMenuInfoIcon(sPokedexScreenData->windowIds[12], 1 + gSpeciesInfo[species].types[0], 0, 1);
-        if (gSpeciesInfo[species].types[0] != gSpeciesInfo[species].types[1])
-            BlitMenuInfoIcon(sPokedexScreenData->windowIds[12], 1 + gSpeciesInfo[species].types[1], 32, 1);
+        BlitMenuInfoIcon(sPokedexScreenData->windowIds[12], 1 + GET_SPECIES_TYPE(species, 0), 0, 1);
+        if (GET_SPECIES_TYPE(species, 0) != GET_SPECIES_TYPE(species, 1))
+            BlitMenuInfoIcon(sPokedexScreenData->windowIds[12], 1 + GET_SPECIES_TYPE(species, 1), 32, 1);
     }
     PutWindowTilemap(sPokedexScreenData->windowIds[12]);
     CopyWindowToVram(sPokedexScreenData->windowIds[12], COPYWIN_GFX);

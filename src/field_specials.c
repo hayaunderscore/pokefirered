@@ -209,7 +209,7 @@ bool8 PlayerHasGrassPokemonInParty(void)
         )
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
-            if (gSpeciesInfo[species].types[0] == TYPE_GRASS || gSpeciesInfo[species].types[1] == TYPE_GRASS)
+            if (GET_SPECIES_TYPE(species, 0) == TYPE_GRASS || GET_SPECIES_TYPE(species, 1) == TYPE_GRASS)
                 return TRUE;
         }
     }

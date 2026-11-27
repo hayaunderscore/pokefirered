@@ -4,6 +4,8 @@
 #include "global.h"
 #include "sprite.h"
 #include "constants/pokemon.h"
+#include "constants/flags.h"
+#include "event_data.h"
 
 struct PokemonSubstruct0
 {
@@ -233,6 +235,7 @@ struct SpeciesInfo
  /* 0x18 */ u8 safariZoneFleeRate;
  /* 0x19 */ u8 bodyColor : 7;
             u8 noFlip : 1;
+            u8 secretTypes[2];
 };
 
 struct BattleMove
@@ -280,6 +283,8 @@ struct Evolution
 ) % NUM_UNOWN_FORMS)
 
 #define GET_SHINY_VALUE(otId, personality) (HIHALF(otId) ^ LOHALF(otId) ^ HIHALF(personality) ^ LOHALF(personality))
+
+#define GET_SPECIES_TYPE(species, idx) (FlagGet(FLAG_SYS_ENABLE_HIDDEN_TYPES) ? gSpeciesInfo[species].secretTypes[idx] : gSpeciesInfo[species].types[idx])
 
 extern const struct BattleMove gBattleMoves[];
 extern u8 gPlayerPartyCount;

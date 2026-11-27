@@ -472,8 +472,8 @@ u8 GetMostSuitableMonToSwitchInto(void)
                 && i != *(gBattleStruct->monToSwitchIntoId + battlerIn1)
                 && i != *(gBattleStruct->monToSwitchIntoId + battlerIn2))
             {
-                u8 type1 = gSpeciesInfo[species].types[0];
-                u8 type2 = gSpeciesInfo[species].types[1];
+                u8 type1 = GET_SPECIES_TYPE(species, 0);
+                u8 type2 = GET_SPECIES_TYPE(species, 1);
                 u8 typeDmg = 10;
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type1, type1, type2, &typeDmg);
                 ModulateByTypeEffectiveness(gBattleMons[opposingBattler].type2, type1, type2, &typeDmg);

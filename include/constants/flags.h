@@ -1382,7 +1382,7 @@
 #define FLAG_SYS_ON_CYCLING_ROAD                                    (SYS_FLAGS + 0x30)
 #define FLAG_SYS_ON_RESUME                                          (SYS_FLAGS + 0x31)
 #define FLAG_SYS_FORCE_LOAD_OFFSCREEN_OBJECT                        (SYS_FLAGS + 0x32)
-#define FLAG_0x833                                                  (SYS_FLAGS + 0x33)
+#define FLAG_SYS_ENABLE_HIDDEN_TYPES                                (SYS_FLAGS + 0x33)
 #define FLAG_SYS_NOT_SOMEONES_PC                                    (SYS_FLAGS + 0x34)
 #define FLAG_0x835                                                  (SYS_FLAGS + 0x35)
 #define FLAG_0x836                                                  (SYS_FLAGS + 0x36)

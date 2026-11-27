@@ -4438,7 +4438,7 @@ static s32 IsRequestedTradeInPlayerParty(u32 type, u32 species)
         for (i = 0; i < gPlayerPartyCount; i++)
         {
             species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
-            if (gSpeciesInfo[species].types[0] == type || gSpeciesInfo[species].types[1] == type)
+            if (GET_SPECIES_TYPE(species, 0) == type || GET_SPECIES_TYPE(species, 1) == type)
                 return UR_TRADE_MATCH;
         }
         return UR_TRADE_NOTYPE;

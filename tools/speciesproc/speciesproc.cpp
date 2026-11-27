@@ -68,6 +68,7 @@ struct SpeciesData {
 	std::string name;
 	StatData<uint8_t> baseStats;
 	std::string types[TYPES_PER_MON];
+	std::string secretTypes[TYPES_PER_MON];
 	uint8_t catchRate;
 	uint8_t expYield;
 	StatData<uint16_t> evYield;
@@ -251,6 +252,14 @@ static SpeciesData createLegacySpeciesData(const std::string species, const nloh
 	} else {
 		spec.types[0] = "TYPE_NORMAL";
 		spec.types[1] = "TYPE_NORMAL";
+	}
+	
+	if (value.contains("secretTypes")) {
+		for (i = 0; i < TYPES_PER_MON; i++)
+			spec.secretTypes[i] = value.at("secretTypes").at(i);
+	} else {
+		spec.secretTypes[0] = spec.types[0];
+		spec.secretTypes[1] = spec.types[1];
 	}
 
 	spec.catchRate = value.value("catchRate", 0);
@@ -607,6 +616,7 @@ static void dumpSpeciesInfo(void)
 		ADD_NAMED_ARG("baseSpDefense", baseStats.spDef);
 
 		ADD_NAMED_ARRAY_STRING("types", types, TYPES_PER_MON)
+		ADD_NAMED_ARRAY_STRING("secretTypes", secretTypes, TYPES_PER_MON)
 
 		ADD_NAMED_ARG("catchRate", catchRate);
 		ADD_NAMED_ARG("expYield", expYield);

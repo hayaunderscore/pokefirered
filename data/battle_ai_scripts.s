@@ -1253,6 +1253,7 @@ AI_CV_SpAtkDown_SpecialTypeList::
 	.byte TYPE_ICE
 	.byte TYPE_DRAGON
 	.byte TYPE_DARK
+	.byte TYPE_FAIRY
 	.byte -1
 
 AI_CV_SpDefDown::
@@ -1494,6 +1495,7 @@ AI_CV_LightScreen_SpecialTypeList::
 	.byte TYPE_ICE
 	.byte TYPE_DRAGON
 	.byte TYPE_DARK
+	.byte TYPE_FAIRY
 	.byte -1
 
 AI_CV_Rest::
@@ -2349,6 +2351,7 @@ AI_CV_MirrorCoat_SpecialTypeList::
 	.byte TYPE_ICE
 	.byte TYPE_DRAGON
 	.byte TYPE_DARK
+	.byte TYPE_FAIRY
 	.byte -1
 
 AI_CV_ChargeUpMove::
